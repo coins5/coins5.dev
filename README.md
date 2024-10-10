@@ -2,6 +2,9 @@
 
 ```sh
 npm create astro@latest -- --template minimal
+
+https://everythingcs.dev/blog/how-to-get-current-page-url-in-astro/
+
 ```
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)

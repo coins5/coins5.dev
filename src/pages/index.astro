@@ -1,16 +1,67 @@
 ---
-
+import DefaultLayout from '../layouts/default_layout.astro';
+import Timeline from '../components/timeline.astro';
 ---
+<DefaultLayout>
+	<p>
+		Marlon Colca
+		<br />
+		<span class="text-xs">
+			Full Stack Developer with more than 12 years of experience
+		</span>
+	</p>
+	
+	<div class="text-sm mt-6">
+		<div>
+			<i class="nes-icon coin is-small"></i> Lima, Perú
+		</div>
+		<div>
+			<i class="nes-icon coin is-small"></i> marlon.colca.io@gmail.com
+		</div>
+	</div>
+	
+	<div class="mt-10 text-lg">
+		About
+	</div>
+	<div class="prose mt-4">
+		<p>
+			Since 2012 I have worked on various projects,
+			covering both front-end and back-end development,
+			which has allowed me to acquire a broad mastery of multiple technologies.
+			
+			My focus is on creating robust,
+			scalable and efficient web applications.
+			
+			Throughout my career,
+			I have collaborated with multidisciplinary teams and worked with clients from diverse industries,
+			tailoring technology solutions that solve their needs.
+		</p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+		<p>
+			In 2024,
+			I have embarked on several
+			new projects where I have delved into modern technologies such
+			as Astro, Vue, Flutter for front-end,
+			and Python (Sanic) and Node.js (Express) for back-end,
+			as well as using Redis as a caching system and Hasura as a GraphQL server.
+		</p>
+
+		<p>
+			If you're looking for an experienced,
+			adaptable developer with a focus on code quality,
+			I'd love to collaborate on your next project!
+		</p>
+
+	</div>
+
+	<div class="mt-10 text-lg">
+		Experience
+	</div>
+
+	<div class="mt-4">
+		<Timeline></Timeline>
+	</div>
+	
+
+
+</DefaultLayout>
