@@ -1,0 +1,27 @@
+---
+// import "nes.css/css/nes.min.css";
+import Navbar from "../components/navbar.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Mi portafolio</title>
+		<!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> -->
+
+		<!-- <style>
+      html, body, pre, code, kbd, samp {
+          font-family: "Press Start 2P", system-ui;
+      }
+    </style> -->
+	</head>
+	<body>
+    <div class="container mx-auto px-4 py-12">
+      <Navbar />
+      <slot />
+    </div>
+	</body>
+</html>

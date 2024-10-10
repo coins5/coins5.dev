@@ -1,0 +1,32 @@
+---
+// https://everythingcs.dev/blog/how-to-get-current-page-url-in-astro/
+const pagename = Astro.url.pathname.split("/")[1]
+console.log(pagename)
+---
+<div class="flex justify-center mb-12">
+
+  <a
+    class={`mr-3 ${pagename === '' ? 'text-primary' : 'base-content'}`}
+    href="/"
+  >
+    Me
+  </a>
+  <a
+    class={`mx-3 ${pagename === 'projects' ? 'text-primary' : 'is-disabled'}`}
+    href="/projects"
+  >
+    Projects
+  </a>
+  <a
+    class={`mx-3 ${pagename === 'posts' ? 'text-primary' : 'is-disabled'}`}
+    href="/posts"
+  >
+    Posts
+  </a>
+
+  <div class="ml-3">
+    <a href="https://github.com/coins5" target="_BLANK">
+      <span class="text-success">Github</span>
+    </a>
+  </div>
+</div>
