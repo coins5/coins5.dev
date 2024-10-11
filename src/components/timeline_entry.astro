@@ -1,0 +1,27 @@
+---
+import TimelineSnapIcon from "./timeline_snap_icon.astro"
+
+interface Props {
+  date: string;
+  title: string;
+  position: "LEFT" | "RIGHT"
+}
+
+const { date, title, position } = Astro.props;
+
+---
+<li>
+  <div class="timeline-middle">
+    <TimelineSnapIcon />
+  </div>
+
+  <div class={`${position === 'LEFT' ? 'timeline-start md:text-end' : 'timeline-end' } mb-10`}>
+    <time class="font-mono italic">{ date }</time>
+    <div class="text-lg font-black mt-2">{ title }</div>
+    <div class="prose mt-4 mb-8 text-pretty">
+      <slot />
+    </div>
+  </div>
+
+  <hr />
+</li>

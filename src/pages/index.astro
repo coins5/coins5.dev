@@ -4,26 +4,26 @@ import Timeline from '../components/timeline.astro';
 ---
 <DefaultLayout>
 	<p>
-		Marlon Colca
+		<span class="text-xl font-semibold">Marlon Colca</span>
 		<br />
-		<span class="text-xs">
+		<span class="text-sm">
 			Full Stack Developer with more than 12 years of experience
 		</span>
 	</p>
 	
-	<div class="text-sm mt-6">
+	<div class="mt-6">
 		<div>
-			<i class="nes-icon coin is-small"></i> Lima, Perú
+			Lima, Perú
 		</div>
 		<div>
-			<i class="nes-icon coin is-small"></i> marlon.colca.io@gmail.com
+			marlon.colca.io@gmail.com
 		</div>
 	</div>
 	
-	<div class="mt-10 text-lg">
+	<div class="mt-10 text-lg font-bold">
 		About
 	</div>
-	<div class="prose mt-4">
+	<div class="prose mt-4 text-justify">
 		<p>
 			Since 2012 I have worked on various projects,
 			covering both front-end and back-end development,
@@ -54,12 +54,12 @@ import Timeline from '../components/timeline.astro';
 
 	</div>
 
-	<div class="mt-10 text-lg">
+	<div class="mt-10 text-lg font-bold">
 		Experience
 	</div>
 
 	<div class="mt-4">
-		<Timeline></Timeline>
+		<Timeline />
 	</div>
 	
 

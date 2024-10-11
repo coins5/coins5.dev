@@ -1,79 +1,121 @@
 ---
-import TimelineSnapIcon from "./timeline_snap_icon.astro"
+import TimelineEntry from "./timeline_entry.astro";
 ---
-<ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-  <li>
-    <div class="timeline-middle">
-      <TimelineSnapIcon />
-    </div>
-    <div class="timeline-start mb-10 md:text-end">
-      <time class="font-mono italic">1984</time>
-      <div class="text-lg font-black">First Macintosh computer</div>
-      The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh
-      personal computer. It played a pivotal role in establishing desktop publishing as a general
-      office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed
-      in a beige case with integrated carrying handle; it came with a keyboard and single-button
-      mouse.
-    </div>
-    <hr />
-  </li>
-  <li>
-    <hr />
-    <div class="timeline-middle">
-      <TimelineSnapIcon />
-    </div>
-    <div class="timeline-end mb-10">
-      <time class="font-mono italic">1998</time>
-      <div class="text-lg font-black">iMac</div>
-      iMac is a family of all-in-one Mac desktop computers designed and built by Apple Inc. It has
-      been the primary part of Apple's consumer desktop offerings since its debut in August 1998,
-      and has evolved through seven distinct forms
-    </div>
-    <hr />
-  </li>
-  <li>
-    <hr />
-    <div class="timeline-middle">
-      <TimelineSnapIcon />
-    </div>
-    <div class="timeline-start mb-10 md:text-end">
-      <time class="font-mono italic">2001</time>
-      <div class="text-lg font-black">iPod</div>
-      The iPod is a discontinued series of portable media players and multi-purpose mobile devices
-      designed and marketed by Apple Inc. The first version was released on October 23, 2001, about
-      8+1⁄2 months after the Macintosh version of iTunes was released. Apple sold an estimated 450
-      million iPod products as of 2022. Apple discontinued the iPod product line on May 10, 2022. At
-      over 20 years, the iPod brand is the oldest to be discontinued by Apple
-    </div>
-    <hr />
-  </li>
-  <li>
-    <hr />
-    <div class="timeline-middle">
-      <TimelineSnapIcon />
-    </div>
-    <div class="timeline-end mb-10">
-      <time class="font-mono italic">2007</time>
-      <div class="text-lg font-black">iPhone</div>
-      iPhone is a line of smartphones produced by Apple Inc. that use Apple's own iOS mobile
-      operating system. The first-generation iPhone was announced by then-Apple CEO Steve Jobs on
-      January 9, 2007. Since then, Apple has annually released new iPhone models and iOS updates. As
-      of November 1, 2018, more than 2.2 billion iPhones had been sold. As of 2022, the iPhone
-      accounts for 15.6% of global smartphone market share
-    </div>
-    <hr />
-  </li>
-  <li>
-    <hr />
-    <div class="timeline-middle">
-      <TimelineSnapIcon />
-    </div>
-    <div class="timeline-start mb-10 md:text-end">
-      <time class="font-mono italic">2015</time>
-      <div class="text-lg font-black">Apple Watch</div>
-      The Apple Watch is a line of smartwatches produced by Apple Inc. It incorporates fitness
-      tracking, health-oriented capabilities, and wireless telecommunication, and integrates with
-      iOS and other Apple products and services
-    </div>
-  </li>
+
+<ul
+  class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical"
+>
+  <TimelineEntry date="2024" title="Desarrollador independiente" position="LEFT">
+    <span class="font-semibold">
+      Desarrollador Full Stack
+    </span>
+
+    <br />
+    Hago desarrollos independientes usando Python, Typescript y Flutter (Dart)
+    <br />
+    <br />
+    <a href="https://app.mulsi.io" target="_blank">Mulsi</a> Es un sistema que permite compara precios de distintos super mercados
+    <br />
+    <br />
+    <a>Calopla</a>. Es un sistema que usa IA para generar planes alimenticios de acuerdo a las necesidades del usuario. También integra una plataforma para que el usuario pueda ser asistido por un nutricionista que usará el sistema como plataforma de control (DEMO Pronto)
+    <br />
+    <br />
+    <a>MonkeyTalk</a>. Es una IA para vendedores (aún en fase alfa). Es una sistema que se puede conectar a plataformas de mensajería, cuando un usuario preguntra sobre un producto, la IA se encarga de responder todas sus dudas. Cuando el usuario está listo para comprar y recibir su producto se le notifica al vendedor para que pueda hacer el cobro y programar el despacho (DEMO Pronto)
+    <br />
+    <br />
+    
+  </TimelineEntry>
+
+  <TimelineEntry date="2020" title="Integramos Machine Learning e IA" position="RIGHT">
+    <span class="font-semibold">
+      Desarrollador Full Stack + Automatizaciones + Admin de servidores y servicios
+    </span>
+
+    <br />
+    El equipo crece y ahora somos cerca de 20 personas encargándonos de los requerimientos de los clientes y desarrollo de la plataforma Strategio
+    <br />
+    <br />
+    Usamos Python y TypeScript como lenguajes principales
+    <br />
+    <br />
+    Creamos modelos predictivos usando Python
+    <br />
+    Mis labores principales son administrar los servidores, desarrollar sistemas internos, explorar y capacitar al personal sobre tecnologías nuevas que usamos en varios de nuestros productos
+  </TimelineEntry>
+
+  <TimelineEntry date="2017" title="El equipo crece" position="LEFT">
+    <span class="font-semibold">
+      Desarrollador Full Stack + Automatizaciones
+    </span>
+
+    <br />
+    El equipo crece y ahora somos cerca de 10 personas encargándonos de los requerimientos de los clientes
+    <br />
+    <br />
+    Administración de servidores Linux y Windows
+    <br />
+    <br />
+    Se integra Power BI al sistema Strategio para la visualización de reportes web
+    <br />
+  </TimelineEntry>
+
+  <TimelineEntry date="2015" title="Ganamos el premio Start Up Perú II" position="RIGHT">
+    <p>
+      <span class="font-semibold">
+        Desarrollador Full Stack Strategio
+      </span>
+
+      <br />
+
+      En este punto, teníamos algunos clientes además de Kimberly Clark.
+      <br />
+      Me encargaba de conversar con los clientes para recoger sus requerimientos e implementarlos en sus dashboards
+
+      <br />
+      <br />
+      <b>En este año se funda Vida Software y Strategio se convierte en su producto principal</b>
+
+    </p>
+  </TimelineEntry>
+
+  <TimelineEntry date="2013" title="Inteliventas - Strategio" position="LEFT">
+    <p>
+      <span class="font-semibold">
+        Desarrollador Full Stack Strategio
+      </span>
+
+      <br />
+
+      El proyecto estrategio entra en fase de piloto con Kimber Clark.
+      Hice los programas que se encargaban de recoger los datos de diferentes partes del país para proporcionar
+      dashboards que puedan ser vistos desde el portal de visualización
+    </p>
+  </TimelineEntry>
+
+  <TimelineEntry date="2012" title="Inteliventas" position="RIGHT">
+    <p>
+      <span class="font-semibold">
+        Soporte técnico
+      </span>
+
+      <br />
+      Proporcionaba soporte técnico para los sistemas Rex y Thor
+    </p>
+
+    <p>
+      <span class="font-semibold">
+        Desarrollador Full Stack Junior
+      </span>
+
+      <br />
+      A cargo del proyecto Strategio, es un sistema de inteligencia de negocios.
+      <br />
+      SQL Server para almacenar y analizar los datos de distintos puntos del país
+      <br />
+      C# para el proceso ETL y la generación de reportes Excel
+      <br />
+      PHP, MySQL, HTML, CSS y JS para el portal de visualización de reportes 
+    </p>
+
+  </TimelineEntry>
 </ul>
