@@ -1,15 +1,18 @@
 ---
-import Navigation from "./Navigation.astro";
-import Hamburger from "./Hamburger.astro";
 import ThemeIcon from "./ThemeIcon.astro";
+const links = [
+  {
+    to: "About",
+    url: "/about",
+  },
+  {
+    to: "Blog",
+    url: "/blog",
+  },
+];
 ---
 
 <header>
-  <!-- <nav>
-    <Hamburger />
-    <ThemeIcon />
-    <Navigation />
-  </nav> -->
   <div class="drawer">
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content flex flex-col">
@@ -41,22 +44,32 @@ import ThemeIcon from "./ThemeIcon.astro";
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
             <!-- Navbar menu content here -->
-            <li><a>About</a></li>
-            <li><a>Blog</a></li>
+            {
+              links.map((l) => (
+                <li>
+                  <a href={l.url}>{l.to}</a>
+                </li>
+              ))
+            }
             <li><ThemeIcon /></li>
           </ul>
         </div>
       </div>
       <!-- Page content here -->
-      Contentalksdmlamsdl
+      <slot />
     </div>
     <div class="drawer-side">
       <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"
       ></label>
       <ul class="menu bg-base-200 min-h-full w-80 p-4">
         <!-- Sidebar content here -->
-        <li><a>About</a></li>
-        <li><a>Blog</a></li>
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.url}>{l.to}</a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
