@@ -1,3 +1,15 @@
+/* sans serif */
+/* @import "@fontsource-variable/noto-sans-jp/index.css";
+@import "@fontsource-variable/outfit/index.css"; */
+
+/* @import "@fontsource-variable/outfit"; */
+/* @import "@fontsource-variable/noto-sans"; */
+/* @import "@fontsource-variable/vazirmatn"; */
+
+/* Mono */
+/* @import "@fontsource-variable/jetbrains-mono/index.css";
+@import "@fontsource-variable/fira-code/index.css"; */
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
@@ -5,3 +17,23 @@
     winter --default,
     dim --prefersdark;
 }
+
+@plugin "daisyui/theme" {
+  name: "winter";
+  --font-sans: "Outfit Variable";
+  --font-mono: "JetBrains Mono Variable";
+  --font-title: "Outfit Variable";
+}
+
+@plugin "daisyui/theme" {
+  name: "dim";
+  --font-sans: "Noto Sans Variable";
+  --font-mono: "Fira Code Variable";
+  --font-title: "Noto Sans Variable";
+}
+
+/* @layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+} */
