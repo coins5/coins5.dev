@@ -27,9 +27,26 @@
 
 @plugin "daisyui/theme" {
   name: "dim";
-  --font-sans: "Noto Sans Variable";
+  --font-sans: "Noto Sans JP Variable";
   --font-mono: "Fira Code Variable";
-  --font-title: "Noto Sans Variable";
+  --font-title: "Noto Sans JP Variable";
+}
+
+@utility container {
+  padding-inline: 10px;
+  margin-inline: auto;
+
+  @variant sm {
+    padding-inline: 20px;
+  }
+
+  @variant lg {
+    padding-inline: 80px;
+  }
+
+  @variant xl {
+    padding-inline: 120px;
+  }
 }
 
 /* @layer base {
