@@ -99,9 +99,3 @@ main()
 ## Final Thoughts
 
 Loguru is a great tool if you're building Python web apps. It's easy to plug into frameworks like Flask, FastAPI, or Sanic (which I use often), and gives you structured, readable logs with minimal effort.
-
-Thinking about a follow-up post on using Loguru with FastAPI or Sanic? Let me know in the comments or reach out on Twitter 😄
-
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
