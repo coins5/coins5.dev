@@ -51,6 +51,8 @@ logger.add("logs/app.log", rotation="500 KB", level="DEBUG")
 
 This writes logs to app.log and rotates the file once it reaches 500 KB. It also captures logs from the DEBUG level and up.
 
+For more details, see the <a href="https://loguru.readthedocs.io/en/stable/overview.html#easier-file-logging-with-rotation-retention-compression" target="_blank" rel="noopener noreferrer">Loguru documentation</a>.
+
 ## Exception Logging
 
 ```python
@@ -95,6 +97,8 @@ def main():
 
 main()
 ```
+
+![Complete example](../assets/images/loguru-final-example.png)
 
 ## Final Thoughts
 
