@@ -51,5 +51,9 @@ const dayDate = dayjs(frontmatter.pubDate);
     <slot />
   </div>
 
-  <script type="module" src="/src/scripts/copy-code.js"></script>
+  <script type="module" src="/src/scripts/copy-code.ts"></script>
+  <script>
+    import { enableImageZoom } from "../scripts/zoom.ts";
+    enableImageZoom();
+  </script>
 </BaseLayout>

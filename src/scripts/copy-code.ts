@@ -8,16 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
     button.textContent = "Copy";
 
     button.addEventListener("click", () => {
-      navigator.clipboard.writeText(codeBlock.textContent).then(() => {
-        button.textContent = "Copied!";
-        setTimeout(() => (button.textContent = "Copy"), 2000);
-      });
+      if (codeBlock.textContent) {
+        navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+          button.textContent = "Copied!";
+          setTimeout(() => (button.textContent = "Copy"), 2000);
+        });
+      }
     });
 
     const wrapper = document.createElement("div");
     wrapper.className = "code-wrapper";
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(pre);
-    wrapper.appendChild(button);
+    if (pre.parentNode) {
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      wrapper.appendChild(button);
+    }
   });
 });
