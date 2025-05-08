@@ -9,6 +9,9 @@ image:
 tags: ["python", "logs"]
 ---
 
+import { Image } from "astro:assets";
+import finalExample from "../assets/images/loguru-final-example.png";
+
 Logging is a must-have in web development and backend systems. It helps you understand what your app is doing, spot bugs, and improve observability. Python comes with a built-in `logging` module, but configuring it can feel like overkill for many common tasks.
 
 That’s where [Loguru](https://github.com/Delgan/loguru) comes in — a simple yet powerful logging library that makes logging in Python way more enjoyable.
@@ -98,7 +101,12 @@ def main():
 main()
 ```
 
-![Complete example](../assets/images/loguru-final-example.png)
+<Image
+  src={finalExample}
+  alt="Complete example"
+  decoding="async"
+  loading="lazy"
+/>
 
 ## Final Thoughts
 
