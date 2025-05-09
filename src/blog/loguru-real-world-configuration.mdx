@@ -1,0 +1,121 @@
+---
+title: "Getting Serious with Loguru: Real-World Configuration"
+author: Marlon Colca
+description: "Now it's time to take logging seriously"
+image:
+  url: "https://docs.astro.build/assets/arc.webp"
+  alt: "The Astro logo on a dark background with a purple gradient arc."
+pubDate: 2025-05-02
+tags: ["python", "logging", "loguru"]
+---
+
+After your first `logger.info("Hello world")`, it's time to take logging seriously.  
+In this post, we'll cover how to configure **rotation**, **retention**, **compression**, and how to combine **console + file logging** effectively for real-world use cases.
+
+---
+
+## 🚀 Basic Loguru Setup
+
+```python
+from loguru import logger
+
+logger.add("app.log")
+logger.info("Starting the application")
+```
+
+But that doesn't scale. In production, you need to control:
+
+- How large your logs can grow.
+
+- How long to keep them.
+
+- How to archive them.
+
+- Where to send them.
+
+## 📦 Log Rotation
+
+```python
+logger.add("app.log", rotation="10 MB")
+```
+
+Or rotate daily:
+
+```python
+logger.add("app.log", rotation="00:00")  # Every midnight
+```
+
+## 🧹 Log Retention
+
+Automatically delete old logs:
+
+```python
+logger.add("app.log", rotation="10 MB", retention="7 days")
+
+```
+
+Or keep just the last 5 files:
+
+```python
+
+logger.add("app.log", rotation="10 MB", retention=5)
+```
+
+## 🗜️ Compression
+
+If you're storing logs, compress them to save space:
+
+```python
+logger.add("app.log", rotation="100 MB", retention="10 days", compression="zip")
+
+```
+
+Also supports `"gz"`, `"tar"`, etc.
+
+## 🎯 Logging Levels per Output
+
+Send different log levels to different outputs:
+
+```python
+logger.add(sys.stderr, level="INFO")        # Only INFO+ to console
+logger.add("debug.log", level="DEBUG")      # Full details to file
+```
+
+## 🧪 Full Setup Example
+
+```python
+from loguru import logger
+import sys
+
+logger.remove()  # Clear default handlers
+
+logger.add(
+    "app.log",
+    rotation="10 MB",
+    retention="10 days",
+    compression="zip",
+    level="DEBUG"
+)
+
+logger.add(sys.stderr, level="INFO")
+```
+
+## 🧠 Pro Tip: Environment-Based Config
+
+```python
+import os
+
+level = "DEBUG" if os.getenv("ENV") == "dev" else "INFO"
+
+logger.add("app.log", level=level, rotation="5 MB", retention="7 days")
+
+```
+
+## ✅ Conclusion
+
+Loguru makes it easy to set up a production-grade logging system in just a few lines.
+You get power and simplicity, without the headache of configuring the standard logging module.
+
+## 🔜 Coming up next
+
+👉 _Structured logging with Loguru for ELK and other observability tools_
