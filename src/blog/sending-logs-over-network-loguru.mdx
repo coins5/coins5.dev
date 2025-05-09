@@ -1,0 +1,93 @@
+---
+title: "Sending Logs Over the Network with Loguru"
+author: Marlon Colca
+description: "Local log files are great, but what happens when you scale?"
+image:
+  url: "https://docs.astro.build/assets/rays.webp"
+  alt: "The Astro logo on a dark background with rainbow rays."
+pubDate: 2025-05-04
+tags: ["python", "logging", "loguru"]
+---
+
+In distributed systems, logs need to go to **centralized services** — like a log server, HTTP endpoint, or syslog daemon.
+
+In this post, you'll learn how to stream Loguru logs across the network — no extra logging library needed.
+
+---
+
+## 📤 Use a Custom Sink
+
+Loguru lets you define any custom destination — called a **sink**.
+
+That means you can send logs via:
+
+- HTTP (to services like Logtail, Datadog, Logstash)
+- TCP/UDP (to a log collector)
+- WebSocket
+- External tools or APIs
+
+## 🚀 Example 1: Send Logs via HTTP POST
+
+```python
+import requests
+from loguru import logger
+
+def http_sink(message):
+    log = message.record
+    data = {
+        "time": log["time"].isoformat(),
+        "level": log["level"].name,
+        "message": log["message"],
+        "extra": log["extra"]
+    }
+    requests.post("https://your-log-endpoint.com/logs", json=data)
+
+logger.remove()
+logger.add(http_sink, level="INFO")
+```
+
+Now every log is sent as a JSON POST request.
+
+## 🧪 Example 2: Send Logs via UDP to Syslog
+
+```python
+import socket
+from loguru import logger
+
+udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+target = ("your.syslog.server", 514)
+
+def syslog_sink(message):
+    udp_socket.sendto(message.encode("utf-8"), target)
+
+logger.remove()
+logger.add(syslog_sink, level="INFO")
+```
+
+Send to any syslog-compatible daemon — even from Docker containers.
+
+## 🔄 Async-Friendly Sinks
+
+If you're in an async app, wrap your sinks with enqueue=True:
+
+```python
+logger.add(http_sink, enqueue=True)
+```
+
+Or use libraries like aiohttp for full async I/O if needed.
+
+## 🧠 Tip: Use Retry + Backoff
+
+Network sinks can fail. Always add retry logic or use a queue-based solution like:
+
+- Celery workers
+- Redis pub/sub
+- Logstash agents with buffering
+
+## ✅ Final Thoughts
+
+Loguru's custom sinks make it easy to forward logs to any target — no need for extra dependencies or complex setups.
+
+## 🔜 Coming up next
+
+👉 _Loguru + Sentry — Powerful Error Monitoring in Python_
