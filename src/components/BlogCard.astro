@@ -1,0 +1,22 @@
+---
+import type { BlogSchema } from "../schemas/blog";
+
+const { entry } = Astro.props;
+---
+
+<div class="card bg-base-100 w-96 shadow-sm">
+  <hr />
+
+  <figure>
+    <img src={entry.data.image.url} alt={entry.data.image.alt} />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">{entry.data.title}</h2>
+    <p>
+      {entry.data.description}
+    </p>
+    <div class="card-actions justify-end">
+      <a class="btn btn-primary" href={`/posts/${entry.id}`}>Read Now</a>
+    </div>
+  </div>
+</div>

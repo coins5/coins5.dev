@@ -1,43 +1,59 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import dayjs from "dayjs";
+
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+
 const { frontmatter } = Astro.props;
+const dayDate = dayjs(frontmatter.pubDate);
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>{frontmatter.pubDate.toLocaleDateString()}</p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Written by: {frontmatter.author}</p>
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <div class="prose">
+    <div class="flex justify-center">
+      <img
+        class=""
+        src={frontmatter.image.url}
+        width="300"
+        alt={frontmatter.image.alt}
+      />
+    </div>
 
-  <div class="tags">
-    {
-      frontmatter.tags.map((tag: string) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
+    <h1>
+      {frontmatter.title}
+    </h1>
+    <p>
+      Written by: {frontmatter.author}
+      <br />
+      <span class="text-sm">
+        Posted on {dayDate.format("DD MMM YYYY")} - {dayDate.fromNow()}
+      </span>
+
+      <br />
+      {
+        frontmatter.tags.map((tag: string) => (
+          <a
+            class="badge badge-soft badge-primary no-underline"
+            href={`/tags/${tag}`}
+          >
+            {tag}
+          </a>
+        ))
+      }
+    </p>
+
+    <p><em>{frontmatter.description}</em></p>
+
+    <br />
+
+    <slot />
   </div>
 
-  <slot />
+  <script type="module" src="/src/scripts/copy-code.ts"></script>
+  <script>
+    import { enableImageZoom } from "../scripts/zoom.ts";
+    enableImageZoom();
+  </script>
 </BaseLayout>
-
-<style>
-  a {
-    color: #00539f;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
-  }
-</style>

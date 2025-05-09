@@ -1,0 +1,95 @@
+---
+title: "Async Logging with Loguru: How to Handle Concurrency Without Losing Logs"
+author: Marlon Colca
+description: "In async apps (FastAPI, asyncio workers, etc.), logging can get tricky.  "
+image:
+  url: "https://docs.astro.build/default-og-image.png"
+  alt: "The word astro against an illustration of planets and stars."
+pubDate: 2025-05-03
+tags: ["python", "logging", "loguru"]
+---
+
+In async apps (FastAPI, asyncio workers, etc.), logging can get tricky.  
+If your logs are too fast — or your writes too slow — you risk blocking the event loop or even losing log lines.
+
+In this post, we'll set up **non-blocking, thread-safe, async-friendly** logging using Loguru.
+
+---
+
+## ❗ The Problem with Synchronous Logging
+
+If you log directly to disk in a tight async loop:
+
+```python
+for i in range(10000):
+    logger.info(f"Logging item {i}")
+```
+
+You're doing blocking I/O. That means:
+
+- You can slow down your app.
+- You may miss logs under high load.
+- In extreme cases, your app could crash or stall.
+
+## ✅ The Loguru Solution: Use a Background Thread
+
+Loguru supports enqueue=True, which uses a background thread with a queue:
+
+```python
+logger.add("app.log", enqueue=True)
+```
+
+That’s it. Now your logs won’t block your event loop.
+
+## 🔬 How it Works
+
+- Loguru uses a SimpleQueue internally.
+- Your app pushes logs instantly.
+- A background thread writes them safely.
+
+## 🧪 Example with FastAPI
+
+```python
+from fastapi import FastAPI
+from loguru import logger
+
+app = FastAPI()
+
+logger.remove()
+logger.add("app.log", enqueue=True)
+
+@app.get("/")
+async def read_root():
+    logger.info("Root endpoint hit")
+    return {"message": "hello"}
+
+```
+
+No blocking, no lost logs — perfect for production.
+
+## 📦 With JSON and Enqueue Combined
+
+You can still use your custom formatters:
+
+```python
+logger.add("structured.json", format=json_formatter, enqueue=True)
+```
+
+It works exactly the same — just async-safe.
+
+## 🧠 Tip: Don’t Log Too Much in Tight Loops
+
+Even with async logging, logging inside hot loops or massive async tasks can flood your disk. Use:
+
+- Conditional logs (if debug:)
+- Sampling
+- Throttling (e.g. log every 1000th event)
+
+## ✅ Conclusion
+
+If you're using FastAPI, asyncio, or any concurrent system — always add enqueue=True.
+It’s the easiest way to make your logs safe, fast, and non-blocking.
+
+## 🔜 Coming up next
+
+👉 _Sending Logs Over the Network: Loguru + Syslog, HTTP, and More_

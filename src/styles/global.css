@@ -1,93 +1,118 @@
-html.dark {
-  background-color: #0d0950;
-  color: #fff;
+/* sans serif */
+/* @import "@fontsource-variable/noto-sans-jp/index.css";
+@import "@fontsource-variable/outfit/index.css"; */
+
+/* @import "@fontsource-variable/outfit"; */
+/* @import "@fontsource-variable/noto-sans"; */
+/* @import "@fontsource-variable/vazirmatn"; */
+
+/* Mono */
+/* @import "@fontsource-variable/jetbrains-mono/index.css";
+@import "@fontsource-variable/fira-code/index.css"; */
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes:
+    winter --default,
+    dim --prefersdark;
 }
 
-.dark .nav-links a {
-  color: #fff;
+@plugin "daisyui/theme" {
+  name: "winter";
+  --font-sans: "Outfit Variable";
+  --font-mono: "JetBrains Mono Variable";
+  --font-title: "Outfit Variable";
 }
 
-html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
+@plugin "daisyui/theme" {
+  name: "dim";
+  --font-sans: "Noto Sans JP Variable";
+  --font-mono: "Fira Code Variable";
+  --font-title: "Noto Sans JP Variable";
 }
 
-body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
+@utility container {
+  padding-inline: 10px;
+  margin-inline: auto;
+
+  @variant sm {
+    padding-inline: 20px;
+  }
+
+  @variant lg {
+    padding-inline: 80px;
+  }
+
+  @variant xl {
+    padding-inline: 120px;
+  }
 }
 
-* {
-  box-sizing: border-box;
+/* Shiki */
+
+.code-wrapper {
+  position: relative;
 }
 
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
+.code-wrapper:hover .copy-button {
+  opacity: 1;
 }
 
-/* nav styles */
-.hamburger {
-  padding-right: 20px;
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  background-color: #6366f1; /* Indigo-500 */
+  color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  z-index: 10;
 }
 
-.hamburger .line {
-  display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: #ff9776;
+.copy-button:hover {
+  opacity: 1;
 }
 
-/* nav styles */
+/* Zoom it */
 
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
-  margin: 0;
+.zoomable-image {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  height: auto;
 }
 
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
+.image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #ff9776;
+.image-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-.expanded {
-  display: unset;
-}
-
-@media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
-
-  .hamburger {
-    display: none;
-  }
+.image-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  cursor: zoom-out;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
 }

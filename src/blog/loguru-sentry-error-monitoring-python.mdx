@@ -1,0 +1,157 @@
+---
+title: "Loguru + Sentry — Powerful Error Monitoring in Python"
+author: Marlon Colca
+description: "In this post, you'll learn how to connect Loguru with Sentry for full visibility over your app's issues."
+image:
+  url: "https://docs.astro.build/assets/rays.webp"
+  alt: "The Astro logo on a dark background with rainbow rays."
+pubDate: 2025-05-05
+tags: ["python", "logging", "loguru", "sentry"]
+---
+
+Loguru gives you elegant logs.  
+Sentry gives you **stack traces, alerts, context and error history**.
+
+Together, they make production debugging a breeze.  
+In this post, you'll learn how to connect Loguru with Sentry for full visibility over your app's issues.
+
+---
+
+## ⚡ Why Use Sentry?
+
+Sentry tracks:
+
+- Exceptions and stack traces
+- Breadcrumbs (context before crash)
+- Tags and user info
+- Affected releases
+- Alerts in Slack, Email, etc.
+
+## 🔌 Install Sentry SDK
+
+```bash
+pip install sentry-sdk
+```
+
+Then initialize it in your app:
+
+```python
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://<your-key>@o0.ingest.sentry.io/<project-id>",
+    traces_sample_rate=1.0,  # Enable performance monitoring (optional)
+)
+
+```
+
+## 🔗 Integrate with Loguru
+
+The key is to forward exceptions to Sentry.
+
+### Option 1: Use Loguru's Exception Hook
+
+```python
+from loguru import logger
+import sentry_sdk
+
+def sentry_excepthook(exc_type, exc_value, traceback):
+    logger.error("Exception caught", exc_info=(exc_type, exc_value, traceback))
+    sentry_sdk.capture_exception(exc_value)
+
+logger.remove()
+logger.add(sys.stderr, backtrace=True, diagnose=True)
+
+logger.configure(
+    handlers=[
+        {"sink": sys.stderr, "level": "INFO"},
+    ],
+    exception_hook=sentry_excepthook
+)
+
+```
+
+Now any uncaught exception is logged and sent to Sentry.
+
+### 🚀 Option 2: Log Specific Errors to Sentry
+
+You can manually send to Sentry in critical areas:
+
+```python
+try:
+    1 / 0
+except ZeroDivisionError as e:
+    logger.exception("Division error occurred")
+    sentry_sdk.capture_exception(e)
+
+```
+
+## 🧠 Add Context with Tags
+
+You can add user IDs, environments, etc.:
+
+```python
+with sentry_sdk.push_scope() as scope:
+    scope.set_tag("user_id", 42)
+    scope.set_extra("context", {"foo": "bar"})
+    sentry_sdk.capture_exception(e)
+
+```
+
+This helps you debug issues faster in Sentry UI.
+
+## 🧪 FastAPI + Loguru + Sentry
+
+```python
+from fastapi import FastAPI
+from loguru import logger
+import sentry_sdk
+
+sentry_sdk.init(dsn="https://...")
+
+app = FastAPI()
+
+@app.get("/")
+def crash():
+    raise RuntimeError("Something exploded!")
+
+```
+
+With the Loguru hook, this crash is logged and visible in your Sentry dashboard with full context.
+
+## ✅ Summary
+
+- Initialize Sentry at startup
+- Hook exceptions with Loguru
+- Add context when needed
+- Get visibility on production errors instantly
+
+---
+
+# 🏁 Wrapping Up the Loguru Series
+
+Thanks for joining this mini-series on **Loguru**, one of Python's most underrated logging tools.
+
+We've covered:
+
+- ✅ Getting started with Loguru
+- ⚙️ Async logging (without blocking your app)
+- 🌐 Sending logs over the network
+- 🧠 Integrating Loguru with Sentry
+
+Whether you're building a CLI tool, a FastAPI app, or a distributed system — Loguru has your back with elegant, powerful logging.
+
+Logging doesn't have to be painful.  
+With the right setup, it becomes a superpower. 💥
+
+---
+
+### 🗣️ Let’s Keep in Touch
+
+If you found this helpful, feel free to:
+
+- Share the posts with your team or on social media
+- Reach out if you have questions or ideas for future topics
+- Subscribe to the blog for more hands-on dev content (Python, tools, backends, and more)
+
+Thanks for reading — and happy logging! 🚀
