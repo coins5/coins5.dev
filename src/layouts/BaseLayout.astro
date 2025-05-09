@@ -1,6 +1,6 @@
 ---
 // import "@fontsource-variable/outfit";
-
+import Analytics from '@vercel/analytics/astro'
 import "@fontsource-variable/noto-sans-jp";
 import "@fontsource-variable/outfit";
 import "@fontsource-variable/jetbrains-mono";
@@ -27,5 +27,6 @@ const { pageTitle } = Astro.props;
       </div>
     </Drawer>
     <Footer />
+    <Analytics />
   </body>
 </html>
