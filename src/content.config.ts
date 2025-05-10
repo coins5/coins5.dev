@@ -2,8 +2,8 @@
 import { glob } from "astro/loaders";
 // Import utilities from `astro:content`
 import { defineCollection } from "astro:content";
-import { blogSchema } from "./schemas/blog";
-import { authorSchema } from "./schemas/author";
+import { blogSchema } from "@/schemas/blog";
+import { authorSchema } from "@/schemas/author";
 
 // Define a `loader` and `schema` for each collection
 const blog = defineCollection({

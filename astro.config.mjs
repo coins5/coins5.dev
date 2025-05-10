@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import path from 'path';
 
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@astrojs/vue";
@@ -12,5 +13,10 @@ export default defineConfig({
   integrations: [vue(), mdx()],
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve('./src'),
+      },
+    },
   },
 });

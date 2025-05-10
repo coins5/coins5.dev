@@ -1,10 +1,10 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import dayjs from "dayjs";
 
 import relativeTime from "dayjs/plugin/relativeTime";
-import type { BlogSchema } from "../schemas/blog";
-import NextPost from "../components/NextPost.astro";
+import type { BlogSchema } from "@/schemas/blog";
+import NextPost from "@/components/NextPost.astro";
 import { getEntry } from "astro:content";
 
 dayjs.extend(relativeTime);
@@ -62,7 +62,7 @@ const author = await getEntry("author", post.author.id);
 
   <script is:inline src="/src/scripts/copy-code.ts"></script>
   <script>
-    import { enableImageZoom } from "../scripts/zoom.ts";
+    import { enableImageZoom } from "@/scripts/zoom.ts";
     enableImageZoom();
   </script>
 </BaseLayout>
