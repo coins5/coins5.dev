@@ -2,18 +2,20 @@
 import type { BlogSchema } from "../schemas/blog";
 
 const { entry } = Astro.props;
+const { data } = entry;
+const post = data as BlogSchema;
 ---
 
 <div class="card bg-base-100 max-w-96 shadow-sm">
   <hr />
 
   <figure>
-    <img src={entry.data.image.url} alt={entry.data.image.alt} />
+    <img src={post.image.url} alt={post.image.alt} />
   </figure>
   <div class="card-body">
-    <h2 class="card-title">{entry.data.title}</h2>
+    <h2 class="card-title">{post.title}</h2>
     <p>
-      {entry.data.description}
+      {post.description}
     </p>
     <div class="card-actions justify-end">
       <a class="btn btn-primary" href={`/posts/${entry.id}`}>Read Now</a>

@@ -3,29 +3,34 @@ import BaseLayout from "./BaseLayout.astro";
 import dayjs from "dayjs";
 
 import relativeTime from "dayjs/plugin/relativeTime";
+import type { BlogSchema } from "../schemas/blog";
+import NextPost from "../components/NextPost.astro";
+import { getEntry } from "astro:content";
 
 dayjs.extend(relativeTime);
 
-const { frontmatter } = Astro.props;
-const dayDate = dayjs(frontmatter.pubDate);
+const { entry } = Astro.props;
+const { data } = entry;
+const post = data as BlogSchema;
+
+const dayDate = dayjs(post.pubDate);
+
+const nextPost = post.nextPost
+  ? await getEntry("blog", post.nextPost.id)
+  : null;
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={post.title}>
   <div class="prose">
     <div class="flex justify-center">
-      <img
-        class=""
-        src={frontmatter.image.url}
-        width="300"
-        alt={frontmatter.image.alt}
-      />
+      <img class="" src={post.image.url} width="300" alt={post.image.alt} />
     </div>
 
     <h1>
-      {frontmatter.title}
+      {post.title}
     </h1>
     <p>
-      Written by: {frontmatter.author}
+      Written by: {post.author}
       <br />
       <span class="text-sm">
         Posted on {dayDate.format("DD MMM YYYY")} - {dayDate.fromNow()}
@@ -33,7 +38,7 @@ const dayDate = dayjs(frontmatter.pubDate);
 
       <br />
       {
-        frontmatter.tags.map((tag: string) => (
+        post.tags.map((tag: string) => (
           <a
             class="badge badge-soft badge-primary no-underline"
             href={`/tags/${tag}`}
@@ -44,14 +49,16 @@ const dayDate = dayjs(frontmatter.pubDate);
       }
     </p>
 
-    <p><em>{frontmatter.description}</em></p>
+    <p><em>{post.description}</em></p>
 
     <br />
 
     <slot />
+
+    {nextPost ? <NextPost post={nextPost} /> : <span />}
   </div>
 
-  <script type="module" src="/src/scripts/copy-code.ts"></script>
+  <script is:inline src="/src/scripts/copy-code.ts"></script>
   <script>
     import { enableImageZoom } from "../scripts/zoom.ts";
     enableImageZoom();
