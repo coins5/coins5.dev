@@ -1,0 +1,39 @@
+---
+import { SEO } from "astro-seo";
+import type { BlogSchema } from "@/schemas/blog";
+import { getEntry } from "astro:content";
+
+const { postData } = Astro.props;
+
+const post = postData as BlogSchema;
+const author = await getEntry("author", post.author.id);
+const authorName = author ? author.data.name : "Marlon Colca";
+---
+
+<SEO
+  title={post.title}
+  description={post.description}
+  openGraph={{
+    basic: {
+      title: post.title,
+      type: "article",
+      image: post.image.url,
+    },
+    optional: {
+      description: post.description,
+    },
+    article: {
+      publishedTime: post.pubDate.toISOString(),
+      modifiedTime: post.pubDate.toISOString(),
+      authors: [authorName],
+      tags: post.tags,
+    },
+  }}
+  twitter={{
+    creator: "@coins5",
+    title: post.title,
+    image: post.image.url,
+    imageAlt: post.image.alt,
+    description: post.description,
+  }}
+/>
