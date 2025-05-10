@@ -18,6 +18,8 @@ const dayDate = dayjs(post.pubDate);
 const nextPost = post.nextPost
   ? await getEntry("blog", post.nextPost.id)
   : null;
+
+const author = await getEntry("author", post.author.id);
 ---
 
 <BaseLayout pageTitle={post.title}>
@@ -30,7 +32,7 @@ const nextPost = post.nextPost
       {post.title}
     </h1>
     <p>
-      Written by: {post.author}
+      Written by: {author!.data.name}
       <br />
       <span class="text-sm">
         Posted on {dayDate.format("DD MMM YYYY")} - {dayDate.fromNow()}
@@ -40,7 +42,7 @@ const nextPost = post.nextPost
       {
         post.tags.map((tag: string) => (
           <a
-            class="badge badge-soft badge-primary no-underline"
+            class="badge badge-soft badge-primary no-underline mr-2"
             href={`/tags/${tag}`}
           >
             {tag}

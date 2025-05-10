@@ -4,7 +4,7 @@ export const blogSchema = z.object({
   title: z.string(),
   pubDate: z.date(),
   description: z.string(),
-  author: reference('authors'),
+  author: reference('author'),
   image: z.object({
     url: z.string(),
     alt: z.string(),
