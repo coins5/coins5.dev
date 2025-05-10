@@ -22,7 +22,7 @@ const nextPost = post.nextPost
 const author = await getEntry("author", post.author.id);
 ---
 
-<BaseLayout pageTitle={post.title}>
+<BaseLayout pageTitle={post.title} postData={post}>
   <div class="prose">
     <div class="flex justify-center">
       <img class="" src={post.image.url} width="300" alt={post.image.alt} />
