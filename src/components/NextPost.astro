@@ -1,0 +1,13 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+const { post } = Astro.props;
+---
+
+<hr />
+<h2>🔜 Coming up next</h2>
+<br />
+
+<div>
+  <BlogCard entry={post} />
+</div> :
+<></>

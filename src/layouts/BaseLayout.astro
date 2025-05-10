@@ -1,20 +1,21 @@
 ---
 // import "@fontsource-variable/outfit";
-import Analytics from '@vercel/analytics/astro'
+import Analytics from "@vercel/analytics/astro";
 import "@fontsource-variable/noto-sans-jp";
 import "@fontsource-variable/outfit";
 import "@fontsource-variable/jetbrains-mono";
 import "@fontsource-variable/fira-code";
 
-import Drawer from "../components/Drawer.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
+import Drawer from "@/components/Drawer.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/global.css";
 const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
