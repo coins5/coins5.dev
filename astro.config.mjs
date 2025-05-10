@@ -7,10 +7,12 @@ import vue from "@astrojs/vue";
 
 import mdx from "@astrojs/mdx";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://coins5.dev",
-  integrations: [vue(), mdx()],
+  integrations: [vue(), mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
