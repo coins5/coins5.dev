@@ -7,7 +7,7 @@ image:
   url: "https://docs.astro.build/default-og-image.png"
   alt: "The word astro against an illustration of planets and stars."
 tags: ["python", "logging", "loguru"]
-nextPost: "sending-logs-over-network-loguru"
+nextPost: "series/loguru/sending-logs-over-network-loguru"
 ---
 
 In async apps (FastAPI, asyncio workers, etc.), logging can get tricky.  
@@ -91,6 +91,6 @@ Even with async logging, logging inside hot loops or massive async tasks can flo
 If you're using FastAPI, asyncio, or any concurrent system — always add enqueue=True.
 It’s the easiest way to make your logs safe, fast, and non-blocking.
 
-{/* ## 🔜 Coming up next
+## 🔜 Coming up next
 
-👉 _Sending Logs Over the Network: Loguru + Syslog, HTTP, and More_ */}
+👉 _Sending Logs Over the Network: Loguru + Syslog, HTTP, and More_
