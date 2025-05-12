@@ -6,7 +6,7 @@ import BlogCard from "@/components/BlogCard.astro";
 const allPosts = await getCollection("blog");
 
 allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const pageTitle = "My Astro Learning Blog";
+const pageTitle = "Coins5's Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
