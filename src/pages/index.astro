@@ -2,14 +2,19 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const pageTitle = "@coins5";
+const seoPage: iSeoPage = {
+  title: "coins5",
+  description:
+    "Full stack developer. I create digital experiences with the mind of an engineer and the soul of a builder — thoughtful, elegant, and scalable.",
+  image:
+    "https://media.licdn.com/dms/image/v2/C5603AQH_niCAlkNaLQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516870572260?e=1752710400&v=beta&t=sXfVL04zeyjfr-c-r7jS9G5F5i6W_BcCfGK3MqgTH9Q",
+};
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} pageSeo={seoPage}>
   <div class="text-3xl text-center uppercase font-sans">
     Hi there, i'm Marlon
   </div>
-  <!-- <div class="text-9xl">Full stack</div>
-  <div class="text-9xl">Developer</div> -->
 
   <div class="mt-12 text-5xl text-accent font-bold font-sans text-center">
     Full stack developer &lt;/ &gt;

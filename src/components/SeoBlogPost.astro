@@ -3,9 +3,9 @@ import { SEO } from "astro-seo";
 import type { BlogSchema } from "@/schemas/blog";
 import { getEntry } from "astro:content";
 
-const { postData } = Astro.props;
+const { data } = Astro.props;
 
-const post = postData as BlogSchema;
+const post = data as BlogSchema;
 const author = await getEntry("author", post.author.id);
 const authorName = author ? author.data.name : "Marlon Colca";
 ---
