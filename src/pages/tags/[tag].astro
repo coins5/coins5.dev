@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BlogPost from "@/components/BlogPost.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogCard from "@/components/BlogCard.astro";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
@@ -22,15 +23,22 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
+
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul>
-    {
-      posts.map((post) => (
-        <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
-      ))
-    }
-  </ul>
+  <h2 class="text-2xl">
+    Posts tagged with
+
+    <span class="badge badge-soft badge-primary no-underline mr-2">
+      {tag}
+    </span>
+  </h2>
+
+  <br />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12">
+    {posts.map((post) => <BlogCard entry={post} />)}
+  </div>
 </BaseLayout>
