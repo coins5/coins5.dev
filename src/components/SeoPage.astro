@@ -1,0 +1,28 @@
+---
+import { SEO } from "astro-seo";
+
+const { data } = Astro.props;
+const seoData = data as iSeoPage;
+---
+
+<SEO
+  title={seoData.title}
+  description={seoData.description}
+  openGraph={{
+    basic: {
+      title: seoData.title,
+      type: "website",
+      image: seoData.image,
+    },
+    optional: {
+      description: seoData.description,
+    },
+  }}
+  twitter={{
+    creator: "@coins5",
+    title: seoData.title,
+    image: seoData.image,
+    imageAlt: seoData.title,
+    description: seoData.description,
+  }}
+/>

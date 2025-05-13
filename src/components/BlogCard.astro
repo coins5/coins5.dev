@@ -5,16 +5,19 @@ import { Image } from "astro:assets";
 const { entry } = Astro.props;
 const { data } = entry;
 const post = data as BlogSchema;
+const postLink = `/posts/${entry.id}`;
 ---
 
-<div class="card bg-base-100 shadow-sm">
-  <hr />
-
+<div class="card bg-base-100 shadow-sm not-prose">
   <figure>
-    <img src={post.image.url} alt={post.image.alt} />
+    <a href={postLink}>
+      <img src={post.image.url} alt={post.image.alt} />
+    </a>
   </figure>
   <div class="card-body">
-    <h2 class="card-title">{post.title}</h2>
+    <h2 class="card-title">
+      <a href={postLink}>{post.title}</a>
+    </h2>
     <p>
       {post.description}
     </p>
