@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+const { imagePath, imageAlt } = Astro.props;
+
+const imageImports = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/posts_cover/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+
+function getImage(path: string) {
+  // const normalizedPath = `/src/content/blog/${path.replace('./', '')}`;
+  return imageImports[path]?.default;
+}
+
+const imageSrc = getImage(imagePath);
+
+console.log("FRONTMATTER IMAGE:", imagePath);
+console.log(
+  "NORMALIZED PATH:",
+  `/src/content/blog/${imagePath.replace("./", "")}`
+);
+console.log("RESOLVED IMAGE:", imageSrc);
+---
+
+{
+  imageSrc ? (
+    <Image
+      src={imageSrc}
+      alt={imageAlt}
+      class="rounded-box sm:h-[100px] md:h-[480px] object-cover"
+    />
+  ) : (
+    <img
+      src={imagePath}
+      alt={imageAlt}
+      class="rounded-box sm:h-[100px] md:h-[480px] object-cover"
+    />
+  )
+}

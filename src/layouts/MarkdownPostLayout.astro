@@ -6,7 +6,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import type { BlogSchema } from "@/schemas/blog";
 import NextPost from "@/components/NextPost.astro";
 import { getEntry } from "astro:content";
-import { Image } from "astro:assets";
+import ImageRenderer from "@/components/ImageRenderer.astro";
 
 dayjs.extend(relativeTime);
 
@@ -21,89 +21,13 @@ const nextPost = post.nextPost
   : null;
 
 const author = await getEntry("author", post.author.id);
-
-// Importa todas las imágenes en assets
-const allImages = import.meta.glob(
-  "@/assets/images/posts_cover/*.{jpg,png,webp}",
-  {
-    eager: true,
-  }
-) as Record<string, ImageMetadata>;
-
-// Intenta resolver la imagen como importada
-const resolvedImage = Object.entries(allImages).find(([path]) =>
-  path.endsWith(post.image.url)
-)?.[1];
-
-const anothher =
-  allImages["/src/assets/images/posts_cover/getting_started_wit_loguru.png"];
-// const anothher =
-// allImages["/src/assets/images/posts_cover/getting_serious_with_loguru.png"];
 ---
 
 <BaseLayout pageTitle={post.title} blogPostSeo={post}>
   <div class="prose">
     <div class="flex justify-center"></div>
     <div class="w-full">
-      <hr />
-      {
-        JSON.stringify(
-          allImages[
-            "/src/assets/images/posts_cover/getting_serious_with_loguru.png"
-          ]
-        )
-      }
-      <hr />
-      {
-        resolvedImage ? (
-          // <Image
-          //   src={resolvedImage}
-          //   alt={post.image.alt}
-          //   height={600}
-          //   class="rounded-box"
-          // />
-
-          <div>
-            <div>{post.image.url}</div>
-            <hr />
-            <div>{JSON.stringify(allImages)}</div>
-            <hr />
-            <div>{JSON.stringify(Object.entries(allImages))}</div>
-            <hr />
-            <div />
-            <div>
-              {JSON.stringify(
-                Object.entries(allImages).find(([path]) =>
-                  path.endsWith(post.image.url)
-                )?.[1]
-              )}
-            </div>
-
-            <div>
-              {JSON.stringify(
-                Object.entries(allImages).find(([path]) =>
-                  path.endsWith(post.image.url)
-                )?.[1]
-              )}
-            </div>
-
-            <Image
-              src={anothher}
-              alt={post.image.alt}
-              height={600}
-              class="rounded-box"
-            />
-          </div>
-        ) : (
-          <img
-            src={post.image.url}
-            alt={post.image.alt}
-            height="600"
-            loading="lazy"
-            class="rounded-box"
-          />
-        )
-      }
+      <ImageRenderer imagePath={post.image.url} imageAlt={post.image.alt} />
     </div>
 
     <h1>
