@@ -34,37 +34,67 @@ const allImages = import.meta.glob(
 const resolvedImage = Object.entries(allImages).find(([path]) =>
   path.endsWith(post.image.url)
 )?.[1];
+
+const anothher =
+  allImages["/src/assets/images/posts_cover/getting_started_wit_loguru.png"];
+// const anothher =
+// allImages["/src/assets/images/posts_cover/getting_serious_with_loguru.png"];
 ---
 
 <BaseLayout pageTitle={post.title} blogPostSeo={post}>
   <div class="prose">
     <div class="flex justify-center"></div>
     <div class="w-full">
+      <hr />
+      {
+        JSON.stringify(
+          allImages[
+            "/src/assets/images/posts_cover/getting_serious_with_loguru.png"
+          ]
+        )
+      }
+      <hr />
       {
         resolvedImage ? (
-          <Image
-            src={resolvedImage}
-            alt={post.image.alt}
-            height={600}
-            class="rounded-box"
-          />
+          // <Image
+          //   src={resolvedImage}
+          //   alt={post.image.alt}
+          //   height={600}
+          //   class="rounded-box"
+          // />
+
+          <div>
+            <div>{post.image.url}</div>
+            <hr />
+            <div>{JSON.stringify(allImages)}</div>
+            <hr />
+            <div>{JSON.stringify(Object.entries(allImages))}</div>
+            <hr />
+            <div />
+            <div>
+              {JSON.stringify(
+                Object.entries(allImages).find(([path]) =>
+                  path.endsWith(post.image.url)
+                )?.[1]
+              )}
+            </div>
+
+            <div>
+              {JSON.stringify(
+                Object.entries(allImages).find(([path]) =>
+                  path.endsWith(post.image.url)
+                )?.[1]
+              )}
+            </div>
+
+            <Image
+              src={anothher}
+              alt={post.image.alt}
+              height={600}
+              class="rounded-box"
+            />
+          </div>
         ) : (
-          // <div>
-          //   <div>{post.image.url}</div>
-          //   <hr />
-          //   <div>{JSON.stringify(allImages)}</div>
-          //   <hr />
-          //   <div>{JSON.stringify(Object.entries(allImages))}</div>
-          //   <hr />
-          //   <div />
-          //   <div>
-          //     {JSON.stringify(
-          //       Object.entries(allImages).find(([path]) =>
-          //         path.endsWith(post.image.url)
-          //       )?.[1]
-          //     )}
-          //   </div>
-          // </div>
           <img
             src={post.image.url}
             alt={post.image.alt}
