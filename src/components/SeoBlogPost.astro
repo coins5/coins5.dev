@@ -2,12 +2,16 @@
 import { SEO } from "astro-seo";
 import type { BlogSchema } from "@/schemas/blog";
 import { getEntry } from "astro:content";
+import { getImage } from "@/shared/imageResolver";
 
 const { data } = Astro.props;
 
 const post = data as BlogSchema;
 const author = await getEntry("author", post.author.id);
 const authorName = author ? author.data.name : "Marlon Colca";
+
+const rawUrlImage = getImage(post.image.url);
+const urlImage = rawUrlImage ? rawUrlImage.src : post.image.url;
 ---
 
 <SEO
@@ -17,7 +21,7 @@ const authorName = author ? author.data.name : "Marlon Colca";
     basic: {
       title: post.title,
       type: "article",
-      image: post.image.url,
+      image: urlImage,
     },
     optional: {
       description: post.description,
@@ -32,7 +36,7 @@ const authorName = author ? author.data.name : "Marlon Colca";
   twitter={{
     creator: "@coins5",
     title: post.title,
-    image: post.image.url,
+    image: urlImage,
     imageAlt: post.image.alt,
     description: post.description,
   }}

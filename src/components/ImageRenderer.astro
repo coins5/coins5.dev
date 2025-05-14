@@ -1,32 +1,22 @@
 ---
 import { Image } from "astro:assets";
-
-const { imagePath, imageAlt } = Astro.props;
-
-const imageImports = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/posts_cover/*.{jpg,jpeg,png,webp}",
-  { eager: true }
-);
-
-function getImage(path: string) {
-  return imageImports[path]?.default;
+import { getImage } from "@/shared/imageResolver";
+interface Props {
+  imagePath: string;
+  imageAlt: string;
+  small?: boolean;
 }
 
+const { imagePath, imageAlt, small = true } = Astro.props;
+
 const imageSrc = getImage(imagePath);
+const imgClass = `rounded-box ${small ? "h-[240px]" : "sm:h-[240px] md:h-[480px]"} object-cover`;
 ---
 
 {
   imageSrc ? (
-    <Image
-      src={imageSrc}
-      alt={imageAlt}
-      class="rounded-box sm:h-[100px] md:h-[480px] object-cover"
-    />
+    <Image src={imageSrc} alt={imageAlt} class={imgClass} />
   ) : (
-    <img
-      src={imagePath}
-      alt={imageAlt}
-      class="rounded-box sm:h-[100px] md:h-[480px] object-cover"
-    />
+    <img src={imagePath} alt={imageAlt} class={imgClass} />
   )
 }
