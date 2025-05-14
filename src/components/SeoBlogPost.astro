@@ -3,6 +3,7 @@ import { SEO } from "astro-seo";
 import type { BlogSchema } from "@/schemas/blog";
 import { getEntry } from "astro:content";
 import { getImage } from "@/shared/imageResolver";
+const site = Astro.site;
 
 const { data } = Astro.props;
 
@@ -11,7 +12,7 @@ const author = await getEntry("author", post.author.id);
 const authorName = author ? author.data.name : "Marlon Colca";
 
 const rawUrlImage = getImage(post.image.url);
-const urlImage = rawUrlImage ? rawUrlImage.src : post.image.url;
+const urlImage = rawUrlImage ? site + rawUrlImage.src : post.image.url;
 ---
 
 <SEO
