@@ -9,18 +9,10 @@ const imageImports = import.meta.glob<{ default: ImageMetadata }>(
 );
 
 function getImage(path: string) {
-  // const normalizedPath = `/src/content/blog/${path.replace('./', '')}`;
   return imageImports[path]?.default;
 }
 
 const imageSrc = getImage(imagePath);
-
-console.log("FRONTMATTER IMAGE:", imagePath);
-console.log(
-  "NORMALIZED PATH:",
-  `/src/content/blog/${imagePath.replace("./", "")}`
-);
-console.log("RESOLVED IMAGE:", imageSrc);
 ---
 
 {
