@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import { getImage } from "@/shared/imageResolver";
+interface Props {
+  imagePath: string;
+  imageAlt: string;
+  small?: boolean;
+}
+
+const { imagePath, imageAlt, small = true } = Astro.props;
+
+const imageSrc = getImage(imagePath);
+const imgClass = `rounded-box ${small ? "h-[240px]" : "sm:h-[240px] md:h-[480px]"} object-cover`;
+---
+
+{
+  imageSrc ? (
+    <Image src={imageSrc} alt={imageAlt} class={imgClass} />
+  ) : (
+    <img src={imagePath} alt={imageAlt} class={imgClass} />
+  )
+}

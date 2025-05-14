@@ -6,6 +6,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import type { BlogSchema } from "@/schemas/blog";
 import NextPost from "@/components/NextPost.astro";
 import { getEntry } from "astro:content";
+import ImageRenderer from "@/components/ImageRenderer.astro";
 
 dayjs.extend(relativeTime);
 
@@ -24,8 +25,13 @@ const author = await getEntry("author", post.author.id);
 
 <BaseLayout pageTitle={post.title} blogPostSeo={post}>
   <div class="prose">
-    <div class="flex justify-center">
-      <img class="" src={post.image.url} width="300" alt={post.image.alt} />
+    <div class="flex justify-center"></div>
+    <div class="w-full">
+      <ImageRenderer
+        imagePath={post.image.url}
+        imageAlt={post.image.alt}
+        small={false}
+      />
     </div>
 
     <h1>

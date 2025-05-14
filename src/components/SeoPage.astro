@@ -1,8 +1,13 @@
 ---
 import { SEO } from "astro-seo";
+import { type iSeoPage } from "@/models/iSeoPage";
+import { getImage } from "@/shared/imageResolver";
 
 const { data } = Astro.props;
 const seoData = data as iSeoPage;
+
+const rawUrlImage = getImage(seoData.image);
+const urlImage = rawUrlImage ? rawUrlImage.src : seoData.image;
 ---
 
 <SEO
@@ -12,7 +17,7 @@ const seoData = data as iSeoPage;
     basic: {
       title: seoData.title,
       type: "website",
-      image: seoData.image,
+      image: urlImage,
     },
     optional: {
       description: seoData.description,
@@ -21,7 +26,7 @@ const seoData = data as iSeoPage;
   twitter={{
     creator: "@coins5",
     title: seoData.title,
-    image: seoData.image,
+    image: urlImage,
     imageAlt: seoData.title,
     description: seoData.description,
   }}
