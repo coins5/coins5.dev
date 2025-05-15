@@ -2,13 +2,14 @@
 import { SEO } from "astro-seo";
 import { type iSeoPage } from "@/models/iSeoPage";
 import { getImage } from "@/shared/imageResolver";
-const site = Astro.site;
+import { joinUrl } from "@/shared/utils";
 
 const { data } = Astro.props;
 const seoData = data as iSeoPage;
 
 const rawUrlImage = getImage(seoData.image);
-const urlImage = rawUrlImage ? site + rawUrlImage.src : seoData.image;
+const site = Astro.site!.toString();
+const urlImage = rawUrlImage ? joinUrl(site, rawUrlImage.src) : seoData.image;
 ---
 
 <SEO
