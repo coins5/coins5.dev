@@ -1,0 +1,50 @@
+---
+// import { startTiempoDesdeNacimiento } from '@/scripts/birth-timer';
+// const fechaNacimiento = new Date('2025-06-08T15:30:00'); // actualiza con la hora real
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tiempo desde nacimiento</title>
+  </head>
+  <body>
+    <h1>Tiempo</h1>
+
+    <ul id="contador">
+      <li><strong>Segundos:</strong> <span id="segundos">...</span></li>
+      <li><strong>Minutos:</strong> <span id="minutos">...</span></li>
+      <li><strong>Horas:</strong> <span id="horas">...</span></li>
+      <li><strong>hh:mm:ss:</strong> <span id="hhmmss">...</span></li>
+      <li><strong>dd hh:mm:ss:</strong> <span id="ddhhmmss">...</span></li>
+      <li>
+        <strong>MM:dd T hh:mm:ss:</strong>
+        <span id="mmddThhmmss">...</span>
+      </li>
+      <li>
+        <strong>yy:MM:dd T hh:mm:ss:</strong>
+        <span id="yymmddThhmmss">...</span>
+      </li>
+    </ul>
+
+    <script>
+      import { startTiempoDesdeNacimiento } from "../scripts/birth-timer";
+
+      const fechaNacimiento = new Date("2025-05-29T22:11:00");
+
+      const $ = (id: string) => document.getElementById(id);
+
+      startTiempoDesdeNacimiento(fechaNacimiento, (datos) => {
+        if ($ !== null) {
+          $("segundos")!.textContent = datos.segundos;
+          $("minutos")!.textContent = datos.minutos;
+          $("horas")!.textContent = datos.horas.toString();
+          $("hhmmss")!.textContent = datos.hhmmss;
+          $("ddhhmmss")!.textContent = datos.ddhhmmss;
+          $("mmddThhmmss")!.textContent = datos.mmddThhmmss;
+          $("yymmddThhmmss")!.textContent = datos.yymmddThhmmss;
+        }
+      });
+    </script>
+  </body>
+</html>

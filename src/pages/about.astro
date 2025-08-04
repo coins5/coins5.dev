@@ -1,63 +1,94 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { iSeoPage } from "@/models/iSeoPage";
 
-const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Marlon",
-  country: "Peru",
-  occupation: "Programmer",
-  hobbies: ["code", "robotics", "games"],
+const pageTitle = "About";
+const seoPage: iSeoPage = {
+  title: "About",
+  description:
+    "Hola, soy Marlon Colca. Soy desarrollador full stack desde el 2012, especializado en construir productos digitales útiles, con experiencia tanto en frontend como backend, además de análisis de datos y despliegue en la nube.",
+  image:
+    "https://media.licdn.com/dms/image/v2/C5603AQH_niCAlkNaLQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516870572260?e=1752710400&v=beta&t=sXfVL04zeyjfr-c-r7jS9G5F5i6W_BcCfGK3MqgTH9Q",
 };
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>... and my new Astro site!</h2>
+  <div class="prose">
+    <h2>About Me</h2>
 
-  <p>
-    I am working through Astro's introductory tutorial. This is the second page
-    on my website, and it's the first one I built myself!
-  </p>
+    <p>
+      Hi, I'm Marlon Colca. I'm a full stack developer since 2012, focused on
+      building useful digital products with experience in both frontend and
+      backend development, as well as data analysis and cloud deployment.
+    </p>
 
-  <p>
-    This site will update as I complete more of the tutorial, so keep checking
-    back and see how my journey is going!
-  </p>
+    <p>
+      I'm currently working on several personal projects like <b>Mulsi</b> (a price
+      comparison app), <b>Calopla</b> (a weekly meal planner), and educational tools
+      like <b>EduVault</b>
+    </p>
 
-  <p>Here are a few facts about me:</p>
-  <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>
-      I live in {identity.country} and I work as a {identity.occupation}.
-    </li>
-    {
-      identity.hobbies.length >= 2 && (
-        <li>
-          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
-        </li>
-      )
-    }
-  </ul>
-  <p>My skills are:</p>
-  <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-  </ul>
+    <h2>Technologies I Use</h2>
+    <p>
+      <h3>Frontend</h3>
+      <ul>
+        <li>Vue</li>
+        <li>Flutter</li>
+        <li>Astro</li>
+        <li>TailwindCSS</li>
+      </ul>
 
-  {happy && <p>I am happy to be learning Astro!</p>}
+      <h3>Backend</h3>
+      <ul>
+        <li>Node.js (Express)</li>
+        <li>Python (Sanic)</li>
+      </ul>
 
-  {finished && <p>I finished this tutorial!</p>}
+      <h3>Databases</h3>
+      <ul>
+        <li>PostgreSQL</li>
+        <li>MySQL</li>
+        <li>MS SQL Server</li>
+      </ul>
 
-  {
-    goal === 3 ? (
-      <p>My goal is to finish in 3 days.</p>
-    ) : (
-      <p>My goal is not 3 days.</p>
-    )
-  }
+      <h3>Data / BI</h3>
+      <ul>
+        <li>Pandas</li>
+        <li>Numpy</li>
+        <li>BigQuery</li>
+        <li>Microsoft Azure</li>
+      </ul>
+
+      <h3>Others</h3>
+      <ul>
+        <li>Redis</li>
+        <li>Hasura</li>
+        <li>Godot (2D games)</li>
+      </ul>
+    </p>
+
+    <p>
+      <h2>My Approach</h2>
+      I'm passionate about creating products that genuinely add value. I enjoy continuous
+      learning, documenting what I learn, and sharing it through my blog.
+    </p>
+
+    <p>
+      <h2>A Bit More About Me</h2>
+
+      When I'm not coding, I'm usually drawing sprites, learning about 2D
+      animation, or exploring new ways to help people through technology.
+    </p>
+
+    <hr class="mt-12 mb-12" />
+
+    If you'd like to get in touch, feel free to email me at
+    <a href="mailto:marlon.colca.io@gmail.com">marlon.colca.io@gmail.com</a>, or
+    connect with me on <a href="https://github.com/coins5" target="_blank"
+      >GitHub</a
+    > or <a
+      href="https://www.linkedin.com/in/marlon-colca-9775b5b8/"
+      target="_blank">LinkedIn</a
+    >.
+  </div>
 </BaseLayout>
