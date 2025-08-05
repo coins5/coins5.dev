@@ -8,6 +8,7 @@ image:
   alt: "Cleaning Data Without Losing Your Mind (Pandas Edition)"
 tags: ["python", "pandas", "analytics"]
 nextPost: "series/pandas/filter-select-slice-with-pandas"
+serie: "learn-pandas"
 seriesPartNumber: 3
 ---
 
@@ -21,7 +22,7 @@ In this post, we’ll go over how to:
 ✅ Fix missing values  
 ✅ Rename columns  
 ✅ Convert data types  
-✅ Clean strings and categories  
+✅ Clean strings and categories
 
 Let’s get to work.
 
@@ -49,17 +50,20 @@ Even if this dataset is clean, it’s good practice to check. In real-world data
 You have a few options here:
 
 - **Drop rows** with missing values:
+
 ```python
 df_clean = df.dropna()
 ```
 
 - **Fill missing values** with a default (e.g. 0, "Unknown", or a mean):
+
 ```python
 df["price"] = df["price"].fillna(0)
 df["brand"] = df["brand"].fillna("Unknown")
 ```
 
 - **Fill with column average** (for numeric columns):
+
 ```python
 df["price"] = df["price"].fillna(df["price"].mean())
 ```
@@ -77,6 +81,7 @@ df.rename(columns={"product_name": "name", "in_stock": "available"}, inplace=Tru
 # Or make all lowercase
 df.columns = [col.lower() for col in df.columns]
 ```
+
 Why? Because you don’t want to type `Product Name` 100 times, or deal with spaces.
 
 ---
@@ -102,6 +107,7 @@ df["date"] = pd.to_datetime(df["date"])
 ---
 
 ## 🔤 Step 5: Clean string columns
+
 Sometimes, text columns come with extra whitespace, wrong casing, or typos.
 
 ```python
@@ -117,6 +123,7 @@ You can also remove symbols or accents using regular expressions (str.replace())
 ---
 
 ## ✅ Final check
+
 Now that we’ve cleaned up, let’s check how things look:
 
 ```python
@@ -133,6 +140,7 @@ print(df.head())
 - Standardizing strings and column names saves a lot of bugs later
 
 ## 📌 What’s next?
+
 Next up in the series:
 ➡️ Filtering, selecting, and slicing your data like a ninja 🥷
 

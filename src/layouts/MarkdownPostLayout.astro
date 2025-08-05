@@ -34,6 +34,8 @@ const author = await getEntry("author", post.author.id);
       />
     </div>
 
+    {post.serie ? <div>Tiene serie</div> : <div>No tiene serie</div>}
+
     <h1>
       {post.title}
     </h1>

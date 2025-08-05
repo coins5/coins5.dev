@@ -8,6 +8,7 @@ image:
   alt: "Grouping and Aggregating Data in Pandas"
 tags: ["python", "pandas", "analytics"]
 nextPost: "series/pandas/handling-missing-data-with-pandas"
+serie: "learn-pandas"
 seriesPartNumber: 6
 ---
 
@@ -36,18 +37,19 @@ import pandas as pd
 df = pd.read_csv("prices_with_sales.csv")
 df.head()
 ```
+
 ### Example output
 
-
-| | product_id | product_name | brand | price | date | quantity_sold|
-|-|------------|--------------|-------|-------|------|--------------|
-|0|1           |Milk          |Brand A|    3.5|  2025-07-01|              5|
-|1|1           |Milk          |Brand A|    3.5|  2025-07-02|              7|
-|2|1           |Milk          |Brand A|    3.5|  2025-07-03|              6|
+|     | product_id | product_name | brand   | price | date       | quantity_sold |
+| --- | ---------- | ------------ | ------- | ----- | ---------- | ------------- |
+| 0   | 1          | Milk         | Brand A | 3.5   | 2025-07-01 | 5             |
+| 1   | 1          | Milk         | Brand A | 3.5   | 2025-07-02 | 7             |
+| 2   | 1          | Milk         | Brand A | 3.5   | 2025-07-03 | 6             |
 
 ---
 
 ## 🧮 Total Quantity Sold by Product
+
 To find out which products sold the most units overall:
 
 ```python
@@ -112,7 +114,7 @@ df.groupby("brand").agg({
 })
 ```
 
-This returns a summary for each brand, including average price, total units sold, and revenue metrics.  
+This returns a summary for each brand, including average price, total units sold, and revenue metrics.
 
 ---
 
@@ -140,9 +142,7 @@ In this part, we learned how to:
 
 - Analyze trends over time
 
-
 ---
-
 
 Next up: **Part 7 — Handling Missing Data in Pandas**
 

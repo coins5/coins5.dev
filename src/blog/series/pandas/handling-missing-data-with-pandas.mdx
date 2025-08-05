@@ -8,9 +8,9 @@ image:
   alt: "Handling Missing Data in Pandas"
 tags: ["python", "pandas", "analytics"]
 nextPost: "series/pandas/exploratory-data-analysis-with-pandas"
+serie: "learn-pandas"
 seriesPartNumber: 7
 ---
-
 
 # 🧹 Part 7: Handling Missing Data in Pandas
 
@@ -63,16 +63,19 @@ df[df["price"].isnull()]
 ### 1. **Filling missing values**
 
 #### a. Fill with a default value:
+
 ```python
 df["price"].fillna(0, inplace=True)
 ```
 
 #### b. Fill with the mean or median:
+
 ```python
 df["price"].fillna(df["price"].mean(), inplace=True)
 ```
 
 #### c. Forward-fill or backward-fill:
+
 ```python
 df["price"].fillna(method="ffill", inplace=True)  # uses previous value
 df["price"].fillna(method="bfill", inplace=True)  # uses next value
@@ -80,12 +83,14 @@ df["price"].fillna(method="bfill", inplace=True)  # uses next value
 
 ### 2. **Dropping missing values**
 
-#### a. Drop rows with *any* missing value:
+#### a. Drop rows with _any_ missing value:
+
 ```python
 df.dropna(inplace=True)
 ```
 
 #### b. Drop rows with missing values only in specific columns:
+
 ```python
 df.dropna(subset=["quantity_sold"], inplace=True)
 ```
