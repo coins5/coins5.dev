@@ -12,6 +12,8 @@ export const blogSchema = z.object({
   tags: z.array(z.string()),
   relatedPosts: z.array(reference('blog')).default([]),
   nextPost: reference('blog').nullish(),
+  // seriesPartNumber: z.number().nullish()
+  seriesPartNumber: z.number().default(1)
 });
 
 // Exporta el tipo TypeScript

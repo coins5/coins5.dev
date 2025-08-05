@@ -1,11 +1,17 @@
 ---
 import type { BlogSchema } from "@/schemas/blog";
 import ImageRenderer from "./ImageRenderer.astro";
+import dayjs from "dayjs";
+
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 const { entry } = Astro.props;
 const { data } = entry;
 const post = data as BlogSchema;
 const postLink = `/posts/${entry.id}`;
+
+const dayDate = dayjs(post.pubDate);
 ---
 
 <div class="card bg-base-100 shadow-sm not-prose max-w-96">
@@ -24,11 +30,23 @@ const postLink = `/posts/${entry.id}`;
     </a>
   </figure>
   <div class="card-body">
-    <h2 class="card-title underline">
+    <span class="text-xs font-mono">
+      {dayDate.format("DD MMM YYYY")} - {dayDate.fromNow()}
+    </span>
+    <h2 class="card-title underline mb-4">
       <a href={postLink}>{post.title}</a>
     </h2>
-    <p>
+
+    <p class="line-clamp-3">
       {post.description}
     </p>
+
+    <!-- <div class="card-actions justify-center mt-6">
+      {
+        post.tags
+          .slice(0, 3)
+          .map((tag) => <div class="badge badge-outline">{tag}</div>)
+      }
+    </div> -->
   </div>
 </div>

@@ -1,0 +1,144 @@
+---
+title: "Exploratory Data Analysis (EDA) with Pandas"
+pubDate: 2025-05-23
+description: "Learn how to explore and understand your dataset using Pandas, identifying trends, patterns, and potential issues in your data."
+author: "coins5"
+image:
+  url: "/src/assets/images/posts_cover/loguru_handle_concurrency.png"
+  alt: "Exploratory Data Analysis (EDA) with Pandas"
+tags: ["python", "pandas", "analytics"]
+nextPost: "series/pandas/exploratory-data-analysis-with-pandas"
+seriesPartNumber: 7
+---
+
+# 🧠 Part 8: Exploratory Data Analysis (EDA) with Pandas
+
+Welcome back! In the previous part, we handled missing data effectively.  
+Now it's time to dive deeper into our dataset and perform **Exploratory Data Analysis (EDA)**.  
+EDA helps us uncover hidden patterns, detect anomalies, and test hypotheses using simple Pandas techniques.
+
+---
+
+## 🔍 Dataset Setup
+
+We’ll use the same dataset as before, but now with missing values handled:
+
+```python
+import pandas as pd
+
+df = pd.read_csv("prices_with_missing_data.csv")
+
+# Optionally fill missing values
+df['quantity_sold'] = df['quantity_sold'].fillna(0)
+df['price'] = df['price'].fillna(df['price'].mean())
+df['brand'] = df['brand'].fillna("Unknown")
+```
+
+---
+
+## 📈 1. General Overview
+
+```python
+print(df.head())
+print(df.info())
+print(df.describe())
+```
+
+- `df.info()` tells us about data types and non-null counts.
+- `df.describe()` gives statistical summaries of numeric columns.
+
+---
+
+## 🔢 2. Value Counts & Uniqueness
+
+How many brands and categories do we have?
+
+```python
+print(df['brand'].value_counts())
+print(df['category'].value_counts())
+print(df['product_name'].nunique(), "unique products")
+```
+
+---
+
+## 📊 3. Grouped Aggregations
+
+Let’s analyze **average sales and prices** per category:
+
+```python
+category_summary = df.groupby("category").agg({
+    "price": "mean",
+    "quantity_sold": "sum"
+}).sort_values("quantity_sold", ascending=False)
+
+print(category_summary)
+```
+
+---
+
+## 📅 4. Time-based Insights
+
+We can parse the date column and check sales over time:
+
+```python
+df["date"] = pd.to_datetime(df["date"])
+
+# Daily total quantity sold
+daily_sales = df.groupby("date")["quantity_sold"].sum()
+print(daily_sales.tail())
+
+# Weekly average sales
+weekly_avg = df.resample("W", on="date")["quantity_sold"].mean()
+print(weekly_avg.tail())
+```
+
+---
+
+## 📉 5. Detecting Outliers
+
+Let’s find unusually high-priced items:
+
+```python
+high_prices = df[df["price"] > df["price"].quantile(0.95)]
+print(high_prices[["product_name", "price"]])
+```
+
+---
+
+## 🧪 6. Correlations
+
+Do price and quantity_sold correlate?
+
+```python
+correlation = df[["price", "quantity_sold"]].corr()
+print(correlation)
+```
+
+> Hint: A strong negative correlation might suggest price sensitivity.
+
+---
+
+## 🧼 7. Exporting Your Clean EDA Results
+
+You can save your grouped summaries for reporting:
+
+```python
+category_summary.to_csv("category_summary.csv")
+```
+
+---
+
+## ✅ Summary
+
+In this part we:
+
+- Explored structure and statistics of our dataset.
+- Grouped and aggregated data for insights.
+- Identified outliers and trends.
+- Prepared the ground for future visualizations.
+
+Coming next: **Part 9 – Data Visualization with Matplotlib & Pandas!**
+
+---
+
+**Stay curious and keep exploring 🧠📊**

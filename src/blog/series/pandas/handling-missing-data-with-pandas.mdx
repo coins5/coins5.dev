@@ -1,0 +1,131 @@
+---
+title: "Handling Missing Data in Pandas"
+pubDate: 2025-05-20
+description: "Learn how to detect, analyze, and clean missing data using Pandas."
+author: "coins5"
+image:
+  url: "/src/assets/images/posts_cover/loguru_handle_concurrency.png"
+  alt: "Handling Missing Data in Pandas"
+tags: ["python", "pandas", "analytics"]
+nextPost: "series/pandas/exploratory-data-analysis-with-pandas"
+seriesPartNumber: 7
+---
+
+
+# 🧹 Part 7: Handling Missing Data in Pandas
+
+Real-world data is rarely perfect. Missing values are common, and how you handle them can significantly impact your analysis. In this post, we’ll learn how to **detect**, **analyze**, and **fill or remove** missing data using Pandas.
+
+---
+
+## 🧐 Detecting Missing Values
+
+Let’s start by loading a modified version of our dataset that contains missing values:
+
+```python
+import pandas as pd
+
+df = pd.read_csv("prices_with_sales_with_missing.csv")
+```
+
+To check for missing values in each column:
+
+```python
+df.isnull().sum()
+```
+
+To get a quick overview of how much data is missing relative to the whole dataset:
+
+```python
+df.isnull().mean()
+```
+
+---
+
+## 🔎 Identifying Missing Rows
+
+You can filter the rows that contain any missing values:
+
+```python
+df[df.isnull().any(axis=1)]
+```
+
+Or rows with missing values in a specific column, for example `price`:
+
+```python
+df[df["price"].isnull()]
+```
+
+---
+
+## 🛠️ Common Fixes for Missing Data
+
+### 1. **Filling missing values**
+
+#### a. Fill with a default value:
+```python
+df["price"].fillna(0, inplace=True)
+```
+
+#### b. Fill with the mean or median:
+```python
+df["price"].fillna(df["price"].mean(), inplace=True)
+```
+
+#### c. Forward-fill or backward-fill:
+```python
+df["price"].fillna(method="ffill", inplace=True)  # uses previous value
+df["price"].fillna(method="bfill", inplace=True)  # uses next value
+```
+
+### 2. **Dropping missing values**
+
+#### a. Drop rows with *any* missing value:
+```python
+df.dropna(inplace=True)
+```
+
+#### b. Drop rows with missing values only in specific columns:
+```python
+df.dropna(subset=["quantity_sold"], inplace=True)
+```
+
+---
+
+## 🧪 Before and After Comparison
+
+You can compare how many rows were removed or filled:
+
+```python
+print("Before:", len(df))
+df_clean = df.dropna()
+print("After:", len(df_clean))
+```
+
+---
+
+## 🧼 Best Practices
+
+- **Never remove data blindly.** Investigate why values are missing.
+- If the missing values are:
+  - **Rare**, you can drop them.
+  - **Systematic** (e.g. prices missing on certain dates), you might need deeper analysis.
+- Document how you handled missing data for reproducibility.
+
+---
+
+## ✅ Wrap-up
+
+In this part, we covered:
+
+- How to **detect** missing data
+- How to **fill** or **drop** missing values
+- When to use each method
+
+Handling missing data is one of the first steps toward building reliable data pipelines.
+
+---
+
+Next up: **Part 8 — Filtering and Selecting Data in Pandas**
+
+We’ll learn powerful techniques to slice, dice, and filter rows based on multiple conditions. Let’s keep going!

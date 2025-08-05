@@ -1,13 +1,14 @@
 ---
 title: "Async Logging with Loguru: How to Handle Concurrency Without Losing Logs"
 pubDate: 2025-05-03
-description: "In async apps (FastAPI, asyncio workers, etc.), logging can get tricky.  "
+description: "In async apps (FastAPI, asyncio workers, etc.), logging can get tricky."
 author: "coins5"
 image:
   url: "/src/assets/images/posts_cover/loguru_handle_concurrency.png"
-  alt: "The word astro against an illustration of planets and stars."
+  alt: "In async apps (FastAPI, asyncio workers, etc.), logging can get tricky."
 tags: ["python", "logging", "loguru"]
 nextPost: "series/loguru/sending-logs-over-network-loguru"
+seriesPartNumber: 4
 ---
 
 In async apps (FastAPI, asyncio workers, etc.), logging can get tricky.  
@@ -40,7 +41,7 @@ Loguru supports enqueue=True, which uses a background thread with a queue:
 logger.add("app.log", enqueue=True)
 ```
 
-That’s it. Now your logs won’t block your event loop.
+That's it. Now your logs won't block your event loop.
 
 ## 🔬 How it Works
 
@@ -89,7 +90,7 @@ Even with async logging, logging inside hot loops or massive async tasks can flo
 ## ✅ Conclusion
 
 If you're using FastAPI, asyncio, or any concurrent system — always add enqueue=True.
-It’s the easiest way to make your logs safe, fast, and non-blocking.
+It's the easiest way to make your logs safe, fast, and non-blocking.
 
 ## 🔜 Coming up next
 

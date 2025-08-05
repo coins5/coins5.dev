@@ -1,0 +1,141 @@
+---
+title: "Cleaning Data Without Losing Your Mind (Pandas Edition)"
+pubDate: 2025-05-12
+description: "Learn how to clean messy data using Pandas. We'll fix missing values, rename columns, convert data types, and prepare our dataset for analysis."
+author: "coins5"
+image:
+  url: "/src/assets/images/posts_cover/loguru_handle_concurrency.png"
+  alt: "Cleaning Data Without Losing Your Mind (Pandas Edition)"
+tags: ["python", "pandas", "analytics"]
+nextPost: "series/pandas/filter-select-slice-with-pandas"
+seriesPartNumber: 3
+---
+
+# Cleaning Data Without Losing Your Mind (Pandas Edition) 🧼
+
+Messy data is the rule, not the exception.  
+Before any serious analysis or machine learning, we need to make sure the data is **clean, consistent, and usable**.
+
+In this post, we’ll go over how to:
+
+✅ Fix missing values  
+✅ Rename columns  
+✅ Convert data types  
+✅ Clean strings and categories  
+
+Let’s get to work.
+
+---
+
+## 🧹 Step 1: Detect missing data
+
+We’ll use the same dataset from before (`prices_sample.csv`).
+
+```python
+import pandas as pd
+
+df = pd.read_csv("prices_sample.csv")
+
+# Check for missing values
+print(df.isnull().sum())
+```
+
+Even if this dataset is clean, it’s good practice to check. In real-world data, missing prices, categories, or names are super common.
+
+---
+
+## 💊 Step 2: Fill or remove missing data
+
+You have a few options here:
+
+- **Drop rows** with missing values:
+```python
+df_clean = df.dropna()
+```
+
+- **Fill missing values** with a default (e.g. 0, "Unknown", or a mean):
+```python
+df["price"] = df["price"].fillna(0)
+df["brand"] = df["brand"].fillna("Unknown")
+```
+
+- **Fill with column average** (for numeric columns):
+```python
+df["price"] = df["price"].fillna(df["price"].mean())
+```
+
+---
+
+## ✍️ Step 3: Rename columns
+
+Make column names consistent, lowercase, and readable:
+
+```python
+# Rename with a dictionary
+df.rename(columns={"product_name": "name", "in_stock": "available"}, inplace=True)
+
+# Or make all lowercase
+df.columns = [col.lower() for col in df.columns]
+```
+Why? Because you don’t want to type `Product Name` 100 times, or deal with spaces.
+
+---
+
+## 🔢 Step 4: Convert data types
+
+Let’s make sure each column has the right type:
+
+```python
+# Convert price to float
+df["price"] = df["price"].astype(float)
+
+# Convert in_stock to boolean
+df["available"] = df["available"].astype(bool)
+```
+
+For dates (in future entries):
+
+```python
+df["date"] = pd.to_datetime(df["date"])
+```
+
+---
+
+## 🔤 Step 5: Clean string columns
+Sometimes, text columns come with extra whitespace, wrong casing, or typos.
+
+```python
+# Strip whitespace and lowercase everything
+df["category"] = df["category"].str.strip().str.lower()
+
+# Standardize brand names
+df["brand"] = df["brand"].replace({"Laive ": "Laive", "laive": "Laive"})
+```
+
+You can also remove symbols or accents using regular expressions (str.replace()), or normalize text with unidecode if needed.
+
+---
+
+## ✅ Final check
+Now that we’ve cleaned up, let’s check how things look:
+
+```python
+print(df.info())
+print(df.head())
+```
+
+---
+
+## 🧠 Key Takeaways
+
+- Clean data is the foundation of any good analysis
+- Learn to love `.isnull()`, `.fillna()`, and `.astype()`
+- Standardizing strings and column names saves a lot of bugs later
+
+## 📌 What’s next?
+Next up in the series:
+➡️ Filtering, selecting, and slicing your data like a ninja 🥷
+
+We’ll explore `.loc`, `.iloc`, boolean indexing, and more to really dig into the rows and columns that matter.
+
+See you in Part 4!
