@@ -1,5 +1,6 @@
 const imageImports = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/posts_cover/*.{jpg,jpeg,png,webp}",
+  // "/src/assets/images/posts_cover/*.{jpg,jpeg,png,webp}",
+  "/src/assets/images/**/*.{jpg,jpeg,png,webp}",
   { eager: true }
 );
 
