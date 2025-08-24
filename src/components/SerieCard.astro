@@ -1,0 +1,42 @@
+---
+interface Props {
+  postSeries: CollectionEntry<"blog">[];
+  serie: SerieSchema;
+  currentPost: string;
+}
+
+import type { BlogSchema } from "@/schemas/blog";
+import type { SerieSchema } from "@/schemas/serie";
+import BeenHere from "@/assets/svg/been-here.svg";
+import type { CollectionEntry } from "astro:content";
+
+const { postSeries = [], serie, currentPost } = Astro.props;
+---
+
+<div class="mb-12">
+  <ul class="list bg-base-100 rounded-box shadow-md">
+    <div class="p-4 pb-2 text-xl opacity-60 tracking-wide">
+      {serie.name}
+    </div>
+    {
+      postSeries.map((ps) => (
+        <li class="list-row">
+          <div
+            class={`text-xl font-thin tabular-nums ${currentPost === ps.data.title ? "text-primary" : "opacity-30"}`}
+          >
+            {String(ps.data.seriesPartNumber).padStart(2, "0")}
+          </div>
+          <div class="list-col-grow">
+            {currentPost === ps.data.title ? (
+              <div class="text-primary">{ps.data.title}</div>
+            ) : (
+              <a class="link" href={`/posts/${ps.id}`}>
+                {ps.data.title}
+              </a>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>

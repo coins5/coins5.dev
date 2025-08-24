@@ -4,10 +4,13 @@ import dayjs from "dayjs";
 
 import relativeTime from "dayjs/plugin/relativeTime";
 import type { BlogSchema } from "@/schemas/blog";
+import type { SerieSchema } from "@/schemas/serie";
 import NextPost from "@/components/NextPost.astro";
 import { getEntry } from "astro:content";
 import ImageRenderer from "@/components/ImageRenderer.astro";
-
+import { getCollection } from "astro:content";
+import SerieCard from "@/components/SerieCard.astro";
+import type { CollectionEntry } from "astro:content";
 dayjs.extend(relativeTime);
 
 const { entry } = Astro.props;
@@ -19,6 +22,19 @@ const dayDate = dayjs(post.pubDate);
 const nextPost = post.nextPost
   ? await getEntry("blog", post.nextPost.id)
   : null;
+
+// let postSeries: BlogSchema[] = [];
+let postSeries: CollectionEntry<"blog">[] = [];
+let serie: SerieSchema | null = null;
+
+if (post.serie) {
+  postSeries = (await getCollection("blog"))
+    // .map((b) => b.data)
+    .filter((b) => b.data.serie?.id === post.serie?.id)
+    .sort((a, b) => a.data.seriesPartNumber! - b.data.seriesPartNumber!);
+
+  serie = (await getEntry("serie", post.serie.id))!.data;
+}
 
 const author = await getEntry("author", post.author.id);
 ---
@@ -33,14 +49,6 @@ const author = await getEntry("author", post.author.id);
         small={false}
       />
     </div>
-
-    {
-      post.serie ? (
-        <div>Tiene serie {post.serie} </div>
-      ) : (
-        <div>No tiene serie</div>
-      )
-    }
 
     <h1>
       {post.title}
@@ -68,6 +76,16 @@ const author = await getEntry("author", post.author.id);
     <p><em>{post.description}</em></p>
 
     <br />
+
+    {
+      serie ? (
+        <SerieCard
+          serie={serie}
+          postSeries={postSeries}
+          currentPost={post.title}
+        />
+      ) : null
+    }
 
     <slot />
 
