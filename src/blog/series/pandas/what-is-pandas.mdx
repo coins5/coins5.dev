@@ -1,0 +1,92 @@
+---
+title: "What is Pandas and Why Every Data Analyst Loves It"
+pubDate: 2025-05-10
+description: "Learn what Pandas is, why it's essential in data science, and how to load your first dataset with it."
+author: "coins5"
+image:
+  url: "/src/assets/images/series/pandas/what-is-pandas.png"
+  alt: "What is Pandas and Why Every Data Analyst Loves It"
+tags: ["python", "pandas", "analytics"]
+nextPost: "series/pandas/explore-data-with-pandas"
+serie: "learn-pandas"
+seriesPartNumber: 1
+---
+
+# What is Pandas and Why Every Data Analyst Loves It 🐼
+
+If you're just getting started with data science or data analysis using Python, you've probably heard of **Pandas**.  
+No, not the animal — the library. But it _is_ a pretty magical tool.
+
+**Pandas** is a powerful and flexible Python library that makes working with structured data fast and intuitive. Think of it as a mix between a spreadsheet (like Excel) and a database — right inside your Python code.
+
+---
+
+## 🧠 Why should you learn Pandas?
+
+Because:
+
+- You can **read and explore data** from CSV, Excel, JSON, SQL, and more in seconds.
+- You can filter, group, clean, reshape, and summarize data without writing SQL.
+- It's the entry point to **machine learning**, **data visualization**, and **business analytics**.
+
+---
+
+## ✨ First Look: Reading a CSV File
+
+Let's say you have a file called `prices_sample.csv`. Here's how you load it using Pandas:
+[TODO]
+
+```python
+import pandas as pd
+
+# Read the file
+df = pd.read_csv("prices_sample.csv")
+
+# Show the first 5 rows
+print(df.head())
+```
+
+This is the usual Pandas workflow:
+
+1. Load your data
+2. Explore it (`head()`, `info()`, `describe()`)
+3. Clean, filter, or transform
+4. Analyze, visualize, or export
+
+---
+
+## 🛠️ What can you do with Pandas?
+
+Some things you'll learn in this series:
+
+- Clean up messy or incomplete data
+- Group and summarize (e.g. average price per category)
+- Filter specific rows or columns
+- Handle dates, join tables, and plot data quickly
+
+---
+
+## 💡 A Quick Example
+
+```python
+# Filter products with price greater than 50
+expensive = df[df["price"] > 50]
+
+# Group by category and calculate average price
+averages = df.groupby("category")["price"].mean()
+
+print(averages)
+```
+
+---
+
+## 🚀 What's Next?
+
+In the next post, we’ll dive into **basic data exploration (EDA)** using tools like `.describe()`, `.value_counts()`, and more.
+
+Get ready to really _look into_ your data.  
+See you in the next one 🐼
+
+---
+
+Have questions or want to use a real Peruvian dataset? Let me know in the comments or reach out!

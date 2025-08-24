@@ -1,0 +1,149 @@
+---
+title: "Grouping and Aggregating Data in Pandas"
+pubDate: 2025-05-17
+description: "Learn how to use groupby and aggregation in Pandas to analyze product sales data efficiently."
+author: "coins5"
+image:
+  url: "/src/assets/images/series/pandas/grouping-aggregating-data-with-pandas.png"
+  alt: "Grouping and Aggregating Data in Pandas"
+tags: ["python", "pandas", "analytics"]
+nextPost: "series/pandas/handling-missing-data-with-pandas"
+serie: "learn-pandas"
+seriesPartNumber: 6
+---
+
+# 📊 Part 6: Grouping and Aggregating Data in Pandas
+
+One of the most powerful features of Pandas is its ability to group and aggregate data. In this post, we'll learn how to use `.groupby()` to gain insights from a dataset containing sales information for various products over a 30-day period.
+
+---
+
+## 📁 Dataset Overview
+
+We’ll be using the `prices_with_sales.csv` file, which contains the following columns:
+
+- `product_id`
+- `product_name`
+- `brand`
+- `price`
+- `date`
+- `quantity_sold`
+
+Let’s load the data:
+
+```python
+import pandas as pd
+
+df = pd.read_csv("prices_with_sales.csv")
+df.head()
+```
+
+### Example output
+
+|     | product_id | product_name | brand   | price | date       | quantity_sold |
+| --- | ---------- | ------------ | ------- | ----- | ---------- | ------------- |
+| 0   | 1          | Milk         | Brand A | 3.5   | 2025-07-01 | 5             |
+| 1   | 1          | Milk         | Brand A | 3.5   | 2025-07-02 | 7             |
+| 2   | 1          | Milk         | Brand A | 3.5   | 2025-07-03 | 6             |
+
+---
+
+## 🧮 Total Quantity Sold by Product
+
+To find out which products sold the most units overall:
+
+```python
+df.groupby("product_name")["quantity_sold"].sum().sort_values(ascending=False)
+```
+
+This shows the total quantity sold for each product.
+
+---
+
+## 💰 Calculating Revenue
+
+Let’s create a `revenue` column and analyze which products generated the most money:
+
+```python
+df["revenue"] = df["price"] * df["quantity_sold"]
+```
+
+Now group by product:
+
+```python
+df.groupby("product_name")["revenue"].sum().sort_values(ascending=False)
+```
+
+You can also break it down further by brand:
+
+```python
+df.groupby(["brand", "product_name"])["revenue"].sum()
+```
+
+---
+
+## 📅 Aggregation by Date
+
+To analyze daily performance:
+
+```python
+daily = df.groupby("date")[["quantity_sold", "revenue"]].sum()
+```
+
+If you'd like to visualize trends:
+
+```python
+import matplotlib.pyplot as plt
+
+daily.plot(figsize=(12, 6), title="Daily Sales and Revenue Over Time")
+plt.show()
+
+```
+
+---
+
+## 📊 Aggregating Multiple Stats
+
+You can calculate multiple metrics in one go using `.agg()`:
+
+```python
+df.groupby("brand").agg({
+    "price": "mean",
+    "quantity_sold": "sum",
+    "revenue": ["sum", "mean"]
+})
+```
+
+This returns a summary for each brand, including average price, total units sold, and revenue metrics.
+
+---
+
+## 🔁 Resetting the Index (Optional)
+
+Grouped results have the group key as the index. To reset it:
+
+```python
+summary = df.groupby("product_name")["quantity_sold"].sum().reset_index()
+```
+
+Now `product_name` becomes a regular column again.
+
+---
+
+## ✅ Wrap-up
+
+In this part, we learned how to:
+
+- Use `groupby()` to group data by one or more columns
+
+- Calculate custom metrics like total revenue
+
+- Aggregate multiple statistics at once
+
+- Analyze trends over time
+
+---
+
+Next up: **Part 7 — Handling Missing Data in Pandas**
+
+We'll learn how to detect and fill missing values to keep our analysis clean and accurate. See you there!

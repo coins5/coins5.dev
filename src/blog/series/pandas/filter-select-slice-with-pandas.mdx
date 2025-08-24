@@ -1,0 +1,149 @@
+---
+title: "Filtering, Selecting and Slicing Your Data Like a Ninja"
+pubDate: 2025-05-13
+description: "Master the art of selecting rows and columns using Pandas. Learn `loc`, `iloc`, conditions, and slicing techniques."
+author: "coins5"
+image:
+  url: "/src/assets/images/series/pandas/filter-select-slice-with-pandas.png"
+  alt: "Filtering, Selecting and Slicing Your Data Like a Ninja"
+tags: ["python", "pandas", "analytics"]
+nextPost: "series/pandas/group-sumarize-with-pandas"
+serie: "learn-pandas"
+seriesPartNumber: 4
+---
+
+# Filtering, Selecting and Slicing Your Data Like a Ninja 🥷
+
+Once your data is loaded and clean, the next step is to **zoom in** on what matters — rows, columns, and specific conditions.
+
+In this post, we’ll cover:
+
+✅ Selecting specific columns  
+✅ Filtering rows with conditions  
+✅ Using `.loc[]` and `.iloc[]`  
+✅ Combining multiple filters  
+✅ Slicing data like a pro
+
+Let’s slice and dice!
+
+---
+
+## 📦 Load the dataset
+
+```python
+import pandas as pd
+
+df = pd.read_csv("prices_sample.csv")
+```
+
+---
+
+## 🎯 Selecting columns
+
+Just want one column?
+
+```python
+df["price"]
+```
+
+Multiple columns?
+
+```python
+df[["product_name", "price"]]
+```
+
+---
+
+## 🧽 Filtering rows by condition
+
+Let’s say you want all products that cost more than 5:
+
+```python
+df[df["price"] > 5]
+```
+
+Now products that are **in stock**:
+
+```python
+df[df["in_stock"] == True]
+```
+
+Or **products not in stock** and **price below 4**:
+
+```python
+df[(df["in_stock"] == False) & (df["price"] < 4)]
+```
+
+---
+
+## 🧠 Using `.loc[]` and `.iloc[]`
+
+`.loc[]` is label-based.  
+`.iloc[]` is index-based.
+
+**Example with `.loc[]`:**
+
+```python
+# First row, all columns
+df.loc[0]
+
+# First 3 rows, specific columns
+df.loc[0:2, ["product_name", "price"]]
+```
+
+**Example with `.iloc[]`:**
+
+```python
+# First row
+df.iloc[0]
+
+# First 5 rows and first 3 columns
+df.iloc[0:5, 0:3]
+```
+
+---
+
+## 🪓 Slicing like a pro
+
+Let’s say you want the **top 10 most expensive products**:
+
+```python
+df.sort_values("price", ascending=False).head(10)
+```
+
+Or the **5 cheapest in stock**:
+
+```python
+df[df["in_stock"] == True].sort_values("price").head(5)
+```
+
+---
+
+## 🧠 Pro tip: Use `.query()` for readable filters
+
+You can also use `.query()` to write conditions in a cleaner way:
+
+```python
+df.query("in_stock == True and price < 5")
+```
+
+Much easier to read and chain when things get complex.
+
+---
+
+## ✅ Summary
+
+Filtering and selecting is one of the most common things you'll do in Pandas.
+
+- Use `[]`, `.loc[]`, `.iloc[]` to select rows and columns
+- Use conditions to filter rows
+- Use `.query()` for clarity in complex logic
+- Combine with `.sort_values()` and `.head()` to get top/bottom lists
+
+---
+
+## 📌 What’s next?
+
+In Part 5, we’ll group and summarize data:  
+➡️ averages per category, counts per brand, pivot tables and more.  
+Don’t miss it — things get real 🔥

@@ -1,0 +1,150 @@
+---
+title: "Exploring Your Data Like a Pro with Pandas"
+pubDate: 2025-05-11
+description: "Learn how to explore and understand your dataset using Pandas. From `.head()` to `.describe()` and `.value_counts()`, this post walks you through the essential tools."
+author: "coins5"
+image:
+  url: "/src/assets/images/series/pandas/explore-data-with-pandas.png"
+  alt: "What is Pandas and Why Every Data Analyst Loves It"
+tags: ["python", "pandas", "analytics"]
+nextPost: "series/pandas/cleaning-data-with-pandas"
+serie: "learn-pandas"
+seriesPartNumber: 2
+---
+
+# Exploring Your Data Like a Pro with Pandas 🔍
+
+Before you clean, transform, or model your data, you need to **understand what you’re working with**.  
+That’s where **Exploratory Data Analysis (EDA)** comes in — and Pandas makes it easy.
+
+In this post, we’ll look at the basic tools you can use to inspect your dataset and start asking the right questions.
+
+---
+
+## 📥 Let's load a sample dataset
+
+For this tutorial, let’s imagine you’ve loaded a CSV with product prices:
+
+```python
+import pandas as pd
+
+df = pd.read_csv("prices_sample.csv")
+```
+
+Let’s now explore it step by step 👇
+
+---
+
+## 🧱 Basic structure: `.head()`, `.tail()`, `.shape`, `.info()`
+
+These are your first tools when working with any dataset.
+
+```python
+# First 5 rows
+print(df.head())
+
+# Last 5 rows
+print(df.tail())
+
+# Number of rows and columns
+print(df.shape)
+
+# Column types and nulls
+print(df.info())
+```
+
+Use this to quickly understand:
+
+- What kind of data you’re dealing with
+- Which columns are numeric or strings
+- If there are missing values
+- How many rows you have
+
+---
+
+## 📊 Descriptive stats: `.describe()`
+
+This one is a must. It gives you **quick stats** on all numerical columns:
+
+```python
+print(df.describe())
+```
+
+You’ll get:
+
+- Count of non-null values
+- Mean, std dev
+- Min, max
+- Percentiles (25%, 50%, 75%)
+
+💡 Great for spotting outliers or weird values (e.g. negative prices?).
+
+---
+
+## 📈 Understanding categories: `.value_counts()`
+
+For categorical columns, this method shows how often each value appears.
+
+```python
+# Count of products per category
+print(df["category"].value_counts())
+```
+
+You can also use it on booleans or binary flags, like availability or on_sale columns.
+
+---
+
+## 🕳️ Null values: `.isnull().sum()`
+
+Knowing where your missing data lives is essential.
+
+```python
+# Total missing values per column
+print(df.isnull().sum())
+```
+
+This helps you decide whether to:
+
+- Fill missing values (`fillna()`)
+- Drop rows/columns (`dropna()`)
+- Investigate why they’re missing
+
+---
+
+## 🧪 Quick checks for unique values
+
+Want to see how many different values a column has?
+
+```python
+print(df["brand"].nunique())
+print(df["brand"].unique())
+```
+
+Useful to spot typos, inconsistencies, or too many categories.
+
+---
+
+## 🚀 Quick summary checklist
+
+Here’s a quick EDA checklist you can use every time you load new data:
+
+✅ `df.head()` and `df.tail()`  
+✅ `df.shape` and `df.info()`  
+✅ `df.describe()`  
+✅ `df.isnull().sum()`  
+✅ `value_counts()` on key categorical columns  
+✅ `unique()` and `nunique()` for quick validation
+
+---
+
+## 📌 What's next?
+
+Now that we understand the shape of our data, it’s time to **clean it up**.  
+In the next entry, we’ll dive into **fixing missing values, renaming columns, fixing data types, and more**.
+
+See you in Part 3! 🧼
+
+---
+
+Want to try these steps with a real dataset? You can grab a sample one [here](#) (or use your own!).  
+Let me know if you'd like me to add real-world examples from Peru or e-commerce data.

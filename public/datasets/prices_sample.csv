@@ -1,0 +1,21 @@
+product_id,product_name,category,brand,price,in_stock
+1,Milk,Dairy,Laive,3.5,True
+2,Bread,Bakery,Bimbo,2.8,True
+3,Rice,Grains,Costeño,4.2,True
+4,Chicken,Meat,San Fernando,12.0,False
+5,Cheese,Dairy,Laive,8.5,True
+6,Tomato,Produce,Agroind,1.2,True
+7,Onion,Produce,Agroind,1.0,False
+8,Oil,Pantry,Primor,7.5,True
+9,Sugar,Pantry,Chiclayo,2.0,True
+10,Salt,Pantry,SalAndina,1.5,True
+11,Yogurt,Dairy,Laive,3.0,True
+12,Butter,Dairy,Laive,6.5,True
+13,Coffee,Beverages,Altomayo,10.0,True
+14,Tea,Beverages,Winter's,5.0,True
+15,Eggs,Dairy,Laive,6.2,False
+16,Cereal,Grains,Kellogg's,9.0,True
+17,Fish,Meat,Tottus,13.5,True
+18,Apples,Produce,Delicias,3.8,True
+19,Bananas,Produce,Delicias,2.5,True
+20,Flour,Grains,Blanca Flor,4.0,True

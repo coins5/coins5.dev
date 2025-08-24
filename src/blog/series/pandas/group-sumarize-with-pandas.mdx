@@ -1,0 +1,155 @@
+---
+title: "Grouping and Summarizing Data with Pandas (Without Pain)"
+pubDate: 2025-05-14
+description: "Learn how to group, aggregate, and pivot your data using Pandas. Master `groupby`, `agg`, and `pivot_table` with real examples."
+author: "coins5"
+image:
+  url: "/src/assets/images/series/pandas/group-sumarize-with-pandas.png"
+  alt: "Grouping and Summarizing Data with Pandas (Without Pain)"
+tags: ["python", "pandas", "analytics"]
+nextPost: "series/pandas/grouping-aggregating-data-with-pandas"
+serie: "learn-pandas"
+seriesPartNumber: 5
+---
+
+# Grouping and Summarizing Data with Pandas (Without Pain) 📊
+
+In this post, we’ll explore how to **group and summarize your data** with Pandas using methods like:
+
+- `groupby()`
+- `agg()`
+- `pivot_table()`
+
+These tools help you answer real questions like:
+
+- What's the average price per category?
+- Which brand has the most products?
+- How many products are in stock per category?
+
+---
+
+## 🧱 Let's load the data
+
+We’ll use the same dataset (`prices_sample.csv`):
+
+```python
+import pandas as pd
+
+df = pd.read_csv("prices_sample.csv")
+```
+
+---
+
+## 🔢 Using `groupby()` + aggregation
+
+Let’s start simple: what’s the **average price per category**?
+
+```python
+avg_price = df.groupby("category")["price"].mean()
+print(avg_price)
+```
+
+You can also get multiple aggregations:
+
+```python
+summary = df.groupby("category")["price"].agg(["mean", "min", "max", "count"])
+print(summary)
+```
+
+---
+
+## 🧠 Custom aggregations with `agg()`
+
+You can even pass custom functions or lambdas:
+
+```python
+df.groupby("brand")["price"].agg(
+    average="mean",
+    highest="max",
+    products="count"
+)
+```
+
+You can rename the output columns with `named aggregation` like above (`average=...`).
+
+---
+
+## 📊 Counting products per category
+
+This is a very common task:
+
+```python
+product_counts = df["category"].value_counts()
+print(product_counts)
+```
+
+Or using groupby:
+
+```python
+df.groupby("category")["product_id"].count()
+```
+
+---
+
+## 🔄 Using `pivot_table()`
+
+Pivot tables give you more flexibility for reshaping data. Let’s say we want the **average price per category and availability**:
+
+```python
+pivot = pd.pivot_table(df, values="price", index="category", columns="in_stock", aggfunc="mean")
+print(pivot)
+```
+
+This shows how price changes depending on whether items are in stock or not.
+
+---
+
+## 🔁 Reshaping with `.unstack()` and `.melt()`
+
+You can convert groupby results into wide format with `.unstack()`:
+
+```python
+group = df.groupby(["category", "in_stock"])["price"].mean()
+print(group.unstack())
+```
+
+Or go from wide → long format using `.melt()`:
+
+```python
+melted = df.melt(id_vars=["category"], value_vars=["price"])
+print(melted.head())
+```
+
+---
+
+## 🧠 When to use each?
+
+| Task                     | Use                   |
+| ------------------------ | --------------------- |
+| Simple summaries         | `groupby()`           |
+| Complex reshaping        | `pivot_table()`       |
+| Multi-level aggregations | `agg()`               |
+| Format manipulation      | `melt()`, `unstack()` |
+
+---
+
+## ✅ Summary
+
+Grouping and aggregating are essential tools in your data toolkit.
+
+Remember:
+
+- `groupby()` for grouping rows
+- `agg()` for multiple summaries
+- `pivot_table()` for reshaping with aggregations
+- `value_counts()` for quick category counts
+
+---
+
+## 📌 What’s next?
+
+In **Part 6**, we’ll work with **dates and time** in Pandas: parsing, grouping by month/week, and time series tricks ⏳.
+
+Perfect if you want to build charts over time or analyze trends.
+
+See you there!
