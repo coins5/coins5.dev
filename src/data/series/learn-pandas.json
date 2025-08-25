@@ -2,5 +2,10 @@
   "id": "learn-pandas",
   "name": "Learn Pandas",
   "description": "Learn pandas, the easy way",
-  "authors": ["coins5"]
+  "authors": ["coins5"],
+  "attachments": [
+    "prices_sample_csv",
+    "prices_with_missing_data_csv",
+    "prices_with_sales_csv"
+  ]
 }

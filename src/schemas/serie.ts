@@ -10,6 +10,7 @@ export const serieSchema = z.object({
       alt: z.string(),
     })
     .nullish(),
+  attachments: z.array(reference("attachment")).default([]),
 });
 
 // Exporta el tipo TypeScript

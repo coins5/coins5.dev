@@ -26,6 +26,7 @@ const nextPost = post.nextPost
 // let postSeries: BlogSchema[] = [];
 let postSeries: CollectionEntry<"blog">[] = [];
 let serie: SerieSchema | null = null;
+let attachments: CollectionEntry<"attachment">[] = [];
 
 if (post.serie) {
   postSeries = (await getCollection("blog"))
@@ -34,6 +35,11 @@ if (post.serie) {
     .sort((a, b) => a.data.seriesPartNumber! - b.data.seriesPartNumber!);
 
   serie = (await getEntry("serie", post.serie.id))!.data;
+  const attachmentsIds = serie?.attachments.map((a) => a.id);
+
+  attachments = (await getCollection("attachment")).filter((a) =>
+    attachmentsIds.includes(a.id)
+  );
 }
 
 const author = await getEntry("author", post.author.id);
@@ -83,6 +89,7 @@ const author = await getEntry("author", post.author.id);
           serie={serie}
           postSeries={postSeries}
           currentPost={post.title}
+          attachments={attachments}
         />
       ) : null
     }
