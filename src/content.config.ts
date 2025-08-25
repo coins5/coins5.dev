@@ -1,10 +1,11 @@
 // Import the glob loader
-import { glob } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 // Import utilities from `astro:content`
 import { defineCollection } from "astro:content";
 import { blogSchema } from "@/schemas/blog";
 import { authorSchema } from "@/schemas/author";
 import { serieSchema } from "@/schemas/serie";
+import { attachmentSchema } from "@/schemas/attachment";
 
 // Define a `loader` and `schema` for each collection
 const blog = defineCollection({
@@ -27,6 +28,11 @@ const serie = defineCollection({
   schema: serieSchema,
 });
 
+// Define a `loader` and `schema` for each collection
+const attachment = defineCollection({
+  loader: file("./src/data/attachments/attachments.json"),
+  schema: attachmentSchema,
+});
 
 // Export a single `collections` object to register your collection(s)
-export const collections = { blog, author, serie };
+export const collections = { blog, author, serie, attachment };

@@ -3,14 +3,13 @@ interface Props {
   postSeries: CollectionEntry<"blog">[];
   serie: SerieSchema;
   currentPost: string;
+  attachments: CollectionEntry<"attachment">[];
 }
 
-import type { BlogSchema } from "@/schemas/blog";
 import type { SerieSchema } from "@/schemas/serie";
-import BeenHere from "@/assets/svg/been-here.svg";
 import type { CollectionEntry } from "astro:content";
 
-const { postSeries = [], serie, currentPost } = Astro.props;
+const { postSeries = [], serie, currentPost, attachments } = Astro.props;
 ---
 
 <div class="mb-12">
@@ -35,6 +34,20 @@ const { postSeries = [], serie, currentPost } = Astro.props;
               </a>
             )}
           </div>
+        </li>
+      ))
+    }
+
+    <div class="p-4 pb-2 text-sm opacity-60 tracking-wide">Attachments</div>
+    {
+      attachments.map((a) => (
+        <li class="list-row">
+          <div class="badge badge-soft badge-primary badge-sm mr-2">
+            {a.data.type}
+          </div>
+          <a class="link opacity-70 mr-4" href={a.data.url}>
+            {a.data.name}
+          </a>
         </li>
       ))
     }

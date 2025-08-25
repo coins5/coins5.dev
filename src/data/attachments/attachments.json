@@ -1,0 +1,23 @@
+[
+  {
+    "id": "prices_sample_csv",
+    "name": "Prices sample",
+    "description": "A file with price samples",
+    "url": "https://coins5.dev/datasets/prices_sample.csv",
+    "type": "csv"
+  },
+  {
+    "id": "prices_with_missing_data_csv",
+    "name": "Prices with missing data",
+    "description": "A file with prices with missing data",
+    "url": "https://coins5.dev/datasets/prices_with_missing_data.csv",
+    "type": "csv"
+  },
+  {
+    "id": "prices_with_sales_csv",
+    "name": "Prices with sales",
+    "description": "A file with prices with sales",
+    "url": "https://coins5.dev/datasets/prices_with_sales.csv",
+    "type": "csv"
+  }
+]
