@@ -1,5 +1,14 @@
 ---
+interface Props {
+  actionButtonText?: string | null;
+  actionButtonTo?: string | null;
+  isBackButton?: boolean | null;
+}
+
 import ThemeIcon from "@/components/ThemeIcon.astro";
+import MenuSvg from "@/assets/svg/menu.svg";
+import BackButtonSvg from "@/assets/svg/back-button.svg";
+
 const links = [
   {
     to: "About",
@@ -10,6 +19,12 @@ const links = [
     url: "/blog",
   },
 ];
+
+const {
+  actionButtonText = "Coins5",
+  actionButtonTo = "/",
+  isBackButton = false,
+} = Astro.props;
 ---
 
 <header>
@@ -18,28 +33,26 @@ const links = [
     <div class="drawer-content flex flex-col">
       <!-- Navbar -->
       <div class="navbar w-full">
-        <div class="flex-none lg:hidden">
-          <label
-            for="my-drawer-3"
-            aria-label="open sidebar"
-            class="btn btn-square btn-ghost"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block h-6 w-6 stroke-current"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </label>
-        </div>
+        {
+          isBackButton ? (
+            <a href={actionButtonTo}>
+              <BackButtonSvg height="24px" width="24px"></BackButtonSvg>
+            </a>
+          ) : (
+            <div class="flex-none lg:hidden">
+              <label
+                for="my-drawer-3"
+                aria-label="open sidebar"
+                class="btn btn-square btn-ghost"
+              >
+                <MenuSvg />
+              </label>
+            </div>
+          )
+        }
+
         <div class="mx-2 flex-1 px-2">
-          <a href="/"> coins5.dev </a>
+          <a href={actionButtonTo}> {actionButtonText} </a>
         </div>
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
