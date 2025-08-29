@@ -12,8 +12,12 @@ import SeoPage from "@/components/SeoPage.astro";
 import Drawer from "@/components/Drawer.astro";
 import Footer from "@/components/Footer.astro";
 import "@/styles/global.css";
+import { undefined } from "astro:schema";
 
 const { pageTitle, blogPostSeo, pageSeo } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const isPost = currentPath.split("/")[1] === "posts";
 ---
 
 <html lang="en">
@@ -33,7 +37,11 @@ const { pageTitle, blogPostSeo, pageSeo } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <Drawer>
+    <Drawer
+      actionButtonText={isPost ? "Coins5's Blog" : "Coins5"}
+      actionButtonTo={isPost ? "/blog" : null}
+      isBackButton={isPost}
+    >
       <div class="container pb-24 pt-4">
         <slot />
       </div>
