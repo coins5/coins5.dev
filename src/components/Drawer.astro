@@ -8,6 +8,7 @@ interface Props {
 import ThemeIcon from "@/components/ThemeIcon.astro";
 import MenuSvg from "@/assets/svg/menu.svg";
 import BackButtonSvg from "@/assets/svg/back-button.svg";
+import { url } from "inspector";
 
 const links = [
   {
@@ -17,6 +18,10 @@ const links = [
   {
     to: "Blog",
     url: "/blog",
+  },
+  {
+    to: "Projects",
+    url: "/projects",
   },
 ];
 
@@ -36,7 +41,7 @@ const {
         {
           isBackButton ? (
             <a href={actionButtonTo}>
-              <BackButtonSvg height="24px" width="24px"></BackButtonSvg>
+              <BackButtonSvg height="24px" width="24px" />
             </a>
           ) : (
             <div class="flex-none lg:hidden">

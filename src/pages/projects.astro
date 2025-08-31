@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { iSeoPage } from "@/models/iSeoPage";
+
+const pageTitle = "@coins5";
+const seoPage: iSeoPage = {
+  title: "Projects",
+  description:
+    "Full stack developer. I create digital experiences with the mind of an engineer and the soul of a builder — thoughtful, elegant, and scalable.",
+  image:
+    "https://media.licdn.com/dms/image/v2/C5603AQH_niCAlkNaLQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516870572260?e=1752710400&v=beta&t=sXfVL04zeyjfr-c-r7jS9G5F5i6W_BcCfGK3MqgTH9Q",
+};
+---
+
+<BaseLayout pageTitle={pageTitle} pageSeo={seoPage}>
+  Projects here!
+</BaseLayout>
