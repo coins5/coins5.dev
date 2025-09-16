@@ -1,10 +1,10 @@
 ---
 title: "Data Model and Catalog"
-pubDate: 2025-09-04
+pubDate: 2025-09-07
 description: "Define a simple, typed catalog and helpers to query it efficiently from the UI."
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/03-data-model-and-catalog.png"
   alt: "Data Model and Catalog"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/es/04-core-ui-components"

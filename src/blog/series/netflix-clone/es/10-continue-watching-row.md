@@ -1,10 +1,10 @@
 ---
 title: "Continue Watching Row"
-pubDate: 2025-09-04
+pubDate: 2025-09-12
 description: "Surface in‑progress items based on local resume data"
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/10-continue-watching-row.png"
   alt: "Continue Watching Row"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/es/11-assets-and-licensing"

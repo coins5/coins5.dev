@@ -1,10 +1,10 @@
 ---
 title: "Subtitles: SRT to VTT in the Browser 💬✨"
-pubDate: 2025-09-04
+pubDate: 2025-09-09
 description: "Add support for .srt subtitles by converting them to WebVTT on the fly, so the native browser player can render captions without extra tooling."
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/07-subtitles-srt-to-vtt.png"
   alt: "Subtitles: SRT to VTT in the Browser 💬✨"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/es/08-resume-playback-and-progress"

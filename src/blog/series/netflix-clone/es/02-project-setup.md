@@ -1,10 +1,10 @@
 ---
 title: "Project Setup and Tailwind"
-pubDate: 2025-09-04
+pubDate: 2025-09-06
 description: "Create a Next.js App Router project and enable Tailwind with a dark, media‑friendly baseline."
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/02-project-setup.png"
   alt: "Project Setup and Tailwind"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/es/03-data-model-and-catalog"

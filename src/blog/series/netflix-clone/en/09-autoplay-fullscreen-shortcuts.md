@@ -1,10 +1,10 @@
 ---
 title: "Autoplay, Fullscreen, and Shortcuts"
-pubDate: 2025-09-04
+pubDate: 2025-09-13
 description: "Improve ergonomics with autoplay, best‑effort fullscreen, keyboard controls, and an optional “unmute” overlay."
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/09-autoplay-fullscreen-shortcuts.png"
   alt: "Autoplay, Fullscreen, and Shortcuts"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/en/10-continue-watching-row"

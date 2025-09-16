@@ -1,10 +1,10 @@
 ---
 title: "Video Player Foundation"
-pubDate: 2025-09-04
+pubDate: 2025-09-08
 description: "Build a simple, robust <video> player that accepts multiple sources and optional subtitles — friendly to mobile, and easy to extend"
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/06-video-player-foundation.png"
   alt: "Video Player Foundation"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/es/07-subtitles-srt-to-vtt"
