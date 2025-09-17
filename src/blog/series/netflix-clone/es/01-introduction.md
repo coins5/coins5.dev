@@ -1,10 +1,10 @@
 ---
 title: "Intro Netflix‑style Clone with Next.js"
-pubDate: 2025-09-04
+pubDate: 2025-09-05
 description: "Welcome! In this hands‑on course you’ll build a polished Netflix‑style application using Next.js (App Router), Tailwind, and the native HTML5 <video> element. We’ll focus on practical implementation while keeping the architecture simple and scalable."
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/01-introduction.png"
   alt: "Intro Netflix‑style Clone with Next.js"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/es/02-project-setup"

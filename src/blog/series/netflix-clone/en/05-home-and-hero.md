@@ -1,10 +1,10 @@
 ---
 title: "Home and Hero"
-pubDate: 2025-09-04
+pubDate: 2025-09-09
 description: "Compose the Home with a header, a hero banner, Continue Watching, and category rows"
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/05-home-and-hero.png"
   alt: "Home and Hero"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/en/06-video-player-foundation"

@@ -8,7 +8,6 @@ interface Props {
 import ThemeIcon from "@/components/ThemeIcon.astro";
 import MenuSvg from "@/assets/svg/menu.svg";
 import BackButtonSvg from "@/assets/svg/back-button.svg";
-import { url } from "inspector";
 
 const links = [
   {
@@ -33,7 +32,7 @@ const {
 ---
 
 <header>
-  <div class="drawer container">
+  <div class="drawer">
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content flex flex-col">
       <!-- Navbar -->

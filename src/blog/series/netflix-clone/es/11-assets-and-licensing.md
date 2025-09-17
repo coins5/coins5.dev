@@ -1,10 +1,10 @@
 ---
 title: "Assets and Licensing"
-pubDate: 2025-09-04
+pubDate: 2025-09-13
 description: "Handle videos, posters and subtitles responsibly in an open‑source project"
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/11-assets-and-licensing.png"
   alt: "Continue Watching Row"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/es/12-deploy-and-scaling"

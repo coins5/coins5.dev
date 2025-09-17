@@ -1,10 +1,10 @@
 ---
 title: "Resume Playback and Progress UI"
-pubDate: 2025-09-04
+pubDate: 2025-09-10
 description: "Persist and restore playback position, and reflect it in the catalog UI."
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/08-resume-playback-and-progress.png"
   alt: "Resume Playback and Progress UI"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/es/09-autoplay-fullscreen-shortcuts"

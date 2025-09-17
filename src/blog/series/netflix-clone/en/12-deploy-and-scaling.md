@@ -1,10 +1,10 @@
 ---
 title: "Deploy and Scaling"
-pubDate: 2025-09-04
+pubDate: 2025-09-16
 description: "Ship your app and plan for growth."
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/12-deploy-and-scaling.png"
   alt: "Ship your app and plan for growth."
 tags: ["nextjs", "typescript", "clones"]
 serie: "netflix-clone-en"

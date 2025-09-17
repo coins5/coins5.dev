@@ -1,10 +1,10 @@
 ---
 title: "Core UI Components"
-pubDate: 2025-09-04
+pubDate: 2025-09-08
 description: "Build reusable components for the catalog grid and horizontal rows."
 author: "coins5"
 image:
-  url: "/src/assets/images/series/loguru/getting_started_wit_loguru.png"
+  url: "/src/assets/images/series/netflix-clone/04-core-ui-components.png"
   alt: "Core UI Components"
 tags: ["nextjs", "typescript", "clones"]
 nextPost: "series/netflix-clone/en/05-home-and-hero"

@@ -14,7 +14,7 @@ const postLink = `/posts/${entry.id}`;
 const dayDate = dayjs(post.pubDate);
 ---
 
-<div class="card bg-base-100 shadow-sm not-prose max-w-96">
+<div class="card bg-base-100 not-prose max-w-96">
   <figure>
     <a href={postLink}>
       <!-- <img
@@ -30,9 +30,6 @@ const dayDate = dayjs(post.pubDate);
     </a>
   </figure>
   <div class="card-body">
-    <span class="text-xs font-mono">
-      {dayDate.format("DD MMM YYYY")} - {dayDate.fromNow()}
-    </span>
     <h2 class="card-title underline mb-4">
       <a href={postLink}>{post.title}</a>
     </h2>
@@ -41,6 +38,9 @@ const dayDate = dayjs(post.pubDate);
       {post.description}
     </p>
 
+    <span class="text-xs font-mono">
+      {dayDate.format("DD MMM YYYY")} - {dayDate.fromNow()}
+    </span>
     <!-- <div class="card-actions justify-center mt-6">
       {
         post.tags

@@ -7,5 +7,7 @@
     "prices_sample_csv",
     "prices_with_missing_data_csv",
     "prices_with_sales_csv"
-  ]
+  ],
+  "coverImage": "/src/assets/images/series/netflix-clone/00-cover-image.png",
+  "firstEntry": "series/pandas/what-is-pandas"
 }
