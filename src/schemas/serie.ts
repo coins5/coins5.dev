@@ -11,9 +11,10 @@ export const serieSchema = z.object({
     })
     .nullish(),
   attachments: z.array(reference("attachment")).default([]),
-  coverImage: z.string().nullish(),
   isFeatured: z.boolean().default(false),
+  coverImage: z.string().nullish(),
   firstEntry: reference("blog"),
+  links: z.array(z.string()).default([]),
 });
 
 // Exporta el tipo TypeScript

@@ -3,7 +3,8 @@
   "name": "Building a Netflix style Clone with Next.js",
   "description": "Welcome! In this hands on course you'll build a polished Netflix style application using Next.js (App Router), Tailwind, and the native HTML5 <video> element. We'll focus on practical implementation while keeping the architecture simple and scalable.",
   "authors": ["coins5"],
+  "isFeatured": true,
   "coverImage": "/src/assets/images/series/netflix-clone/00-cover-image.png",
   "firstEntry": "series/netflix-clone/en/01-introduction",
-  "isFeatured": true
+  "links": ["https://github.com/coins5/next-netflix-clone"]
 }

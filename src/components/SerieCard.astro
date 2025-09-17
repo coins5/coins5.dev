@@ -38,7 +38,12 @@ const { postSeries = [], serie, currentPost, attachments } = Astro.props;
       ))
     }
 
-    <div class="p-4 pb-2 text-sm opacity-60 tracking-wide">Attachments</div>
+    {
+      attachments.length > 0 ? (
+        <div class="p-4 pb-2 text-sm opacity-60 tracking-wide">Attachments</div>
+      ) : null
+    }
+
     {
       attachments.map((a) => (
         <li class="list-row">
@@ -47,6 +52,22 @@ const { postSeries = [], serie, currentPost, attachments } = Astro.props;
           </div>
           <a class="link opacity-70 mr-4" href={a.data.url}>
             {a.data.name}
+          </a>
+        </li>
+      ))
+    }
+
+    {
+      serie.links.length > 0 ? (
+        <div class="p-4 pb-2 text-sm opacity-60 tracking-wide">Links</div>
+      ) : null
+    }
+
+    {
+      serie.links.map((s) => (
+        <li class="list-row">
+          <a class="link opacity-70 mr-4" href={s} target="_blank">
+            {s}
           </a>
         </li>
       ))
