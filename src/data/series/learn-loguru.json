@@ -2,5 +2,7 @@
   "id": "learn-loguru",
   "name": "Learn loguru",
   "description": "Learn loguru, the easy way",
-  "authors": ["coins5"]
+  "authors": ["coins5"],
+  "coverImage": "/src/assets/images/series/netflix-clone/00-cover-image.png",
+  "firstEntry": "series/loguru/getting-started-with-loguru"
 }

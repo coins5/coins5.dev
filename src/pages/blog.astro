@@ -8,13 +8,14 @@ import SVGArrowIrght from "@/assets/svg/arrow-right.svg";
 import { getImage } from "@/shared/imageResolver";
 
 const allPosts = await getCollection("blog");
+const allSeries = await getCollection("serie");
+const featuredSerie = allSeries.filter((as) => as.data.isFeatured)[0];
+const firstEntry = featuredSerie.data.firstEntry;
 
 allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const imageSrc = getImage(featuredSerie.data.coverImage!);
 const pageTitle = "Coins5's Blog";
-
-const firstPost = allPosts[0];
-
-const imageSrc = getImage(firstPost.data.image.url);
 ---
 
 <BaseLayout pageTitle={pageTitle} readerMode={false}>
@@ -28,12 +29,12 @@ const imageSrc = getImage(firstPost.data.image.url);
     <div class="relative px-10 py-32 max-w-lg">
       <h1 class="text-white uppercase text-4xl font-bold leading-loose">
         <span class="bg-gray-900 box-decoration-clone px-2 py-1">
-          {firstPost.data.title}
+          {featuredSerie.data.name}
         </span>
       </h1>
       <div class="card-actions justify-end">
         <a
-          href={`/posts/${firstPost.id}`}
+          href={`/posts/${firstEntry.id}`}
           class="btn btn-primary uppercase p-6"
         >
           Read more <SVGArrowIrght height="24px" /></a
