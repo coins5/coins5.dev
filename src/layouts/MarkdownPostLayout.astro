@@ -50,6 +50,7 @@ const author = await getEntry("author", post.author.id);
     <div class="flex justify-center"></div>
     <div class="w-full">
       <ImageRenderer
+        transitionName={`cover-image-${entry.id}`}
         imagePath={post.image.url}
         imageAlt={post.image.alt}
         small={false}

@@ -23,6 +23,7 @@ const dayDate = dayjs(post.pubDate);
         class="h-[240px] object-cover"
       /> -->
       <ImageRenderer
+        transitionName={`cover-image-${entry.id}`}
         imagePath={post.image.url}
         imageAlt={post.image.alt}
         small
