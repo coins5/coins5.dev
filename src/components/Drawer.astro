@@ -24,11 +24,7 @@ const links = [
   },
 ];
 
-const {
-  actionButtonText = "Coins5",
-  actionButtonTo = "/",
-  isBackButton = false,
-} = Astro.props;
+const { actionButtonText = "Coins5", actionButtonTo = "/" } = Astro.props;
 ---
 
 <header>
@@ -37,30 +33,18 @@ const {
     <div class="drawer-content flex flex-col">
       <!-- Navbar -->
       <div class="navbar w-full">
-        {
-          isBackButton ? (
-            <a href={actionButtonTo}>
-              <BackButtonSvg
-                height="24px"
-                width="24px"
-                class="text-base-content"
-              />
-            </a>
-          ) : (
-            <div class="flex-none lg:hidden">
-              <label
-                for="my-drawer-3"
-                aria-label="open sidebar"
-                class="btn btn-square btn-ghost"
-              >
-                <MenuSvg />
-              </label>
-            </div>
-          )
-        }
+        <div class="flex-none lg:hidden">
+          <label
+            for="my-drawer-3"
+            aria-label="open sidebar"
+            class="btn btn-square btn-ghost"
+          >
+            <MenuSvg />
+          </label>
+        </div>
 
         <div class="mx-2 flex-1 px-2">
-          <a href={actionButtonTo}> {actionButtonText} </a>
+          <a href={actionButtonTo}> {actionButtonText}</a>
         </div>
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
