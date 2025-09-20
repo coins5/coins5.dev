@@ -11,6 +11,7 @@ import ImageRenderer from "@/components/ImageRenderer.astro";
 import { getCollection } from "astro:content";
 import SerieCard from "@/components/SerieCard.astro";
 import type { CollectionEntry } from "astro:content";
+import { allPosts } from "@/shared/postsDigest";
 dayjs.extend(relativeTime);
 
 const { entry } = Astro.props;
@@ -29,8 +30,7 @@ let serie: SerieSchema | null = null;
 let attachments: CollectionEntry<"attachment">[] = [];
 
 if (post.serie) {
-  postSeries = (await getCollection("blog"))
-    // .map((b) => b.data)
+  postSeries = allPosts
     .filter((b) => b.data.serie?.id === post.serie?.id)
     .sort((a, b) => a.data.seriesPartNumber! - b.data.seriesPartNumber!);
 

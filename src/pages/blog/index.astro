@@ -6,13 +6,11 @@ import BlogCard from "@/components/BlogCard.astro";
 import SVGArrowIrght from "@/assets/svg/arrow-right.svg";
 
 import { getImage } from "@/shared/imageResolver";
+import { allPosts } from "@/shared/postsDigest";
 
-const allPosts = await getCollection("blog");
 const allSeries = await getCollection("serie");
 const featuredSerie = allSeries.filter((as) => as.data.isFeatured)[0];
 const firstEntry = featuredSerie.data.firstEntry;
-
-allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const imageSrc = getImage(featuredSerie.data.coverImage!);
 const pageTitle = "Coins5's Blog";
@@ -43,7 +41,15 @@ const pageTitle = "Coins5's Blog";
     </div>
   </div>
 
+  <div class="container">
+    <div class="flex justify-between ...">
+      <div>Recent Posts</div>
+      <a href="/blog/1">View all</a>
+    </div>
+
+    <div class="divider"></div>
+  </div>
   <div class="container grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12">
-    {allPosts.map((post) => <BlogCard entry={post} />)}
+    {allPosts.slice(0, 4).map((post) => <BlogCard entry={post} />)}
   </div>
 </BaseLayout>
