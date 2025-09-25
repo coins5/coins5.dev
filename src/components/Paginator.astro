@@ -1,0 +1,48 @@
+---
+import type { Page } from "astro";
+import type { BlogSchema } from "@/schemas/blog";
+
+type BlogPage = Page<BlogSchema>;
+const { page, pages } = Astro.props as { page: BlogPage; pages: number[] };
+// const pages = Array.from({ length: page.lastPage }, (_, i) => i + 1);
+---
+
+<div class="flex justify-center my-12">
+  <div class="join">
+    <a
+      class={`join-item btn ${page.currentPage === 1 ? "btn-disabled" : ""}`}
+      href={page.url.prev}
+      }
+    >
+      Prev
+    </a>
+    <a
+      class={`join-item btn ${page.currentPage === 1 ? "btn-active" : ""}`}
+      href={`/blog/1`}
+    >
+      1
+    </a>
+    {
+      pages
+        .slice(
+          page.currentPage < 5 ? 1 : page.currentPage - 4,
+          page.currentPage < 5 ? 5 : page.currentPage + 1
+        )
+        .map((p) => (
+          <a
+            class={`join-item btn ${page.currentPage === p ? "btn-active" : ""}`}
+            href={`/blog/${p}`}
+          >
+            {p}
+          </a>
+        ))
+    }
+    <a
+      class={`join-item btn ${page.currentPage === page.lastPage ? "btn-disabled" : ""}`}
+      href={page.url.next}
+      }
+    >
+      Next
+    </a>
+  </div>
+</div>
