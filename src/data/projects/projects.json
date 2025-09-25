@@ -1,0 +1,11 @@
+[
+  {
+    "id": "netflix-clone",
+    "repo": "https://github.com/coins5/next-netflix-clone",
+    "url": "https://next-netflix-clone-alpha.vercel.app/",
+    "title": "Netflix Clone",
+    "description": "A Netflix clone built with Next.js and Tailwind CSS.",
+    "image": "https://raw.githubusercontent.com/coins5/next-netflix-clone/refs/heads/master/screenshot1.png",
+    "relatedSeries": ["netflix-clone-en", "netflix-clone-es"]
+  }
+]
