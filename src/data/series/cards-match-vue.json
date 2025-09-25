@@ -1,0 +1,10 @@
+{
+  "id": "cards-match-vue",
+  "name": "Building a cards match game with Vue!",
+  "description": "Learn to build a fully playable memory card game using Vue 3, TypeScript, and Vite, step by step.",
+  "authors": ["coins5"],
+  "isFeatured": true,
+  "coverImage": "/src/assets/images/series/cards-match-vue/00-cover-image.png",
+  "firstEntry": "series/cards-match-vue/01-welcome",
+  "links": ["https://github.com/coins5/cards-match-vue"]
+}
