@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { iSeoPage } from "@/models/iSeoPage";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { allProjects } from "@/shared/projectDigest";
+import { fetchRepoLanguages } from "@/shared/githubStats";
 
 const pageTitle = "@coins5";
 const seoPage: iSeoPage = {
@@ -10,8 +13,22 @@ const seoPage: iSeoPage = {
   image:
     "https://media.licdn.com/dms/image/v2/C5603AQH_niCAlkNaLQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516870572260?e=1752710400&v=beta&t=sXfVL04zeyjfr-c-r7jS9G5F5i6W_BcCfGK3MqgTH9Q",
 };
+
+const ghToken = import.meta.env.GITHUB_TOKEN;
+const withLangs = await Promise.all(
+  allProjects.map(async (p) => {
+    const urlParts = p.data.repo.split("/");
+    const [owner, repo] = [urlParts.at(-2)!, urlParts.at(-1)!];
+    const languages = await fetchRepoLanguages(owner, repo, ghToken);
+    return { ...p, languages };
+  })
+);
 ---
 
 <BaseLayout pageTitle={pageTitle} pageSeo={seoPage}>
-  Projects here!
+  {
+    withLangs.map((p) => (
+      <ProjectCard project={p.data} languages={p.languages} />
+    ))
+  }
 </BaseLayout>

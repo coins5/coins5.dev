@@ -6,6 +6,7 @@ import { blogSchema } from "@/schemas/blog";
 import { authorSchema } from "@/schemas/author";
 import { serieSchema } from "@/schemas/serie";
 import { attachmentSchema } from "@/schemas/attachment";
+import { projectSchema } from "@/schemas/project";
 
 // Define a `loader` and `schema` for each collection
 const blog = defineCollection({
@@ -34,5 +35,11 @@ const attachment = defineCollection({
   schema: attachmentSchema,
 });
 
+// Define a `loader` and `schema` for each collection
+const project = defineCollection({
+  loader: file("./src/data/projects/projects.json"),
+  schema: projectSchema,
+});
+
 // Export a single `collections` object to register your collection(s)
-export const collections = { blog, author, serie, attachment };
+export const collections = { blog, author, serie, attachment, project };
