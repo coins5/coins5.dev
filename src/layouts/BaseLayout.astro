@@ -41,7 +41,7 @@ const isPost = currentPath.split("/")[1] === "posts";
   <body>
     <Drawer
       actionButtonText={isPost ? "Coins5's Blog" : "Coins5"}
-      actionButtonTo={isPost ? "/blog/1" : null}
+      actionButtonTo={isPost ? "/blog/1" : "/"}
       isBackButton={isPost}
     >
       {

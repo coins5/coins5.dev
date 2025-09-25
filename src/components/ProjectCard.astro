@@ -12,7 +12,7 @@ const { project, languages } = Astro.props;
 const relatedSerie = await getEntry("serie", project.relatedSeries[0].id);
 ---
 
-<div class="card lg:card-side bg-base-100 lg:h-75 group">
+<div class="card bg-base-100 group">
   <figure class="overflow-hidden">
     <img
       src={project.image}
@@ -56,20 +56,22 @@ const relatedSerie = await getEntry("serie", project.relatedSeries[0].id);
         </table>
       </div>
     </div>
-    <div class="card-actions mt-4">
-      <a class="btn btn-link" href={project.repo} target="_blank"
-        ><SVGGithub />Repo</a
-      >
-      <a class="btn btn-link" target="_blank" href={project.url}>
-        <SVGWeb /> Web
-      </a>
-    </div>
-    <div class="card-actions mt-4 justify-end">
-      <a
-        class="btn btn-primary"
-        href={`/posts/${relatedSerie?.data.firstEntry.id}`}
-        >Learn
-      </a>
+    <div class="card-actions mt-4 justify-between">
+      <div>
+        <a class="btn btn-link" href={project.repo} target="_blank"
+          ><SVGGithub />Repo</a
+        >
+        <a class="btn btn-link" target="_blank" href={project.url}>
+          <SVGWeb /> Web
+        </a>
+      </div>
+      <div>
+        <a
+          class="btn btn-primary"
+          href={`/posts/${relatedSerie?.data.firstEntry.id}`}
+          >Learn
+        </a>
+      </div>
     </div>
   </div>
 </div>

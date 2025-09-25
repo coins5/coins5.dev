@@ -9,6 +9,7 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 import type { BlogSchema } from "@/schemas/blog";
 import BlogCard from "@/components/BlogCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Paginator from "@/components/Paginator.astro";
 
 type BlogPage = Page<BlogSchema>;
 const { page } = Astro.props as { page: BlogPage };
@@ -23,43 +24,5 @@ const pages = Array.from({ length: page.lastPage }, (_, i) => i + 1);
     {page.data.map((post) => <BlogCard entry={post} />)}
   </div>
 
-  <div class="flex justify-center my-12">
-    <div class="join">
-      <a
-        class={`join-item btn ${page.currentPage === 1 ? "btn-disabled" : ""}`}
-        href={page.url.prev}
-        }
-      >
-        Prev
-      </a>
-      <a
-        class={`join-item btn ${page.currentPage === 1 ? "btn-active" : ""}`}
-        href={`/blog/1`}
-      >
-        1
-      </a>
-      {
-        pages
-          .slice(
-            page.currentPage < 5 ? 1 : page.currentPage - 4,
-            page.currentPage < 5 ? 5 : page.currentPage + 1
-          )
-          .map((p) => (
-            <a
-              class={`join-item btn ${page.currentPage === p ? "btn-active" : ""}`}
-              href={`/blog/${p}`}
-            >
-              {p}
-            </a>
-          ))
-      }
-      <a
-        class={`join-item btn ${page.currentPage === page.lastPage ? "btn-disabled" : ""}`}
-        href={page.url.next}
-        }
-      >
-        Next
-      </a>
-    </div>
-  </div>
+  <Paginator page={page} pages={pages} />
 </BaseLayout>
