@@ -10,28 +10,29 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.3.3",
+    "@astrojs/mdx": "^4.3.6",
     "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.2",
-    "@astrojs/vue": "^5.1.0",
-    "@fontsource-variable/fira-code": "^5.2.6",
-    "@fontsource-variable/jetbrains-mono": "^5.2.6",
-    "@fontsource-variable/noto-sans": "^5.2.7",
-    "@fontsource-variable/noto-sans-jp": "^5.2.6",
-    "@fontsource-variable/outfit": "^5.2.6",
-    "@fontsource-variable/vazirmatn": "^5.2.6",
-    "@tailwindcss/vite": "^4.1.11",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/vue": "^5.1.1",
+    "@fontsource-variable/fira-code": "^5.2.7",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource-variable/noto-sans": "^5.2.10",
+    "@fontsource-variable/noto-sans-jp": "^5.2.9",
+    "@fontsource-variable/outfit": "^5.2.8",
+    "@fontsource-variable/vazirmatn": "^5.2.8",
+    "@tailwindcss/vite": "^4.1.13",
     "@vercel/analytics": "^1.5.0",
-    "astro": "^5.12.8",
+    "astro": "^5.14.0",
     "astro-seo": "^0.8.4",
-    "dayjs": "^1.11.13",
-    "tailwindcss": "^4.1.11",
+    "dayjs": "^1.11.18",
+    "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
-    "vue": "^3.5.18"
+    "vue": "^3.5.22"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^24.1.0",
-    "daisyui": "^5.0.50"
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^24.5.2",
+    "astro-webmanifest": "^1.0.0",
+    "daisyui": "^5.1.23"
   }
 }
