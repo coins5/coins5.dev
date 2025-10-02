@@ -1,0 +1,44 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { allSeries } from "@/shared/seriesDigest";
+import type { iSeoPage } from "@/models/iSeoPage";
+
+const seoPage: iSeoPage = {
+  title: "Projects",
+  description:
+    "Full stack developer. I create digital experiences with the mind of an engineer and the soul of a builder — thoughtful, elegant, and scalable.",
+  image:
+    "https://media.licdn.com/dms/image/v2/C5603AQH_niCAlkNaLQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516870572260?e=1752710400&v=beta&t=sXfVL04zeyjfr-c-r7jS9G5F5i6W_BcCfGK3MqgTH9Q",
+};
+
+const pageTitle = "Coins5's series";
+---
+
+<BaseLayout pageTitle={pageTitle} pageSeo={seoPage}>
+  <div class="container">
+    {
+      allSeries.map((s) => (
+        <div>
+          <div class="card md:card-side">
+            <figure class="md:max-w-64 md:min-w-64">
+              <img src={s.data.coverImage} alt={s.data.name} />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{s.data.name}</h2>
+              <div class="line-clamp-3">{s.data.description}</div>
+              <div class="card-actions justify-end mt-8">
+                <a
+                  class="btn btn-primary"
+                  href={`/posts/${s.data.firstEntry.id}`}
+                >
+                  Learn
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="divider" />
+        </div>
+      ))
+    }
+  </div>
+</BaseLayout>

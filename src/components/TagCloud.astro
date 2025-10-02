@@ -1,0 +1,145 @@
+---
+/**
+ * TagCloudDaisy.astro
+ * Requiere Tailwind + daisyUI.
+ *
+ * Uso:
+ * <TagCloudDaisy
+ *   tags={[
+ *     { name: 'Astro', count: 12, href: '/tags/astro' },
+ *     { name: 'JavaScript', count: 101, href: '/tags/javascript' },
+ *     // ...
+ *   ]}
+ *   placeholder="Buscar tags..."
+ *   title="Tags"
+ * />
+ */
+
+export interface Props {
+  tags: { name: string; count: number; href: string }[];
+  title?: string;
+  placeholder?: string;
+}
+
+const { tags, title = "Tags", placeholder = "Buscar tags..." } = Astro.props;
+
+// Tamaños por popularidad
+function getSize(count: number) {
+  if (count < 10) return { btn: "btn-sm", badge: "badge-sm" };
+  if (count < 50) return { btn: "btn-md", badge: "badge-md" };
+  return { btn: "btn-lg", badge: "badge-lg" };
+}
+
+// Colores con contraste (botón vs badge)
+function getColor(count: number) {
+  if (count < 10) return { btn: "btn-info", badge: "badge-neutral" };
+  if (count < 50) return { btn: "btn-accent", badge: "badge-neutral" };
+  if (count < 100) return { btn: "btn-secondary", badge: "badge-primary" };
+  return { btn: "btn-primary", badge: "badge-secondary" };
+}
+
+function formatCount(count: number) {
+  return count > 99 ? "+99" : String(count);
+}
+
+// Orden inicial alfabético
+const initial = [...tags]
+  .sort((a, b) => a.name.localeCompare(b.name))
+  .map((t, idx) => ({ ...t, _idx: idx }));
+---
+
+<section class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+  <div class="mb-4 flex items-center justify-between gap-3">
+    <h2 class="text-xl sm:text-2xl font-semibold tracking-tight">
+      {title}
+      <span id="tagTotal" class="ml-2 align-middle text-xs opacity-60"
+        >({initial.length})</span
+      >
+    </h2>
+  </div>
+
+  <!-- Search -->
+  <div class="mb-5">
+    <label class="input input-bordered flex items-center gap-2 rounded-2xl">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 opacity-60"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        ><path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.7"
+          d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"
+        ></path></svg
+      >
+      <input
+        id="tagSearch"
+        type="search"
+        class="grow"
+        placeholder={placeholder}
+        aria-label="Buscar tags"
+      />
+      <button id="clearBtn" class="btn btn-ghost btn-xs">Limpiar</button>
+    </label>
+    <div class="mt-2 text-sm opacity-75" aria-live="polite">
+      <span id="matchCount">{initial.length}</span> resultados
+    </div>
+  </div>
+
+  <!-- Grid / nube responsiva -->
+  <div id="tagCloud" class="flex flex-wrap gap-2 sm:gap-3">
+    {
+      initial.map((t) => {
+        const { btn, badge } = getSize(t.count);
+        const { btn: btnColor, badge: badgeColor } = getColor(t.count);
+        return (
+          <a
+            href={t.href}
+            data-name={t.name.toLowerCase()}
+            data-count={t.count}
+            data-idx={t._idx}
+            class={`btn ${btn} ${btnColor} gap-2 transition hover:scale-105`}
+          >
+            #{t.name}
+            <div class={`badge ${badge} ${badgeColor}`}>
+              {formatCount(t.count)}
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
+
+  <div id="emptyState" class="hidden mt-8 text-center opacity-70">
+    <div class="text-lg">😕 No encontramos tags para tu búsqueda.</div>
+    <div class="text-sm">Prueba con otra palabra o borra el filtro.</div>
+  </div>
+
+  <script src="@/scripts/tag-search.ts"></script>
+</section>
+
+<style>
+  /* Pequeño “flow” de nube en desktop */
+  @media (min-width: 1024px) {
+    #tagCloud a:nth-child(4n) {
+      margin-top: 0.15rem;
+    }
+    #tagCloud a:nth-child(4n + 1) {
+      margin-top: -0.1rem;
+    }
+    #tagCloud a:nth-child(4n + 2) {
+      margin-top: 0.05rem;
+    }
+    #tagCloud a:nth-child(4n + 3) {
+      margin-top: -0.15rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #tagCloud a {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+</style>
