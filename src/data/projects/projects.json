@@ -5,16 +5,18 @@
     "url": "https://next-netflix-clone-alpha.vercel.app/",
     "title": "Netflix Clone",
     "description": "A Netflix clone built with Next.js and Tailwind CSS.",
-    "image": "https://raw.githubusercontent.com/coins5/next-netflix-clone/refs/heads/master/screenshot1.png",
+    "image": "/src/assets/images/projects/netflix-clone/iphone.png",
+    "images": ["/src/assets/images/projects/netflix-clone/iphone.png"],
     "relatedSeries": ["netflix-clone-en", "netflix-clone-es"]
   },
   {
     "id": "cards-match-vue",
-    "repo": "hhttps://github.com/coins5/cards-match-vue",
+    "repo": "https://github.com/coins5/cards-match-vue",
     "url": "https://cards-match-vue-pi.vercel.app/",
     "title": "Cards Match with Vue",
     "description": "A cards match game me with vue",
     "image": "https://raw.githubusercontent.com/coins5/cards-match-vue/refs/heads/master/screenshot1.png",
-    "relatedSeries": ["netflix-clone-en", "netflix-clone-es"]
+    "images": ["/src/assets/images/projects/cards-match/iphone.png"],
+    "relatedSeries": ["cards-match-vue"]
   }
 ]

@@ -9,52 +9,59 @@ import SVGWeb from "@/assets/svg/web.svg";
 import type { RepoLang } from "@/shared/githubStats";
 import { getEntry } from "astro:content";
 const { project, languages } = Astro.props;
+
 const relatedSerie = await getEntry("serie", project.relatedSeries[0].id);
 ---
 
-<div class="card bg-base-100 group">
-  <figure class="overflow-hidden">
-    <img
-      src={project.image}
-      alt={project.title}
-      class="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
-    />
+<div class="card bg-base-100 group w-full">
+  <figure class="relative overflow-hidden">
+    <div class="carousel w-full">
+      {
+        project.images.map((i, $index) => (
+          <div id={`${project.repo}-${$index}`} class="carousel-item w-full">
+            <img
+              src={i}
+              alt={project.title}
+              class="object-cover transition-transform duration-500 ease-in-out hover:scale-110 w-full"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Indicadores sobre la imagen -->
+    {
+      project.images.length > 1 ? (
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+          {project.images.map((i, $index) => (
+            <a href={`#${project.repo}-${$index}`} class="btn btn-xs btn-ghost">
+              <div class="badge badge-primary badge-xs" />
+            </a>
+          ))}
+        </div>
+      ) : null
+    }
   </figure>
+
   <div class="card-body">
     <h2 class="card-title">{project.title}</h2>
     <p>{project.description}</p>
     <div>
-      <div class="overflow-x-auto">
-        <table class="table">
-          <!-- head -->
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              languages.map((l) => (
-                <tr>
-                  <td>
-                    <span class="text-base-content/60">{l.pct}%</span>
-                  </td>
-                  <td class="text-left">{l.name}</td>
-                  <td>
-                    <progress
-                      class="progress progress-primary w-56"
-                      value={l.pct}
-                      max="100"
-                    />
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+      {
+        languages.map((l) => (
+          <div>
+            <span>
+              <span>{l.name}</span>
+              <span class="text-base-content/60 ml-2">{l.pct}%</span>
+            </span>
+            <progress
+              class="progress progress-primary"
+              value={l.pct}
+              max="100"
+            />
+          </div>
+        ))
+      }
     </div>
     <div class="card-actions mt-4 justify-between">
       <div>
@@ -62,7 +69,7 @@ const relatedSerie = await getEntry("serie", project.relatedSeries[0].id);
           ><SVGGithub />Repo</a
         >
         <a class="btn btn-link" target="_blank" href={project.url}>
-          <SVGWeb /> Web
+          <SVGWeb /> Demo
         </a>
       </div>
       <div>

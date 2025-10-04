@@ -27,7 +27,7 @@ const withLangs = await Promise.all(
 
 <BaseLayout pageTitle={pageTitle} pageSeo={seoPage}>
   <div class="container">
-    <div class="grid grid-cols-1 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {
         withLangs.map((p) => (
           <ProjectCard project={p.data} languages={p.languages} />
