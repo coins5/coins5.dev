@@ -1,8 +1,8 @@
 {
   "id": "learn-loguru",
-  "name": "Learn loguru",
-  "description": "Learn loguru, the easy way",
+  "name": "Mastering Loguru: From Simple Logs to Production-Ready Monitoring",
+  "description": "A complete blog series that takes you from the basics of logging with Loguru to advanced real-world setups, structured JSON logs, async-safe logging, network sinks, and full integration with Sentry for error monitoring. Perfect for Python developers who want clean, powerful, and production-grade logging without the usual pain.",
   "authors": ["coins5"],
-  "coverImage": "/src/assets/images/series/netflix-clone/00-cover-image.png",
+  "coverImage": "/src/assets/images/series/loguru/00-cover-image.png",
   "firstEntry": "series/loguru/getting-started-with-loguru"
 }

@@ -1,0 +1,45 @@
+---
+export interface Props {
+  tags: { name: string; count: number; href: string }[];
+}
+
+const { tags } = Astro.props;
+
+function getSize(count: number) {
+  if (count < 10) return { btn: "btn-sm", badge: "badge-sm" };
+  if (count < 50) return { btn: "btn-md", badge: "badge-md" };
+  return { btn: "btn-lg", badge: "badge-lg" };
+}
+
+function getColor(count: number) {
+  // Devolvemos btnColor y badgeColor separados para asegurar contraste
+  if (count < 10) return { btn: "btn-info", badge: "badge-neutral" };
+  if (count < 50) return { btn: "btn-accent", badge: "badge-neutral" };
+  if (count < 100) return { btn: "btn-secondary", badge: "badge-primary" };
+  return { btn: "btn-primary", badge: "badge-secondary" };
+}
+
+function formatCount(count: number) {
+  return count > 99 ? "+99" : count.toString();
+}
+---
+
+<div class="flex flex-wrap gap-3">
+  {
+    tags.map((tag) => {
+      const { btn, badge } = getSize(tag.count);
+      const { btn: btnColor, badge: badgeColor } = getColor(tag.count);
+      return (
+        <a
+          href={tag.href}
+          class={`btn ${btn} ${btnColor} gap-2 transition hover:scale-105`}
+        >
+          #{tag.name}
+          <div class={`badge ${badge} ${badgeColor}`}>
+            {formatCount(tag.count)}
+          </div>
+        </a>
+      );
+    })
+  }
+</div>

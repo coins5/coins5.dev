@@ -7,6 +7,7 @@ export const projectSchema = z.object({
   url: z.string().url(),
   description: z.string(),
   image: z.string(),
+  images: z.array(z.string()).default([]),
   relatedSeries: z.array(reference("serie")).default([]),
 });
 
