@@ -57,16 +57,20 @@ const processedSrc = project.images.map((i) => getImage(i));
   </figure>
 
   <div class="card-body">
-    <h2 class="card-title">{project.title}</h2>
+    <h2 class="card-title">
+      <a class="link" href={`/posts/${relatedSerie?.data.firstEntry.id}`}>
+        {project.title}
+      </a>
+    </h2>
     <p>{project.description}</p>
     <div>
       {
         languages.map((l) => (
           <div>
-            <span>
+            <div>
               <span>{l.name}</span>
               <span class="text-base-content/60 ml-2">{l.pct}%</span>
-            </span>
+            </div>
             <progress
               class="progress progress-primary"
               value={l.pct}
