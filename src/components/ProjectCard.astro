@@ -10,7 +10,12 @@ import type { RepoLang } from "@/shared/githubStats";
 import { getEntry } from "astro:content";
 const { project, languages } = Astro.props;
 
+import { Image } from "astro:assets";
+import { getImage } from "@/shared/imageResolver";
+
 const relatedSerie = await getEntry("serie", project.relatedSeries[0].id);
+
+const processedSrc = project.images.map((i) => getImage(i));
 ---
 
 <div class="card bg-base-100 group w-full">
@@ -19,11 +24,19 @@ const relatedSerie = await getEntry("serie", project.relatedSeries[0].id);
       {
         project.images.map((i, $index) => (
           <div id={`${project.repo}-${$index}`} class="carousel-item w-full">
-            <img
-              src={i}
-              alt={project.title}
-              class="object-cover transition-transform duration-500 ease-in-out hover:scale-110 w-full"
-            />
+            {processedSrc[$index] ? (
+              <Image
+                src={processedSrc[$index]}
+                alt={project.title}
+                class="object-cover transition-transform duration-500 ease-in-out hover:scale-110 w-full"
+              />
+            ) : (
+              <img
+                src={i}
+                alt={project.title}
+                class="object-cover transition-transform duration-500 ease-in-out hover:scale-110 w-full"
+              />
+            )}
           </div>
         ))
       }
