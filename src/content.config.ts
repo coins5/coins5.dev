@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 /**
- * Zod schema validation for the Blog Collection using Astro v6 Content Layer.
+ * Zod schema validation for the Blog Collection.
  * Standardizes metadata for SEO, publishing status, classification tags,
  * and routing/i18n control.
  */
@@ -27,12 +27,12 @@ const blog = defineCollection({
     // List of commercial or technological tags
     tags: z.array(z.string()),
     // Optional flag to set entry as draft
-    draft: z.boolean().optional().default(false),
+    draft: z.boolean().optional(),
   }),
 });
 
 /**
- * Zod schema validation for the Case Studies Collection ('cases') using Astro v6 Content Layer.
+ * Zod schema validation for the Case Studies Collection ('cases').
  * Standardizes metadata for commercial validation, client credibility,
  * tech stack listing, and ROI metrics.
  */
