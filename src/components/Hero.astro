@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import marlonImage from "../assets/marlon.png";
 import AuthorityBar from "./AuthorityBar.astro";
+import { Calendar, MessageSquare } from "@lucide/astro";
 
 const { pathname } = Astro.url;
 const cleanPathname = pathname.replace(/\/$/, "");
@@ -12,14 +13,14 @@ const content = isEs
   ? {
       h1: "Transformo ideas complejas en software rentable impulsado por Inteligencia Artificial.",
       subtitle: "Desarrollo MVPs rápidos para startups tecnológicas y digitalizo procesos para empresas en Lima. Código robusto de nivel Senior optimizado con IA para entregas hasta 3 veces más rápidas y sin errores.",
-      primaryCta: "🗓️ Agendar llamada de 15 min",
-      secondaryCta: "💬 Cotizar por WhatsApp",
+      primaryCta: "Agendar llamada de 15 min",
+      secondaryCta: "Cotizar por WhatsApp",
     }
   : {
       h1: "Transforming complex ideas into profitable software powered by AI.",
       subtitle: "I build high-performance MVPs for tech startups and digitalize operations for mid-sized companies. Senior-level engineering accelerated by AI for development that is up to 3x faster, secure, and cost-efficient.",
-      primaryCta: "🗓️ Book a 15-min discovery call",
-      secondaryCta: "💬 Chat on WhatsApp",
+      primaryCta: "Book a 15-min discovery call",
+      secondaryCta: "Chat on WhatsApp",
     };
 ---
 
@@ -51,6 +52,11 @@ const content = isEs
       </div>
     </div>
 
+    <!-- Small decorative tag above H1 -->
+    <span class="font-mono text-xs text-secondary tracking-widest uppercase mb-4 block">
+      // ARCHITECTURE & AI SOLUTIONS
+    </span>
+
     <!-- Imposing White Hues H1 -->
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary tracking-tight max-w-4xl leading-[1.1] mb-6">
       {content.h1}
@@ -68,8 +74,9 @@ const content = isEs
         href="https://calendly.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center bg-[#E6DFD3] text-[#141414] font-extrabold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto shadow-[0_4px_20px_rgba(230,223,211,0.15)] hover:shadow-[0_6px_25px_rgba(230,223,211,0.25)] hover:bg-[#F0EAE0] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
+        class="inline-flex items-center justify-center gap-2.5 bg-[#E6DFD3] text-[#141414] font-extrabold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto shadow-[0_4px_20px_rgba(230,223,211,0.15)] hover:shadow-[0_6px_25px_rgba(230,223,211,0.25)] hover:bg-[#F0EAE0] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
       >
+        <Calendar class="w-5 h-5" stroke-width="2" />
         {content.primaryCta}
       </a>
       
@@ -78,8 +85,9 @@ const content = isEs
         href="https://wa.me/51900000000"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center border border-stone-500/30 text-[#F5F5F4] hover:bg-stone-500/10 hover:border-stone-500/50 font-bold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+        class="inline-flex items-center justify-center gap-2.5 border border-stone-500/30 text-[#F5F5F4] hover:bg-stone-500/10 hover:border-stone-500/50 font-bold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
       >
+        <MessageSquare class="w-5 h-5 text-secondary" stroke-width="2" />
         {content.secondaryCta}
       </a>
     </div>

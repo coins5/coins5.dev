@@ -109,11 +109,14 @@ Todos los componentes de interfaz de usuario deben adherirse al siguiente sistem
 * **Cuerpo y Lectura:** Fuentes sans-serif geométricas y ultra limpias.
 * **Detalles Técnicos:** Fuentes mono (`font-mono`) reservadas estrictamente para pequeños tags técnicos, fragmentos de código o detalles de ingeniería.
 
+### 4.4. Íconos
+* **ÍCONOS GLOBALMENTE CONSISTENTES:** Queda estrictamente prohibido el uso de emojis o SVGs externos mal optimizados. Todos los iconos de la interfaz (interfaces de usuario, tarjetas de servicios, viñetas de listas) deben provenir de 'lucide-astro'. Los iconos deben configurarse con un trazo fino, elegante y minimalista (`stroke-width="1.5"` o `2`) y dimensionados correctamente usando clases de Tailwind (ej. `w-5 h-5` para botones, `w-6 h-6` para cabeceras de tarjetas). El color del icono debe heredar del texto o usar el acento crema (`#E6DFD3`) de forma quirúrgica.
+
 ---
 
-## 5. DIRECTRICES DE OPTIMIZACIÓN Y SEO TÉCNICO (On-Page)
+## 5. LINEAMIENTOS TÉCNICOS Y ARQUITECTURA DEL SITIO
 
-Cualquier cambio, adición o modificación en el código de las páginas del sitio debe cumplir con las siguientes directrices de SEO y performance:
+Cualquier cambio, adición o modificación en el código de las páginas del sitio debe cumplir con las siguientes directrices de SEO, rendimiento y automatización de flujo de trabajo:
 
 ### 5.1. Estructura de Metadatos y Layouts
 Todas las páginas deben estar envueltas en un layout común que reciba un objeto de metadatos dinámico para inyectar en el HTML:
@@ -148,3 +151,9 @@ Todas las páginas deben estar envueltas en un layout común que reciba un objet
 * **Gestión de Imágenes:** Utilizar obligatoriamente el componente nativo `<Image />` de Astro (`astro:assets`).
 * **Atributos Obligatorios:** Especificar dimensiones fijas (`width`, `height`), formato optimizado (`format="webp"` o `format="avif"`).
 * **Estrategia de Carga:** Usar `loading="lazy"` para todas las imágenes ubicadas debajo del pliegue (below the fold). La imagen principal del Hero (above the fold) debe usar `loading="eager"` (o omitir lazy) para evitar retrasos en el LCP.
+
+### 5.4. AUTOMATIZACIÓN DE COMMITS (Git Workflow)
+Cada vez que termines de crear, modificar o refinar un archivo, componente o configuración en el proyecto, estás obligado a realizar un commit automático de tus cambios utilizando la terminal de Antigravity. No debes esperar a que yo te lo pida. El flujo de comandos debe ser:
+1. `git add .` (o el archivo específico).
+2. `git commit -m "feat(agent): [Breve descripción en inglés de lo que hiciste]"` (Usa el prefijo 'feat:', 'fix:' o 'docs:' según corresponda, siguiendo la convención de Conventional Commits).
+Por ejemplo, si acabas de actualizar los iconos de las tarjetas, el commit automático debería ser: `git commit -m "feat(agent): replace generic icons with lucide-astro components in services"`.
