@@ -9,18 +9,20 @@ export const siteConfig = {
   email: "marlon@coins5.dev",
 
   // Primary Call To Action: Discovery Call booking page
-  calendlyUrl: "https://calendly.com",
+  calendlyUrl: "https://calendar.app.google/AbnPNcKVJyDnaU9z5",
 
   // Secondary Call To Action: WhatsApp contact configuration
-  whatsappNumber: "51900000000",
+  whatsappNumber: "51922913739",
   whatsappMessages: {
     en: {
       default: "Hello Marlon, I would like to quote a software project.",
-      services: "Hello Marlon, I would like to discuss cloud optimization and automation for my business.",
+      services:
+        "Hello Marlon, I would like to discuss cloud optimization and automation for my business.",
     },
     es: {
       default: "Hola Marlon, quisiera cotizar un proyecto de software.",
-      services: "Hola Marlon, quisiera cotizar servicios de digitalización y automatización.",
+      services:
+        "Hola Marlon, quisiera cotizar servicios de digitalización y automatización.",
     },
   },
 };
@@ -33,7 +35,7 @@ export const siteConfig = {
  */
 export function getWhatsAppUrl(
   lang: "en" | "es" = "en",
-  type: "default" | "services" = "default"
+  type: "default" | "services" = "default",
 ): string {
   const message = siteConfig.whatsappMessages[lang][type];
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;

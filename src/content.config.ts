@@ -22,7 +22,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     // Required language selection for routing & i18n
     lang: z.enum(['en', 'es'], {
-      errorMap: () => ({ message: "Language must be either 'en' or 'es'." }),
+      message: "Language must be either 'en' or 'es'.",
     }),
     // List of commercial or technological tags
     tags: z.array(z.string()),
@@ -59,7 +59,7 @@ const cases = defineCollection({
     pubDate: z.date(),
     // Required language selection for routing & i18n
     lang: z.enum(['en', 'es'], {
-      errorMap: () => ({ message: "Language must be either 'en' or 'es'." }),
+      message: "Language must be either 'en' or 'es'.",
     }),
     // Tech stack list used in the project
     technologies: z.array(z.string()),
