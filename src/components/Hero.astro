@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import marlonImage from "../assets/marlon.png";
 import AuthorityBar from "./AuthorityBar.astro";
 
 const { pathname } = Astro.url;
@@ -31,6 +33,24 @@ const content = isEs
   <!-- Main Hero content container -->
   <div class="relative flex-grow flex flex-col items-center justify-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center z-10">
     
+    <!-- Marlon's Avatar Profile (CRO trust builder and Native Image Optimization) -->
+    <div class="flex items-center gap-3.5 mb-8 justify-center bg-base-200/50 backdrop-blur-sm px-4 py-2 rounded-full border border-stone-500/10">
+      <Image 
+        src={marlonImage} 
+        alt="Marlon - Senior Full Stack Developer & Software Architect" 
+        width={48} 
+        height={48} 
+        format="webp"
+        loading="eager"
+        decoding="async"
+        class="rounded-full border border-stone-500/30 shadow-md object-cover h-12 w-12"
+      />
+      <div class="text-left leading-tight">
+        <span class="block text-xs font-mono font-bold text-secondary uppercase tracking-widest">Marlon</span>
+        <span class="block text-[10px] text-stone-400 font-mono">Senior Architect & Developer</span>
+      </div>
+    </div>
+
     <!-- Imposing White Hues H1 -->
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary tracking-tight max-w-4xl leading-[1.1] mb-6">
       {content.h1}

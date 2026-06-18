@@ -115,5 +115,61 @@ const currentLocale = lang === "es" ? "es_PE" : "en_US";
 
     <!-- Footer -->
     <Footer />
+
+    <!-- Conversion Event Tracking (Vanilla JS Event Delegation for perfect INP & Lighthouse) -->
+    <script is:inline>
+      (function() {
+        // Register conversion events after browser becomes idle to prevent Blocking Time
+        const initTracking = () => {
+          document.body.addEventListener('click', (event) => {
+            const link = event.target.closest('a');
+            if (!link) return;
+
+            const href = link.getAttribute('href') || '';
+            const ctaText = link.innerText ? link.innerText.trim() : '';
+
+            // 1. Primary CTA - Calendly (Discovery Call)
+            if (href.includes('calendly.com')) {
+              console.log('[Analytics] Primary Conversion Triggered: Calendly Discovery Call', {
+                text: ctaText,
+                destination: href,
+                timestamp: new Date().toISOString()
+              });
+
+              // Push to Google Tag Manager / GA4 dataLayer securely
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                event: 'primary_conversion_calendly',
+                cta_label: ctaText,
+                destination_url: href
+              });
+            }
+
+            // 2. Secondary CTA - WhatsApp Business (Quick Quote)
+            if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+              console.log('[Analytics] Secondary Conversion Triggered: WhatsApp Business Quote', {
+                text: ctaText,
+                destination: href,
+                timestamp: new Date().toISOString()
+              });
+
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                event: 'secondary_conversion_whatsapp',
+                cta_label: ctaText,
+                destination_url: href
+              });
+            }
+          });
+        };
+
+        // Leverage requestIdleCallback or setTimeout fallback to preserve Main Thread
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(() => initTracking(), { timeout: 2000 });
+        } else {
+          setTimeout(() => initTracking(), 100);
+        }
+      })();
+    </script>
   </body>
 </html>
