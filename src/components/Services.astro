@@ -1,0 +1,190 @@
+---
+const { pathname } = Astro.url;
+const cleanPathname = pathname.replace(/\/$/, "");
+const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
+
+// Translations dictionary
+const content = isEs
+  ? {
+      title: "Soluciones de Ingeniería para Acelerar tu Negocio",
+      subtitle: "Construimos software robusto y escalable diseñado para resolver dolores reales de negocio y acelerar el crecimiento.",
+      card1: {
+        tag: "STARTUPS Y MVPS",
+        title: "Desarrollo de MVPs Imparables",
+        description: "Construye Productos Mínimos Viables robustos y validados. Estructurados con código limpio y acelerados con IA para que lances al mercado o levantes capital en tiempo récord.",
+        bullets: [
+          "Desarrollo acelerado por IA (entregas hasta 3x más rápidas)",
+          "Clean Architecture, código modular y libre de bugs",
+          "CTO fraccional listo para validación y levantamiento de capital"
+        ],
+        ctaText: "Agendar estimación de MVP",
+        ctaLink: "https://calendly.com",
+      },
+      card2: {
+        tag: "EMPRESAS MEDIANAS",
+        title: "Digitalización, Automatización y Nube",
+        description: "Migra sistemas lentos a arquitecturas web ultra rápidas. Optimizamos tu infraestructura cloud para reducir costos de hosting drásticamente e integramos IA para automatizar tus ventas y procesos.",
+        bullets: [
+          "Auditoría de infraestructura y reducción drástica de costos cloud",
+          "Modernización y refactorización de código y sistemas legados",
+          "Integración de agentes de IA para automatizar flujos operativos"
+        ],
+        ctaText: "Iniciar cotización por WhatsApp",
+        ctaLink: "https://wa.me/51900000000",
+      }
+    }
+  : {
+      title: "Engineered Solutions to Scale Your Business",
+      subtitle: "We build robust, high-performance custom software designed to solve real business bottlenecks and accelerate growth.",
+      card1: {
+        tag: "STARTUPS & MVPS",
+        title: "Production-Ready MVPs",
+        description: "Build robust, scalable Minimum Viable Products validated for the market. Powered by Clean Architecture and accelerated with AI to help you pitch and raise capital in record time.",
+        bullets: [
+          "AI-accelerated development for up to 3x faster delivery",
+          "Clean Architecture, modular design, and robust code",
+          "Fractional CTO support ready for validation and investor pitches"
+        ],
+        ctaText: "Book an MVP Consultation",
+        ctaLink: "https://calendly.com",
+      },
+      card2: {
+        tag: "MID-SIZED COMPANIES",
+        title: "Cloud Optimization & Automation",
+        description: "Migrate sluggish legacy systems into high-speed architectures. Optimize cloud infrastructure to cut hosting bills, eliminate bugs, and inject AI to automate your operations.",
+        bullets: [
+          "Cloud infrastructure audit & host bill cost reduction",
+          "Legacy systems modernization & clean refactoring",
+          "AI agent integrations to automate sales and operations"
+        ],
+        ctaText: "Discuss operations on WhatsApp",
+        ctaLink: "https://wa.me/51900000000",
+      }
+    };
+---
+
+<section id="services" class="relative py-16 md:py-24 bg-base-100 overflow-hidden border-b border-stone-500/5">
+  <!-- Subtle Grid Background Effect for Consistency -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary tracking-tight mb-4">
+        {content.title}
+      </h2>
+      <p class="text-text-body text-base sm:text-lg leading-relaxed font-sans">
+        {content.subtitle}
+      </p>
+    </div>
+
+    <!-- Grid Layout for Services -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      
+      <!-- Card 1: Startups / MVPs -->
+      <div class="card bg-base-200 border border-stone-500/10 hover:border-stone-500/30 hover:shadow-xl hover:shadow-stone-950/20 transition-all duration-300 rounded-xl p-6 sm:p-8 flex flex-col justify-between group">
+        <div>
+          <!-- Tag & Icon Header -->
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-[11px] font-semibold tracking-widest text-stone-500 font-mono uppercase">
+              {content.card1.tag}
+            </span>
+            <div class="p-2.5 rounded-lg bg-base-100 border border-stone-500/10 group-hover:border-stone-500/30 group-hover:bg-base-100/80 transition-all duration-300 text-secondary">
+              <!-- Rocket Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.63 8.38m5.96 5.99A14.96 14.96 0 0 1 5 18v-3a4 4 0 0 1 2.3-3.58L15.6 14.37Zm0 0-5.97-5.99m0 0A14.96 14.96 0 0 0 3 15v-3a4 4 0 0 0 2.3-3.58L9.63 8.38Zm0 0a6 6 0 0 1 5.84-7.38v4.8M15 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card Header Title -->
+          <h3 class="text-2xl font-bold text-primary tracking-tight mb-4">
+            {content.card1.title}
+          </h3>
+
+          <!-- Card Description -->
+          <p class="text-text-body text-sm sm:text-base leading-relaxed mb-6 font-sans">
+            {content.card1.description}
+          </p>
+
+          <!-- Bullet Points -->
+          <ul class="space-y-3.5 mb-8">
+            {content.card1.bullets.map((bullet) => (
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-stone-300 text-sm leading-tight">
+                  {bullet}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Primary CTA: Calendly Booking -->
+        <a 
+          href={content.card1.ctaLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-secondary text-secondary-content font-bold w-full rounded-lg hover:shadow-lg hover:shadow-secondary/10 hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 mt-2 py-3.5 h-auto min-h-12 border-none"
+        >
+          {content.card1.ctaText}
+        </a>
+      </div>
+
+      <!-- Card 2: Mid-sized Companies / Cloud & AI -->
+      <div class="card bg-base-200 border border-stone-500/10 hover:border-stone-500/30 hover:shadow-xl hover:shadow-stone-950/20 transition-all duration-300 rounded-xl p-6 sm:p-8 flex flex-col justify-between group">
+        <div>
+          <!-- Tag & Icon Header -->
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-[11px] font-semibold tracking-widest text-stone-500 font-mono uppercase">
+              {content.card2.tag}
+            </span>
+            <div class="p-2.5 rounded-lg bg-base-100 border border-stone-500/10 group-hover:border-stone-500/30 group-hover:bg-base-100/80 transition-all duration-300 text-secondary">
+              <!-- CPU/Brain Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m1.5 7.5H3m15 1.5V18m-3-15v1.5m-1.5 13.5v1.5m-7.5-15h1.5m9 3.75h1.5m-3 7.5h1.5m-15 3h1.5m3-3h7.5M8.25 18.75V21m3-2.25V21m3-2.25V21m1.5-12.75h-7.5V15h7.5V8.25Z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card Header Title -->
+          <h3 class="text-2xl font-bold text-primary tracking-tight mb-4">
+            {content.card2.title}
+          </h3>
+
+          <!-- Card Description -->
+          <p class="text-text-body text-sm sm:text-base leading-relaxed mb-6 font-sans">
+            {content.card2.description}
+          </p>
+
+          <!-- Bullet Points -->
+          <ul class="space-y-3.5 mb-8">
+            {content.card2.bullets.map((bullet) => (
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-stone-300 text-sm leading-tight">
+                  {bullet}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Secondary CTA: WhatsApp Chat -->
+        <a 
+          href={content.card2.ctaLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline text-primary border-stone-500/30 hover:bg-stone-500/10 hover:border-stone-500/50 w-full rounded-lg hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 mt-2 py-3.5 h-auto min-h-12"
+        >
+          {content.card2.ctaText}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,162 @@
+---
+const { pathname, search } = Astro.url;
+
+// Normalize pathname by removing trailing slash (except for empty/root)
+const cleanPathname = pathname.replace(/\/$/, "");
+
+// Detect if current language is Spanish
+const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
+
+// Dynamic Navigation Links mapping
+const navLinks = isEs
+  ? [
+      { name: "Inicio", href: "/es" },
+      { name: "Servicios", href: "/es/services" },
+      { name: "Casos", href: "/es/cases" },
+      { name: "Blog", href: "/es/blog" },
+    ]
+  : [
+      { name: "Home", href: "/" },
+      { name: "Services", href: "/services" },
+      { name: "Cases", href: "/cases" },
+      { name: "Blog", href: "/blog" },
+    ];
+
+// Generate target URLs for language switcher to preserve page location
+let enTarget = "/";
+let esTarget = "/es";
+
+if (isEs) {
+  const pathWithoutEs = cleanPathname.replace(/^\/es/, "");
+  enTarget = (pathWithoutEs || "/") + search;
+  esTarget = cleanPathname + search;
+} else {
+  esTarget = (`/es${cleanPathname}` || "/es") + search;
+  enTarget = (cleanPathname || "/") + search;
+}
+
+// Helper to determine if a route is active
+const isActive = (path: string) => {
+  const cleanPath = path.replace(/\/$/, "");
+  if (cleanPath === "") {
+    return cleanPathname === "";
+  }
+  if (cleanPath === "/es") {
+    return cleanPathname === "/es";
+  }
+  return cleanPathname.startsWith(cleanPath);
+};
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-stone-500/10 bg-base-100/80 backdrop-blur-md">
+  <div class="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16">
+    <!-- Navbar Start: Mobile menu & Logo -->
+    <div class="navbar-start">
+      <!-- Mobile Dropdown Navigation -->
+      <div class="dropdown lg:hidden">
+        <label tabindex="0" class="btn btn-ghost btn-circle text-primary hover:bg-stone-500/10" aria-label="Toggle navigation menu" aria-haspopup="true">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-200 border border-stone-500/10 rounded-xl w-56 gap-1">
+          {navLinks.map((link) => (
+            <li>
+              <a 
+                href={link.href} 
+                class={`px-4 py-2.5 rounded-lg transition-all ${
+                  isActive(link.href) 
+                    ? "text-secondary font-semibold bg-stone-500/10" 
+                    : "text-stone-300 hover:text-primary hover:bg-stone-500/5"
+                }`}
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+          <!-- Divider for Mobile CTA -->
+          <li class="border-t border-stone-500/10 my-1"></li>
+          <li>
+            <a 
+              href="https://calendly.com" 
+              class="btn btn-secondary btn-sm w-full mt-1 text-secondary-content font-semibold border-none rounded-lg"
+            >
+              {isEs ? "Agendar Llamada" : "Book Call"}
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Brand Logo / Identity -->
+      <a 
+        href={isEs ? "/es" : "/"} 
+        class="flex items-center gap-2.5 hover:opacity-90 transition-opacity ml-1 lg:ml-0"
+        aria-label="Coins5 Home"
+      >
+        <!-- Sleek geometric MC Isotype -->
+        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 24V8H8L13 17L18 8H20V24H18V12L13 21L8 12V24H6Z" fill="currentColor" />
+          <path d="M22 8H28V10H24V22H28V24H22V8Z" fill="currentColor" />
+        </svg>
+        <span class="text-primary font-bold tracking-tight text-xl font-sans">Coins5</span>
+      </a>
+    </div>
+
+    <!-- Navbar Center: Desktop Navigation Links -->
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal gap-1 px-1">
+        {navLinks.map((link) => (
+          <li>
+            <a 
+              href={link.href} 
+              class={`px-4 py-2 border border-transparent rounded-lg hover:border-stone-500/20 hover:bg-stone-500/5 transition-all duration-300 ${
+                isActive(link.href) 
+                  ? "text-secondary font-medium bg-stone-500/5" 
+                  : "text-stone-300 hover:text-primary"
+              }`}
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Navbar End: Lang Switcher & Desktop CTA -->
+    <div class="navbar-end gap-3">
+      <!-- Language Switcher (EN/ES Toggle) -->
+      <div class="join border border-stone-800 bg-base-200/50 p-0.5 rounded-lg">
+        <a 
+          href={enTarget} 
+          class={`join-item btn btn-xs px-2.5 h-7 min-h-0 font-mono text-xs tracking-tight rounded-md transition-all ${
+            !isEs 
+              ? "bg-secondary text-secondary-content font-bold shadow-sm" 
+              : "btn-ghost text-stone-400 hover:text-stone-200"
+          }`}
+          aria-label="Switch to English"
+        >
+          EN
+        </a>
+        <a 
+          href={esTarget} 
+          class={`join-item btn btn-xs px-2.5 h-7 min-h-0 font-mono text-xs tracking-tight rounded-md transition-all ${
+            isEs 
+              ? "bg-secondary text-secondary-content font-bold shadow-sm" 
+              : "btn-ghost text-stone-400 hover:text-stone-200"
+          }`}
+          aria-label="Cambiar a Español"
+        >
+          ES
+        </a>
+      </div>
+
+      <!-- Primary CTA Button (Desktop) -->
+      <a 
+        href="https://calendly.com" 
+        class="btn btn-secondary btn-sm rounded-lg hidden sm:inline-flex text-secondary-content border-none font-semibold hover:opacity-90 transition-opacity"
+      >
+        {isEs ? "Agendar Llamada" : "Book Call"}
+      </a>
+    </div>
+  </div>
+</header>

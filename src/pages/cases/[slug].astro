@@ -1,0 +1,29 @@
+---
+import "../../styles/global.css";
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: "strategio" }, props: { title: "Strategio - AI Platform" } }
+  ];
+}
+
+const { slug } = Astro.params;
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} Case Study | Coins5</title>
+    <meta name="description" content={`Case study details for ${title}`} />
+  </head>
+  <body>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+      <h1 class="text-4xl font-bold text-primary mb-4">{title}</h1>
+      <p class="text-stone-400 mb-8">This is the dynamic container for English case study: <code>{slug}</code></p>
+    </main>
+  </body>
+</html>
