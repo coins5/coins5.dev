@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
 
 /**
  * Zod schema validation for the Blog Collection.
@@ -8,20 +9,22 @@ import { glob } from 'astro/loaders';
  */
 const blog = defineCollection({
   // Load markdown/mdx files from src/content/blog/ (handles subdirectories like en/ and es/)
-  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/blog' }),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
   schema: z.object({
     // Strict SEO checks: titles must not exceed 60 characters
     title: z.string().max(60, {
-      message: 'Title must be 60 characters or less for optimal SEO search results page presentation.',
+      message:
+        "Title must be 60 characters or less for optimal SEO search results page presentation.",
     }),
     // Strict SEO checks: descriptions must not exceed 160 characters
     description: z.string().max(160, {
-      message: 'Description must be 160 characters or less for optimal meta-description snippet presentation.',
+      message:
+        "Description must be 160 characters or less for optimal meta-description snippet presentation.",
     }),
     // Publication Date
     pubDate: z.coerce.date(),
     // Required language selection for routing & i18n
-    lang: z.enum(['en', 'es'], {
+    lang: z.enum(["en", "es"], {
       message: "Language must be either 'en' or 'es'.",
     }),
     // List of commercial or technological tags
@@ -42,14 +45,16 @@ const blog = defineCollection({
  */
 const cases = defineCollection({
   // Load markdown/mdx files from src/content/cases/ (handles subdirectories like en/ and es/)
-  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/cases' }),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/cases" }),
   schema: z.object({
     // Strict SEO checks for cases
     title: z.string().max(60, {
-      message: 'Title must be 60 characters or less for optimal SEO search results page presentation.',
+      message:
+        "Title must be 60 characters or less for optimal SEO search results page presentation.",
     }),
     description: z.string().max(160, {
-      message: 'Description must be 160 characters or less for optimal meta-description snippet presentation.',
+      message:
+        "Description must be 160 characters or less for optimal meta-description snippet presentation.",
     }),
     // Client or platform identity (e.g. "Strategio", "NubaNutrición", "PróximaBolilla")
     clientName: z.string(),
@@ -58,7 +63,7 @@ const cases = defineCollection({
     // Publication Date
     pubDate: z.date(),
     // Required language selection for routing & i18n
-    lang: z.enum(['en', 'es'], {
+    lang: z.enum(["en", "es"], {
       message: "Language must be either 'en' or 'es'.",
     }),
     // Tech stack list used in the project
