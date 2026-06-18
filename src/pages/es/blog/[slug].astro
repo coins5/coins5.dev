@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { ArrowLeft } from '@lucide/astro';
 import Layout from '../../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -39,7 +40,7 @@ const formattedDate = entry.data.pubDate.toLocaleDateString('es-PE', {
   <div class="py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb & Back button -->
     <a href="/es/blog" class="inline-flex items-center text-sm font-mono text-secondary hover:text-stone-400 mb-8 transition-colors group">
-      <span class="mr-2 transition-transform group-hover:-translate-x-1">&larr;</span> Volver al Blog
+      <ArrowLeft class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" stroke-width="1.5" /> Volver al Blog
     </a>
     
     <header class="mb-10 pb-8 border-b border-stone-800/60">
@@ -70,14 +71,14 @@ const formattedDate = entry.data.pubDate.toLocaleDateString('es-PE', {
     <!-- Premium Reading Layout using Tailwind Typography -->
     <article class="prose prose-stone prose-invert max-w-none 
       prose-headings:text-primary 
-      prose-p:text-[#CCCCCC] prose-p:leading-relaxed prose-p:mb-6
+      prose-p:text-[#A8A29E] prose-p:leading-relaxed prose-p:mb-6
       prose-a:text-secondary hover:prose-a:text-stone-400 prose-a:transition-colors
       prose-strong:text-primary
       prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6 prose-ul:text-stone-300
       prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6 prose-ol:text-stone-300
       prose-li:mb-2
-      prose-pre:bg-base-200 prose-pre:border prose-pre:border-stone-800/80 prose-pre:rounded-xl
-      prose-code:text-secondary prose-code:bg-base-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none"
+      prose-pre:bg-[#1C1C1C] prose-pre:border prose-pre:border-stone-800/80 prose-pre:rounded-xl
+      prose-code:text-secondary prose-code:bg-[#1C1C1C] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none"
     >
       <Content />
     </article>
