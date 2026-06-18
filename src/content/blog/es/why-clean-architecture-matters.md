@@ -1,5 +1,5 @@
 ---
-title: "Clean Architecture: Por qué tu software necesita SOLID y diseño modular"
+title: "Clean Architecture: Protege tu inversión en software"
 description: "No dejes que la deuda técnica destruya tu producto. Cómo la Arquitectura Limpia mantiene tu software escalable, modular y fácil de mantener."
 pubDate: 2026-06-18
 lang: "es"
