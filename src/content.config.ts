@@ -50,9 +50,9 @@ const cases = defineCollection({
     // Client or platform identity (e.g. "Strategio", "NubaNutrición", "PróximaBolilla")
     clientName: z.string(),
     // Key high-impact metric for conversion / CRO proof points (e.g. "Hosting costs cut by 40%")
-    impactMetric: z.string().optional(),
+    impactMetric: z.string(),
     // Publication Date
-    pubDate: z.coerce.date(),
+    pubDate: z.date(),
     // Required language selection for routing & i18n
     lang: z.enum(['en', 'es'], {
       errorMap: () => ({ message: "Language must be either 'en' or 'es'." }),

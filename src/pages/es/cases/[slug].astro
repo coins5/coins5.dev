@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { ArrowLeft } from '@lucide/astro';
 import Layout from '../../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -31,43 +32,46 @@ const { Content } = await render(entry);
   <div class="py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb & Back button -->
     <a href="/es/cases" class="inline-flex items-center text-sm font-mono text-secondary hover:text-stone-400 mb-8 transition-colors group">
-      <span class="mr-2 transition-transform group-hover:-translate-x-1">&larr;</span> Volver a Casos de Éxito
+      <ArrowLeft class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" stroke-width="1.5" /> Volver a Casos de Éxito
     </a>
     
-    <header class="mb-10 pb-8 border-b border-stone-800/60">
-      <div class="text-sm font-mono text-secondary uppercase tracking-wider mb-2">
-        Caso de Estudio de Cliente: {entry.data.clientName}
-      </div>
-      
-      <h1 class="text-3xl md:text-5xl font-extrabold text-primary tracking-tight leading-tight mb-6">
-        {entry.data.title}
-      </h1>
+    <!-- Premium Header Dashboard Container -->
+    <div class="mb-12 p-6 md:p-8 bg-base-200 border border-secondary/20 rounded-xl shadow-xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Client details & Title -->
+        <div class="lg:col-span-7">
+          <div class="text-xs font-mono text-secondary uppercase tracking-widest mb-3">
+            Caso de Estudio de Cliente &bull; {entry.data.clientName}
+          </div>
+          <h1 class="text-3xl md:text-4xl font-extrabold text-primary tracking-tight leading-tight">
+            {entry.data.title}
+          </h1>
+        </div>
 
-      <!-- Technologies Used -->
+        <!-- Massive Impact Metric Box -->
+        <div class="lg:col-span-5">
+          <div class="bg-base-100/60 border border-stone-800/80 px-6 py-6 md:py-8 rounded-lg text-center flex flex-col justify-center items-center shadow-inner">
+            <span class="text-xs font-mono uppercase tracking-widest text-stone-500 mb-2">Impacto Clave y ROI</span>
+            <div class="text-2xl md:text-3xl font-extrabold font-mono text-secondary tracking-tight">
+              {entry.data.impactMetric}
+            </div>
+            <span class="text-[10px] font-mono text-stone-400 mt-2 uppercase tracking-wider">Resultado Verificado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Stack Badges row inside header -->
       {entry.data.technologies && entry.data.technologies.length > 0 && (
-        <div class="flex flex-wrap items-center gap-2">
+        <div class="mt-6 pt-6 border-t border-stone-850 flex flex-wrap items-center gap-2">
           <span class="text-xs font-mono text-stone-500 uppercase mr-1">Stack:</span>
           {entry.data.technologies.map((tech: string) => (
-            <span class="px-2.5 py-1 text-xs font-mono bg-base-200 border border-stone-800 text-stone-300 rounded-md">
+            <span class="px-2.5 py-1 text-xs font-mono bg-base-100 border border-stone-800 text-stone-300 rounded-md">
               {tech}
             </span>
           ))}
         </div>
       )}
-    </header>
-
-    <!-- Key business metric highlighted before body content (CRO-focused) -->
-    {entry.data.impactMetric && (
-      <div class="mb-10 p-6 bg-base-200 border border-stone-850 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
-        <div class="text-center sm:text-left">
-          <span class="text-xs font-mono uppercase tracking-wider text-secondary">Resultado Clave / Retorno</span>
-          <h3 class="text-lg font-bold text-primary mt-1">Impacto Alcanzado</h3>
-        </div>
-        <div class="text-2xl md:text-3xl font-extrabold font-mono text-secondary bg-base-100 px-6 py-3 rounded-lg border border-stone-800 shadow-inner tracking-tight text-center">
-          {entry.data.impactMetric}
-        </div>
-      </div>
-    )}
+    </div>
     
     <!-- Premium Reading Layout using Tailwind Typography -->
     <article class="prose prose-stone prose-invert max-w-none 
