@@ -1,4 +1,6 @@
 ---
+import { MessageSquare, Calendar, Mail } from "@lucide/astro";
+
 const { pathname } = Astro.url;
 
 // Normalize pathname by removing trailing slash (except for empty/root)
@@ -117,9 +119,7 @@ const byline = isEs
               rel="noopener noreferrer" 
               class="inline-flex items-center gap-2 text-stone-300 hover:text-secondary transition-colors text-sm group"
             >
-              <svg class="h-4.5 w-4.5 text-stone-400 group-hover:text-secondary transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.989 3.3 1.489 5.358 1.49 5.487 0 9.954-4.468 9.957-9.957.001-2.659-1.033-5.16-2.91-7.039C17.18 1.768 14.675.733 12.007.733c-5.49 0-9.96 4.47-9.963 9.96-.001 2.03.498 3.654 1.48 5.32l-.988 3.613 3.71-.973zm12.33-6.945c-.272-.136-1.61-.794-1.86-.885-.25-.091-.432-.136-.613.136-.18.273-.699.885-.857 1.068-.158.182-.317.205-.589.068-.272-.136-1.15-.424-2.19-1.353-.809-.722-1.356-1.615-1.515-1.887-.159-.272-.017-.42.119-.556.122-.122.272-.318.408-.477.136-.159.182-.272.272-.454.091-.182.045-.341-.023-.477-.068-.136-.613-1.477-.84-2.022-.222-.534-.486-.46-.668-.47l-.57-.01c-.198 0-.52.074-.792.372-.272.295-1.043 1.022-1.043 2.498 0 1.477 1.073 2.908 1.22 3.102.148.193 2.113 3.227 5.118 4.524.714.309 1.272.493 1.707.632.718.228 1.37.196 1.887.119.576-.087 1.61-.659 1.837-1.295.228-.636.228-1.181.159-1.295-.068-.113-.25-.182-.522-.318z"/>
-              </svg>
+              <MessageSquare class="h-4.5 w-4.5 text-stone-400 group-hover:text-secondary transition-colors" stroke-width="1.5" />
               <span>{isEs ? "Contactar por WhatsApp" : "Contact via WhatsApp"}</span>
             </a>
             
@@ -130,9 +130,7 @@ const byline = isEs
               rel="noopener noreferrer" 
               class="inline-flex items-center gap-2 text-stone-300 hover:text-secondary transition-colors text-sm group"
             >
-              <svg class="h-4.5 w-4.5 text-stone-400 group-hover:text-secondary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+              <Calendar class="h-4.5 w-4.5 text-stone-400 group-hover:text-secondary transition-colors" stroke-width="1.5" />
               <span>{isEs ? "Agendar llamada de 15 min" : "Book a 15-minute call"}</span>
             </a>
 
@@ -141,9 +139,7 @@ const byline = isEs
               href="mailto:marlon@coins5.dev" 
               class="inline-flex items-center gap-2 text-stone-300 hover:text-secondary transition-colors text-sm group"
             >
-              <svg class="h-4.5 w-4.5 text-stone-400 group-hover:text-secondary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+              <Mail class="h-4.5 w-4.5 text-stone-400 group-hover:text-secondary transition-colors" stroke-width="1.5" />
               <span>marlon@coins5.dev</span>
             </a>
           </div>
