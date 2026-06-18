@@ -26,6 +26,10 @@ const blog = defineCollection({
     }),
     // List of commercial or technological tags
     tags: z.array(z.string()),
+    // Keywords for on-page SEO
+    keywords: z.array(z.string()).optional(),
+    // Custom Open Graph image URL or path
+    ogImage: z.string().optional(),
     // Optional flag to set entry as draft
     draft: z.boolean().optional(),
   }),
@@ -59,6 +63,10 @@ const cases = defineCollection({
     }),
     // Tech stack list used in the project
     technologies: z.array(z.string()),
+    // Keywords for on-page SEO
+    keywords: z.array(z.string()).optional(),
+    // Custom Open Graph image URL or path
+    ogImage: z.string().optional(),
   }),
 });
 

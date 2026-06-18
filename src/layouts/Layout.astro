@@ -2,12 +2,13 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-
+import { SEO } from "astro-seo";
 
 interface Props {
   title: string;
   description: string;
   lang: "en" | "es";
+  keywords?: string[];
   ogImage?: string;
   canonicalUrl?: string;
   ogType?: "website" | "article";
@@ -17,7 +18,8 @@ const {
   title,
   description,
   lang,
-  ogImage = "/og-image.png",
+  keywords,
+  ogImage,
   canonicalUrl,
   ogType = "website",
 } = Astro.props;
@@ -59,10 +61,6 @@ const canonical = canonicalUrl || formatUrl(lang === "es" ? esPath : enPath);
 const enUrl = formatUrl(enPath);
 const esUrl = formatUrl(esPath);
 const xDefaultUrl = enUrl;
-
-// OG Image and Locale resolution
-const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
-const currentLocale = lang === "es" ? "es_PE" : "en_US";
 ---
 
 <!doctype html>
@@ -75,10 +73,24 @@ const currentLocale = lang === "es" ? "es_PE" : "en_US";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- SEO Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: ogImage || "/default-preview.png",
+          url: Astro.url.href
+        }
+      }}
+      extend={{
+        meta: [
+          { name: "keywords", content: keywords?.join(", ") || "coins5, software architecture, ai solutions" },
+          { name: "author", content: "Robert Marlon Colca Manrique" }
+        ]
+      }}
+    />
 
     <!-- Canonical URL -->
     <link rel="canonical" href={canonical} />
@@ -87,22 +99,6 @@ const currentLocale = lang === "es" ? "es_PE" : "en_US";
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="es" href={esUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:locale" content={currentLocale} />
-    <meta property="og:site_name" content="Coins5" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonical} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageUrl} />
   </head>
   <body class="bg-base-100 text-base-content min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-secondary-content">
     <!-- Header / Navbar -->
