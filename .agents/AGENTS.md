@@ -141,6 +141,7 @@ Todas las páginas deben estar envueltas en un layout común que reciba un objet
     <link rel="alternate" hreflang="es" href="https://coins5.dev/es/" />
     <link rel="alternate" hreflang="x-default" href="https://coins5.dev/" />
     ```
+* **CONSISTENCIA DE SLUGS EN CONTENIDOS (i18n Filenames):** Al crear entradas para el Blog o Casos de Éxito, los archivos de contenido (.md o .mdx) correspondientes al mismo artículo en diferentes idiomas DEBEN llamarse exactamente igual y poseer el mismo nombre de archivo (ej. `src/content/blog/mi-articulo.md` y `src/content/blog/es/mi-articulo.md`). Queda estrictamente prohibido traducir el nombre del archivo, ya que el sistema i18n depende de la coincidencia exacta de los slugs para alternar idiomas en la interfaz sin generar errores 404.
 
 ### 5.2. Jerarquía Semántica
 * Un único `<h1>` por página (reservado para la propuesta de valor principal en el Hero).
