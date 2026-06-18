@@ -1,0 +1,97 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { Calendar, Tag, ArrowRight } from "@lucide/astro";
+
+const blogEntries = await getCollection("blog");
+const esEntries = blogEntries
+  .filter((entry) => entry.data.lang === "es" && !entry.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout
+  title="Artículos y Perspectivas de Ingeniería | Coins5"
+  description="Artículos sobre desarrollo de software a medida, construcción de MVPs rápidos, optimización cloud y automatizaciones con IA."
+  lang="es"
+>
+  <div class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header Section -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <span class="text-xs font-mono text-secondary uppercase tracking-widest bg-base-200/50 px-3 py-1.5 rounded-full border border-stone-850"
+        >Artículos e Ingeniería</span
+      >
+      <h1
+        class="text-4xl sm:text-5xl font-extrabold text-primary tracking-tight mt-4 mb-4"
+      >
+        Artículos y Perspectivas
+      </h1>
+      <p class="text-stone-400 text-lg">
+        Guías prácticas, criterios de arquitectura de software limpia y el uso de Inteligencia Artificial para optimizar costos y acelerar entregas.
+      </p>
+    </div>
+
+    {
+      esEntries.length === 0 ? (
+        <div class="text-center py-16 text-stone-500 font-mono bg-base-200/30 rounded-xl border border-stone-900 border-dashed">
+          Aún no hay artículos publicados. ¡Vuelve pronto!
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {esEntries.map((entry) => {
+            const slug =
+              entry.id
+                .split("/")
+                .pop()
+                ?.replace(/\.(md|mdx)$/, "") || entry.id;
+            const formattedDate = entry.data.pubDate.toLocaleDateString(
+              "es-PE",
+              {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              }
+            );
+
+            return (
+              <a
+                href={`/es/blog/${slug}`}
+                class="group flex flex-col justify-between bg-base-200 hover:border-stone-400/30 border border-transparent border-dashed rounded-xl p-6 transition-all duration-300 shadow-md h-full hover:shadow-lg hover:shadow-stone-950/40"
+              >
+                <div>
+                  <div class="flex items-center text-xs font-mono text-stone-500 mb-4 gap-1.5">
+                    <Calendar class="w-3.5 h-3.5" stroke-width="1.5" />
+                    <span>{formattedDate}</span>
+                  </div>
+
+                  <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2">
+                    {entry.data.title}
+                  </h3>
+
+                  <p class="text-stone-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                    {entry.data.description}
+                  </p>
+                </div>
+
+                <div class="mt-auto">
+                  <div class="flex flex-wrap gap-1.5 pt-4 border-t border-stone-850 mb-4">
+                    {entry.data.tags.map((tag: string) => (
+                      <span class="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono bg-base-100 border border-stone-800 text-stone-400 rounded">
+                        <Tag class="w-2.5 h-2.5" stroke-width="1.5" />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div class="flex items-center text-xs font-mono font-bold text-secondary group-hover:text-primary transition-colors">
+                    Leer artículo
+                    <ArrowRight class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" stroke-width="1.5" />
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      )
+    }
+  </div>
+</Layout>
