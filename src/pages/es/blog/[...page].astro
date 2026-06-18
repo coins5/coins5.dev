@@ -1,0 +1,153 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import { Calendar, Tag, ArrowRight, ChevronLeft, ChevronRight } from "@lucide/astro";
+
+export async function getStaticPaths({ paginate }) {
+  const blogEntries = await getCollection("blog");
+  const filteredPosts = blogEntries
+    .filter((entry) => entry.data.lang === "es" && !entry.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(filteredPosts, { pageSize: 6 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout
+  title="Artículos y Perspectivas de Ingeniería | Coins5"
+  description="Artículos sobre desarrollo de software a medida, construcción de MVPs rápidos, optimización cloud y automatizaciones con IA."
+  lang="es"
+>
+  <div class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header Section -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <span class="text-xs font-mono text-secondary uppercase tracking-widest bg-base-200/50 px-3 py-1.5 rounded-full border border-stone-850"
+        >Artículos e Ingeniería</span
+      >
+      <h1
+        class="text-4xl sm:text-5xl font-extrabold text-primary tracking-tight mt-4 mb-4"
+      >
+        Artículos y Perspectivas
+      </h1>
+      <p class="text-stone-400 text-lg">
+        Guías prácticas, criterios de arquitectura de software limpia y el uso de Inteligencia Artificial para optimizar costos y acelerar entregas.
+      </p>
+    </div>
+
+    {
+      page.data.length === 0 ? (
+        <div class="text-center py-16 text-stone-500 font-mono bg-base-200/30 rounded-xl border border-stone-900 border-dashed">
+          Aún no hay artículos publicados. ¡Vuelve pronto!
+        </div>
+      ) : (
+        <>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {page.data.map((entry) => {
+              const slug =
+                entry.id
+                  .split("/")
+                  .pop()
+                  ?.replace(/\.(md|mdx)$/, "") || entry.id;
+              const formattedDate = entry.data.pubDate.toLocaleDateString(
+                "es-PE",
+                {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                }
+              );
+
+              return (
+                <a
+                  href={`/es/blog/${slug}`}
+                  class="group flex flex-col justify-between bg-base-200 hover:border-stone-500/30 border border-transparent rounded-xl p-6 transition-all duration-300 shadow-md h-full hover:shadow-lg hover:shadow-stone-950/40"
+                >
+                  <div>
+                    <div class="flex items-center text-xs font-mono text-stone-500 mb-4 gap-1.5">
+                      <Calendar class="w-3.5 h-3.5" stroke-width="1.5" />
+                      <span>{formattedDate}</span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2">
+                      {entry.data.title}
+                    </h3>
+
+                    <p class="text-stone-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                      {entry.data.description}
+                    </p>
+                  </div>
+
+                  <div class="mt-auto">
+                    <div class="flex flex-wrap gap-1.5 pt-4 border-t border-stone-850 mb-4">
+                      {entry.data.tags.map((tag: string) => (
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono bg-base-100 border border-stone-800 text-stone-400 rounded">
+                          <Tag class="w-2.5 h-2.5" stroke-width="1.5" />
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div class="flex items-center text-xs font-mono font-bold text-secondary group-hover:text-primary transition-colors">
+                      Leer artículo
+                      <ArrowRight class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" stroke-width="1.5" />
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+
+          {/* Pagination Navigation */}
+          {page.lastPage > 1 && (
+            <div class="flex justify-center mt-16">
+              <div class="join bg-base-200 border border-stone-800/80 rounded-xl overflow-hidden shadow-lg shadow-stone-950/20">
+                {page.url.prev ? (
+                  <a
+                    href={page.url.prev}
+                    class="join-item btn btn-md bg-base-200 hover:bg-stone-900 border-y-0 border-l-0 border-r border-stone-800/80 hover:border-[#E6DFD3]/30 text-stone-300 hover:text-primary transition-all duration-300 px-5 flex items-center gap-2"
+                  >
+                    <ChevronLeft class="w-5 h-5" stroke-width="1.5" />
+                    <span>Anterior</span>
+                  </a>
+                ) : (
+                  <button
+                    class="join-item btn btn-md bg-base-200/50 border-y-0 border-l-0 border-r border-stone-800/80 text-stone-600 cursor-not-allowed btn-disabled px-5 flex items-center gap-2"
+                    disabled
+                    type="button"
+                  >
+                    <ChevronLeft class="w-5 h-5" stroke-width="1.5" />
+                    <span>Anterior</span>
+                  </button>
+                )}
+
+                <span class="join-item px-6 flex items-center text-sm font-mono text-stone-400 bg-base-200 select-none border-y-0 border-l-0 border-r border-stone-800/80">
+                  Página {page.currentPage} de {page.lastPage}
+                </span>
+
+                {page.url.next ? (
+                  <a
+                    href={page.url.next}
+                    class="join-item btn btn-md bg-base-200 hover:bg-stone-900 border-none hover:border-[#E6DFD3]/30 text-stone-300 hover:text-primary transition-all duration-300 px-5 flex items-center gap-2"
+                  >
+                    <span>Siguiente</span>
+                    <ChevronRight class="w-5 h-5" stroke-width="1.5" />
+                  </a>
+                ) : (
+                  <button
+                    class="join-item btn btn-md bg-base-200/50 border-none text-stone-600 cursor-not-allowed btn-disabled px-5 flex items-center gap-2"
+                    disabled
+                    type="button"
+                  >
+                    <span>Siguiente</span>
+                    <ChevronRight class="w-5 h-5" stroke-width="1.5" />
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+        </>
+      )
+    }
+  </div>
+</Layout>
