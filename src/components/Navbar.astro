@@ -12,7 +12,7 @@ const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
 // Dynamic Navigation Links mapping
 const navLinks = isEs
   ? [
-      { name: "Inicio", href: "/es" },
+      { name: "Inicio", href: "/es/" },
       { name: "Servicios", href: "/es/services" },
       { name: "Casos", href: "/es/cases" },
       { name: "Blog", href: "/es/blog" },
@@ -26,15 +26,24 @@ const navLinks = isEs
 
 // Generate target URLs for language switcher to preserve page location
 let enTarget = "/";
-let esTarget = "/es";
+let esTarget = "/es/";
+
+const pathSegments = pathname.split("/").filter(Boolean);
 
 if (isEs) {
-  const pathWithoutEs = cleanPathname.replace(/^\/es/, "");
-  enTarget = (pathWithoutEs || "/") + search;
-  esTarget = cleanPathname + search;
+  const enSegments = pathSegments.slice(1);
+  enTarget = "/" + enSegments.join("/") + search;
+  esTarget = pathname + search;
 } else {
-  esTarget = (`/es${cleanPathname}` || "/es") + search;
-  enTarget = (cleanPathname || "/") + search;
+  esTarget = "/es/" + pathSegments.join("/") + search;
+  enTarget = pathname + search;
+}
+
+enTarget = enTarget.replace(/\/+/g, "/");
+esTarget = esTarget.replace(/\/+/g, "/");
+
+if (esTarget === "/es" || esTarget === "/es?*" || esTarget.startsWith("/es?")) {
+  esTarget = esTarget.replace(/^\/es/, "/es/");
 }
 
 // Helper to determine if a route is active
@@ -89,7 +98,7 @@ const isActive = (path: string) => {
       
       <!-- Brand Logo / Identity -->
       <a 
-        href={isEs ? "/es" : "/"} 
+        href={isEs ? "/es/" : "/"} 
         class="flex items-center gap-2.5 hover:opacity-90 transition-opacity ml-1 lg:ml-0"
         aria-label="Coins5 Home"
       >

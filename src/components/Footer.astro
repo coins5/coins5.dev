@@ -17,7 +17,7 @@ const slogan = isEs
 const menuTitle = isEs ? "Navegación" : "Navigation";
 const menuLinks = isEs
   ? [
-      { name: "Inicio", href: "/es" },
+      { name: "Inicio", href: "/es/" },
       { name: "Servicios", href: "/es/services" },
       { name: "Casos de Éxito", href: "/es/cases" },
       { name: "Blog", href: "/es/blog" },
@@ -46,7 +46,7 @@ const byline = isEs
       <!-- Column 1: Brand & Slogan -->
       <div class="md:col-span-5 flex flex-col items-start gap-4">
         <a 
-          href={isEs ? "/es" : "/"} 
+          href={isEs ? "/es/" : "/"} 
           class="flex items-center gap-2.5 hover:opacity-90 transition-opacity"
           aria-label="Coins5 Home"
         >
@@ -114,7 +114,7 @@ const byline = isEs
           <div class="flex flex-col gap-2.5 mt-1">
             <!-- WhatsApp (Secondary CTA) -->
             <a 
-              href="https://wa.me/51900000000" 
+              href={isEs ? "https://wa.me/51900000000?text=Hola%20Marlon,%20quisiera%20cotizar%20un%20proyecto%20de%20software." : "https://wa.me/51900000000?text=Hello%20Marlon,%20I%20would%20like%20to%20quote%20a%20software%20project."} 
               target="_blank" 
               rel="noopener noreferrer" 
               class="inline-flex items-center gap-2 text-stone-300 hover:text-secondary transition-colors text-sm group"

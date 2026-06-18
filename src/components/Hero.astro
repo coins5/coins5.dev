@@ -15,12 +15,14 @@ const content = isEs
       subtitle: "Desarrollo MVPs rápidos para startups tecnológicas y digitalizo procesos para empresas en Lima. Código robusto de nivel Senior optimizado con IA para entregas hasta 3 veces más rápidas y sin errores.",
       primaryCta: "Agendar llamada de 15 min",
       secondaryCta: "Cotizar por WhatsApp",
+      whatsappUrl: "https://wa.me/51900000000?text=Hola%20Marlon,%20quisiera%20cotizar%20un%20proyecto%20de%20software.",
     }
   : {
       h1: "Transforming complex ideas into profitable software powered by AI.",
       subtitle: "I build high-performance MVPs for tech startups and digitalize operations for mid-sized companies. Senior-level engineering accelerated by AI for development that is up to 3x faster, secure, and cost-efficient.",
       primaryCta: "Book a 15-min discovery call",
       secondaryCta: "Chat on WhatsApp",
+      whatsappUrl: "https://wa.me/51900000000?text=Hello%20Marlon,%20I%20would%20like%20to%20quote%20a%20software%20project.",
     };
 ---
 
@@ -82,7 +84,7 @@ const content = isEs
       
       <!-- Secondary CTA: WhatsApp Chat -->
       <a 
-        href="https://wa.me/51900000000"
+        href={content.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center justify-center gap-2.5 border border-stone-500/30 text-[#F5F5F4] hover:bg-stone-500/10 hover:border-stone-500/50 font-bold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
