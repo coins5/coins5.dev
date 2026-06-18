@@ -3,77 +3,104 @@ import { Image } from "astro:assets";
 import marlonImage from "../assets/marlon.png";
 import AuthorityBar from "./AuthorityBar.astro";
 import { Calendar, MessageSquare } from "@lucide/astro";
+import { siteConfig, getWhatsAppUrl } from "../config";
 
 const { pathname } = Astro.url;
 const cleanPathname = pathname.replace(/\/$/, "");
 const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
 
 // Translations dictionary
-const content = isEs 
+const content = isEs
   ? {
       h1: "Transformo ideas complejas en software rentable impulsado por Inteligencia Artificial.",
-      subtitle: "Desarrollo MVPs rápidos para startups tecnológicas y digitalizo procesos para empresas en Lima. Código robusto de nivel Senior optimizado con IA para entregas hasta 3 veces más rápidas y sin errores.",
+      subtitle:
+        "Desarrollo MVPs rápidos para startups tecnológicas y digitalizo procesos para empresas en Lima. Código robusto de nivel Senior optimizado con IA para entregas hasta 3 veces más rápidas y sin errores.",
       primaryCta: "Agendar llamada de 15 min",
       secondaryCta: "Cotizar por WhatsApp",
-      whatsappUrl: "https://wa.me/51900000000?text=Hola%20Marlon,%20quisiera%20cotizar%20un%20proyecto%20de%20software.",
+      whatsappUrl: getWhatsAppUrl("es", "default"),
     }
   : {
       h1: "Transforming complex ideas into profitable software powered by AI.",
-      subtitle: "I build high-performance MVPs for tech startups and digitalize operations for mid-sized companies. Senior-level engineering accelerated by AI for development that is up to 3x faster, secure, and cost-efficient.",
+      subtitle:
+        "I build high-performance MVPs for tech startups and digitalize operations for mid-sized companies. Senior-level engineering accelerated by AI for development that is up to 3x faster, secure, and cost-efficient.",
       primaryCta: "Book a 15-min discovery call",
       secondaryCta: "Chat on WhatsApp",
-      whatsappUrl: "https://wa.me/51900000000?text=Hello%20Marlon,%20I%20would%20like%20to%20quote%20a%20software%20project.",
+      whatsappUrl: getWhatsAppUrl("en", "default"),
     };
 ---
 
-<section class="relative flex flex-col justify-between min-h-[70vh] bg-base-100 overflow-hidden border-b border-stone-500/5">
+<section
+  class="relative flex flex-col justify-between min-h-[70vh] bg-base-100 overflow-hidden border-b border-stone-500/5"
+>
   <!-- Grid Background Effect for Premium Design Aesthetic -->
-  <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+  <div
+    class="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"
+  >
+  </div>
 
   <!-- Radial Glow behind text -->
-  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
+  <div
+    class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary/5 blur-[120px] rounded-full pointer-events-none"
+  >
+  </div>
 
   <!-- Main Hero content container -->
-  <div class="relative flex-grow flex flex-col items-center justify-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center z-10">
-    
+  <div
+    class="relative grow flex flex-col items-center justify-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center z-10"
+  >
     <!-- Marlon's Avatar Profile (CRO trust builder and Native Image Optimization) -->
-    <div class="flex items-center gap-3.5 mb-8 justify-center bg-base-200/50 backdrop-blur-sm px-4 py-2 rounded-full border border-stone-500/10">
-      <Image 
-        src={marlonImage} 
-        alt="Marlon - Senior Full Stack Developer & Software Architect" 
-        width={48} 
-        height={48} 
+    <div
+      class="flex items-center gap-3.5 mb-8 justify-center bg-base-200/50 backdrop-blur-sm px-4 py-2 rounded-full border border-stone-500/10"
+    >
+      <Image
+        src={marlonImage}
+        alt="Marlon - Senior Full Stack Developer & Software Architect"
+        width={48}
+        height={48}
         format="webp"
         loading="eager"
         decoding="async"
         class="rounded-full border border-stone-500/30 shadow-md object-cover h-12 w-12"
       />
       <div class="text-left leading-tight">
-        <span class="block text-xs font-mono font-bold text-secondary uppercase tracking-widest">Marlon</span>
-        <span class="block text-[10px] text-stone-400 font-mono">Senior Architect & Developer</span>
+        <span
+          class="block text-xs font-mono font-bold text-secondary uppercase tracking-widest"
+          >Marlon</span
+        >
+        <span class="block text-[10px] text-stone-400 font-mono"
+          >Senior Architect & Developer</span
+        >
       </div>
     </div>
 
     <!-- Small decorative tag above H1 -->
-    <span class="font-mono text-xs text-secondary tracking-widest uppercase mb-4 block">
+    <span
+      class="font-mono text-xs text-secondary tracking-widest uppercase mb-4 block"
+    >
       // ARCHITECTURE & AI SOLUTIONS
     </span>
 
     <!-- Imposing White Hues H1 -->
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary tracking-tight max-w-4xl leading-[1.1] mb-6">
+    <h1
+      class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary tracking-tight max-w-4xl leading-[1.1] mb-6"
+    >
       {content.h1}
     </h1>
-    
+
     <!-- Warm Grey Subtitle -->
-    <p class="text-base sm:text-lg md:text-xl text-text-body max-w-3xl leading-relaxed mb-10 font-sans">
+    <p
+      class="text-base sm:text-lg md:text-xl text-text-body max-w-3xl leading-relaxed mb-10 font-sans"
+    >
       {content.subtitle}
     </p>
 
     <!-- Call to Actions Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center">
+    <div
+      class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center"
+    >
       <!-- Primary CTA: Calendly Booking -->
-      <a 
-        href="https://calendly.com"
+      <a
+        href={siteConfig.calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center justify-center gap-2.5 bg-[#E6DFD3] text-[#141414] font-extrabold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto shadow-[0_4px_20px_rgba(230,223,211,0.15)] hover:shadow-[0_6px_25px_rgba(230,223,211,0.25)] hover:bg-[#F0EAE0] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
@@ -81,9 +108,9 @@ const content = isEs
         <Calendar class="w-5 h-5" stroke-width="2" />
         {content.primaryCta}
       </a>
-      
+
       <!-- Secondary CTA: WhatsApp Chat -->
-      <a 
+      <a
         href={content.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"

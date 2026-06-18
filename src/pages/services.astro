@@ -8,6 +8,7 @@ import {
   Calendar,
   MessageSquare,
 } from "@lucide/astro";
+import { siteConfig, getWhatsAppUrl } from "../config";
 
 // English Services page
 ---
@@ -375,7 +376,7 @@ import {
         >
           <!-- Primary: Calendly -->
           <a
-            href="https://calendly.com"
+            href={siteConfig.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center gap-2.5 bg-[#E6DFD3] text-[#141414] font-extrabold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto shadow-[0_4px_20px_rgba(230,223,211,0.15)] hover:shadow-[0_6px_25px_rgba(230,223,211,0.25)] hover:bg-[#F0EAE0] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
@@ -386,7 +387,7 @@ import {
 
           <!-- Secondary: WhatsApp -->
           <a
-            href="https://wa.me/51900000000?text=Hello%20Marlon,%20I%20would%20like%20to%20quote%20a%20software%20project."
+            href={getWhatsAppUrl("en", "default")}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center gap-2.5 border border-stone-500/30 text-[#F5F5F4] hover:bg-stone-500/10 hover:border-stone-500/50 px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"

@@ -1,5 +1,6 @@
 ---
 import { MessageSquare, Calendar, Mail } from "@lucide/astro";
+import { siteConfig, getWhatsAppUrl } from "../config";
 
 const { pathname } = Astro.url;
 
@@ -114,7 +115,7 @@ const byline = isEs
           <div class="flex flex-col gap-2.5 mt-1">
             <!-- WhatsApp (Secondary CTA) -->
             <a 
-              href={isEs ? "https://wa.me/51900000000?text=Hola%20Marlon,%20quisiera%20cotizar%20un%20proyecto%20de%20software." : "https://wa.me/51900000000?text=Hello%20Marlon,%20I%20would%20like%20to%20quote%20a%20software%20project."} 
+              href={getWhatsAppUrl(isEs ? "es" : "en", "default")} 
               target="_blank" 
               rel="noopener noreferrer" 
               class="inline-flex items-center gap-2 text-stone-300 hover:text-secondary transition-colors text-sm group"
@@ -125,7 +126,7 @@ const byline = isEs
             
             <!-- Calendly (Primary CTA) -->
             <a 
-              href="https://calendly.com" 
+              href={siteConfig.calendlyUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
               class="inline-flex items-center gap-2 text-stone-300 hover:text-secondary transition-colors text-sm group"
@@ -136,11 +137,11 @@ const byline = isEs
 
             <!-- Email (Contact) -->
             <a 
-              href="mailto:marlon@coins5.dev" 
+              href={`mailto:${siteConfig.email}`} 
               class="inline-flex items-center gap-2 text-stone-300 hover:text-secondary transition-colors text-sm group"
             >
               <Mail class="h-4.5 w-4.5 text-stone-400 group-hover:text-secondary transition-colors" stroke-width="1.5" />
-              <span>marlon@coins5.dev</span>
+              <span>{siteConfig.email}</span>
             </a>
           </div>
         </div>

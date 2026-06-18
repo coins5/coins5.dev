@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
+import { siteConfig } from "../config";
 
 interface Props {
   title: string;
@@ -36,7 +37,7 @@ if (description.length > 160) {
   );
 }
 
-const siteUrl = "https://coins5.dev";
+const siteUrl = siteConfig.siteUrl;
 const cleanPathname = Astro.url.pathname.replace(/\/$/, "");
 
 // Construct localized path alternate variants
