@@ -26,10 +26,14 @@ const {
 
 // SEO length checks warning in development
 if (title.length > 60) {
-  console.warn(`[SEO Warning] Title is too long (${title.length} characters, max 60): "${title}"`);
+  console.warn(
+    `[SEO Warning] Title is too long (${title.length} characters, max 60): "${title}"`,
+  );
 }
 if (description.length > 160) {
-  console.warn(`[SEO Warning] Description is too long (${description.length} characters, max 160): "${description}"`);
+  console.warn(
+    `[SEO Warning] Description is too long (${description.length} characters, max 160): "${description}"`,
+  );
 }
 
 const siteUrl = "https://coins5.dev";
@@ -81,14 +85,19 @@ const xDefaultUrl = enUrl;
           title: title,
           type: "website",
           image: ogImage || "/default-preview.png",
-          url: Astro.url.href
-        }
+          url: Astro.url.href,
+        },
       }}
       extend={{
         meta: [
-          { name: "keywords", content: keywords?.join(", ") || "coins5, software architecture, ai solutions" },
-          { name: "author", content: "Robert Marlon Colca Manrique" }
-        ]
+          {
+            name: "keywords",
+            content:
+              keywords?.join(", ") ||
+              "coins5, software architecture, ai solutions",
+          },
+          { name: "author", content: "Robert Marlon Colca Manrique" },
+        ],
       }}
     />
 
@@ -100,12 +109,14 @@ const xDefaultUrl = enUrl;
     <link rel="alternate" hreflang="es" href={esUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
   </head>
-  <body class="bg-base-100 text-base-content min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-secondary-content">
+  <body
+    class="bg-base-100 text-base-content min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-secondary-content"
+  >
     <!-- Header / Navbar -->
     <Navbar />
 
     <!-- Main Content Slot -->
-    <main class="flex-grow">
+    <main class="grow">
       <slot />
     </main>
 
@@ -114,53 +125,59 @@ const xDefaultUrl = enUrl;
 
     <!-- Conversion Event Tracking (Vanilla JS Event Delegation for perfect INP & Lighthouse) -->
     <script is:inline>
-      (function() {
+      (function () {
         // Register conversion events after browser becomes idle to prevent Blocking Time
         const initTracking = () => {
-          document.body.addEventListener('click', (event) => {
-            const link = event.target.closest('a');
+          document.body.addEventListener("click", (event) => {
+            const link = event.target.closest("a");
             if (!link) return;
 
-            const href = link.getAttribute('href') || '';
-            const ctaText = link.innerText ? link.innerText.trim() : '';
+            const href = link.getAttribute("href") || "";
+            const ctaText = link.innerText ? link.innerText.trim() : "";
 
             // 1. Primary CTA - Calendly (Discovery Call)
-            if (href.includes('calendly.com')) {
-              console.log('[Analytics] Primary Conversion Triggered: Calendly Discovery Call', {
-                text: ctaText,
-                destination: href,
-                timestamp: new Date().toISOString()
-              });
+            if (href.includes("calendly.com")) {
+              console.log(
+                "[Analytics] Primary Conversion Triggered: Calendly Discovery Call",
+                {
+                  text: ctaText,
+                  destination: href,
+                  timestamp: new Date().toISOString(),
+                },
+              );
 
               // Push to Google Tag Manager / GA4 dataLayer securely
               window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({
-                event: 'primary_conversion_calendly',
+                event: "primary_conversion_calendly",
                 cta_label: ctaText,
-                destination_url: href
+                destination_url: href,
               });
             }
 
             // 2. Secondary CTA - WhatsApp Business (Quick Quote)
-            if (href.includes('wa.me') || href.includes('whatsapp.com')) {
-              console.log('[Analytics] Secondary Conversion Triggered: WhatsApp Business Quote', {
-                text: ctaText,
-                destination: href,
-                timestamp: new Date().toISOString()
-              });
+            if (href.includes("wa.me") || href.includes("whatsapp.com")) {
+              console.log(
+                "[Analytics] Secondary Conversion Triggered: WhatsApp Business Quote",
+                {
+                  text: ctaText,
+                  destination: href,
+                  timestamp: new Date().toISOString(),
+                },
+              );
 
               window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({
-                event: 'secondary_conversion_whatsapp',
+                event: "secondary_conversion_whatsapp",
                 cta_label: ctaText,
-                destination_url: href
+                destination_url: href,
               });
             }
           });
         };
 
         // Leverage requestIdleCallback or setTimeout fallback to preserve Main Thread
-        if ('requestIdleCallback' in window) {
+        if ("requestIdleCallback" in window) {
           requestIdleCallback(() => initTracking(), { timeout: 2000 });
         } else {
           setTimeout(() => initTracking(), 100);
