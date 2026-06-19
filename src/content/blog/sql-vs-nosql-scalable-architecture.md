@@ -1,7 +1,7 @@
 ---
 title: "SQL vs NoSQL: Designing Databases for High-Traffic Scaling"
 description: "Don't let database timeouts slow down your business. Learn when to choose PostgreSQL, SQL Server, or MongoDB, and how to optimize them for scale."
-pubDate: 2026-06-18
+pubDate: 2026-06-03
 lang: "en"
 tags: ["Database Architecture", "PostgreSQL", "MongoDB", "Backend Performance"]
 keywords: ["sql vs nosql scalability", "postgresql performance tuning", "mongodb database design", "backend architecture timeouts"]

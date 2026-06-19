@@ -1,7 +1,7 @@
 ---
 title: "Building MVPs in 2026: Senior Engineering Accelerated by AI"
 description: "Discover how combining senior architectural criteria with advanced AI tools accelerates startup time-to-market by 3x without stacking technical debt."
-pubDate: 2026-06-18
+pubDate: 2026-05-19
 lang: "en"
 tags: ["Startups", "MVPs", "AI Engineering", "Clean Architecture"]
 keywords: ["mvp development", "ai software engineering", "startup tech stack", "clean architecture"]

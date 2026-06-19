@@ -1,7 +1,7 @@
 ---
 title: "Astro vs Nuxt 4: Choosing the Right Frontend Framework"
 description: "An architectural breakdown of when to leverage Astro's island architecture versus building full-scale web applications with Nuxt 4."
-pubDate: 2026-06-18
+pubDate: 2026-06-06
 lang: "en"
 tags: ["Frontend", "Astro", "Nuxt 4", "Web Performance"]
 keywords: ["astro vs nuxt 4", "frontend architecture", "core web vitals optimization", "island architecture astro"]

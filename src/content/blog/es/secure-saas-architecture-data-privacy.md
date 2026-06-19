@@ -1,7 +1,7 @@
 ---
 title: "SaaS Seguro: Privacidad de Datos y Arquitectura"
 description: "Protege a tus usuarios. Cómo diseñar modelos de cifrado, privacidad de datos y control de accesos robustos para plataformas SaaS."
-pubDate: 2026-06-18
+pubDate: 2026-06-15
 lang: "es"
 tags: ["Seguridad", "SaaS", "Privacidad de Datos", "Arquitectura Cloud"]
 keywords: ["arquitectura saas segura", "privacidad de datos", "implementacion rbac", "cifrado de bases de datos"]

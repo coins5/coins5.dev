@@ -1,7 +1,7 @@
 ---
 title: "FastAPI vs Node.js: El Mejor Motor para tu Backend"
 description: "Comparativa técnica entre la velocidad tipada de FastAPI y el ecosistema asíncrono de Node.js para proyectos escalables."
-pubDate: 2026-06-18
+pubDate: 2026-06-09
 lang: "es"
 tags: ["Backend", "FastAPI", "Node.js", "Arquitectura de Software"]
 keywords: ["fastapi o nodejs", "rendimiento backend", "python asincrono", "arquitectura escalable"]

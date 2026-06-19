@@ -1,7 +1,7 @@
 ---
 title: "CI/CD Workflows: Shipping Code Safely Without Bugs"
 description: "Stop breaking production. Learn how to architect automated testing and clean CI/CD pipelines to deploy features with confidence."
-pubDate: 2026-06-18
+pubDate: 2026-06-12
 lang: "en"
 tags: ["DevOps", "CI-CD", "Automated Testing", "QA"]
 keywords: ["ci cd pipelines", "automated testing software", "github actions workflow", "prevent bugs production"]

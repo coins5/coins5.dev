@@ -1,7 +1,7 @@
 ---
 title: "Desarrollo Pragmático: Software sin Burocracia Ágil"
 description: "La agilidad no son reuniones eternas, es poner software en producción. Cómo un enfoque directo y técnico maximiza el retorno de inversión en tu proyecto."
-pubDate: 2026-06-18
+pubDate: 2026-05-31
 lang: "es"
 tags: ["Gestión de Proyectos", "Agile", "Entrega de Software", "Productividad"]
 keywords: ["agile pragmático", "eficiencia en desarrollo", "desarrollador senior independiente", "metodologias de desarrollo rapidas"]

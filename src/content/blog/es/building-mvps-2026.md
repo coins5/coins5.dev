@@ -1,7 +1,7 @@
 ---
 title: "Desarrollo de MVPs 2026: Ingeniería Senior Acelerada con IA"
 description: "Cómo la combinación de criterio arquitectónico senior y herramientas de IA acelera el time-to-market de tu startup x3 sin acumular deuda técnica."
-pubDate: 2026-06-18
+pubDate: 2026-05-19
 lang: "es"
 tags: ["Startups", "MVPs", "Ingeniería de IA", "Arquitectura Limpia"]
 keywords: ["desarrollo mvp peru", "ingenieria de software ia", "arquitectura limpia startups", "desarrollo rapido software"]

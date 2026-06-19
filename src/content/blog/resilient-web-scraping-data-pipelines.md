@@ -1,7 +1,7 @@
 ---
 title: "Resilient Web Scraping: High-Performance Data Pipelines"
 description: "Extracting millions of records requires more than basic scripts. Learn how to architect automated, reliable data pipelines that don't break."
-pubDate: 2026-06-18
+pubDate: 2026-05-25
 lang: "en"
 tags: ["Data Engineering", "Python", "Automation", "Supabase"]
 keywords: ["web scraping python", "data pipeline automation", "resilient data extraction", "supabase database"]

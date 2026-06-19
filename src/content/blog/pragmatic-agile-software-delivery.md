@@ -1,7 +1,7 @@
 ---
 title: "Pragmatic Agile: Delivering Software Without the Bureaucracy"
 description: "Tired of endless Scrum meetings that result in zero code? Discover how a pragmatic, senior-led approach focuses on shipping high-quality software fast."
-pubDate: 2026-06-18
+pubDate: 2026-05-31
 lang: "en"
 tags: ["Project Management", "Agile", "Software Delivery", "Productivity"]
 keywords: ["pragmatic agile", "software delivery efficiency", "senior developer workflow", "reduce corporate bureaucracy"]

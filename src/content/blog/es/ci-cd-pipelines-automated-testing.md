@@ -1,7 +1,7 @@
 ---
 title: "Pipelines de CI/CD: Despliega Software sin Errores"
 description: "Deja de romper producción. Cómo diseñar flujos de despliegue continuo y pruebas automáticas para lanzar código con total confianza."
-pubDate: 2026-06-18
+pubDate: 2026-06-12
 lang: "es"
 tags: ["DevOps", "CI-CD", "Pruebas Automatizadas", "QA"]
 keywords: ["pipelines de ci cd", "pruebas automatizadas software", "despliegue continuo", "evitar errores en produccion"]

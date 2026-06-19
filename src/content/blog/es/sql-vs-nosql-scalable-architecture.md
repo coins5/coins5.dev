@@ -1,7 +1,7 @@
 ---
 title: "SQL o NoSQL: Diseñar la base de datos correcta para escalar"
 description: "No dejes que los timeouts de tu base de datos frenen tu negocio. Cuándo elegir PostgreSQL, SQL Server o MongoDB, y cómo optimizarlos."
-pubDate: 2026-06-18
+pubDate: 2026-06-03
 lang: "es"
 tags: ["Arquitectura de Bases de Datos", "PostgreSQL", "MongoDB", "Rendimiento Backend"]
 keywords: ["escalar bases de datos", "optimizacion postgresql", "diseño mongodb", "cuellos de botella backend"]

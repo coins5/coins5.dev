@@ -1,7 +1,7 @@
 ---
 title: "Reduciendo la Factura Cloud un 40%: Arquitectura vs Hardware"
 description: "Deja de lanzar dinero a servidores más grandes. Descubre cómo una arquitectura limpia y un refactoring inteligente destruyen costos en AWS/Azure."
-pubDate: 2026-06-18
+pubDate: 2026-05-22
 lang: "es"
 tags: ["Optimización Cloud", "AWS", "Infraestructura", "Eficiencia de Costos"]
 keywords: ["optimizar costos cloud", "reducir factura aws", "refactoring de software", "rendimiento backend"]

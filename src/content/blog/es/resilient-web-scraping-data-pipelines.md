@@ -1,7 +1,7 @@
 ---
 title: "Web Scraping de Alto Rendimiento: Pipelines Resilientes"
 description: "Extraer millones de registros requiere más que scripts básicos. Cómo diseñar flujos automatizados de datos estables que nunca se caigan."
-pubDate: 2026-06-18
+pubDate: 2026-05-25
 lang: "es"
 tags: ["Ingeniería de Datos", "Python", "Automatización", "Supabase"]
 keywords: ["web scraping profesional", "automatizacion de datos", "pipelines de datos resilientes", "python y supabase"]

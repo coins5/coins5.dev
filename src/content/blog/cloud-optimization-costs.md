@@ -1,7 +1,7 @@
 ---
 title: "Cutting Cloud Bills by 40%: Architecture Over Hardware"
 description: "Stop throwing money at bigger servers. Learn how clean software architecture and smart refactoring slash AWS/Azure bills and boost performance."
-pubDate: 2026-06-18
+pubDate: 2026-05-22
 lang: "en"
 tags: ["Cloud Optimization", "AWS", "Infrastructure", "Cost Efficiency"]
 keywords: ["cloud cost optimization", "reduce aws bill", "software refactoring", "backend performance"]

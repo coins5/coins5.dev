@@ -1,7 +1,7 @@
 ---
 title: "Fastapi vs Node.js: Choosing Your Backend Engine"
 description: "An architectural comparison of asynchronous performance, development speed, and maintainability between FastAPI and Node.js."
-pubDate: 2026-06-18
+pubDate: 2026-06-09
 lang: "en"
 tags: ["Backend", "FastAPI", "Node.js", "Software Architecture"]
 keywords: ["fastapi vs nodejs", "backend performance", "asynchronous python", "scalable microservices"]

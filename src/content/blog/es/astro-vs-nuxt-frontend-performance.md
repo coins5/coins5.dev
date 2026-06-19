@@ -1,7 +1,7 @@
 ---
 title: "Astro vs Nuxt 4: El Framework Ideal para tu Web"
 description: "Análisis técnico para elegir entre la arquitectura de islas de Astro y la potencia para aplicaciones completas de Nuxt 4."
-pubDate: 2026-06-18
+pubDate: 2026-06-06
 lang: "es"
 tags: ["Frontend", "Astro", "Nuxt 4", "Rendimiento Web"]
 keywords: ["astro o nuxt 4", "arquitectura frontend", "optimizar core web vitals", "desarrollo web rapido"]
