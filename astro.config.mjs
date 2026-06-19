@@ -19,5 +19,9 @@ export default defineConfig({
     },
   },
 
+  build: {
+    inlineStylesheets: "always",
+  },
+
   integrations: [sitemap()],
 });

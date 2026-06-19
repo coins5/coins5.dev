@@ -7,26 +7,27 @@
 
 @plugin "daisyui/theme" {
   name: "sandstone-charcoal";
+
   --color-base-100: #141414; /* Negro Carbón */
-  --color-base-200: #1C1C1C; /* Gris Ceniza */
+  --color-base-200: #1c1c1c; /* Gris Ceniza */
   --color-base-300: #262626;
-  --color-base-content: #F5F5F4; /* Blanco Hueso */
-  
-  --color-primary: #F5F5F4; /* Blanco Hueso */
+  --color-base-content: #f5f5f4; /* Blanco Hueso */
+
+  --color-primary: #f5f5f4; /* Blanco Hueso */
   --color-primary-content: #141414;
-  
-  --color-secondary: #E6DFD3; /* Crema / Arena Soft */
+
+  --color-secondary: #e6dfd3; /* Crema / Arena Soft */
   --color-secondary-content: #141414;
-  
-  --color-accent: #E6DFD3; /* Crema / Arena Soft */
+
+  --color-accent: #e6dfd3; /* Crema / Arena Soft */
   --color-accent-content: #141414;
 
   --radius-box: 0.75rem; /* rounded-xl */
-  --radius-btn: 0.5rem;  /* rounded-lg */
+  --radius-btn: 0.5rem; /* rounded-lg */
 }
 
 @theme {
-  --color-text-body: #A8A29E;
+  --color-text-body: #a8a29e;
 }
 
 /* Estilos base del documento */
