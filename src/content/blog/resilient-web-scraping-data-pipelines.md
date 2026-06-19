@@ -1,17 +1,23 @@
 ---
 title: "Resilient Web Scraping: High-Performance Data Pipelines"
 description: "Extracting millions of records requires more than basic scripts. Learn how to architect automated, reliable data pipelines that don't break."
-pubDate: 2026-05-25
+pubDate: 2026-05-24
 lang: "en"
 tags: ["Data Engineering", "Python", "Automation", "Supabase"]
-keywords: ["web scraping python", "data pipeline automation", "resilient data extraction", "supabase database"]
+keywords:
+  [
+    "web scraping python",
+    "data pipeline automation",
+    "resilient data extraction",
+    "supabase database",
+  ]
 ogImage: "/images/blog/data-pipelines-preview.png"
 draft: false
 ---
 
 # The Fragility of Web Extraction: Moving Beyond Basic Scripts
 
-Many businesses begin their data extraction journey with a simple script: a basic Python tool importing `BeautifulSoup` and `requests`. While this works perfectly in a local development environment running against a dozen static pages, it fails catastrophically in production. 
+Many businesses begin their data extraction journey with a simple script: a basic Python tool importing `BeautifulSoup` and `requests`. While this works perfectly in a local development environment running against a dozen static pages, it fails catastrophically in production.
 
 When you scale from a hundred pages to millions of records, the web becomes hostile. HTML structures change without warning, servers deploy rate-limiters, IP addresses get blacklisted, and network latency spikes. A basic scraper will crash, corrupt your database, or leave you with incomplete and duplicate datasets.
 
@@ -24,12 +30,15 @@ For modern startups and enterprise platforms, **web scraping python** implementa
 To build a **resilient data extraction** pipeline, your architecture must assume failure is the default state. Handling network fluctuations, rate limits, and server-side defensive blocks requires three main pillars:
 
 ### 1. Advanced Proxy Rotation and Fingerprinting Evasion
+
 Relying on a single IP address is a fast track to getting blocked. A professional pipeline integrates residential or mobile proxy pools. Furthermore, modern bot detection looks beyond IP addresses to TLS fingerprints, HTTP/2 settings, and header consistency. Rotating User-Agents must be paired with realistic headers and browser-like behaviors.
 
 ### 2. Concurrency and Rate Limiting
+
 Flooding a target server with requests is both unethical and self-defeating. You must implement concurrency control using token buckets or semaphores, ensuring your scraper stays within safe, human-like request thresholds.
 
 ### 3. Automated Retries with Exponential Backoff
+
 When a server returns a `429 Too Many Requests` or `503 Service Unavailable`, a naive script immediately retries or crashes. A resilient pipeline employs exponential backoff with jitter, delaying subsequent retries to give the target server time to recover.
 
 Here is how to implement a resilient, asynchronous HTTP client in Python using `tenacity` and `httpx`:
@@ -48,7 +57,7 @@ from tenacity import retry, wait_random_exponential, stop_after_attempt, retry_i
 )
 async def fetch_page_with_retry(client: httpx.AsyncClient, url: str, headers: dict) -> str:
     response = await client.get(url, headers=headers, timeout=10.0)
-    
+
     # Raise an exception for HTTP errors (4xx/5xx) to trigger the retry decorator
     response.raise_for_status()
     return response.text
@@ -58,7 +67,7 @@ async def main():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36...",
         "Accept-Language": "en-US,en;q=0.9"
     }
-    
+
     async with httpx.AsyncClient(proxies="http://your-proxy-pool.com:8000") as client:
         try:
             html_content = await fetch_page_with_retry(client, "https://api.target.com/data", headers)
@@ -95,14 +104,14 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 def batch_upsert_data(records: list, batch_size: int = 1000):
     total_records = len(records)
     batches = math.ceil(total_records / batch_size)
-    
+
     print(f"Starting ingestion of {total_records} records in {batches} batches...")
-    
+
     for i in range(batches):
         start_idx = i * batch_size
         end_idx = start_idx + batch_size
         batch = records[start_idx:end_idx]
-        
+
         try:
             # High-performance bulk upsert mapping to primary key
             response = supabase.table("extracted_products").upsert(
@@ -128,5 +137,6 @@ Building large-scale data systems requires structural discipline. Applying Clean
 At **Coins5**, Marlon applies over a decade of software engineering expertise (solidifying Clean Architecture, PostgreSQL optimization, and robust async patterns) combined with AI-powered development workflows. By utilizing AI to write comprehensive integration tests and validate edge cases rapidly, we build bulletproof pipelines up to 3x faster than standard development teams, keeping your operational costs low and your data clean.
 
 ### Need to automate data extraction for your business?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your data architecture, Supabase setup, and scalability needs during a 15-minute discovery session.
-* **Get a Direct Quote**: Let's discuss your targets, scope, and timeline directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20custom%20AI%20agents%20and%20automation%20for%20my%20business.).
+
+- **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your data architecture, Supabase setup, and scalability needs during a 15-minute discovery session.
+- **Get a Direct Quote**: Let's discuss your targets, scope, and timeline directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20custom%20AI%20agents%20and%20automation%20for%20my%20business.).

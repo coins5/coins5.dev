@@ -1,10 +1,16 @@
 ---
 title: "Web Scraping de Alto Rendimiento: Pipelines Resilientes"
 description: "Extraer millones de registros requiere más que scripts básicos. Cómo diseñar flujos automatizados de datos estables que nunca se caigan."
-pubDate: 2026-05-25
+pubDate: 2026-05-24
 lang: "es"
 tags: ["Ingeniería de Datos", "Python", "Automatización", "Supabase"]
-keywords: ["web scraping profesional", "automatizacion de datos", "pipelines de datos resilientes", "python y supabase"]
+keywords:
+  [
+    "web scraping profesional",
+    "automatizacion de datos",
+    "pipelines de datos resilientes",
+    "python y supabase",
+  ]
 ogImage: "/images/blog/data-pipelines-preview.png"
 draft: false
 ---
@@ -24,12 +30,15 @@ Para que el **web scraping profesional** aporte valor real a una mediana empresa
 Un pipeline de datos resiliente asume que los fallos de red y los intentos de bloqueo van a ocurrir. Para garantizar la continuidad de la extracción de datos de manera automatizada, implementamos tres estrategias clave:
 
 ### 1. Rotación Inteligente de Proxies y Firmas TLS
+
 Utilizar una única dirección IP garantiza un bloqueo inmediato. La arquitectura debe integrar pools de proxies residenciales rotativos. Adicionalmente, los sistemas modernos de detección de bots analizan las huellas TLS y las cabeceras HTTP/2. Configurar cabeceras consistentes y emular comportamientos humanos es obligatorio para evitar bloqueos.
 
 ### 2. Control de Concurrencia y Rate Limiting
+
 Saturar un servidor objetivo no solo es una mala práctica, sino que acelera el bloqueo de tus credenciales o IPs. Controlar la velocidad de extracción mediante semáforos o colas de tareas mantiene el tráfico bajo un patrón seguro.
 
 ### 3. Reintentos Automáticos con Backoff Exponencial
+
 Si el servidor destino responde con un error temporal (como `429 Too Many Requests` o `503 Service Unavailable`), el pipeline no debe detenerse. Se debe implementar un algoritmo de backoff exponencial con "jitter" (ruido aleatorio) para reintentar la solicitud espaciando el tiempo de espera.
 
 A continuación, un ejemplo en Python de un cliente HTTP asíncrono y altamente resiliente utilizando `tenacity` e `httpx`:
@@ -48,7 +57,7 @@ from tenacity import retry, wait_random_exponential, stop_after_attempt, retry_i
 )
 async def fetch_page_with_retry(client: httpx.AsyncClient, url: str, headers: dict) -> str:
     response = await client.get(url, headers=headers, timeout=10.0)
-    
+
     # Lanza una excepción si hay errores HTTP (4xx/5xx) para disparar el reintento
     response.raise_for_status()
     return response.text
@@ -58,7 +67,7 @@ async def main():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36...",
         "Accept-Language": "es-ES,es;q=0.9"
     }
-    
+
     async with httpx.AsyncClient(proxies="http://your-proxy-pool.com:8000") as client:
         try:
             html = await fetch_page_with_retry(client, "https://api.target.com/data", headers)
@@ -93,14 +102,14 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 def batch_upsert_data(records: list, batch_size: int = 1000):
     total_records = len(records)
     batches = math.ceil(total_records / batch_size)
-    
+
     print(f"Iniciando ingesta de {total_records} registros en {batches} lotes...")
-    
+
     for i in range(batches):
         start_idx = i * batch_size
         end_idx = start_idx + batch_size
         batch = records[start_idx:end_idx]
-        
+
         try:
             # Alta performance usando upsert masivo mapeado a clave única
             response = supabase.table("extracted_products").upsert(
@@ -126,5 +135,6 @@ Diseñar flujos de datos de alto rendimiento requiere criterio arquitectónico p
 En **Coins5**, Marlon combina más de 10 años de experiencia como Arquitecto de Software y desarrollador Full Stack con el uso avanzado de Inteligencia Artificial para la aceleración del código. Esto nos permite estructurar sistemas de extracción masiva altamente robustos y optimizados para consumir el mínimo ancho de banda y hardware de servidor posible, entregando el proyecto hasta 3 veces más rápido.
 
 ### ¿Quieres automatizar la recolección de datos en tu negocio?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de datos en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Conversemos directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20servicios%20de%20digitalizaci%C3%B3n%20y%20automatizaci%C3%B3n.) para evaluar alcances, cotizar costos y planificar tiempos de entrega.
+
+- **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de datos en una llamada de descubrimiento de 15 minutos.
+- **Cotiza por WhatsApp**: Conversemos directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20servicios%20de%20digitalizaci%C3%B3n%20y%20automatizaci%C3%B3n.) para evaluar alcances, cotizar costos y planificar tiempos de entrega.
