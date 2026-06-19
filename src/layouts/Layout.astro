@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
 import { siteConfig } from "../config";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title: string;
@@ -73,7 +74,12 @@ const xDefaultUrl = enUrl;
   <head>
     <!-- Basic Meta Tags -->
     <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Coins5.dev" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -109,6 +115,7 @@ const xDefaultUrl = enUrl;
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="es" href={esUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+    <Analytics />
   </head>
   <body
     class="bg-base-100 text-base-content min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-secondary-content"
