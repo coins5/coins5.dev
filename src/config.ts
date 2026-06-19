@@ -11,6 +11,9 @@ export const siteConfig = {
   // Primary Call To Action: Discovery Call booking page
   calendlyUrl: "https://calendar.app.google/AbnPNcKVJyDnaU9z5",
 
+  linkedin: "https://www.linkedin.com/in/coins5/",
+  github: "https://github.com/coins5",
+
   // Secondary Call To Action: WhatsApp contact configuration
   whatsappNumber: "51922913739",
   whatsappMessages: {
