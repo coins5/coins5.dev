@@ -1,5 +1,5 @@
 ---
-title: "Cutting Cloud Bills by 40%: Architecture Over Hardware"
+title: "Cut Cloud Bills by 40%: Architecture Over Hardware"
 description: "Stop throwing money at bigger servers. Learn how clean software architecture and smart refactoring slash AWS/Azure bills and boost performance."
 pubDate: 2026-05-24
 lang: "en"

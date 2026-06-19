@@ -1,5 +1,5 @@
 ---
-title: "Strategio Case Study | Coins5"
+title: "Strategio Case Study"
 description: "How we built the AI-powered Business Intelligence platform, winning Startup Perú and optimizing cloud costs."
 clientName: "Strategio"
 impactMetric: "Infrastructure Costs Cut by 40%"

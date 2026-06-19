@@ -1,5 +1,5 @@
 ---
-title: "Desarrollo de MVPs 2026: Ingeniería Senior Acelerada con IA"
+title: "Desarrollo de MVPs 2026: Ingeniería Senior con IA"
 description: "Cómo la combinación de criterio arquitectónico senior y herramientas de IA acelera el time-to-market de tu startup x3 sin acumular deuda técnica."
 pubDate: 2026-05-19
 lang: "es"

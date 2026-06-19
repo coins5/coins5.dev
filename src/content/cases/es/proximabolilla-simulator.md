@@ -1,5 +1,5 @@
 ---
-title: "PróximaBolilla: Analítica de Loterías de Alto Rendimiento"
+title: "PróximaBolilla: Analítica de Alto Rendimiento"
 description: "Construcción de un simulador automatizado analizando sorteos históricos."
 clientName: "PróximaBolilla"
 impactMetric: "Analítica de Datos y Automatización"

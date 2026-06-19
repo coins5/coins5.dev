@@ -1,5 +1,5 @@
 ---
-title: "Observabilidad: Detecta Errores Antes que tu Usuario"
+title: "Observabilidad: Evita Errores Antes que tu Usuario"
 description: "Deja de depender de las quejas de tus usuarios. Cómo los logs estructurados y el monitoreo te permiten resolver fallos en minutos."
 pubDate: 2026-06-19
 lang: "es"

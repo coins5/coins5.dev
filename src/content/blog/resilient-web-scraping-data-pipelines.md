@@ -1,5 +1,5 @@
 ---
-title: "Resilient Web Scraping: High-Performance Data Pipelines"
+title: "Resilient Web Scraping: High-Performance Pipelines"
 description: "Extracting millions of records requires more than basic scripts. Learn how to architect automated, reliable data pipelines that don't break."
 pubDate: 2026-05-24
 lang: "en"

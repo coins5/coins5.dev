@@ -1,5 +1,5 @@
 ---
-title: "Reduciendo la Factura Cloud un 40%: Arquitectura vs Hardware"
+title: "Reducir Factura Cloud 40%: Arquitectura vs Hardware"
 description: "Deja de lanzar dinero a servidores más grandes. Descubre cómo una arquitectura limpia y un refactoring inteligente destruyen costos en AWS/Azure."
 pubDate: 2026-05-24
 lang: "es"

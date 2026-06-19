@@ -1,5 +1,5 @@
 ---
-title: "Clean Architecture: Protege tu inversión en software"
+title: "Clean Architecture: Protege tu Inversión"
 description: "No dejes que la deuda técnica destruya tu producto. Cómo la Arquitectura Limpia mantiene tu software escalable, modular y fácil de mantener."
 pubDate: 2026-05-28
 lang: "es"

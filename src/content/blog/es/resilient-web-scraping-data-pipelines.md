@@ -1,5 +1,5 @@
 ---
-title: "Web Scraping de Alto Rendimiento: Pipelines Resilientes"
+title: "Web Scraping de Alto Rendimiento y Resiliente"
 description: "Extraer millones de registros requiere más que scripts básicos. Cómo diseñar flujos automatizados de datos estables que nunca se caigan."
 pubDate: 2026-05-24
 lang: "es"
