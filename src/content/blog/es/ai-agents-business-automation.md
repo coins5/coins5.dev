@@ -1,5 +1,5 @@
 ---
-title: "Agentes de IA en Producción: Más Allá de Wrappers Genéricos"
+title: "Agentes de IA en Producción: Más Allá de Wrappers"
 description: "Deja de pagar por chatbots básicos. Cómo diseñar agentes de IA a medida que se conectan de forma segura a tus sistemas y automatizan operaciones reales."
 pubDate: 2026-06-18
 lang: "es"

@@ -1,5 +1,5 @@
 ---
-title: "Caso de Estudio Strategio | Coins5"
+title: "Caso de Estudio Strategio"
 description: "Cómo desarrollamos la plataforma de BI con IA ganadora de Startup Perú, optimizando costos e infraestructura."
 clientName: "Strategio"
 impactMetric: "Costos de Servidor Reducidos en 40%"

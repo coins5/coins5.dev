@@ -1,5 +1,5 @@
 ---
-title: "Pragmatic Agile: Delivering Software Without the Bureaucracy"
+title: "Pragmatic Agile: Software Without Bureaucracy"
 description: "Tired of endless Scrum meetings that result in zero code? Discover how a pragmatic, senior-led approach focuses on shipping high-quality software fast."
 pubDate: 2026-05-31
 lang: "en"

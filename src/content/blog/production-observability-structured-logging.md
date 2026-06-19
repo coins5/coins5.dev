@@ -1,5 +1,5 @@
 ---
-title: "Production Observability: Fix Bugs Before Users Notice"
+title: "Production Observability: Fix Bugs Before Users Do"
 description: "Stop relying on user complaints to find bugs. Learn how structured logging and system metrics help you resolve production incidents in minutes."
 pubDate: 2026-06-19
 lang: "en"

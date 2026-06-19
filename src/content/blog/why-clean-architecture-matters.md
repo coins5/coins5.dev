@@ -1,5 +1,5 @@
 ---
-title: "Why Clean Architecture Matters: Protect Your Investment"
+title: "Why Clean Architecture Matters: Protect Investment"
 description: "Don't let technical debt kill your product. Discover how Clean Architecture and SOLID principles keep your software scalable, modular, and easy to maintain."
 pubDate: 2026-05-28
 lang: "en"

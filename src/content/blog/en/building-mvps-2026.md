@@ -1,5 +1,5 @@
 ---
-title: "Building MVPs in 2026: Senior Engineering Accelerated by AI"
+title: "Building MVPs in 2026: Senior Engineering & AI"
 description: "Discover how combining senior architectural criteria with advanced AI tools accelerates startup time-to-market by 3x without stacking technical debt."
 pubDate: 2026-05-19
 lang: "en"
