@@ -38,28 +38,35 @@ if (description.length > 160) {
   );
 }
 
-const siteUrl = siteConfig.siteUrl.replace(/\/$/, ""); // Asegura que no termine en slash para evitar doble slash abajo
-const currentPath = Astro.url.pathname.replace(/\/$/, "");
+const siteUrl = siteConfig.siteUrl;
+const cleanPathname = Astro.url.pathname.replace(/\/$/, "");
 
-// Construcción limpia y robusta de las variantes de idioma
+// Construct localized path alternate variants
 let enPath = "";
 let esPath = "";
 
-if (currentPath.startsWith("/es")) {
-  esPath = currentPath;
-  enPath = currentPath.replace(/^\/es/, "") || "";
+if (lang === "es") {
+  // Spanish route (e.g. /es/something)
+  esPath = cleanPathname || "/es";
+  const pathWithoutEs = cleanPathname.replace(/^\/es/, "");
+  enPath = pathWithoutEs || "/";
 } else {
-  enPath = currentPath;
-  esPath = `/es${currentPath}`;
+  // English route (root or subpath e.g. /services)
+  enPath = cleanPathname || "/";
+  esPath = `/es${cleanPathname === "" ? "" : cleanPathname}`;
 }
 
-// Convertir a URLs absolutas uniformes (todas terminan en / para cumplir el estándar canónico)
-const enUrl = `${siteUrl}${enPath}/`;
-const esUrl = `${siteUrl}${esPath}/`;
-const xDefaultUrl = enUrl;
+// Format to absolute URLs
+const formatUrl = (path: string) => {
+  if (path === "/" || path === "") return `${siteUrl}/`;
+  if (path === "/es") return `${siteUrl}/es/`;
+  return `${siteUrl}${path}`;
+};
 
-// Definimos la URL canónica de la página actual de forma estricta
-const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
+const canonical = canonicalUrl || formatUrl(lang === "es" ? esPath : enPath);
+const enUrl = formatUrl(enPath);
+const esUrl = formatUrl(esPath);
+const xDefaultUrl = enUrl;
 ---
 
 <!doctype html>
@@ -78,22 +85,15 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Pasamos canonical y los language alternates directamente a la configuración de astro-seo -->
     <SEO
       title={title}
       description={description}
-      canonical={canonical}
-      languageAlternates={[
-        { hrefLang: "en", href: enUrl },
-        { hrefLang: "es", href: esUrl },
-        { hrefLang: "x-default", href: xDefaultUrl },
-      ]}
       openGraph={{
         basic: {
           title: title,
           type: ogType,
           image: ogImage || "/default-preview.png",
-          url: canonical, // Sincronizado también con og:url
+          url: Astro.url.href,
         },
       }}
       extend={{
@@ -109,21 +109,33 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
       }}
     />
 
-    <!-- SE REMOVIERON LOS TAGS MANUALES DE CANONICAL Y HREFLANG QUE CAUSABAN LA DUPLICIDAD -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical} />
 
+    <!-- International hreflang Links -->
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
     <Analytics />
   </head>
   <body
     class="bg-base-100 text-base-content min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-secondary-content"
   >
+    <!-- Header / Navbar -->
     <Navbar />
+
+    <!-- Main Content Slot -->
     <main class="grow">
       <slot />
     </main>
+
+    <!-- Footer -->
     <Footer />
 
+    <!-- Conversion Event Tracking (Vanilla JS Event Delegation for perfect INP & Lighthouse) -->
     <script is:inline>
       (function () {
+        // Register conversion events after browser becomes idle to prevent Blocking Time
         const initTracking = () => {
           document.body.addEventListener("click", (event) => {
             const link = event.target.closest("a");
@@ -132,6 +144,7 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
             const href = link.getAttribute("href") || "";
             const ctaText = link.innerText ? link.innerText.trim() : "";
 
+            // 1. Primary CTA - Calendly (Discovery Call)
             if (href.includes("calendly.com")) {
               console.log(
                 "[Analytics] Primary Conversion Triggered: Calendly Discovery Call",
@@ -141,6 +154,8 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
                   timestamp: new Date().toISOString(),
                 },
               );
+
+              // Push to Google Tag Manager / GA4 dataLayer securely
               window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({
                 event: "primary_conversion_calendly",
@@ -149,6 +164,7 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
               });
             }
 
+            // 2. Secondary CTA - WhatsApp Business (Quick Quote)
             if (href.includes("wa.me") || href.includes("whatsapp.com")) {
               console.log(
                 "[Analytics] Secondary Conversion Triggered: WhatsApp Business Quote",
@@ -158,6 +174,7 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
                   timestamp: new Date().toISOString(),
                 },
               );
+
               window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({
                 event: "secondary_conversion_whatsapp",
@@ -168,6 +185,7 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
           });
         };
 
+        // Leverage requestIdleCallback or setTimeout fallback to preserve Main Thread
         if ("requestIdleCallback" in window) {
           requestIdleCallback(() => initTracking(), { timeout: 2000 });
         } else {
