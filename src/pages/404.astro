@@ -1,0 +1,100 @@
+---
+// src/pages/404.astro
+import "../styles/global.css";
+import { siteConfig } from "../config";
+import { AlertTriangle } from "@lucide/astro";
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="sandstone-charcoal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Deployment Incident | coins5</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body class="bg-base-100 text-base-content font-sans antialiased min-h-screen flex items-center justify-center p-4">
+  
+  <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 bg-base-200 p-8 md:p-12 rounded-2xl border border-stone-800 shadow-2xl">
+    
+    <!-- LADO IZQUIERDO: HUMOR TÉCNICO -->
+    <div class="flex flex-col justify-between border-b md:border-b-0 md:border-r border-stone-800 pb-6 md:pb-0 md:pr-8">
+      <div>
+        <div class="flex items-center gap-2 text-[#D49024] mb-4">
+          <AlertTriangle class="h-6 w-6" stroke-width="2" />
+          <span class="font-mono text-sm tracking-widest uppercase data-lang-en">STATUS: 404_DEPLOYMENT_REVERTED</span>
+          <span class="font-mono text-sm tracking-widest uppercase data-lang-es hidden">ESTADO: 404_DESPLIEGUE_REVERTIDO</span>
+        </div>
+        
+        <!-- Contenido en Inglés -->
+        <div class="data-lang-en">
+          <h1 class="text-3xl font-extrabold text-white mb-4">Who let the Junior deploy on Friday?</h1>
+          <p class="text-gray-400 font-mono text-sm leading-relaxed bg-[#111111] p-4 rounded-lg border border-stone-900">
+            Someone gave production access to the junior developer on Friday at 4:55 PM. The CI/CD pipeline tried its best to save us, but this route was accidentally deleted along with the staging database.
+          </p>
+        </div>
+
+        <!-- Contenido en Español -->
+        <div class="data-lang-es hidden">
+          <h1 class="text-3xl font-extrabold text-white mb-4">¿Quién dejó que el Junior deployara en viernes?</h1>
+          <p class="text-gray-400 font-mono text-sm leading-relaxed bg-[#111111] p-4 rounded-lg border border-stone-900">
+            Alguien le dio acceso a producción al programador Junior un viernes a las 4:55 PM. El pipeline de CI/CD intentó salvarlo, pero esta ruta fue borrada accidentalmente junto con la base de datos de pruebas.
+          </p>
+        </div>
+      </div>
+      
+      <div class="mt-6">
+        <a href="/" class="btn btn-sm btn-outline border-[#D49024] text-[#D49024] hover:bg-[#D49024] hover:text-[#141414] font-mono normal-case">
+          <span class="data-lang-en">cd .. / Run before Git Blame</span>
+          <span class="data-lang-es hidden">cd .. / Correr antes del Git Blame</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- LADO DERECHO: GANCHO COMERCIAL (CONVERSIÓN B2B) -->
+    <div class="flex flex-col justify-between md:pl-4">
+      <div>
+        <span class="text-xs font-semibold text-[#D49024] tracking-wider uppercase mb-2 block">coins5 // Code Intelligence Services</span>
+        
+        <!-- Contenido en Inglés -->
+        <div class="data-lang-en">
+          <h2 class="text-2xl font-bold text-white mb-4">Jokes aside, being blind in production is a nightmare.</h2>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">
+            Relying on frustrated users to find out your system crashed is expensive. If your SaaS platform needs structured logging, active telemetry, clean architecture, or autonomous AI agents that actually generate ROI, let's talk.
+          </p>
+        </div>
+
+        <!-- Contenido en Español -->
+        <div class="data-lang-es hidden">
+          <h2 class="text-2xl font-bold text-white mb-4">Bromas aparte, estar a ciegas en producción es una pesadilla.</h2>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">
+            Depender de que tus usuarios frustrados te avisen que tu sistema se cayó sale muy caro. Si tu plataforma SaaS necesita logs estructurados, telemetría activa, arquitectura limpia o agentes de IA autónomos que realmente generen ROI, hablemos.
+          </p>
+        </div>
+      </div>
+
+      <!-- BOTÓN PRINCIPAL DE CONVERSIÓN (CALENDLY / WHATSAPP) -->
+      <div>
+        <a href={siteConfig.calendlyUrl} target="_blank" rel="noopener noreferrer" class="btn btn-block bg-[#E6DFD3] hover:bg-[#F0EAE0] text-[#141414] font-bold border-none normal-case shadow-lg">
+          <span class="data-lang-en">Secure My Infrastructure (15-Min Call)</span>
+          <span class="data-lang-es hidden">Blindar mi Infraestructura (Llamada 15 min)</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT DE DETECCIÓN DE IDIOMA EN CLIENTE -->
+  <script>
+    const isSpanish = window.location.pathname.startsWith('/es/') || 
+                    (!window.location.pathname.startsWith('/en/') && navigator.language.startsWith('es'));
+    
+    if (isSpanish) {
+      document.querySelectorAll('.data-lang-en').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.data-lang-es').forEach(el => el.classList.remove('hidden'));
+      document.title = "404 - Incidente de Despliegue | coins5";
+      const backBtn = document.querySelector('a[href="/"]');
+      if (backBtn) backBtn.setAttribute('href', '/es/');
+    }
+  </script>
+</body>
+</html>
