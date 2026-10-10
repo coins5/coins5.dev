@@ -42,17 +42,18 @@ const content = isEs
 ---
 
 <section
-  class="relative flex flex-col justify-between min-h-[85vh] bg-base-100 overflow-hidden border-b border-stone-500/10"
+  class="relative flex flex-col justify-between min-h-[85vh] bg-base-100 overflow-hidden border-b border-stone-500/10 transition-colors duration-300"
 >
   <!-- Architectural Blueprint Grid Backdrop -->
   <div
-    class="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:28px_28px] mask-[radial-gradient(ellipse_75%_65%_at_50%_15%,#000_65%,transparent_100%)] pointer-events-none"
+    class="absolute inset-0 bg-[linear-gradient(to_right,var(--blueprint-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--blueprint-line)_1px,transparent_1px)] bg-[size:28px_28px] mask-[radial-gradient(ellipse_75%_65%_at_50%_15%,#000_65%,transparent_100%)] pointer-events-none"
   >
   </div>
 
   <!-- Warm Sandstone Ambient Glow behind Hero -->
   <div
-    class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[18rem] bg-secondary/[0.06] blur-[140px] rounded-full pointer-events-none"
+    class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[18rem] rounded-full pointer-events-none blur-[140px]"
+    style="background-color: var(--ambient-glow);"
   >
   </div>
 
@@ -62,7 +63,8 @@ const content = isEs
   >
     <!-- Live Availability & Senior Role Pill -->
     <div
-      class="inline-flex items-center gap-2.5 px-3.5 py-1.5 mb-8 rounded-full bg-base-200/80 border border-stone-500/20 backdrop-blur-md shadow-sm hover:border-stone-400/40 transition-colors"
+      class="inline-flex items-center gap-2.5 px-3.5 py-1.5 mb-8 rounded-full backdrop-blur-md shadow-sm transition-all"
+      style="background-color: var(--pill-bg); border: 1px solid var(--pill-border);"
     >
       <span class="relative flex h-2 w-2">
         <span
@@ -70,25 +72,26 @@ const content = isEs
         ></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
       </span>
-      <span class="text-xs font-mono font-medium text-stone-300 tracking-tight">
+      <span class="text-xs font-mono font-medium tracking-tight text-primary">
         {content.status}
       </span>
-      <span class="text-stone-600 select-none">•</span>
-      <span class="text-[11px] font-mono text-secondary tracking-wider uppercase font-semibold">
+      <span class="opacity-40 select-none">•</span>
+      <span class="text-[11px] font-mono tracking-wider uppercase font-bold text-secondary">
         {content.role}
       </span>
     </div>
 
     <!-- Imposing, Ultra-Wide H1 Title (2 lines rule) -->
     <h1
-      class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold text-primary tracking-tight max-w-5xl leading-[1.08] mb-6 font-sans"
+      class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold text-primary tracking-tight max-w-5xl leading-[1.08] mb-6 font-sans transition-colors duration-300"
     >
       {content.h1}
     </h1>
 
     <!-- Warm Grey Subtitle -->
     <p
-      class="text-base sm:text-lg md:text-xl text-stone-400 max-w-3xl leading-relaxed mb-10 font-sans font-normal"
+      class="text-base sm:text-lg md:text-xl max-w-3xl leading-relaxed mb-10 font-sans font-normal transition-colors duration-300"
+      style="color: var(--color-text-body);"
     >
       {content.subtitle}
     </p>
@@ -102,11 +105,12 @@ const content = isEs
         href={siteConfig.calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2.5 bg-[#E6DFD3] text-[#141414] font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:bg-[#F0EAE0] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+        class="inline-flex items-center justify-center gap-2.5 font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-md"
+        style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
       >
-        <Calendar class="w-5 h-5 text-[#141414]" stroke-width="2" />
+        <Calendar class="w-5 h-5" stroke-width="2" style="color: var(--cta-primary-text);" />
         <span>{content.primaryCta}</span>
-        <ArrowUpRight class="w-4 h-4 text-[#141414]/70" stroke-width="2" />
+        <ArrowUpRight class="w-4 h-4 opacity-80" stroke-width="2" style="color: var(--cta-primary-text);" />
       </a>
 
       <!-- Secondary CTA: WhatsApp Chat -->
@@ -114,7 +118,8 @@ const content = isEs
         href={content.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2.5 bg-base-200/90 border border-stone-500/25 text-[#F5F5F4] hover:bg-stone-500/15 hover:border-stone-400/40 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+        class="inline-flex items-center justify-center gap-2.5 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
+        style="background-color: var(--cta-secondary-bg); color: var(--cta-secondary-text); border: 1px solid var(--cta-secondary-border);"
       >
         <MessageSquare class="w-5 h-5 text-secondary" stroke-width="2" />
         <span>{content.secondaryCta}</span>
@@ -123,7 +128,8 @@ const content = isEs
 
     <!-- Verified Founder Credibility & Trust Micro-Card -->
     <div
-      class="inline-flex flex-wrap items-center justify-center gap-4 px-5 py-3 rounded-2xl bg-base-200/50 border border-stone-500/15 backdrop-blur-sm shadow-sm"
+      class="inline-flex flex-wrap items-center justify-center gap-4 px-5 py-3 rounded-2xl backdrop-blur-sm shadow-sm transition-all"
+      style="background-color: var(--pill-bg); border: 1px solid var(--pill-border);"
     >
       <div class="flex items-center gap-3">
         <Image
@@ -138,23 +144,29 @@ const content = isEs
         />
         <div class="text-left leading-tight">
           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-bold text-[#F5F5F4] font-sans">
+            <span class="text-xs font-bold text-primary font-sans">
               {content.profileName}
             </span>
             <span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
           </div>
-          <span class="text-[11px] text-stone-400 font-mono block">
+          <span
+            class="text-[11px] font-mono block transition-colors"
+            style="color: var(--color-text-body);"
+          >
             {content.profileCredentials}
           </span>
         </div>
       </div>
 
-      <div class="hidden md:flex items-center gap-3 pl-3 border-l border-stone-500/20 text-[11px] font-mono text-stone-300">
+      <div
+        class="hidden md:flex items-center gap-3 pl-3 border-l border-stone-500/20 text-[11px] font-mono"
+        style="color: var(--color-text-body);"
+      >
         <span class="inline-flex items-center gap-1.5">
           <ShieldCheck class="w-3.5 h-3.5 text-secondary" stroke-width="2" />
           {content.ownershipBadge}
         </span>
-        <span class="text-stone-600">•</span>
+        <span class="opacity-40">•</span>
         <span class="inline-flex items-center gap-1.5">
           <Zap class="w-3.5 h-3.5 text-secondary" stroke-width="2" />
           {content.speedBadge}

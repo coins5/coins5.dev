@@ -113,11 +113,12 @@ const content = isEs
 
 <section
   id="advantage"
-  class="relative py-20 md:py-28 bg-base-100 overflow-hidden border-b border-stone-500/10"
+  class="relative py-20 md:py-28 bg-base-100 overflow-hidden border-b border-stone-500/10 transition-colors duration-300"
 >
   <!-- Background Ambient Glow -->
   <div
-    class="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-secondary/[0.03] blur-[150px] rounded-full pointer-events-none"
+    class="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none blur-[150px]"
+    style="background-color: var(--ambient-glow);"
   >
   </div>
 
@@ -134,7 +135,10 @@ const content = isEs
       >
         {content.title}
       </h2>
-      <p class="text-stone-400 text-base sm:text-lg leading-relaxed font-sans font-normal">
+      <p
+        class="text-base sm:text-lg leading-relaxed font-sans font-normal transition-colors"
+        style="color: var(--color-text-body);"
+      >
         {content.subtitle}
       </p>
     </div>
@@ -153,7 +157,8 @@ const content = isEs
               {content.card1.tag}
             </span>
             <div
-              class="p-2 rounded-lg bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors"
+              class="p-2 rounded-lg bg-base-100 border text-secondary group-hover:border-secondary/40 transition-colors"
+              style="border-color: var(--card-border);"
             >
               <Layers class="w-5 h-5" stroke-width="1.5" />
             </div>
@@ -165,38 +170,53 @@ const content = isEs
             {content.card1.title}
           </h3>
 
-          <p class="text-stone-300 text-sm sm:text-base leading-relaxed mb-6 font-sans">
+          <p
+            class="text-sm sm:text-base leading-relaxed mb-6 font-sans transition-colors"
+            style="color: var(--color-text-body);"
+          >
             {content.card1.desc}
           </p>
 
           <!-- Interactive Architectural Stack Blueprint Widget -->
-          <div class="space-y-2.5 mb-6 p-4 rounded-xl bg-base-100/70 border border-stone-500/15 font-mono text-xs">
-            <div class="flex items-center justify-between p-2 rounded-lg bg-base-200/90 border border-stone-500/20">
-              <div class="flex items-center gap-2 text-stone-200 font-bold">
+          <div
+            class="space-y-2.5 mb-6 p-4 rounded-xl border font-mono text-xs transition-colors"
+            style="background-color: var(--card-inner-bg); border-color: var(--card-border);"
+          >
+            <div
+              class="flex items-center justify-between p-2.5 rounded-lg border shadow-xs"
+              style="background-color: var(--card-bg); border-color: var(--card-border);"
+            >
+              <div class="flex items-center gap-2 text-primary font-bold">
                 <Code2 class="w-4 h-4 text-secondary" stroke-width="2" />
                 <span>{content.card1.layerDomain}</span>
               </div>
-              <span class="text-[10px] text-stone-400 hidden sm:inline">
+              <span class="text-[10px] hidden sm:inline opacity-70" style="color: var(--color-text-body);">
                 {content.card1.layerDomainDesc}
               </span>
             </div>
 
-            <div class="flex items-center justify-between p-2 rounded-lg bg-base-200/60 border border-stone-500/15">
-              <div class="flex items-center gap-2 text-stone-300">
-                <Cpu class="w-4 h-4 text-stone-400" stroke-width="2" />
+            <div
+              class="flex items-center justify-between p-2.5 rounded-lg border shadow-xs opacity-90"
+              style="background-color: var(--card-bg); border-color: var(--card-border);"
+            >
+              <div class="flex items-center gap-2 text-primary font-medium">
+                <Cpu class="w-4 h-4 text-secondary" stroke-width="2" />
                 <span>{content.card1.layerApp}</span>
               </div>
-              <span class="text-[10px] text-stone-400 hidden sm:inline">
+              <span class="text-[10px] hidden sm:inline opacity-70" style="color: var(--color-text-body);">
                 {content.card1.layerAppDesc}
               </span>
             </div>
 
-            <div class="flex items-center justify-between p-2 rounded-lg bg-base-200/40 border border-stone-500/10">
-              <div class="flex items-center gap-2 text-stone-400">
-                <Server class="w-4 h-4 text-stone-500" stroke-width="2" />
+            <div
+              class="flex items-center justify-between p-2.5 rounded-lg border shadow-xs opacity-80"
+              style="background-color: var(--card-bg); border-color: var(--card-border);"
+            >
+              <div class="flex items-center gap-2 text-primary font-medium">
+                <Server class="w-4 h-4 opacity-70" stroke-width="2" />
                 <span>{content.card1.layerInfra}</span>
               </div>
-              <span class="text-[10px] text-stone-400 hidden sm:inline">
+              <span class="text-[10px] hidden sm:inline opacity-70" style="color: var(--color-text-body);">
                 {content.card1.layerInfraDesc}
               </span>
             </div>
@@ -204,13 +224,22 @@ const content = isEs
         </div>
 
         <!-- Metric Badges Row -->
-        <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-stone-500/10 font-mono text-xs">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-secondary/10 border border-secondary/20 text-secondary font-bold">
+        <div
+          class="flex flex-wrap items-center gap-3 pt-4 border-t font-mono text-xs"
+          style="border-color: var(--card-border);"
+        >
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md font-bold"
+            style="background-color: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);"
+          >
             <Zap class="w-3.5 h-3.5" stroke-width="2" />
             {content.card1.stat1}
           </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-stone-800/80 border border-stone-700/50 text-stone-300">
-            <ShieldCheck class="w-3.5 h-3.5 text-emerald-400" stroke-width="2" />
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md"
+            style="background-color: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);"
+          >
+            <ShieldCheck class="w-3.5 h-3.5 text-emerald-500" stroke-width="2" />
             {content.card1.stat2}
           </span>
         </div>
@@ -228,7 +257,8 @@ const content = isEs
               {content.card2.tag}
             </span>
             <div
-              class="p-2 rounded-lg bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors"
+              class="p-2 rounded-lg bg-base-100 border text-secondary group-hover:border-secondary/40 transition-colors"
+              style="border-color: var(--card-border);"
             >
               <TrendingDown class="w-5 h-5" stroke-width="1.5" />
             </div>
@@ -240,36 +270,48 @@ const content = isEs
             {content.card2.title}
           </h3>
 
-          <p class="text-stone-300 text-sm leading-relaxed mb-6 font-sans">
+          <p
+            class="text-sm leading-relaxed mb-6 font-sans transition-colors"
+            style="color: var(--color-text-body);"
+          >
             {content.card2.desc}
           </p>
 
           <!-- Cost Comparison Box -->
-          <div class="space-y-3 mb-6 p-4 rounded-xl bg-base-100/70 border border-stone-500/15">
+          <div
+            class="space-y-3 mb-6 p-4 rounded-xl border"
+            style="background-color: var(--card-inner-bg); border-color: var(--card-border);"
+          >
             <div class="flex items-center justify-between text-xs font-mono">
-              <span class="text-stone-400">{content.card2.comparisonTraditional}</span>
-              <span class="text-rose-400 font-bold line-through decoration-rose-500/50">
+              <span style="color: var(--color-text-body);">{content.card2.comparisonTraditional}</span>
+              <span class="text-rose-500 font-bold line-through decoration-rose-500/50">
                 {content.card2.costTraditional}
               </span>
             </div>
-            <div class="h-1.5 w-full bg-stone-800 rounded-full overflow-hidden">
-              <div class="h-full bg-rose-500/40 w-full rounded-full"></div>
+            <div class="h-1.5 w-full bg-stone-300 dark:bg-stone-800 rounded-full overflow-hidden">
+              <div class="h-full bg-rose-500/50 w-full rounded-full"></div>
             </div>
 
             <div class="flex items-center justify-between text-xs font-mono pt-2">
-              <span class="text-[#F5F5F4] font-semibold">{content.card2.comparisonCoins5}</span>
+              <span class="text-primary font-bold">{content.card2.comparisonCoins5}</span>
               <span class="text-secondary font-extrabold text-sm">
                 {content.card2.costCoins5}
               </span>
             </div>
-            <div class="h-1.5 w-full bg-stone-800 rounded-full overflow-hidden">
-              <div class="h-full bg-secondary w-1/5 rounded-full"></div>
+            <div class="h-1.5 w-full bg-stone-300 dark:bg-stone-800 rounded-full overflow-hidden">
+              <div class="h-full bg-emerald-500 w-1/5 rounded-full"></div>
             </div>
           </div>
         </div>
 
-        <div class="pt-4 border-t border-stone-500/10">
-          <p class="text-xs font-mono text-stone-400 flex items-center gap-2">
+        <div
+          class="pt-4 border-t"
+          style="border-color: var(--card-border);"
+        >
+          <p
+            class="text-xs font-mono flex items-center gap-2"
+            style="color: var(--color-text-body);"
+          >
             <Terminal class="w-3.5 h-3.5 text-secondary shrink-0" stroke-width="2" />
             <span>{content.card2.proofNote}</span>
           </p>
@@ -288,7 +330,8 @@ const content = isEs
               {content.card3.tag}
             </span>
             <div
-              class="p-2 rounded-lg bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors"
+              class="p-2 rounded-lg bg-base-100 border text-secondary group-hover:border-secondary/40 transition-colors"
+              style="border-color: var(--card-border);"
             >
               <UserCheck class="w-5 h-5" stroke-width="1.5" />
             </div>
@@ -300,28 +343,34 @@ const content = isEs
             {content.card3.title}
           </h3>
 
-          <p class="text-stone-300 text-sm leading-relaxed mb-6 font-sans">
+          <p
+            class="text-sm leading-relaxed mb-6 font-sans transition-colors"
+            style="color: var(--color-text-body);"
+          >
             {content.card3.desc}
           </p>
 
           <!-- Direct Communication List -->
-          <ul class="space-y-3 mb-6">
-            <li class="flex items-start gap-2.5 text-xs font-mono text-stone-300">
+          <ul class="space-y-3 mb-6 font-sans text-xs">
+            <li class="flex items-start gap-2.5">
               <Check class="w-4 h-4 text-secondary shrink-0 mt-0.5" stroke-width="2" />
-              <span>{content.card3.item1}</span>
+              <span style="color: var(--color-text-body);">{content.card3.item1}</span>
             </li>
-            <li class="flex items-start gap-2.5 text-xs font-mono text-stone-300">
+            <li class="flex items-start gap-2.5">
               <Check class="w-4 h-4 text-secondary shrink-0 mt-0.5" stroke-width="2" />
-              <span>{content.card3.item2}</span>
+              <span style="color: var(--color-text-body);">{content.card3.item2}</span>
             </li>
-            <li class="flex items-start gap-2.5 text-xs font-mono text-stone-300">
+            <li class="flex items-start gap-2.5">
               <Check class="w-4 h-4 text-secondary shrink-0 mt-0.5" stroke-width="2" />
-              <span>{content.card3.item3}</span>
+              <span style="color: var(--color-text-body);">{content.card3.item3}</span>
             </li>
           </ul>
         </div>
 
-        <div class="pt-4 border-t border-stone-500/10">
+        <div
+          class="pt-4 border-t"
+          style="border-color: var(--card-border);"
+        >
           <span class="inline-block text-[11px] font-mono text-secondary uppercase font-bold tracking-wider">
             100% Criterio Senior • 0% Bloat
           </span>
@@ -340,7 +389,8 @@ const content = isEs
               {content.card4.tag}
             </span>
             <div
-              class="p-2 rounded-lg bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors"
+              class="p-2 rounded-lg bg-base-100 border text-secondary group-hover:border-secondary/40 transition-colors"
+              style="border-color: var(--card-border);"
             >
               <ShieldCheck class="w-5 h-5" stroke-width="1.5" />
             </div>
@@ -352,32 +402,50 @@ const content = isEs
             {content.card4.title}
           </h3>
 
-          <p class="text-stone-300 text-sm sm:text-base leading-relaxed mb-6 font-sans">
+          <p
+            class="text-sm sm:text-base leading-relaxed mb-6 font-sans transition-colors"
+            style="color: var(--color-text-body);"
+          >
             {content.card4.desc}
           </p>
 
           <!-- Badges Grid for Investor Due Diligence -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-            <div class="p-3 rounded-lg bg-base-100/60 border border-stone-500/15 flex items-center gap-2.5 text-xs font-mono text-stone-200">
+            <div
+              class="p-3 rounded-lg border flex items-center gap-2.5 text-xs font-mono"
+              style="background-color: var(--card-inner-bg); border-color: var(--card-border); color: var(--color-heading);"
+            >
               <div class="w-2 h-2 rounded-full bg-secondary shrink-0"></div>
               <span>{content.card4.badge1}</span>
             </div>
-            <div class="p-3 rounded-lg bg-base-100/60 border border-stone-500/15 flex items-center gap-2.5 text-xs font-mono text-stone-200">
+            <div
+              class="p-3 rounded-lg border flex items-center gap-2.5 text-xs font-mono"
+              style="background-color: var(--card-inner-bg); border-color: var(--card-border); color: var(--color-heading);"
+            >
               <div class="w-2 h-2 rounded-full bg-secondary shrink-0"></div>
               <span>{content.card4.badge2}</span>
             </div>
-            <div class="p-3 rounded-lg bg-base-100/60 border border-stone-500/15 flex items-center gap-2.5 text-xs font-mono text-stone-200">
+            <div
+              class="p-3 rounded-lg border flex items-center gap-2.5 text-xs font-mono"
+              style="background-color: var(--card-inner-bg); border-color: var(--card-border); color: var(--color-heading);"
+            >
               <div class="w-2 h-2 rounded-full bg-secondary shrink-0"></div>
               <span>{content.card4.badge3}</span>
             </div>
-            <div class="p-3 rounded-lg bg-base-100/60 border border-stone-500/15 flex items-center gap-2.5 text-xs font-mono text-stone-200">
+            <div
+              class="p-3 rounded-lg border flex items-center gap-2.5 text-xs font-mono"
+              style="background-color: var(--card-inner-bg); border-color: var(--card-border); color: var(--color-heading);"
+            >
               <div class="w-2 h-2 rounded-full bg-secondary shrink-0"></div>
               <span>{content.card4.badge4}</span>
             </div>
           </div>
         </div>
 
-        <div class="pt-4 border-t border-stone-500/10 flex items-center justify-between text-xs font-mono text-stone-400">
+        <div
+          class="pt-4 border-t flex items-center justify-between text-xs font-mono"
+          style="border-color: var(--card-border); color: var(--color-text-body);"
+        >
           <span>Enterprise-Grade Patterns</span>
           <span class="text-secondary font-bold">SOLID & Clean Architecture</span>
         </div>

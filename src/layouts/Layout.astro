@@ -63,8 +63,17 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
 ---
 
 <!doctype html>
-<html lang={lang} data-theme="sandstone-charcoal">
+<html lang={lang} data-theme="sandstone-light">
   <head>
+    <script is:inline>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem("theme");
+          const initialTheme = savedTheme || "sandstone-light";
+          document.documentElement.setAttribute("data-theme", initialTheme);
+        } catch (e) {}
+      })();
+    </script>
     <!-- Basic Meta Tags -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta charset="utf-8" />

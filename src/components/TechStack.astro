@@ -1,5 +1,5 @@
 ---
-import { Code2, Server, Database, Brain, Sparkles, Terminal } from "@lucide/astro";
+import { Code2, Server, Database, Brain } from "@lucide/astro";
 
 const { pathname } = Astro.url;
 const cleanPathname = pathname.replace(/\/$/, "");
@@ -74,7 +74,7 @@ const content = isEs
 
 <section
   id="stack"
-  class="relative py-20 md:py-28 bg-base-100 overflow-hidden border-b border-stone-500/10"
+  class="relative py-20 md:py-28 bg-base-100 overflow-hidden border-b border-stone-500/10 transition-colors duration-300"
 >
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
     <!-- Header -->
@@ -89,7 +89,10 @@ const content = isEs
       >
         {content.title}
       </h2>
-      <p class="text-stone-400 text-base sm:text-lg leading-relaxed font-sans font-normal">
+      <p
+        class="text-base sm:text-lg leading-relaxed font-sans font-normal transition-colors"
+        style="color: var(--color-text-body);"
+      >
         {content.subtitle}
       </p>
     </div>
@@ -100,31 +103,46 @@ const content = isEs
         content.categories.map((cat) => {
           const Icon = cat.icon;
           return (
-            <div class="card-premium rounded-2xl p-6 flex flex-col justify-between group hover:border-secondary/35">
+            <div class="card-premium rounded-2xl p-6 flex flex-col justify-between group">
               <div>
                 <!-- Category Icon & Title -->
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="p-2 rounded-lg bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors">
+                  <div
+                    class="p-2 rounded-lg bg-base-100 border text-secondary group-hover:border-secondary/40 transition-colors"
+                    style="border-color: var(--card-border);"
+                  >
                     <Icon class="w-5 h-5" stroke-width="1.5" />
                   </div>
-                  <h3 class="text-lg font-bold text-[#F5F5F4] font-sans">
+                  <h3 class="text-lg font-bold text-primary font-sans">
                     {cat.title}
                   </h3>
                 </div>
 
-                <p class="text-stone-400 text-xs leading-relaxed mb-6 font-sans font-normal">
+                <p
+                  class="text-xs leading-relaxed mb-6 font-sans font-normal transition-colors"
+                  style="color: var(--color-text-body);"
+                >
                   {cat.desc}
                 </p>
               </div>
 
               <!-- Tech Pills -->
-              <div class="flex flex-col gap-2 pt-4 border-t border-stone-500/10">
+              <div
+                class="flex flex-col gap-2 pt-4 border-t"
+                style="border-color: var(--card-border);"
+              >
                 {cat.items.map((item) => (
-                  <div class="flex items-center justify-between px-3 py-1.5 rounded-lg bg-base-100/80 border border-stone-500/15">
-                    <span class="text-xs font-mono font-medium text-stone-200">
+                  <div
+                    class="flex items-center justify-between px-3 py-1.5 rounded-lg border transition-colors"
+                    style="background-color: var(--tech-pill-bg); border-color: var(--tech-pill-border);"
+                  >
+                    <span
+                      class="text-xs font-mono font-medium"
+                      style="color: var(--tech-pill-text);"
+                    >
                       {item}
                     </span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-secondary/60"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary/80"></span>
                   </div>
                 ))}
               </div>

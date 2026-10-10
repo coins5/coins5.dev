@@ -1,5 +1,5 @@
 ---
-import { Menu } from "@lucide/astro";
+import { Menu, Sun, Moon } from "@lucide/astro";
 import { siteConfig } from "../config";
 
 const { pathname, search } = Astro.url;
@@ -158,8 +158,20 @@ const isActive = (path: string) => {
       </ul>
     </div>
 
-    <!-- Navbar End: Lang Switcher & Desktop CTA -->
-    <div class="navbar-end gap-3">
+    <!-- Navbar End: Lang Switcher, Theme Switcher & Desktop CTA -->
+    <div class="navbar-end gap-2.5 sm:gap-3">
+      <!-- Theme Switcher Button -->
+      <button
+        id="theme-toggle-btn"
+        type="button"
+        class="btn btn-ghost btn-xs h-8 w-8 p-0 rounded-lg border border-stone-500/20 hover:border-stone-400/40 text-stone-300 hover:text-primary transition-all flex items-center justify-center cursor-pointer"
+        aria-label="Toggle light or dark theme"
+        title="Toggle Light / Dark"
+      >
+        <Sun class="w-4 h-4 hidden dark-icon text-amber-500" stroke-width="2" />
+        <Moon class="w-4 h-4 hidden light-icon text-stone-400" stroke-width="2" />
+      </button>
+
       <!-- Language Switcher (EN/ES Toggle) -->
       <div class="join border border-stone-800 bg-base-200/50 p-0.5 rounded-lg">
         <a
@@ -197,4 +209,43 @@ const isActive = (path: string) => {
       </a>
     </div>
   </div>
+
+  <script is:inline>
+    (function () {
+      function syncThemeToggle() {
+        const theme = document.documentElement.getAttribute("data-theme") || "sandstone-light";
+        const isLight = theme === "sandstone-light";
+
+        document.querySelectorAll(".light-icon").forEach((el) => {
+          el.classList.toggle("hidden", isLight);
+          el.classList.toggle("block", !isLight);
+        });
+        document.querySelectorAll(".dark-icon").forEach((el) => {
+          el.classList.toggle("hidden", !isLight);
+          el.classList.toggle("block", isLight);
+        });
+      }
+
+      function attachToggle() {
+        syncThemeToggle();
+        const btn = document.getElementById("theme-toggle-btn");
+        if (btn) {
+          btn.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme") || "sandstone-light";
+            const next = current === "sandstone-light" ? "sandstone-charcoal" : "sandstone-light";
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+            syncThemeToggle();
+          });
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", attachToggle);
+      } else {
+        attachToggle();
+      }
+    })();
+  </script>
 </header>
+
