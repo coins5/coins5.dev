@@ -1,0 +1,137 @@
+---
+import { Code2, Server, Database, Brain, Sparkles, Terminal } from "@lucide/astro";
+
+const { pathname } = Astro.url;
+const cleanPathname = pathname.replace(/\/$/, "");
+const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
+
+const content = isEs
+  ? {
+      label: "// STACK & CRITERIO TÉCNICO",
+      title: "Herramientas Modernas y Probadas en Producción",
+      subtitle:
+        "Tecnologías seleccionadas meticulosamente para ofrecer máxima velocidad, mínimo consumo de infraestructura y mantenibilidad a largo plazo.",
+      categories: [
+        {
+          title: "Lenguajes & Tipado",
+          icon: Code2,
+          desc: "Tipado estricto de extremo a extremo para eliminar errores de runtime antes de llegar a producción.",
+          items: ["TypeScript", "Python 3.12+", "SQL (PostgreSQL)", "Rust (High-Perf)"],
+        },
+        {
+          title: "Frameworks & Motores Web",
+          icon: Server,
+          desc: "Arquitecturas híbridas rápidas: SSR estático donde importa el SEO y APIs asíncronas para cómputo pesado.",
+          items: ["Astro (Zero-JS)", "FastAPI (Python)", "Node.js (Async I/O)", "Tailwind CSS"],
+        },
+        {
+          title: "Base de Datos & Cloud Frugal",
+          icon: Database,
+          desc: "Infraestructura dimensionada para rendimiento sin inflar la factura mensual de AWS o VPS.",
+          items: ["PostgreSQL", "Cloudflare Workers", "Dokploy & Docker", "Redis Caching"],
+        },
+        {
+          title: "Inteligencia Artificial & Agentes",
+          icon: Brain,
+          desc: "Sistemas avanzados de IA integrados quirúrgicamente en los flujos operativos de la empresa.",
+          items: ["Claude & OpenAI APIs", "Modelos Clínicos/LLMs", "Agentes Autónomos", "LangChain / Embeddings"],
+        },
+      ],
+    }
+  : {
+      label: "// CORE ARCHITECTURAL STACK",
+      title: "Engineered with Modern, Proven Tools",
+      subtitle:
+        "Meticulously selected technologies to ensure peak velocity, minimal cloud overhead, and decades of codebase durability.",
+      categories: [
+        {
+          title: "Languages & Typing",
+          icon: Code2,
+          desc: "Strict end-to-end typing eliminating runtime bugs before code ever reaches production.",
+          items: ["TypeScript", "Python 3.12+", "SQL (PostgreSQL)", "Rust (High-Perf)"],
+        },
+        {
+          title: "Frameworks & Web Engines",
+          icon: Server,
+          desc: "Hybrid high-speed setups: Zero-JS static builds for SEO and async APIs for intensive workloads.",
+          items: ["Astro (Zero-JS)", "FastAPI (Python)", "Node.js (Async I/O)", "Tailwind CSS"],
+        },
+        {
+          title: "Data & Frugal Cloud",
+          icon: Database,
+          desc: "Right-sized infrastructure optimized for sub-second latency without inflated AWS invoices.",
+          items: ["PostgreSQL", "Cloudflare Workers", "Dokploy & Docker", "Redis Caching"],
+        },
+        {
+          title: "AI & Autonomous Workflows",
+          icon: Brain,
+          desc: "Production-grade AI systems surgically embedded into real-world business operations.",
+          items: ["Claude & OpenAI APIs", "Clinical/Domain LLMs", "Autonomous Agents", "LangChain / Embeddings"],
+        },
+      ],
+    };
+---
+
+<section
+  id="stack"
+  class="relative py-20 md:py-28 bg-base-100 overflow-hidden border-b border-stone-500/10"
+>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span
+        class="text-xs font-mono font-bold tracking-widest text-secondary uppercase mb-3 block"
+      >
+        {content.label}
+      </span>
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary tracking-tight mb-4 font-sans"
+      >
+        {content.title}
+      </h2>
+      <p class="text-stone-400 text-base sm:text-lg leading-relaxed font-sans font-normal">
+        {content.subtitle}
+      </p>
+    </div>
+
+    <!-- Tech Stack Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      {
+        content.categories.map((cat) => {
+          const Icon = cat.icon;
+          return (
+            <div class="card-premium rounded-2xl p-6 flex flex-col justify-between group hover:border-secondary/35">
+              <div>
+                <!-- Category Icon & Title -->
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="p-2 rounded-lg bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors">
+                    <Icon class="w-5 h-5" stroke-width="1.5" />
+                  </div>
+                  <h3 class="text-lg font-bold text-[#F5F5F4] font-sans">
+                    {cat.title}
+                  </h3>
+                </div>
+
+                <p class="text-stone-400 text-xs leading-relaxed mb-6 font-sans font-normal">
+                  {cat.desc}
+                </p>
+              </div>
+
+              <!-- Tech Pills -->
+              <div class="flex flex-col gap-2 pt-4 border-t border-stone-500/10">
+                {cat.items.map((item) => (
+                  <div class="flex items-center justify-between px-3 py-1.5 rounded-lg bg-base-100/80 border border-stone-500/15">
+                    <span class="text-xs font-mono font-medium text-stone-200">
+                      {item}
+                    </span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary/60"></span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

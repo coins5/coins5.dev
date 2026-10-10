@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import marlonImage from "../assets/marlon.png";
 import AuthorityBar from "./AuthorityBar.astro";
-import { Calendar, MessageSquare } from "@lucide/astro";
+import { Calendar, MessageSquare, ArrowUpRight, ShieldCheck, Zap } from "@lucide/astro";
 import { siteConfig, getWhatsAppUrl } from "../config";
 
 const { pathname } = Astro.url;
@@ -12,101 +12,101 @@ const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
 // Translations dictionary
 const content = isEs
   ? {
-      h1: "Transformo ideas complejas en software rentable impulsado por Inteligencia Artificial.",
+      status: "Disponible para proyectos selectos",
+      role: "Senior Software Architect",
+      h1: "Arquitectura de Software y MVPs de Alto Impacto, Acelerados con IA.",
       subtitle:
-        "Desarrollo MVPs rápidos para startups tecnológicas y digitalizo procesos para empresas en Lima. Código robusto de nivel Senior optimizado con IA para entregas hasta 3 veces más rápidas y sin errores.",
+        "Más de una década de criterio arquitectónico—Clean Architecture, sistemas modulares y cero deuda técnica—potenciado con flujos avanzados de IA para entregar software de grado de producción hasta 3x más rápido.",
       primaryCta: "Agendar llamada de 15 min",
       secondaryCta: "Cotizar por WhatsApp",
       whatsappUrl: getWhatsAppUrl("es", "default"),
+      profileName: "Robert Marlon Colca",
+      profileCredentials: "Ex-CTO Strategio • Ganador Startup Perú • 12+ años en producción",
+      ownershipBadge: "100% Código Propio",
+      speedBadge: "Entrega hasta 3x más rápida",
     }
   : {
-      h1: "Transforming complex ideas into profitable software powered by AI.",
+      status: "Available for select projects",
+      role: "Senior Software Architect",
+      h1: "Architecting High-Performance Systems & MVPs, Accelerated by AI.",
       subtitle:
-        "I build high-performance MVPs for tech startups and digitalize operations for mid-sized companies. Senior-level engineering accelerated by AI for development that is up to 3x faster, secure, and cost-efficient.",
+        "12+ years of senior architectural rigor—Clean Architecture, resilient system boundaries, and zero technical debt—multiplied by bespoke AI workflows to deliver production-ready software up to 3x faster.",
       primaryCta: "Book a 15-min discovery call",
       secondaryCta: "Chat on WhatsApp",
       whatsappUrl: getWhatsAppUrl("en", "default"),
+      profileName: "Robert Marlon Colca",
+      profileCredentials: "Ex-CTO Strategio • Startup Perú Winner • 12+ years in production",
+      ownershipBadge: "100% Code Ownership",
+      speedBadge: "Up to 3x Faster Delivery",
     };
 ---
 
 <section
-  class="relative flex flex-col justify-between min-h-[70vh] bg-base-100 overflow-hidden border-b border-stone-500/5"
+  class="relative flex flex-col justify-between min-h-[85vh] bg-base-100 overflow-hidden border-b border-stone-500/10"
 >
-  <!-- Grid Background Effect for Premium Design Aesthetic -->
+  <!-- Architectural Blueprint Grid Backdrop -->
   <div
-    class="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"
+    class="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:28px_28px] mask-[radial-gradient(ellipse_75%_65%_at_50%_15%,#000_65%,transparent_100%)] pointer-events-none"
   >
   </div>
 
-  <!-- Radial Glow behind text -->
+  <!-- Warm Sandstone Ambient Glow behind Hero -->
   <div
-    class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary/5 blur-[120px] rounded-full pointer-events-none"
+    class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[18rem] bg-secondary/[0.06] blur-[140px] rounded-full pointer-events-none"
   >
   </div>
 
-  <!-- Main Hero content container -->
+  <!-- Main Hero Content Container -->
   <div
-    class="relative grow flex flex-col items-center justify-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center z-10"
+    class="relative grow flex flex-col items-center justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 md:pt-20 md:pb-24 text-center z-10"
   >
-    <!-- Marlon's Avatar Profile (CRO trust builder and Native Image Optimization) -->
+    <!-- Live Availability & Senior Role Pill -->
     <div
-      class="flex items-center gap-3.5 mb-8 justify-center bg-base-200/50 backdrop-blur-sm px-4 py-2 rounded-full border border-stone-500/10"
+      class="inline-flex items-center gap-2.5 px-3.5 py-1.5 mb-8 rounded-full bg-base-200/80 border border-stone-500/20 backdrop-blur-md shadow-sm hover:border-stone-400/40 transition-colors"
     >
-      <Image
-        src={marlonImage}
-        alt="Marlon - Senior Full Stack Developer & Software Architect"
-        width={48}
-        height={48}
-        format="webp"
-        loading="eager"
-        decoding="async"
-        class="rounded-full border border-stone-500/30 shadow-md object-cover h-12 w-12"
-      />
-      <div class="text-left leading-tight">
+      <span class="relative flex h-2 w-2">
         <span
-          class="block text-xs font-mono font-bold text-secondary uppercase tracking-widest"
-          >Marlon</span
-        >
-        <span class="block text-[10px] text-stone-400 font-mono"
-          >Senior Architect & Developer</span
-        >
-      </div>
+          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+        ></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <span class="text-xs font-mono font-medium text-stone-300 tracking-tight">
+        {content.status}
+      </span>
+      <span class="text-stone-600 select-none">•</span>
+      <span class="text-[11px] font-mono text-secondary tracking-wider uppercase font-semibold">
+        {content.role}
+      </span>
     </div>
 
-    <!-- Small decorative tag above H1 -->
-    <span
-      class="font-mono text-xs text-secondary tracking-widest uppercase mb-4 block"
-    >
-      // ARCHITECTURE & AI SOLUTIONS
-    </span>
-
-    <!-- Imposing White Hues H1 -->
+    <!-- Imposing, Ultra-Wide H1 Title (2 lines rule) -->
     <h1
-      class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary tracking-tight max-w-4xl leading-[1.1] mb-6"
+      class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold text-primary tracking-tight max-w-5xl leading-[1.08] mb-6 font-sans"
     >
       {content.h1}
     </h1>
 
     <!-- Warm Grey Subtitle -->
     <p
-      class="text-base sm:text-lg md:text-xl text-text-body max-w-3xl leading-relaxed mb-10 font-sans"
+      class="text-base sm:text-lg md:text-xl text-stone-400 max-w-3xl leading-relaxed mb-10 font-sans font-normal"
     >
       {content.subtitle}
     </p>
 
-    <!-- Call to Actions Buttons -->
+    <!-- Call to Actions Buttons with Tactile Feedback -->
     <div
-      class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center"
+      class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center mb-12"
     >
       <!-- Primary CTA: Calendly Booking -->
       <a
         href={siteConfig.calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2.5 bg-[#E6DFD3] text-[#141414] font-extrabold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto shadow-[0_4px_20px_rgba(230,223,211,0.15)] hover:shadow-[0_6px_25px_rgba(230,223,211,0.25)] hover:bg-[#F0EAE0] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
+        class="inline-flex items-center justify-center gap-2.5 bg-[#E6DFD3] text-[#141414] font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:bg-[#F0EAE0] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
       >
-        <Calendar class="w-5 h-5" stroke-width="2" />
-        {content.primaryCta}
+        <Calendar class="w-5 h-5 text-[#141414]" stroke-width="2" />
+        <span>{content.primaryCta}</span>
+        <ArrowUpRight class="w-4 h-4 text-[#141414]/70" stroke-width="2" />
       </a>
 
       <!-- Secondary CTA: WhatsApp Chat -->
@@ -114,14 +114,55 @@ const content = isEs
         href={content.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2.5 border border-stone-500/30 text-[#F5F5F4] hover:bg-stone-500/10 hover:border-stone-500/50 font-bold px-8 py-4 h-auto min-h-14 rounded-lg w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+        class="inline-flex items-center justify-center gap-2.5 bg-base-200/90 border border-stone-500/25 text-[#F5F5F4] hover:bg-stone-500/15 hover:border-stone-400/40 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
       >
         <MessageSquare class="w-5 h-5 text-secondary" stroke-width="2" />
-        {content.secondaryCta}
+        <span>{content.secondaryCta}</span>
       </a>
+    </div>
+
+    <!-- Verified Founder Credibility & Trust Micro-Card -->
+    <div
+      class="inline-flex flex-wrap items-center justify-center gap-4 px-5 py-3 rounded-2xl bg-base-200/50 border border-stone-500/15 backdrop-blur-sm shadow-sm"
+    >
+      <div class="flex items-center gap-3">
+        <Image
+          src={marlonImage}
+          alt="Robert Marlon Colca - Senior Full Stack Developer & Software Architect"
+          width={44}
+          height={44}
+          format="webp"
+          loading="eager"
+          decoding="async"
+          class="rounded-full border border-stone-500/30 object-cover h-11 w-11 shrink-0"
+        />
+        <div class="text-left leading-tight">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-bold text-[#F5F5F4] font-sans">
+              {content.profileName}
+            </span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          </div>
+          <span class="text-[11px] text-stone-400 font-mono block">
+            {content.profileCredentials}
+          </span>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center gap-3 pl-3 border-l border-stone-500/20 text-[11px] font-mono text-stone-300">
+        <span class="inline-flex items-center gap-1.5">
+          <ShieldCheck class="w-3.5 h-3.5 text-secondary" stroke-width="2" />
+          {content.ownershipBadge}
+        </span>
+        <span class="text-stone-600">•</span>
+        <span class="inline-flex items-center gap-1.5">
+          <Zap class="w-3.5 h-3.5 text-secondary" stroke-width="2" />
+          {content.speedBadge}
+        </span>
+      </div>
     </div>
   </div>
 
-  <!-- Integrated Authority Bar -->
+  <!-- Integrated Authority Proof Bar -->
   <AuthorityBar />
 </section>

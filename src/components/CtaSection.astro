@@ -1,0 +1,131 @@
+---
+import { Calendar, MessageSquare, ArrowUpRight, ShieldCheck, Mail, CheckCircle2 } from "@lucide/astro";
+import { siteConfig, getWhatsAppUrl } from "../config";
+
+const { pathname } = Astro.url;
+const cleanPathname = pathname.replace(/\/$/, "");
+const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
+
+const content = isEs
+  ? {
+      label: "// VAMOS A CONSTRUIR",
+      title: "¿Listo para Construir Software que Escale sin Fricción?",
+      subtitle:
+        "Evita los presupuestos inflados de las agencias y los desarrollos frágiles. Trabaja directamente con un Arquitecto de Software Senior para validar tu MVP o modernizar tus sistemas con Inteligencia Artificial.",
+      primaryCta: "Agendar llamada de descubrimiento (15 min)",
+      secondaryCta: "Iniciar conversación en WhatsApp",
+      whatsappUrl: getWhatsAppUrl("es", "default"),
+      trust1: "100% de propiedad intelectual y código propio",
+      trust2: "Trato directo 1-a-1 sin intermediarios",
+      trust3: "Sprints ágiles con entregables funcionales cada semana",
+      directEmail: "O escríbeme directamente a:",
+    }
+  : {
+      label: "// LET'S BUILD",
+      title: "Ready to Build Software That Truly Scales?",
+      subtitle:
+        "Skip agency bloat, opaque billing, and fragile code. Partner directly with a Senior Software Architect to engineer high-performance MVPs or modernize your operations with AI.",
+      primaryCta: "Book a 15-minute discovery call",
+      secondaryCta: "Start a conversation on WhatsApp",
+      whatsappUrl: getWhatsAppUrl("en", "default"),
+      trust1: "100% full intellectual property & repository ownership",
+      trust2: "Direct 1-on-1 architect partnership, zero middlemen",
+      trust3: "Agile sprints with functional production deliverables weekly",
+      directEmail: "Or reach out directly via email:",
+    };
+---
+
+<section
+  id="contact"
+  class="relative py-20 md:py-32 bg-base-100 overflow-hidden"
+>
+  <!-- Ambient Glow in Sandstone -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[38rem] h-[22rem] bg-secondary/[0.05] blur-[160px] rounded-full pointer-events-none"
+  >
+  </div>
+
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    <div
+      class="card-premium rounded-3xl p-8 sm:p-12 md:p-16 text-center border-stone-500/20 glow-sandstone"
+    >
+      <!-- Section Label -->
+      <span
+        class="text-xs font-mono font-bold tracking-widest text-secondary uppercase mb-4 block"
+      >
+        {content.label}
+      </span>
+
+      <!-- Imposing H2 Title -->
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary tracking-tight max-w-3xl mx-auto mb-6 font-sans leading-[1.12]"
+      >
+        {content.title}
+      </h2>
+
+      <!-- Subtitle -->
+      <p
+        class="text-base sm:text-lg text-stone-300 max-w-2xl mx-auto leading-relaxed mb-10 font-sans font-normal"
+      >
+        {content.subtitle}
+      </p>
+
+      <!-- Conversion Actions Hub -->
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 max-w-xl mx-auto"
+      >
+        <!-- Primary CTA: Calendly Booking -->
+        <a
+          href={siteConfig.calendlyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2.5 bg-[#E6DFD3] text-[#141414] font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:bg-[#F0EAE0] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-sm sm:text-base"
+        >
+          <Calendar class="w-5 h-5 text-[#141414]" stroke-width="2" />
+          <span>{content.primaryCta}</span>
+          <ArrowUpRight class="w-4 h-4 text-[#141414]/70" stroke-width="2" />
+        </a>
+
+        <!-- Secondary CTA: WhatsApp Chat -->
+        <a
+          href={content.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2.5 bg-base-100/90 border border-stone-500/25 text-[#F5F5F4] hover:bg-stone-500/15 hover:border-stone-400/40 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-sm sm:text-base"
+        >
+          <MessageSquare class="w-5 h-5 text-secondary" stroke-width="2" />
+          <span>{content.secondaryCta}</span>
+        </a>
+      </div>
+
+      <!-- Trust Factors Strip -->
+      <div
+        class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-8 border-t border-stone-500/15 text-xs font-mono text-stone-400"
+      >
+        <span class="inline-flex items-center gap-2">
+          <CheckCircle2 class="w-4 h-4 text-secondary shrink-0" stroke-width="2" />
+          {content.trust1}
+        </span>
+        <span class="inline-flex items-center gap-2">
+          <CheckCircle2 class="w-4 h-4 text-secondary shrink-0" stroke-width="2" />
+          {content.trust2}
+        </span>
+        <span class="inline-flex items-center gap-2">
+          <CheckCircle2 class="w-4 h-4 text-secondary shrink-0" stroke-width="2" />
+          {content.trust3}
+        </span>
+      </div>
+
+      <!-- Direct Email Fallback -->
+      <div class="mt-6 text-xs font-mono text-stone-500">
+        <span>{content.directEmail} </span>
+        <a
+          href={`mailto:${siteConfig.email}`}
+          class="text-secondary hover:underline ml-1 font-semibold"
+        >
+          {siteConfig.email}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

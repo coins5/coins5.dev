@@ -31,7 +31,33 @@
 }
 
 /* Estilos base del documento */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--color-text-body);
   background-color: var(--color-base-100);
 }
+
+/* Utilidades de Diseño Premium (Sandstone & Charcoal) */
+.card-premium {
+  border: 1px solid rgba(120, 113, 108, 0.12);
+  background-color: var(--color-base-200);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-premium:hover {
+  border-color: rgba(230, 223, 211, 0.28);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.65), 0 0 24px rgba(230, 223, 211, 0.04);
+}
+
+.glow-sandstone {
+  box-shadow: 0 0 35px rgba(230, 223, 211, 0.15);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.glow-sandstone:hover {
+  box-shadow: 0 0 45px rgba(230, 223, 211, 0.25);
+}
+

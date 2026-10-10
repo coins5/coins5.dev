@@ -1,5 +1,5 @@
 ---
-import { Rocket, Cpu, Check } from "@lucide/astro";
+import { Rocket, Cpu, Check, Calendar, MessageSquare, ArrowUpRight } from "@lucide/astro";
 import { siteConfig, getWhatsAppUrl } from "../config";
 
 const { pathname } = Astro.url;
@@ -9,62 +9,72 @@ const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
 // Translations dictionary
 const content = isEs
   ? {
-      title: "Soluciones de Ingeniería para Acelerar tu Negocio",
+      label: "// MODALIDADES DE TRABAJO",
+      title: "Soluciones de Ingeniería para Escalar tu Negocio",
       subtitle:
-        "Construimos software robusto y escalable diseñado para resolver dolores reales de negocio y acelerar el crecimiento.",
+        "Software robusto y de alto rendimiento diseñado para resolver cuellos de botella reales y acelerar el crecimiento comercial.",
       card1: {
-        tag: "STARTUPS Y MVPS",
+        tag: "STARTUPS & FUNDADORES",
+        badge: "0 A 1 • MVP DE PRODUCCIÓN",
         title: "Desarrollo de MVPs Imparables",
         description:
-          "Construye Productos Mínimos Viables robustos y validados. Estructurados con código limpio y acelerados con IA para que lances al mercado o levantes capital en tiempo récord.",
+          "Construye Productos Mínimos Viables validados y listos para salir a producción. Estructurados con Clean Architecture y acelerados con IA para lanzar al mercado o presentar a rondas de inversión en semanas.",
         bullets: [
-          "Desarrollo acelerado por IA (entregas hasta 3x más rápidas)",
-          "Clean Architecture, código modular y libre de bugs",
-          "CTO fraccional listo para validación y levantamiento de capital",
+          "Entrega acelerada con IA: MVPs completos en 4 a 8 semanas",
+          "Clean Architecture, código modular y tipado estricto sin bugs",
+          "Acompañamiento como CTO fraccional para due diligence técnico",
+          "100% de propiedad intelectual y código transferido desde el Día 1",
         ],
         ctaText: "Agendar estimación de MVP",
         ctaLink: siteConfig.calendlyUrl,
       },
       card2: {
-        tag: "EMPRESAS MEDIANAS",
+        tag: "EMPRESAS & OPERACIONES",
+        badge: "1 A N • MODERNIZACIÓN & IA",
         title: "Digitalización, Automatización y Nube",
         description:
-          "Migra sistemas lentos a arquitecturas web ultra rápidas. Optimizamos tu infraestructura cloud para reducir costos de hosting drásticamente e integramos IA para automatizar tus ventas y procesos.",
+          "Migra sistemas lentos a arquitecturas web modernas de alta velocidad. Optimizamos tu infraestructura para reducir drásticamente facturas de hosting e implementamos agentes de IA para automatizar flujos clave.",
         bullets: [
-          "Auditoría de infraestructura y reducción drástica de costos cloud",
+          "Auditoría técnica y reducción del 40% al 70% en facturas cloud",
           "Modernización y refactorización de código y sistemas legados",
-          "Integración de agentes de IA para automatizar flujos operativos",
+          "Agentes de IA y pipelines de datos para automatizar procesos manuales",
+          "Monitoreo proactivo, observabilidad y resiliencia en producción",
         ],
-        ctaText: "Iniciar cotización por WhatsApp",
+        ctaText: "Cotizar optimización por WhatsApp",
         ctaLink: getWhatsAppUrl("es", "services"),
       },
     }
   : {
+      label: "// ENGAGEMENT TRACKS",
       title: "Engineered Solutions to Scale Your Business",
       subtitle:
-        "We build robust, high-performance custom software designed to solve real business bottlenecks and accelerate growth.",
+        "High-performance custom software designed to eliminate technical bottlenecks and accelerate sustainable business growth.",
       card1: {
-        tag: "STARTUPS & MVPS",
+        tag: "STARTUPS & FOUNDERS",
+        badge: "0 TO 1 • PRODUCTION MVP",
         title: "Production-Ready MVPs",
         description:
-          "Build robust, scalable Minimum Viable Products validated for the market. Powered by Clean Architecture and accelerated with AI to help you pitch and raise capital in record time.",
+          "Build robust, market-validated Minimum Viable Products ready for real users. Powered by Clean Architecture and accelerated with AI to pitch investors and onboard customers in weeks.",
         bullets: [
-          "AI-accelerated development for up to 3x faster delivery",
-          "Clean Architecture, modular design, and robust code",
-          "Fractional CTO support ready for validation and investor pitches",
+          "AI-accelerated development: complete MVPs shipped in 4 to 8 weeks",
+          "Clean Architecture, modular design, and strictly typed code",
+          "Fractional CTO advisory ready for technical due diligence",
+          "100% full intellectual property and repository ownership",
         ],
         ctaText: "Book an MVP Consultation",
         ctaLink: siteConfig.calendlyUrl,
       },
       card2: {
-        tag: "MID-SIZED COMPANIES",
+        tag: "GROWING BUSINESSES",
+        badge: "1 TO N • MODERNIZATION & AI",
         title: "Cloud Optimization & Automation",
         description:
-          "Migrate sluggish legacy systems into high-speed architectures. Optimize cloud infrastructure to cut hosting bills, eliminate bugs, and inject AI to automate your operations.",
+          "Transform sluggish legacy systems into high-speed modern architectures. Slash runaway cloud hosting expenses and embed custom AI agents to automate high-friction operational workflows.",
         bullets: [
-          "Cloud infrastructure audit & host bill cost reduction",
-          "Legacy systems modernization & clean refactoring",
-          "AI agent integrations to automate sales and operations",
+          "Cloud architecture audit cutting 40% to 70% in monthly server bills",
+          "Legacy systems modernization and zero-regression refactoring",
+          "Custom AI agents and pipelines automating manual tasks",
+          "Production observability, health checks, and resilient APIs",
         ],
         ctaText: "Discuss operations on WhatsApp",
         ctaLink: getWhatsAppUrl("en", "services"),
@@ -74,57 +84,66 @@ const content = isEs
 
 <section
   id="services"
-  class="relative py-16 md:py-24 bg-base-100 overflow-hidden border-b border-stone-500/5"
+  class="relative py-20 md:py-28 bg-base-100 overflow-hidden border-b border-stone-500/10"
 >
-  <!-- Subtle Grid Background Effect for Consistency -->
+  <!-- Background Blueprint Glow -->
   <div
-    class="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none"
+    class="absolute top-1/3 left-1/3 w-96 h-96 bg-secondary/[0.03] blur-[160px] rounded-full pointer-events-none"
   >
   </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
+      <span
+        class="text-xs font-mono font-bold tracking-widest text-secondary uppercase mb-3 block"
+      >
+        {content.label}
+      </span>
       <h2
-        class="text-3xl sm:text-4xl font-bold text-primary tracking-tight mb-4"
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary tracking-tight mb-4 font-sans"
       >
         {content.title}
       </h2>
-      <p class="text-text-body text-base sm:text-lg leading-relaxed font-sans">
+      <p class="text-stone-400 text-base sm:text-lg leading-relaxed font-sans font-normal">
         {content.subtitle}
       </p>
     </div>
 
     <!-- Grid Layout for Services -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
       <!-- Card 1: Startups / MVPs -->
       <div
-        class="card bg-base-200 border border-[#E6DFD3]/10 hover:border-[#E6DFD3]/35 hover:shadow-[0_0_30px_rgba(230,223,211,0.04)] hover:scale-[1.01] transition-all duration-300 rounded-xl p-6 sm:p-8 flex flex-col justify-between group"
+        class="card-premium rounded-2xl p-7 sm:p-9 flex flex-col justify-between group hover:border-secondary/40"
       >
         <div>
           <!-- Tag & Icon Header -->
           <div class="flex items-center justify-between mb-6">
-            <span
-              class="text-[11px] font-semibold tracking-widest text-stone-500 font-mono uppercase"
-            >
-              {content.card1.tag}
-            </span>
+            <div class="flex flex-col gap-1">
+              <span
+                class="text-[11px] font-bold tracking-widest text-stone-400 font-mono uppercase"
+              >
+                {content.card1.tag}
+              </span>
+              <span class="text-[10px] font-mono text-secondary tracking-wider font-semibold">
+                {content.card1.badge}
+              </span>
+            </div>
             <div
-              class="p-2.5 rounded-lg bg-base-100 border border-stone-500/10 group-hover:border-stone-500/30 group-hover:bg-base-100/80 transition-all duration-300 text-secondary"
+              class="p-2.5 rounded-xl bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors"
             >
-              <!-- Rocket Icon -->
               <Rocket class="w-6 h-6" stroke-width="1.5" />
             </div>
           </div>
 
           <!-- Card Header Title -->
-          <h3 class="text-2xl font-bold text-primary tracking-tight mb-4">
+          <h3 class="text-2xl sm:text-3xl font-bold text-primary tracking-tight mb-4 font-sans">
             {content.card1.title}
           </h3>
 
           <!-- Card Description -->
           <p
-            class="text-text-body text-sm sm:text-base leading-relaxed mb-6 font-sans"
+            class="text-stone-300 text-sm sm:text-base leading-relaxed mb-6 font-sans"
           >
             {content.card1.description}
           </p>
@@ -135,10 +154,10 @@ const content = isEs
               content.card1.bullets.map((bullet) => (
                 <li class="flex items-start gap-3">
                   <Check
-                    class="w-5 h-5 text-secondary shrink-0 mt-0.5"
+                    class="w-4 h-4 text-secondary shrink-0 mt-1"
                     stroke-width="2"
                   />
-                  <span class="text-stone-300 text-sm leading-tight">
+                  <span class="text-stone-300 text-sm leading-relaxed">
                     {bullet}
                   </span>
                 </li>
@@ -152,40 +171,46 @@ const content = isEs
           href={content.card1.ctaLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center bg-[#E6DFD3] text-[#141414] font-bold w-full rounded-lg hover:bg-[#F0EAE0] hover:shadow-md hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 mt-2 py-3.5 h-auto min-h-12"
+          class="inline-flex items-center justify-center gap-2 bg-[#E6DFD3] text-[#141414] font-extrabold w-full rounded-xl glow-sandstone hover:bg-[#F0EAE0] hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 py-4 h-auto min-h-13"
         >
-          {content.card1.ctaText}
+          <Calendar class="w-4 h-4 text-[#141414]" stroke-width="2" />
+          <span>{content.card1.ctaText}</span>
+          <ArrowUpRight class="w-4 h-4 text-[#141414]/70" stroke-width="2" />
         </a>
       </div>
 
       <!-- Card 2: Mid-sized Companies / Cloud & AI -->
       <div
-        class="card bg-base-200 border border-[#E6DFD3]/10 hover:border-[#E6DFD3]/35 hover:shadow-[0_0_30px_rgba(230,223,211,0.04)] hover:scale-[1.01] transition-all duration-300 rounded-xl p-6 sm:p-8 flex flex-col justify-between group"
+        class="card-premium rounded-2xl p-7 sm:p-9 flex flex-col justify-between group hover:border-secondary/40"
       >
         <div>
           <!-- Tag & Icon Header -->
           <div class="flex items-center justify-between mb-6">
-            <span
-              class="text-[11px] font-semibold tracking-widest text-stone-500 font-mono uppercase"
-            >
-              {content.card2.tag}
-            </span>
+            <div class="flex flex-col gap-1">
+              <span
+                class="text-[11px] font-bold tracking-widest text-stone-400 font-mono uppercase"
+              >
+                {content.card2.tag}
+              </span>
+              <span class="text-[10px] font-mono text-secondary tracking-wider font-semibold">
+                {content.card2.badge}
+              </span>
+            </div>
             <div
-              class="p-2.5 rounded-lg bg-base-100 border border-stone-500/10 group-hover:border-stone-500/30 group-hover:bg-base-100/80 transition-all duration-300 text-secondary"
+              class="p-2.5 rounded-xl bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors"
             >
-              <!-- CPU/Brain Icon -->
               <Cpu class="w-6 h-6" stroke-width="1.5" />
             </div>
           </div>
 
           <!-- Card Header Title -->
-          <h3 class="text-2xl font-bold text-primary tracking-tight mb-4">
+          <h3 class="text-2xl sm:text-3xl font-bold text-primary tracking-tight mb-4 font-sans">
             {content.card2.title}
           </h3>
 
           <!-- Card Description -->
           <p
-            class="text-text-body text-sm sm:text-base leading-relaxed mb-6 font-sans"
+            class="text-stone-300 text-sm sm:text-base leading-relaxed mb-6 font-sans"
           >
             {content.card2.description}
           </p>
@@ -196,10 +221,10 @@ const content = isEs
               content.card2.bullets.map((bullet) => (
                 <li class="flex items-start gap-3">
                   <Check
-                    class="w-5 h-5 text-secondary shrink-0 mt-0.5"
+                    class="w-4 h-4 text-secondary shrink-0 mt-1"
                     stroke-width="2"
                   />
-                  <span class="text-stone-300 text-sm leading-tight">
+                  <span class="text-stone-300 text-sm leading-relaxed">
                     {bullet}
                   </span>
                 </li>
@@ -213,9 +238,10 @@ const content = isEs
           href={content.card2.ctaLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center border border-stone-500/30 text-[#F5F5F4] hover:bg-stone-500/10 hover:border-stone-500/50 w-full rounded-lg hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 mt-2 py-3.5 h-auto min-h-12"
+          class="inline-flex items-center justify-center gap-2 bg-base-100/90 border border-stone-500/25 text-[#F5F5F4] hover:bg-stone-500/15 hover:border-stone-400/40 font-semibold w-full rounded-xl hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 py-4 h-auto min-h-13"
         >
-          {content.card2.ctaText}
+          <MessageSquare class="w-4 h-4 text-secondary" stroke-width="2" />
+          <span>{content.card2.ctaText}</span>
         </a>
       </div>
     </div>

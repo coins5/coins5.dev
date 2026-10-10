@@ -1,0 +1,220 @@
+---
+import { ArrowUpRight, Award, Brain, Cloud, ExternalLink, Cpu } from "@lucide/astro";
+
+const { pathname } = Astro.url;
+const cleanPathname = pathname.replace(/\/$/, "");
+const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
+
+const content = isEs
+  ? {
+      label: "// CASOS DE ÉXITO CLAVE",
+      title: "Arquitectura Validada en Producción",
+      subtitle:
+        "Sistemas reales diseñados desde cero: desde MVPs premiados por el estado hasta plataformas de IA clínica y simulaciones en la nube de alta disponibilidad.",
+      viewCase: "Ver Caso Completo",
+      viewAll: "Explorar todos los casos de estudio",
+      allCasesUrl: "/es/cases",
+      cases: [
+        {
+          id: "strategio",
+          title: "Strategio — Plataforma de BI con IA para Retail",
+          slug: "/es/cases/strategio-mvp",
+          badge: "Ganador Startup Perú 2da Gen",
+          role: "Ex-CTO & Arquitecto Lead",
+          outcome: "De 0 a MVP en producción en 12 semanas. Infraestructura bajo $50/mes.",
+          desc: "Diseño e implementación de la plataforma analítica completa. Permitió a gerentes clasificar inventarios complejos y generar reportes móviles automáticos en tiempo real.",
+          technologies: ["Node.js", "FastAPI", "PostgreSQL", "AWS Serverless"],
+          icon: Award,
+        },
+        {
+          id: "nutrimind",
+          title: "NubaNutrición — Modelos de IA Aplicados a Salud",
+          slug: "/es/cases/nutrimind-platform",
+          badge: "HealthTech & Clinical AI",
+          role: "Arquitecto de IA & Full Stack",
+          externalUrl: "https://nubanutricion.com",
+          outcome: "Generación automatizada de planes nutricionales clínicos personalizados.",
+          desc: "Extracción y análisis de biomarcadores clínicos de pacientes para sintetizar planes alimenticios adaptados dinámicamente al presupuesto económico del usuario.",
+          technologies: ["Python", "Clinical LLMs", "FastAPI", "Cloudflare"],
+          icon: Brain,
+        },
+        {
+          id: "proximabolilla",
+          title: "PróximaBolilla — Simulación Masiva en Nube",
+          slug: "/es/cases/proximabolilla-simulator",
+          badge: "Cloud Concurrente & Ruido Cósmico",
+          role: "Arquitecto de Sistemas Cloud",
+          externalUrl: "https://proximabolilla.com",
+          outcome: "+1,000,000 de jugadas simuladas en tiempo real sin latencia.",
+          desc: "Simulación masiva de lotería combinando entropía cuántica de ruido cósmico y algoritmos analíticos predictivos para emitir reportes de probabilidad premium.",
+          technologies: ["Cloud Workers", "Monte Carlo Engine", "Astro", "REST APIs"],
+          icon: Cloud,
+        },
+      ],
+    }
+  : {
+      label: "// FLAGSHIP CASE STUDIES",
+      title: "Architecture Proven in Production",
+      subtitle:
+        "Real-world systems engineered from ground up: from government-awarded MVPs to clinical AI engines and massive cloud simulation platforms.",
+      viewCase: "Read Case Study",
+      viewAll: "Explore all case studies",
+      allCasesUrl: "/cases",
+      cases: [
+        {
+          id: "strategio",
+          title: "Strategio — AI-Powered Business Intelligence",
+          slug: "/cases/strategio-mvp",
+          badge: "Startup Perú 2nd Gen Winner",
+          role: "Ex-CTO & Lead Architect",
+          outcome: "From 0 to production MVP in 12 weeks. Run cost under $50/month.",
+          desc: "End-to-end architecture and implementation of the BI analytics platform. Enabled managers to classify commercial inventories and generate real-time mobile reports.",
+          technologies: ["Node.js", "FastAPI", "PostgreSQL", "AWS Serverless"],
+          icon: Award,
+        },
+        {
+          id: "nutrimind",
+          title: "NubaNutrición — Clinical AI Health Models",
+          slug: "/cases/nutrimind-platform",
+          badge: "HealthTech & Clinical AI",
+          role: "AI Architect & Full Stack Lead",
+          externalUrl: "https://nubanutricion.com",
+          outcome: "Automated synthesis of personalized clinical dietary protocols.",
+          desc: "Extracted insights from clinical biomarkers to synthesize dynamic dietary regimens precisely matched to patient biological markers and budget constraints.",
+          technologies: ["Python", "Clinical LLMs", "FastAPI", "Cloudflare"],
+          icon: Brain,
+        },
+        {
+          id: "proximabolilla",
+          title: "PróximaBolilla — Massive Cloud Simulation Engine",
+          slug: "/cases/proximabolilla-simulator",
+          badge: "High-Concurrency Cloud & Entropy",
+          role: "Cloud Systems Architect",
+          externalUrl: "https://proximabolilla.com",
+          outcome: "1,000,000+ lottery permutations simulated in real-time with sub-second latency.",
+          desc: "Massive lottery simulation system combining cosmic noise entropy and predictive machine learning models to generate real-time analytical reports.",
+          technologies: ["Cloud Workers", "Monte Carlo Engine", "Astro", "REST APIs"],
+          icon: Cloud,
+        },
+      ],
+    };
+---
+
+<section
+  id="cases"
+  class="relative py-20 md:py-28 bg-base-100 overflow-hidden border-b border-stone-500/10"
+>
+  <!-- Architectural ambient background -->
+  <div
+    class="absolute bottom-10 left-1/4 w-80 h-80 bg-secondary/[0.04] blur-[140px] rounded-full pointer-events-none"
+  >
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div class="max-w-2xl">
+        <span
+          class="text-xs font-mono font-bold tracking-widest text-secondary uppercase mb-3 block"
+        >
+          {content.label}
+        </span>
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary tracking-tight font-sans"
+        >
+          {content.title}
+        </h2>
+        <p class="text-stone-400 text-base sm:text-lg leading-relaxed mt-4 font-sans font-normal">
+          {content.subtitle}
+        </p>
+      </div>
+
+      <a
+        href={content.allCasesUrl}
+        class="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-secondary hover:text-[#F5F5F4] transition-colors shrink-0 group self-start md:self-end"
+      >
+        <span>{content.viewAll}</span>
+        <ArrowUpRight class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width="2" />
+      </a>
+    </div>
+
+    <!-- Case Studies 3-Column Showcase Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+      {
+        content.cases.map((project) => {
+          const Icon = project.icon;
+          return (
+            <div class="card-premium rounded-2xl p-6 sm:p-8 flex flex-col justify-between group hover:border-secondary/35">
+              <div>
+                <!-- Top Badge & Icon -->
+                <div class="flex items-center justify-between mb-5">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-[10px] font-mono font-bold text-secondary uppercase tracking-wider">
+                    {project.badge}
+                  </span>
+                  <div class="p-2 rounded-lg bg-base-100 border border-stone-500/20 text-secondary group-hover:border-secondary/40 transition-colors">
+                    <Icon class="w-4 h-4" stroke-width="1.5" />
+                  </div>
+                </div>
+
+                <!-- Title & Role -->
+                <h3 class="text-xl sm:text-2xl font-bold text-primary tracking-tight mb-2 font-sans group-hover:text-secondary transition-colors">
+                  {project.title}
+                </h3>
+                <span class="block text-xs font-mono text-stone-400 mb-4">
+                  {project.role}
+                </span>
+
+                <!-- High-Impact Outcome Callout -->
+                <div class="p-3.5 rounded-xl bg-base-100/70 border border-stone-500/15 mb-5">
+                  <span class="text-xs font-mono text-emerald-400 font-bold block leading-relaxed">
+                    ✓ {project.outcome}
+                  </span>
+                </div>
+
+                <!-- Description -->
+                <p class="text-stone-300 text-sm leading-relaxed mb-6 font-sans">
+                  {project.desc}
+                </p>
+              </div>
+
+              <div>
+                <!-- Tech Stack Pills -->
+                <div class="flex flex-wrap gap-1.5 mb-6 pt-4 border-t border-stone-500/10">
+                  {project.technologies.map((tech) => (
+                    <span class="px-2 py-0.5 rounded bg-base-100 text-[11px] font-mono text-stone-400 border border-stone-500/15">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center justify-between pt-2">
+                  <a
+                    href={project.slug}
+                    class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-secondary hover:text-[#F5F5F4] transition-colors group/link"
+                  >
+                    <span>{content.viewCase}</span>
+                    <ArrowUpRight class="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" stroke-width="2" />
+                  </a>
+
+                  {project.externalUrl && (
+                    <a
+                      href={project.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 text-[11px] font-mono text-stone-500 hover:text-stone-300 transition-colors"
+                      aria-label={`Visit ${project.title} website`}
+                    >
+                      <ExternalLink class="w-3 h-3" stroke-width="2" />
+                      <span>Live Site</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
