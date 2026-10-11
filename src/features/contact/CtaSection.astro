@@ -1,38 +1,13 @@
 ---
 import { Calendar, MessageSquare, ArrowUpRight, CheckCircle2 } from "@lucide/astro";
-import { siteConfig, getWhatsAppUrl } from "../config";
+import { siteConfig } from "../../config";
+import { getCtaContent } from "./cta.content";
 
 const { pathname } = Astro.url;
 const cleanPathname = pathname.replace(/\/$/, "");
 const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
 
-const content = isEs
-  ? {
-      label: "// VAMOS A CONSTRUIR",
-      title: "¿Listo para Construir Software que Escale sin Fricción?",
-      subtitle:
-        "Evita los presupuestos inflados de las agencias y los desarrollos frágiles. Trabaja directamente con un Arquitecto de Software Senior para validar tu MVP o modernizar tus sistemas con Inteligencia Artificial.",
-      primaryCta: "Agendar llamada de descubrimiento (15 min)",
-      secondaryCta: "Iniciar conversación en WhatsApp",
-      whatsappUrl: getWhatsAppUrl("es", "default"),
-      trust1: "100% de propiedad intelectual y código propio",
-      trust2: "Trato directo 1-a-1 sin intermediarios",
-      trust3: "Sprints ágiles con entregables funcionales cada semana",
-      directEmail: "O escríbeme directamente a:",
-    }
-  : {
-      label: "// LET'S BUILD",
-      title: "Ready to Build Software That Truly Scales?",
-      subtitle:
-        "Skip agency bloat, opaque billing, and fragile code. Partner directly with a Senior Software Architect to engineer high-performance MVPs or modernize your operations with AI.",
-      primaryCta: "Book a 15-minute discovery call",
-      secondaryCta: "Start a conversation on WhatsApp",
-      whatsappUrl: getWhatsAppUrl("en", "default"),
-      trust1: "100% full intellectual property & repository ownership",
-      trust2: "Direct 1-on-1 architect partnership, zero middlemen",
-      trust3: "Agile sprints with functional production deliverables weekly",
-      directEmail: "Or reach out directly via email:",
-    };
+const content = getCtaContent(isEs);
 ---
 
 <section
@@ -81,7 +56,7 @@ const content = isEs
           href={siteConfig.calendlyUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2.5 font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-sm sm:text-base shadow-md"
+          class="inline-flex items-center justify-center gap-2.5 font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-sm sm:text-base shadow-md cursor-pointer"
           style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
         >
           <Calendar class="w-5 h-5" stroke-width="2" style="color: var(--cta-primary-text);" />
@@ -94,7 +69,7 @@ const content = isEs
           href={content.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2.5 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-sm sm:text-base shadow-sm"
+          class="inline-flex items-center justify-center gap-2.5 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-sm sm:text-base shadow-sm cursor-pointer"
           style="background-color: var(--cta-secondary-bg); color: var(--cta-secondary-text); border: 1px solid var(--cta-secondary-border);"
         >
           <MessageSquare class="w-5 h-5 text-secondary" stroke-width="2" />

@@ -1,44 +1,16 @@
 ---
 import { Image } from "astro:assets";
-import marlonImage from "../assets/marlon.png";
-import AuthorityBar from "./AuthorityBar.astro";
+import marlonImage from "../../assets/marlon.png";
+import AuthorityBar from "../../components/AuthorityBar.astro";
 import { Calendar, MessageSquare, ArrowUpRight, ShieldCheck, Zap } from "@lucide/astro";
-import { siteConfig, getWhatsAppUrl } from "../config";
+import { siteConfig } from "../../config";
+import { getHeroContent } from "./hero.content";
 
 const { pathname } = Astro.url;
 const cleanPathname = pathname.replace(/\/$/, "");
 const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
 
-// Translations dictionary
-const content = isEs
-  ? {
-      status: "Disponible para proyectos selectos",
-      role: "Senior Software Architect",
-      h1: "Arquitectura de Software y MVPs de Alto Impacto, Acelerados con IA.",
-      subtitle:
-        "Más de una década de criterio arquitectónico—Clean Architecture, sistemas modulares y cero deuda técnica—potenciado con flujos avanzados de IA para entregar software de grado de producción hasta 3x más rápido.",
-      primaryCta: "Agendar llamada de 15 min",
-      secondaryCta: "Cotizar por WhatsApp",
-      whatsappUrl: getWhatsAppUrl("es", "default"),
-      profileName: "Robert Marlon Colca",
-      profileCredentials: "Ex-CTO Strategio • Ganador Startup Perú • 12+ años en producción",
-      ownershipBadge: "100% Código Propio",
-      speedBadge: "Entrega hasta 3x más rápida",
-    }
-  : {
-      status: "Available for select projects",
-      role: "Senior Software Architect",
-      h1: "Architecting High-Performance Systems & MVPs, Accelerated by AI.",
-      subtitle:
-        "12+ years of senior architectural rigor—Clean Architecture, resilient system boundaries, and zero technical debt—multiplied by bespoke AI workflows to deliver production-ready software up to 3x faster.",
-      primaryCta: "Book a 15-min discovery call",
-      secondaryCta: "Chat on WhatsApp",
-      whatsappUrl: getWhatsAppUrl("en", "default"),
-      profileName: "Robert Marlon Colca",
-      profileCredentials: "Ex-CTO Strategio • Startup Perú Winner • 12+ years in production",
-      ownershipBadge: "100% Code Ownership",
-      speedBadge: "Up to 3x Faster Delivery",
-    };
+const content = getHeroContent(isEs);
 ---
 
 <section
@@ -105,7 +77,7 @@ const content = isEs
         href={siteConfig.calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2.5 font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-md"
+        class="inline-flex items-center justify-center gap-2.5 font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-md cursor-pointer"
         style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
       >
         <Calendar class="w-5 h-5" stroke-width="2" style="color: var(--cta-primary-text);" />
@@ -118,7 +90,7 @@ const content = isEs
         href={content.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2.5 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
+        class="inline-flex items-center justify-center gap-2.5 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm cursor-pointer"
         style="background-color: var(--cta-secondary-bg); color: var(--cta-secondary-text); border: 1px solid var(--cta-secondary-border);"
       >
         <MessageSquare class="w-5 h-5 text-secondary" stroke-width="2" />
