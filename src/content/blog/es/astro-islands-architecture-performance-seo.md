@@ -5,11 +5,10 @@ pubDate: 2026-04-25
 lang: "es"
 tags: ["Frontend", "Astro", "Rendimiento Web", "SEO"]
 keywords: ["arquitectura de islas astro", "optimizar core web vitals", "reducir peso javascript", "velocidad conversion b2b"]
-ogImage: "/images/blog/astro-performance-preview.png"
 draft: false
 ---
 
-# El Impuesto del JavaScript Pesado: Cómo los Frameworks Modernos Penalizan tus Conversiones B2B
+## El Impuesto del JavaScript Pesado: Cómo los Frameworks Modernos Penalizan tus Conversiones B2B
 
 En la carrera por construir sitios web corporativos visualmente atractivos y dinámicos, el desarrollo frontend moderno ha caído en una trampa costosa: sobrecargar el navegador del usuario con megabytes innecesarios de JavaScript.
 

@@ -11,11 +11,10 @@ keywords:
     "core web vitals optimization",
     "island architecture astro",
   ]
-ogImage: "/images/blog/frontend-performance-preview.png"
 draft: false
 ---
 
-# The Hidden Cost of Heavy JavaScript: How Slow Load Times Kill Conversions
+## The Hidden Cost of Heavy JavaScript: How Slow Load Times Kill Conversions
 
 For modern digital businesses, speed is not a vanity metric—it is a direct driver of revenue. Yet, many product managers and founders unknowingly sabotage their own marketing budgets. They run high-converting ad campaigns, drive organic traffic through meticulous SEO, and redirect users to a website bogged down by megabytes of unused JavaScript.
 

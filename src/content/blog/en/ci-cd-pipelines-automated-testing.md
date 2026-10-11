@@ -11,11 +11,10 @@ keywords:
     "github actions workflow",
     "prevent bugs production",
   ]
-ogImage: "/images/blog/ci-cd-preview.png"
 draft: false
 ---
 
-# The Friday Night Fear: The High Cost of Uncontrolled Deployments
+## The Friday Night Fear: The High Cost of Uncontrolled Deployments
 
 It is 4:30 PM on a Friday. A critical feature has just been completed, and the team is eager to push it to production before the weekend. But there is a lingering hesitation.
 

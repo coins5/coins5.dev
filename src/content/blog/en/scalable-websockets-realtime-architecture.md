@@ -5,11 +5,10 @@ pubDate: 2026-04-04
 lang: "en"
 tags: ["Real-Time", "WebSockets", "Backend", "FastAPI"]
 keywords: ["scalable websockets", "real-time architecture", "redis pub sub ws", "fastapi websocket concurrency"]
-ogImage: "/images/blog/websockets-preview.png"
 draft: false
 ---
 
-# The Polling Overhead: Why HTTP Requests Are Draining Your Real-Time Performance
+## The Polling Overhead: Why HTTP Requests Are Draining Your Real-Time Performance
 
 In modern product design, real-time feedback is no longer a luxury—it is an expectation. Users expect chat platforms, financial dashboards, and collaboration tools to update instantly. Yet, many development teams still rely on traditional HTTP polling (short or long polling) to simulate this real-time experience.
 

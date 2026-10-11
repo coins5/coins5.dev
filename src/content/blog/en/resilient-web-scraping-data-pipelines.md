@@ -11,11 +11,10 @@ keywords:
     "resilient data extraction",
     "supabase database",
   ]
-ogImage: "/images/blog/data-pipelines-preview.png"
 draft: false
 ---
 
-# The Fragility of Web Extraction: Moving Beyond Basic Scripts
+## The Fragility of Web Extraction: Moving Beyond Basic Scripts
 
 Many businesses begin their data extraction journey with a simple script: a basic Python tool importing `BeautifulSoup` and `requests`. While this works perfectly in a local development environment running against a dozen static pages, it fails catastrophically in production.
 

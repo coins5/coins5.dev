@@ -11,11 +11,10 @@ keywords:
     "software refactoring",
     "backend performance",
   ]
-ogImage: "/images/blog/cloud-costs-preview.png"
 draft: false
 ---
 
-# The Scaling Trap: Solving Software Bottlenecks with a Credit Card
+## The Scaling Trap: Solving Software Bottlenecks with a Credit Card
 
 When a web application slows down under load, the instinctive response for many organizations is to scale up. With a few clicks in the AWS or Azure console, you can upgrade a database from a `db.t3.medium` to a `db.m5.large`, or double your container size.
 

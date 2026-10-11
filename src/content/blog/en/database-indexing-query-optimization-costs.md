@@ -5,11 +5,10 @@ pubDate: 2026-05-16
 lang: "en"
 tags: ["Databases", "Performance Tuning", "Cloud Costs", "SQL"]
 keywords: ["database indexing", "query optimization costs", "reduce cloud infrastructure bills", "full table scan performance"]
-ogImage: "/images/blog/database-indexing-preview.png"
 draft: false
 ---
 
-# The Vertical Scaling Trap: Why Throwing Hardware at Slow Databases Fails
+## The Vertical Scaling Trap: Why Throwing Hardware at Slow Databases Fails
 
 Every growing startup eventually faces the threshold: page load speeds begin to crawl, background jobs stack up, and API responses stutter. For many teams, the immediate knee-jerk reaction is to throw money at the problem. They upgrade the database instance to the next cloud tier—increasing CPU cores and RAM in AWS, Google Cloud, or Azure. 
 

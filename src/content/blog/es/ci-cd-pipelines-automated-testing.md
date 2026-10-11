@@ -11,11 +11,10 @@ keywords:
     "despliegue continuo",
     "evitar errores en produccion",
   ]
-ogImage: "/images/blog/ci-cd-preview.png"
 draft: false
 ---
 
-# El Temor del Viernes por la Tarde: El Alto Costo de los Despliegues Manuales
+## El Temor del Viernes por la Tarde: El Alto Costo de los Despliegues Manuales
 
 Son las 4:30 PM de un viernes. El equipo de desarrollo acaba de terminar una funcionalidad crítica y está ansioso por subirla a producción antes del fin de semana. Sin embargo, surge la duda habitual:
 

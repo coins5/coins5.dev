@@ -5,11 +5,10 @@ pubDate: 2026-06-20
 lang: "es"
 tags: ["Arquitectura Backend", "Redis", "Caching", "Rendimiento"]
 keywords: ["cache con redis", "patron cache aside", "optimizacion de bases de datos", "reducir latencia api"]
-ogImage: "/images/blog/redis-caching-preview.png"
 draft: false
 ---
 
-# El Cuello de Botella del Crecimiento: Cómo las Consultas Repetitivas Saturan tu Servidor y Elevan tus Costos
+## El Cuello de Botella del Crecimiento: Cómo las Consultas Repetitivas Saturan tu Servidor y Elevan tus Costos
 
 Toda aplicación en crecimiento o startup tecnológica llega a un punto crítico en su escalabilidad: las llamadas a las APIs empiezan a ralentizarse y la base de datos relacional (como PostgreSQL o MySQL) experimenta picos de uso de CPU inusuales. Esto ocurre porque la aplicación realiza constantemente consultas idénticas para servir la misma información a múltiples usuarios: catálogos de productos, datos de perfiles de usuario o información de configuración de la plataforma.
 

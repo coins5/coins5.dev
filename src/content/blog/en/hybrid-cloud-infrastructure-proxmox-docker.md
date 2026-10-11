@@ -5,11 +5,10 @@ pubDate: 2026-04-10
 lang: "en"
 tags: ["Infrastructure", "Proxmox", "Docker", "Cloud Costs"]
 keywords: ["hybrid cloud strategy", "proxmox ve docker", "reduce aws spending", "on-premise server clustering"]
-ogImage: "/images/blog/hybrid-infra-preview.png"
 draft: false
 ---
 
-# The Public Cloud Expense Trap: When AWS or GCP Bills Strangle Your Margin
+## The Public Cloud Expense Trap: When AWS or GCP Bills Strangle Your Margin
 
 For growing tech startups and mid-sized enterprises, public cloud providers like AWS, Azure, or GCP are the default choice for launching products. The promise is simple: infinite scalability, zero upfront hardware costs, and a quick time to market.
 

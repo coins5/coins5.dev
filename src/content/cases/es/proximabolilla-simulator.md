@@ -8,7 +8,7 @@ lang: "es"
 technologies: ["Astro", "Python", "Supabase", "Tailwind CSS"]
 ---
 
-# El Desafío
+## El Desafío
 
 PróximaBolilla requería un sistema capaz de simular de manera masiva sorteos históricos de loterías locales, procesando millones de combinaciones para extraer patrones probabilísticos. El objetivo era brindar reportes analíticos premium en tiempo real con una interfaz fluida e intuitiva.
 

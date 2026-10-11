@@ -5,11 +5,10 @@ pubDate: 2026-04-19
 lang: "en"
 tags: ["Backend Architecture", "FastAPI", "Task Queues", "Redis"]
 keywords: ["async task queues", "optimize api performance", "redis backend worker", "decouple software workloads"]
-ogImage: "/images/blog/async-tasks-preview.png"
 draft: false
 ---
 
-# The Synchronous Bottleneck: How Heavy Workloads Strangle API Responsiveness
+## The Synchronous Bottleneck: How Heavy Workloads Strangle API Responsiveness
 
 In modern web development, API response time is a critical metric that directly impacts user experience, conversion rates, and integration reliability. However, many backend systems suffer from a fundamental architectural flaw: executing resource-intensive operations directly within the synchronous cycle of an ordinary HTTP request-response loop.
 

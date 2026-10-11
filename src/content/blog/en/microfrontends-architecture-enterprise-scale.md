@@ -5,11 +5,10 @@ pubDate: 2026-05-18
 lang: "en"
 tags: ["Frontend", "Microfrontends", "Software Architecture", "Enterprise"]
 keywords: ["microfrontends architecture", "scaling frontend teams", "decouple web applications", "module federation"]
-ogImage: "/images/blog/microfrontends-preview.png"
 draft: false
 ---
 
-# The Frontend Monolith Bottleneck: When Scaling Teams Slows Down Delivery
+## The Frontend Monolith Bottleneck: When Scaling Teams Slows Down Delivery
 
 In the early stages of a web application, a single, unified codebase (a frontend monolith) is a massive advantage. It allows a small team to build, test, and ship features rapidly. Everything is in one place, sharing state and UI components is trivial, and deployments are straightforward.
 

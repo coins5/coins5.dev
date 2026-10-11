@@ -5,11 +5,10 @@ pubDate: 2026-04-08
 lang: "en"
 tags: ["Databases", "NoSQL", "Data Architecture", "Scaling"]
 keywords: ["nosql data modeling", "horizontal database scaling", "sql vs nosql choice", "high throughput backend"]
-ogImage: "/images/blog/nosql-strategy-preview.png"
 draft: false
 ---
 
-# The Vertical Limit: Why Centralized SQL Databases Fail at Hyper-Scale
+## The Vertical Limit: Why Centralized SQL Databases Fail at Hyper-Scale
 
 Every backend developer and CTO reaches a familiar crossroads during rapid user growth: the primary SQL database instance (such as PostgreSQL or MySQL) begins to struggle under the load. Queries that once finished in milliseconds slow down, read/write locks multiply, connection pools saturate, and database CPU usage spikes to 100%.
 

@@ -5,11 +5,10 @@ pubDate: 2026-05-19
 lang: "es"
 tags: ["Startups", "MVPs", "Ingeniería de IA", "Arquitectura Limpia"]
 keywords: ["desarrollo mvp peru", "ingenieria de software ia", "arquitectura limpia startups", "desarrollo rapido software"]
-ogImage: "/images/blog/mvp-2026-preview.png"
 draft: false
 ---
 
-# El Dilema de las Startups: Velocidad vs. Calidad del Código
+## El Dilema de las Startups: Velocidad vs. Calidad del Código
 
 En el competitivo ecosistema de startups de 2026, el *time-to-market* lo es todo. Los fundadores y directores de tecnología se encuentran bajo una presión constante para lanzar funciones, validar hipótesis de negocio ante el mercado y presentar un producto funcional a inversionistas o comités evaluadores.
 

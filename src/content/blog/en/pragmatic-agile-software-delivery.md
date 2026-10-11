@@ -5,11 +5,10 @@ pubDate: 2026-05-31
 lang: "en"
 tags: ["Project Management", "Agile", "Software Delivery", "Productivity"]
 keywords: ["pragmatic agile", "software delivery efficiency", "senior developer workflow", "reduce corporate bureaucracy"]
-ogImage: "/images/blog/pragmatic-agile-preview.png"
 draft: false
 ---
 
-# The Death of Velocity: How Corporate Scrum Smothers Actual Software Delivery
+## The Death of Velocity: How Corporate Scrum Smothers Actual Software Delivery
 
 In modern software development, "Agile" has become a synonym for corporate bureaucracy. What was once a lightweight, developer-centric manifesto has mutated into a bloated framework dominated by endless ceremonies: daily standups that drag on for 45 minutes, bi-weekly sprint planning sessions, backlog grooming, estimation meetings in story points, and retrospective sessions that yield zero action items.
 

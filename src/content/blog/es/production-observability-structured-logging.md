@@ -5,11 +5,10 @@ pubDate: 2026-06-19
 lang: "es"
 tags: ["Observability", "DevOps", "Backend", "Monitoreo de Producción"]
 keywords: ["observabilidad de software", "logs estructurados json", "monitoreo de sistemas", "deteccion de errores en produccion"]
-ogImage: "/images/blog/observability-preview.png"
 draft: false
 ---
 
-# El Punto Ciego en Producción: El Alto Costo de Operar a Ciegas
+## El Punto Ciego en Producción: El Alto Costo de Operar a Ciegas
 
 Imagina esta escena: lunes a las 9:00 AM. Tu equipo de desarrollo se prepara para la reunión semanal de sincronización cuando el equipo de soporte al cliente enciende las alarmas. Un usuario frustrado ha publicado en redes sociales que la pasarela de pagos lleva caída 48 horas, arrojando errores constantes en la pantalla de pago.
 

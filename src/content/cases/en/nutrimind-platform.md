@@ -8,7 +8,7 @@ lang: "en"
 technologies: ["Astro", "Nuxt 4", "FastAPI", "MongoDB"]
 ---
 
-# The Challenge
+## The Challenge
 
 Healthcare platforms demand uncompromising data privacy, compliance, and absolute reliability. NutriMind required a secure Software as a Service (SaaS) solution to empower nutritionists, streamline patient onboarding, and automate clinical plan generation while adhering to medical data safety standards.
 

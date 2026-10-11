@@ -5,11 +5,10 @@ pubDate: 2026-05-18
 lang: "es"
 tags: ["Frontend", "Microfrontends", "Arquitectura de Software", "Empresarial"]
 keywords: ["arquitectura microfrontends", "escalar equipos frontend", "desacoplar aplicaciones web", "desarrollo web modular"]
-ogImage: "/images/blog/microfrontends-preview.png"
 draft: false
 ---
 
-# El Cuello de Botella del Monolito Frontend: Cuando Escalar Equipos Reduce la Velocidad de Entrega
+## El Cuello de Botella del Monolito Frontend: Cuando Escalar Equipos Reduce la Velocidad de Entrega
 
 En las primeras etapas de una plataforma web, un codebase único y unificado (un monolito frontend) es sumamente eficiente. Permite a un equipo pequeño iterar y desplegar rápido. Compartir estados y componentes de interfaz de usuario es trivial, y los despliegues no requieren gran coordinación.
 

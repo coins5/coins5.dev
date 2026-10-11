@@ -8,7 +8,7 @@ lang: "en"
 technologies: ["Astro", "Python", "Supabase", "Tailwind CSS"]
 ---
 
-# The Challenge
+## The Challenge
 
 PróximaBolilla sought to build a high-performance simulation platform to analyze historical lottery results, detect probability patterns, and run massive statistical simulations in real-time. The core engineering challenge was managing high computation workloads on the cloud while keeping latency to the front-end low.
 

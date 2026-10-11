@@ -8,7 +8,7 @@ lang: "es"
 technologies: ["Node.js", "FastAPI", "PostgreSQL", "AWS"]
 ---
 
-# El Desafío
+## El Desafío
 
 Para asegurar el financiamiento y validar su mercado, Strategio necesitaba una plataforma de Business Intelligence capaz de procesar conjuntos de datos complejos y emitir informes personalizados en tiempo récord. El reto consistió en entregar un MVP sólido y escalable en menos de 12 semanas.
 

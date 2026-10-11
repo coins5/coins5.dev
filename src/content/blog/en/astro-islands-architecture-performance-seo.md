@@ -5,11 +5,10 @@ pubDate: 2026-04-25
 lang: "en"
 tags: ["Frontend", "Astro", "Web Performance", "SEO"]
 keywords: ["astro islands architecture", "core web vitals optimization", "reduce javascript payload", "b2b conversion speed"]
-ogImage: "/images/blog/astro-performance-preview.png"
 draft: false
 ---
 
-# The Heavy JS Tax: How Modern Web Frameworks Penalize Your B2B Conversions
+## The Heavy JS Tax: How Modern Web Frameworks Penalize Your B2B Conversions
 
 In the race to build feature-rich corporate websites, modern web development has fallen into a dangerous trap: overloading the client's browser with massive JavaScript payloads. 
 

@@ -11,11 +11,10 @@ keywords:
     "despliegue con docker",
     "arquitectura cloud escalable",
   ]
-ogImage: "/images/blog/infrastructure-strategy-preview.png"
 draft: false
 ---
 
-# Serverless o VPS: Elige tu Estrategia de Infraestructura Cloud
+## Serverless o VPS: Elige tu Estrategia de Infraestructura Cloud
 
 Cualquier fundador o líder técnico que lanza un producto digital en 2026 se encuentra con la misma recomendación por defecto: _"Usa Serverless"_. Impulsado por el marketing de los proveedores de nube y por desarrolladores que buscan evitar la gestión de operaciones, Serverless (como AWS Lambda, Vercel o Supabase Functions) se presenta como la solución mágica para todo.
 

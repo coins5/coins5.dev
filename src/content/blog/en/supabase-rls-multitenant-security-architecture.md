@@ -5,11 +5,10 @@ pubDate: 2026-04-27
 lang: "en"
 tags: ["Databases", "Supabase", "Security", "SaaS Core"]
 keywords: ["supabase rls multitenant", "row level security postgres", "secure database isolation", "serverless backend security"]
-ogImage: "/images/blog/supabase-rls-preview.png"
 draft: false
 ---
 
-# The Vulnerability of Application-Level Isolation in B2B SaaS
+## The Vulnerability of Application-Level Isolation in B2B SaaS
 
 When building a multitenant B2B SaaS, protecting tenant data is the single most critical engineering requirement. Traditional backend architectures rely heavily on application-level logic to filter data. Developers write query builders, ORM middlewares, or controller-level logic to append `tenant_id` filters to every database interaction. 
 

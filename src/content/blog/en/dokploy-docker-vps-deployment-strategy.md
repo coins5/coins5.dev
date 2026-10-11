@@ -5,11 +5,10 @@ pubDate: 2026-05-07
 lang: "en"
 tags: ["DevOps", "Docker", "Dokploy", "Cloud Costs"]
 keywords: ["dokploy deployment", "self-hosted paas", "reduce cloud infrastructure bill", "docker vps orchestration"]
-ogImage: "/images/blog/dokploy-deployment-preview.png"
 draft: false
 ---
 
-# The PaaS Trap: How Easy Deployments Can Drain Your Startup's Runway
+## The PaaS Trap: How Easy Deployments Can Drain Your Startup's Runway
 
 For early-stage startups and MVPs, Platform-as-a-Service (PaaS) providers like Heroku, Render, and Vercel are incredibly appealing. They promise zero-configuration deployments, automated SSL certificates, and a seamless developer experience. By simply pushing to GitHub, your code is live.
 

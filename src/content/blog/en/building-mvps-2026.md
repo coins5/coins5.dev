@@ -5,11 +5,10 @@ pubDate: 2026-05-19
 lang: "en"
 tags: ["Startups", "MVPs", "AI Engineering", "Clean Architecture"]
 keywords: ["mvp development", "ai software engineering", "startup tech stack", "clean architecture"]
-ogImage: "/images/blog/mvp-2026-preview.png"
 draft: false
 ---
 
-# The Startup Dilemma: Velocity vs. Code Quality
+## The Startup Dilemma: Velocity vs. Code Quality
 
 In the hyper-competitive startup landscape of 2026, time-to-market is everything. Founders face a relentless pressure to ship features, validate hypotheses, and present a functional product to investors. 
 

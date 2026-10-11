@@ -5,11 +5,10 @@ pubDate: 2026-05-28
 lang: "en"
 tags: ["Software Architecture", "Clean Architecture", "SOLID", "Technical Debt"]
 keywords: ["why clean architecture", "solid principles software", "modular design backend", "reduce technical debt"]
-ogImage: "/images/blog/clean-architecture-preview.png"
 draft: false
 ---
 
-# The Spaghetti Code Trap: How Technical Debt Strangles Product Roadmap Velocity
+## The Spaghetti Code Trap: How Technical Debt Strangles Product Roadmap Velocity
 
 In the early stages of a startup or new product launch, speed is everything. Teams race to ship features, validate the market, and get feedback from users. In this sprint, code quality is often compromised in favor of quick-and-dirty implementation. 
 

@@ -5,11 +5,10 @@ pubDate: 2026-06-18
 lang: "en"
 tags: ["AI Engineering", "Automation", "Software Architecture", "SaaS"]
 keywords: ["ai agents for business", "production ready ai", "software automation", "integrate ai in legacy systems"]
-ogImage: "/images/blog/ai-automation-preview.png"
 draft: false
 ---
 
-# The AI Illusion: The Fragility of Generic API Wrappers
+## The AI Illusion: The Fragility of Generic API Wrappers
 
 In the race to adopt Artificial Intelligence, many businesses have rushed to build conversational interfaces. Unfortunately, a vast majority of these solutions are simple **API wrappers**—thin layers of frontend code that forward raw user input directly to a commercial LLM and display the response.
 

@@ -5,11 +5,10 @@ pubDate: 2026-05-11
 lang: "en"
 tags: ["SaaS Architecture", "Security", "RBAC", "Backend"]
 keywords: ["multitenant rbac architecture", "saas security best practices", "role based access control", "enterprise saas authorization"]
-ogImage: "/images/blog/saas-rbac-security-preview.png"
 draft: false
 ---
 
-# The Tenant Boundary: Why Basic Access Control Fails in B2B SaaS
+## The Tenant Boundary: Why Basic Access Control Fails in B2B SaaS
 
 When building a B2B SaaS platform, the single most critical engineering requirement is **data isolation**. Unlike consumer applications, where a leak might affect an individual, B2B platforms handle proprietary corporate data. A security failure that exposes one customer's files to another is not just a bug—it is an existential crisis. It destroys your brand's reputation, triggers legal liabilities, and violates compliance policies.
 

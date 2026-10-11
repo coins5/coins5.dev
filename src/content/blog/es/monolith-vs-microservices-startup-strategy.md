@@ -5,11 +5,10 @@ pubDate: 2026-05-09
 lang: "es"
 tags: ["Arquitectura de Software", "Startups", "Clean Architecture", "Costos Cloud"]
 keywords: ["monolito o microservicios", "monolito modular", "escalabilidad prematura", "arquitectura limpia software"]
-ogImage: "/images/blog/architecture-strategy-preview.png"
 draft: false
 ---
 
-# La Trampa de los Microservicios: Por Qué Escalar Antes de Tiempo Puede Matar tu Startup
+## La Trampa de los Microservicios: Por Qué Escalar Antes de Tiempo Puede Matar tu Startup
 
 En el ecosistema tecnológico actual existe un canto de sirena arquitectónico que seduce a fundadores y directores de tecnología (CTOs): la promesa de los microservicios. Inspirados por los blogs de ingeniería de gigantes como Netflix, Uber o Airbnb, muchas startups en etapa temprana deciden diseñar sistemas distribuidos desde el primer día. Dividen su producto —aún sin tracción ni ingresos recurrentes— en media docena de microservicios, los despliegan en Kubernetes, configuran mallas de servicio (service meshes) y los orquestan con complejos flujos de integración continua.
 

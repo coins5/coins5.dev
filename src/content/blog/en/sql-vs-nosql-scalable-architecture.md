@@ -5,11 +5,10 @@ pubDate: 2026-06-03
 lang: "en"
 tags: ["Database Architecture", "PostgreSQL", "MongoDB", "Backend Performance"]
 keywords: ["sql vs nosql scalability", "postgresql performance tuning", "mongodb database design", "backend architecture timeouts"]
-ogImage: "/images/blog/database-architecture-preview.png"
 draft: false
 ---
 
-# The Silent Growth Killer: How Database Latency Trashes Production Performance
+## The Silent Growth Killer: How Database Latency Trashes Production Performance
 
 Every technical founder and CTO knows the feeling: the staging environment is fast, the unit tests pass in milliseconds, and the initial launch is a success. But as user acquisition climbs and traffic spikes, your application begins to stutter. Users report sluggish page loads, API gateways throw 504 Gateway Timeouts, and your cloud monitoring dashboard shows database CPU utilization pinning at 100%.
 

@@ -8,7 +8,7 @@ lang: "es"
 technologies: ["Astro", "Nuxt 4", "FastAPI", "MongoDB"]
 ---
 
-# El Desafío
+## El Desafío
 
 Las plataformas de tecnología de salud exigen el máximo nivel de seguridad y cumplimiento normativo. NutriMind necesitaba una infraestructura SaaS escalable que permitiera a nutricionistas gestionar pacientes y prescribir planes alimenticios optimizados mediante IA en tiempo real.
 

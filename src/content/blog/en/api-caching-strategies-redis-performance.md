@@ -5,11 +5,10 @@ pubDate: 2026-06-20
 lang: "en"
 tags: ["Backend Architecture", "Redis", "Caching", "Performance"]
 keywords: ["redis api caching", "cache aside pattern", "database optimization", "reduce backend latency"]
-ogImage: "/images/blog/redis-caching-preview.png"
 draft: false
 ---
 
-# The Scale Bottleneck: Why Repetitive Queries Are Draining Your Cloud Budget
+## The Scale Bottleneck: Why Repetitive Queries Are Draining Your Cloud Budget
 
 As applications grow, APIs face a common but painful performance bottleneck: high-frequency, repetitive queries hitting the primary relational database (such as PostgreSQL or MySQL). When hundreds or thousands of concurrent users request the same product catalog, user profile, or dashboard metrics, your database is forced to re-execute the exact same CPU-heavy queries over and over again.
 

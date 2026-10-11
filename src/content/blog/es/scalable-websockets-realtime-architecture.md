@@ -5,11 +5,10 @@ pubDate: 2026-04-04
 lang: "es"
 tags: ["Tiempo Real", "WebSockets", "Backend", "FastAPI"]
 keywords: ["websockets escalables", "arquitectura tiempo real", "redis pub sub", "concurrencia fastapi websockets"]
-ogImage: "/images/blog/websockets-preview.png"
 draft: false
 ---
 
-# La Ineficiencia del Polling: Por Qué las Peticiones HTTP Agotan el Rendimiento de tu Plataforma
+## La Ineficiencia del Polling: Por Qué las Peticiones HTTP Agotan el Rendimiento de tu Plataforma
 
 En el desarrollo de productos digitales modernos, la respuesta en tiempo real ya no es una característica opcional: es una expectativa del usuario. Quienes interactúan con chats corporativos, dashboards financieros o sistemas de geolocalización esperan ver cambios al instante. Sin embargo, muchos equipos de desarrollo aún dependen del *polling* tradicional (consultas periódicas HTTP de corta o larga duración) para simular esta interactividad.
 

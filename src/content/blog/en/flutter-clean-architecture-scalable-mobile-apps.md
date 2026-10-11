@@ -5,11 +5,10 @@ pubDate: 2026-04-20
 lang: "en"
 tags: ["Mobile Development", "Flutter", "Clean Architecture", "Scalability"]
 keywords: ["flutter clean architecture", "scalable mobile development", "dependency inversion flutter", "app architecture layout"]
-ogImage: "/images/blog/flutter-clean-preview.png"
 draft: false
 ---
 
-# The Mobile Speed Trap: How Flutter's Agility Becomes Spaghetti Code
+## The Mobile Speed Trap: How Flutter's Agility Becomes Spaghetti Code
 
 Flutter is a game-changer for startups and enterprises alike. Its hot reload, single codebase for iOS and Android, and rich widget library make it incredibly fast to build an initial product. You write a couple of widgets, set up state management directly in the UI, make HTTP calls, and ship.
 
