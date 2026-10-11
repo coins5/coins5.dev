@@ -56,9 +56,9 @@ Para retener al lector en los primeros 15 segundos y guiarlo hasta la conversió
 * El cierre debe conectar lógicamente con la oferta de Coins5: si el lector entendió la complejidad de hacerlo bien, la conclusión natural es delegarlo en un especialista senior.
 
 ### Regla 8: Formato de Código y Diagramación Visual
-* **Bloques de Código Secuenciales:** Nunca agrupes comparativas en un solo bloque gigante. Divide siempre en dos bloques etiquetados:
-  * `### ❌ [Enfoque Frágil / Naive Wrapper]`
-  * `### ✅ [Enfoque de Producción / Arquitectura Segura]`
+* **Bloques de Código Secuenciales:** Nunca agrupes comparativas en un solo bloque gigante. Divide siempre en dos bloques etiquetados sin emojis:
+  * `### Vulnerable: [Enfoque Frágil / Naive Wrapper]`
+  * `### Production: Guarded Tool Execution Engine` (o Arquitectura Segura)
 * **Pipeline de Arquitectura Visual:** En artículos que expliquen pipelines de datos, flujos de ejecución o agentes, incluye un componente visual de tarjetas conectadas ("Architecture Pipeline Stepper" con contenedor `.not-prose`, pasos numerados `01` a `04` y badges de seguridad) para máxima legibilidad ejecutiva y diseño 100% responsivo en móviles.
 * **Tiempo de Lectura Automático (`readingTime`):** Se calcula automáticamente a nivel de plantilla en `[slug].astro` dividiendo las palabras del body entre 200 PPM. No debe especificarse en el frontmatter.
 
@@ -76,23 +76,39 @@ pubDate: 2026-10-15
 lang: "es" # o "en"
 tags: ["Arquitectura de Software", "IA en Producción", "MVPs"]
 keywords: ["consultor software startups", "arquitecto ia lima", "desarrollo mvp"]
+ctaTitle: "Título Contextualizado al Dolor del Post" # Opcional: sobreescribe el CTA genérico
+ctaDescription: "Propuesta de valor clara para agendar una llamada de 15 min."
 draft: false
 ---
 
 ## [El Conflicto / El Dolor Oculto]
-[Hook en 2-3 líneas: El error que comete la mayoría y cuánto dinero cuesta.]
+[Gancho en 2-3 líneas sin clichés corporativos.]
+
+> **TL;DR:**
+> - **The Pitfall:** [El error técnico que cuesta dinero o seguridad]
+> - **The Architecture:** [El flujo de producción: RBAC -> Validación -> DB Atómica]
+> - **The Human Boundary:** [Cuándo exigir Human-in-the-Loop]
 
 ## [Diagnóstico Técnico: Por Qué Fallan las Soluciones Tradicionales]
-[Explicación con criterio senior de la causa raíz.]
+[Explicación de la causa raíz: inyección indirecta, falta de tipos, fallas de contexto.]
 
-## [La Arquitectura Correcta: Implementación y Código]
-[Código tipado, esquema Zod, consulta SQL parametrizada o diagrama de flujo.]
+## [La Arquitectura Correcta: Flujo y Ejecución]
+[Pipeline Stepper 01 a 04 en HTML .not-prose en orden Zero-Trust: Router -> Auth -> Schema -> DB]
+
+### Vulnerable: [Nombre del Patrón Frágil]
+[Bloque de código vulnerable en TypeScript]
+
+### Production: Guarded Tool Execution Engine
+[Bloque de código de producción con Auth -> Zod -> DB Atómica + Audit de fallos y éxitos]
+
+## [Mitigación de Amenazas y Control Humano (HITL)]
+[Explicación de indirect prompt injection y aprobación humana para acciones críticas]
 
 ## [Impacto Comercial y Optimización de Costos]
-[Cómo esta solución ahorra dinero en infraestructura o acelera el time-to-market.]
+[Métricas del portafolio (Strategio < $50/mo), prompt caching matizado ("hasta 80-90%") y observabilidad]
 
 ## [El Factor Senior + IA de Coins5]
-[Prueba de autoridad: Cómo Marlon aplica esto en producción y llamado a la acción.]
+[Prueba de autoridad: Cómo Marlon aplica esto en producción y transición fluida a la conversión]
 ```
 
 ---
