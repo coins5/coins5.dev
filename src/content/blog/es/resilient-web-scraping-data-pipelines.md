@@ -1,6 +1,6 @@
 ---
-title: "Web Scraping de Alto Rendimiento y Resiliente"
-description: "Extraer millones de registros requiere más que scripts básicos. Cómo diseñar flujos automatizados de datos estables que nunca se caigan."
+title: "Web Scraping Masivo: Pipelines que Nunca se Caen"
+description: "Cómo diseñar pipelines de extracción masiva en Python y Supabase con proxies rotativos, backoff exponencial e ingesta batch para alimentar modelos de IA."
 pubDate: 2026-05-24
 lang: "es"
 tags: ["Ingeniería de Datos", "Python", "Automatización", "Supabase"]
@@ -14,65 +14,64 @@ keywords:
 draft: false
 ---
 
-## El Límite de la Extracción de Datos: Superando los Scripts Básicos
+## La Ilusión del Script Local: Por Qué la Extracción Masiva Siempre Falla
 
-Hoy en día, las empresas toman decisiones basadas en datos. Aquellas que lideran el mercado monitorean precios de competidores, extraen información histórica de tendencias o consolidan catálogos masivos de proveedores de forma 100% automatizada. Sin embargo, muchas inician este camino con scripts frágiles (soluciones basadas en librerías básicas de Python que funcionan bien en pruebas locales pero fallan estrepitosamente en producción).
+Un script de Python con `BeautifulSoup` corriendo en tu laptop no es un pipeline de datos. Es un juguete que colapsa en cuanto intentas extraer cien mil registros.
 
-Cuando intentas extraer millones de registros, la web se vuelve inestable y hostil. Los cambios repentinos en la estructura HTML del sitio web destino, los bloqueos de IP, la latencia de red y los sistemas de protección contra bots hacen que los rastreadores mal diseñados se detengan, generen datos duplicados o corrompan la base de datos.
+En local todo funciona: ejecutas diez peticiones, parseas el HTML y te sientes satisfecho.
 
-Para que el **web scraping profesional** aporte valor real a una mediana empresa o startup, debe diseñarse bajo estándares estrictos de ingeniería de datos y arquitectura de software.
+Pero en cuanto intentas alimentar modelos de IA, comparadores de precios o motores de inteligencia de mercado a escala real, la web se vuelve hostil: bloqueos de IP, protección contra bots, respuestas `429 Too Many Requests` y cambios silenciosos en la estructura web que corrompen tu base de datos sin que te enteres.
+
+Si la extracción de datos es el combustible de tu negocio, no puedes depender de scripts descartables.
+
+Necesitas un pipeline resiliente diseñado bajo estándares estrictos de ingeniería de datos.
 
 ---
 
-## Diseñando para la Robustez: Evasión de Bloqueos y Tolerancia a Fallos
+## Tolerancia a Fallos en Producción: Proxies, Backoff y Jitter con Httpx
 
-Un pipeline de datos resiliente asume que los fallos de red y los intentos de bloqueo van a ocurrir. Para garantizar la continuidad de la extracción de datos de manera automatizada, implementamos tres estrategias clave:
+Un pipeline profesional asume que la red va a fallar y que los servidores externos intentarán bloquearte.
 
-### 1. Rotación Inteligente de Proxies y Firmas TLS
+Para asegurar continuidad sin interrupciones, combinamos tres principios defensivos:
 
-Utilizar una única dirección IP garantiza un bloqueo inmediato. La arquitectura debe integrar pools de proxies residenciales rotativos. Adicionalmente, los sistemas modernos de detección de bots analizan las huellas TLS y las cabeceras HTTP/2. Configurar cabeceras consistentes y emular comportamientos humanos es obligatorio para evitar bloqueos.
+1. **Pools de Proxies Rotativos**: Distribuir el tráfico a través de direcciones residenciales legítimas para neutralizar bloqueos por volumen.
+2. **Backoff Exponencial con Jitter**: Cuando un servidor responde con saturación, no reintentamos de inmediato. Espaciamos los intentos agregando ruido aleatorio para evitar patrones mecánicos predecibles.
+3. **Clientes HTTP Asíncronos**: Operar con conexiones no bloqueantes para extraer miles de páginas concurrentemente con un consumo mínimo de CPU y memoria.
 
-### 2. Control de Concurrencia y Rate Limiting
-
-Saturar un servidor objetivo no solo es una mala práctica, sino que acelera el bloqueo de tus credenciales o IPs. Controlar la velocidad de extracción mediante semáforos o colas de tareas mantiene el tráfico bajo un patrón seguro.
-
-### 3. Reintentos Automáticos con Backoff Exponencial
-
-Si el servidor destino responde con un error temporal (como `429 Too Many Requests` o `503 Service Unavailable`), el pipeline no debe detenerse. Se debe implementar un algoritmo de backoff exponencial con "jitter" (ruido aleatorio) para reintentar la solicitud espaciando el tiempo de espera.
-
-A continuación, un ejemplo en Python de un cliente HTTP asíncrono y altamente resiliente utilizando `tenacity` e `httpx`:
+A continuación, la arquitectura de un extractor asíncrono con tolerancia a fallos en Python usando `httpx` y `tenacity`:
 
 ```python
 import asyncio
 import httpx
 from tenacity import retry, wait_random_exponential, stop_after_attempt, retry_if_exception_type
 
-# Definición de política de reintento robusta con backoff exponencial y jitter
+# Politica de reintento con backoff exponencial y jitter aleatorio
 @retry(
     wait=wait_random_exponential(min=1, max=10),
     stop=stop_after_attempt(5),
     retry=retry_if_exception_type(httpx.HTTPError),
     reraise=True
 )
-async def fetch_page_with_retry(client: httpx.AsyncClient, url: str, headers: dict) -> str:
-    response = await client.get(url, headers=headers, timeout=10.0)
-
-    # Lanza una excepción si hay errores HTTP (4xx/5xx) para disparar el reintento
+async def fetch_page_resilient(client: httpx.AsyncClient, url: str, headers: dict) -> str:
+    """Extrae contenido web tolerando caidas temporales de red y rate limits."""
+    response = await client.get(url, headers=headers, timeout=12.0)
+    
+    # Dispara el decorador de reintento si el servidor responde con 4xx o 5xx
     response.raise_for_status()
     return response.text
 
 async def main():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36...",
-        "Accept-Language": "es-ES,es;q=0.9"
+        "Accept-Language": "es-PE,es;q=0.9",
     }
-
-    async with httpx.AsyncClient(proxies="http://your-proxy-pool.com:8000") as client:
+    
+    async with httpx.AsyncClient(proxies="http://proxy-pool:8000") as client:
         try:
-            html = await fetch_page_with_retry(client, "https://api.target.com/data", headers)
-            print("Datos extraídos con éxito.")
-        except Exception as e:
-            print(f"Error al extraer datos tras múltiples intentos: {e}")
+            content = await fetch_page_resilient(client, "https://api.target.com/feed", headers)
+            print("Datos extraidos correctamente")
+        except Exception as err:
+            print(f"Extraccion fallida tras agotar reintentos: {err}")
 
 if __name__ == "__main__":
     asyncio.run(main())
@@ -80,55 +79,22 @@ if __name__ == "__main__":
 
 ---
 
-## Ingesta Eficiente de Datos: Optimización de Base de Datos
+## Ingesta sin Cuellos de Botella: Operaciones Upsert Masivas en PostgreSQL
 
-La extracción es solo la primera parte del flujo. Almacenar millones de registros de forma eficiente en tu base de datos (como una instancia de PostgreSQL o **python y supabase**) requiere optimizar la escritura:
+Extraer datos rápido es inútil si tu base de datos colapsa al intentar guardarlos.
 
-1. **Inserciones en Lote (Bulk Inserts)**: Agrupa los datos extraídos en memoria y realiza escrituras en bloques (de 500 a 1000 registros). Esto reduce drásticamente las conexiones abiertas y el tiempo de procesamiento en red.
-2. **Operaciones Upsert (ON CONFLICT DO UPDATE)**: Evita duplicados actualizando los registros existentes o insertando los nuevos de forma nativa en una sola consulta de base de datos a través de una clave única.
-3. **Pools de Conexión**: Utiliza gestores de conexiones transaccionales para que la alta concurrencia de tus procesos de scraping no sature la base de datos.
+Insertar registros uno por uno satura el pool de conexiones y dispara la latencia del servidor.
 
-Aquí tienes un ejemplo de inserción masiva y actualización (upsert) en lotes usando el cliente de Supabase en Python:
+En su lugar, agrupamos los registros en memoria y ejecutamos escrituras masivas en bloques (*batch upserts* de 500 a 1,000 registros). 
 
-```python
-from supabase import create_client, Client
-import math
-
-SUPABASE_URL = "https://your-project.supabase.co"
-SUPABASE_KEY = "your-service-role-key"
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-def batch_upsert_data(records: list, batch_size: int = 1000):
-    total_records = len(records)
-    batches = math.ceil(total_records / batch_size)
-
-    print(f"Iniciando ingesta de {total_records} registros en {batches} lotes...")
-
-    for i in range(batches):
-        start_idx = i * batch_size
-        end_idx = start_idx + batch_size
-        batch = records[start_idx:end_idx]
-
-        try:
-            # Alta performance usando upsert masivo mapeado a clave única
-            response = supabase.table("extracted_products").upsert(
-                batch,
-                on_conflict="sku" # Restricción única para actualizar si ya existe el SKU
-            ).execute()
-            print(f"Lote {i+1}/{batches} guardado con éxito.")
-        except Exception as e:
-            print(f"Error al escribir el lote {i+1}: {e}")
-            # En entornos reales, envía los lotes fallidos a una cola de errores (DLQ)
-
-# Ejemplo de carga de datos
-items_extraidos = [{"sku": f"PROD-{idx}", "price": 29.99, "stock": idx} for idx in range(5000)]
-batch_upsert_data(items_extraidos)
-```
+Mediante sentencias `ON CONFLICT DO UPDATE` en PostgreSQL (o el SDK de **Supabase**), actualizamos registros existentes o insertamos novedades en una única transacción atómica, eliminando duplicados sin esfuerzo computacional adicional.
 
 ---
 
-## El Enfoque Senior + IA de Coins5
+## El Factor Coins5: Pipelines de Datos Listos para Escalar
 
-Diseñar flujos de datos de alto rendimiento requiere criterio arquitectónico profundo. Al estructurar **pipelines de datos resilientes** bajo Clean Architecture, separamos las reglas de negocio del scraper de los detalles de red y almacenamiento, permitiendo adaptarnos a cambios en los sitios destino en cuestión de minutos.
+En **Coins5**, diseñamos flujos de extracción masiva y pipelines de ingesta para plataformas analíticas y modelos de Inteligencia Artificial que no toleran caídas de servicio.
 
-En **Coins5**, Marlon combina más de 10 años de experiencia como Arquitecto de Software y desarrollador Full Stack con el uso avanzado de Inteligencia Artificial para la aceleración del código. Esto nos permite estructurar sistemas de extracción masiva altamente robustos y optimizados para consumir el mínimo ancho de banda y hardware de servidor posible, entregando el proyecto hasta 3 veces más rápido.
+Marlon combina más de una década de experiencia como Arquitecto de Software y desarrollador Full Stack con herramientas de IA para construir pipelines de datos robustos, optimizados para consumir el mínimo ancho de banda y hardware posible.
+
+Si tu empresa necesita extraer datos a gran escala, alimentar modelos de IA o automatizar flujos de información sin interrupciones, agendemos una llamada de 15 minutos o conversemos por WhatsApp.

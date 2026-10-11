@@ -46,9 +46,11 @@ El sitio implementa un sistema de tokens adaptativo mediante variables CSS nativ
 
 ## 3. Jerarquía Tipográfica y Espaciado
 
-### 3.1. Familias Tipográficas
-* **Fuente Principal (`font-sans`):** Sans-serif geométrica, neutral y ultra limpia (Geist, Inter, system-ui).
-* **Fuente Monoespaciada (`font-mono`):** Reservada estrictamente para etiquetas técnicas (`// THE VALUE MULTIPLIER`), métricas numéricas (`<$50/mo`, `42ms`), tags de stack tecnológico y código.
+### 3.1. Tríada Tipográfica de Alta Fidelidad
+El sistema implementa tres familias tipográficas estrictamente desacopladas:
+* **Fuente Display / Titulares (`font-display`):** `Plus Jakarta Sans` (pesos 600, 700, 800). Reservada para `h1`, `h2`, `h3` principales y cifras de autoridad (`<$50/mo`, `12 sem`). Aporta geometría moderna, contundencia C-Level y tracking tenso (`-0.025em`).
+* **Fuente de Lectura / Cuerpo (`font-sans`):** `Inter` (pesos 400, 500, 600). La reina de la legibilidad en pantallas. Proporciones abiertas y lectura relajada para párrafos del blog y descripciones sin fatiga visual en móviles.
+* **Fuente Técnica / Código (`font-mono`):** `JetBrains Mono` (pesos 400, 500, 600). Bloques de código Shiki, badges, fechas, kickers de sección (`// THE VALUE MULTIPLIER`) y métricas técnicas. Elimina ambigüedad en caracteres y proporciona espaciado tabular.
 
 ### 3.2. Reglas de Encabezados (La Regla de Oro del Hero)
 1. **Regla de 2 Líneas en el H1:** El título principal nunca debe comprimirse en un bloque estrecho de 4 a 6 líneas. Debe utilizar contenedores anchos (`max-w-5xl` o `max-w-6xl`) y un interlineado tenso (`leading-[1.08]`) para fluir horizontalmente en 2 (máximo 3) líneas.
@@ -107,6 +109,13 @@ Las tarjetas no deben ser planas ni estáticas. Deben implementar la clase `.car
 * Todos los iconos provienen obligatoriamente de `@lucide/astro`.
 * Configuración estándar: `stroke-width="1.5"` para interfaces y tarjetas; `stroke-width="2"` para iconos dentro de botones de acción o viñetas de confirmación.
 * Dimensiones: `w-4 h-4` para viñetas y enlaces; `w-5 h-5` para botones principales; `w-6 h-6` para cabeceras de servicio.
+
+### 5.4. Bloques de Código: Patrón Terminal Card (Tokyo Night Permanente)
+Para garantizar la máxima legibilidad y estética de ingeniería senior (al estilo Stripe, Linear y Supabase):
+* **Fondo Fijo:** Los bloques de código (`.prose pre`) utilizan permanentemente el fondo carbón profundo de Tokyo Night (`#1a1b26`), **incluso en modo Sandstone Light**.
+* **Contraste de Sintaxis:** Shiki compila con `theme: "tokyo-night"`, garantizando contraste perfecto sin desvanecimiento de caracteres.
+* **Prohibición de Anulaciones CSS:** Queda terminantemente prohibido forzar fondos claros (`--card-bg: #fff`) sobre bloques `<pre>`.
+* **Botón de Copiado Táctil:** Se posiciona en la esquina superior derecha con fondo translúcido (`rgba(26, 27, 38, 0.85)`), borde sutil y retroalimentación verde esmeralda al copiar.
 
 ---
 

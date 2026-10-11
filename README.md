@@ -2,7 +2,17 @@
 
 Este es el repositorio oficial de **coins5.dev**, el portafolio profesional y plataforma de captación de clientes (CRO) de **Marlon** (Senior Full Stack Developer & Software Architect).
 
-El sitio está desarrollado con **Astro 6** y diseñado bajo una estética personalizada de alto nivel, con soporte de internacionalización nativa y optimizado para una conversión rápida y eficiente.
+El sitio está desarrollado con **Astro 6** y diseñado bajo la estética **Sandstone & Charcoal / Warm Dark**, con sistema de internacionalización nativa, estrategia tipográfica de 3 jerarquías, resaltado de código Tokyo Night y un catálogo de contenidos optimizado para la conversión de alta retención.
+
+---
+
+## 📚 Fuentes de Verdad de Referencia (SOT)
+
+Para mantener la consistencia entre agentes y desarrolladores, la documentación técnica y de diseño se encuentra desacoplada en:
+* 🎨 **[DESIGN.md](file:///Users/coins5/Projects/astro/coins5.dev/DESIGN.md):** Sistema de diseño Sandstone & Charcoal, paleta de colores, tokens CSS, estrategia tipográfica de 3 niveles y estética terminal Tokyo Night.
+* 🏗️ **[ARCHITECTURE.md](file:///Users/coins5/Projects/astro/coins5.dev/ARCHITECTURE.md):** Arquitectura Feature-Driven (Screaming Slices), límites de líneas por archivo (máximo 300–350 líneas) y contratos modulares.
+* ✍️ **[POSTS_DESIGN.md](file:///Users/coins5/Projects/astro/coins5.dev/POSTS_DESIGN.md):** Estándar editorial del blog, copywriting persuasivo AIDA de alta retención ("efecto Medium"), filtro anti-AI-slop, esquemas Zod y hoja de ruta de publicaciones.
+* 📋 **[AGENTS.md](file:///Users/coins5/Projects/astro/coins5.dev/AGENTS.md):** Directrices estratégicas, perfil profesional, reglas SEO y automatización de Git.
 
 ---
 
@@ -11,144 +21,169 @@ El sitio está desarrollado con **Astro 6** y diseñado bajo una estética perso
 El objetivo central del sitio es la conversión (CRO) orientada a la venta de servicios de desarrollo de software, transformando el portafolio estático en una herramienta activa de captación de clientes.
 
 ### 1.1. Estrategia de Conversión (Call to Action - CTAs Principales)
-Toda interfaz, sección y flujo de navegación orienta al usuario a realizar una de estas dos acciones:
-*   **CTA Primario (Global):** Agendar una llamada de descubrimiento de 15 minutos en [Calendly](https://calendar.app.google/AbnPNcKVJyDnaU9z5).
-*   **CTA Secundario (Local/Rápido):** Iniciar una conversación directa en [WhatsApp Business](https://wa.me/51922913739) para cotizar un proyecto de software.
+Toda interfaz, sección y flujo de navegación orienta al usuario a realizar una de estas dos acciones de alta conversión:
+* **CTA Primario (Global):** Agendar una llamada de descubrimiento de 15 minutos (*Discovery Call* para definición arquitectónica y roadmap).
+* **CTA Secundario (Local/Rápido):** Iniciar una conversación directa en WhatsApp Business para cotización ágil de proyectos de software.
+
+> [!NOTE]
+> **Centralización de Contacto y Enlaces (SOT en `src/config.ts`):**  
+> Para preservar la privacidad, evitar discrepancias y prevenir enlaces rotos o desactualizados, **ningún componente, plantilla o entrada de blog hardcodea números telefónicos o URLs dinámicas**. Todos los puntos de contacto se centralizan estrictamente en [`src/config.ts`](file:///Users/coins5/Projects/astro/coins5.dev/src/config.ts) mediante `siteConfig` y el generador parametrizado `getWhatsAppUrl(lang, type)`.
 
 ### 1.2. Audiencia Objetivo (Buyer Personas)
-1.  **Startups Tecnológicas Globales o Locales:** Fundadores, CEOs o CTOs que necesitan un MVP rápido, robusto y escalable para validar su mercado o presentar a rondas de inversión. Tono técnico, sofisticado y de nivel C-Level.
-2.  **Medianas Empresas Locales (Basadas en Lima):** Gerentes de operaciones, dueños de negocio o directores de TI que buscan digitalizar procesos, reducir costos operativos o automatizar canales de venta.
+1. **Startups Tecnológicas Globales o Locales (Fase 0-a-1):** Fundadores, CEOs o CTOs que necesitan un MVP rápido, robusto y escalable para validar su mercado o presentar a rondas de inversión sin acumular deuda técnica fatal. Tono técnico, sofisticado y de nivel C-Level.
+2. **Medianas Empresas Locales (Fase 1-a-N):** Gerentes de operaciones, dueños de negocio o directores de TI que buscan digitalizar procesos, integrar Inteligencia Artificial en flujos reales, reducir costos operativos en la nube o automatizar canales de venta.
 
 ### 1.3. Propuesta de Valor Única (El Factor Senior + IA)
-Más de una década de experiencia aplicando criterio arquitectónico estricto (Clean Architecture, SOLID, diseño de sistemas modular y escalable) combinado con el uso avanzado y quirúrgico de herramientas de Inteligencia Artificial para acelerar, optimizar y testear el código. Esta sinergia permite reducir los costos de infraestructura y hosting al mínimo, disminuir el tiempo de entrega hasta 3 veces en comparación al desarrollo tradicional y entregar software altamente robusto y libre de bugs.
+Más de una década de experiencia aplicando criterio arquitectónico estricto (Clean Architecture, SOLID, diseño de sistemas modular y escalable) combinado con el uso avanzado y quirúrgico de herramientas de Inteligencia Artificial para acelerar, optimizar y testear el código. Esta sinergia permite reducir los costos de infraestructura al mínimo, disminuir el tiempo de entrega hasta 3 veces frente al desarrollo tradicional y entregar software altamente robusto y libre de bugs.
 
 ---
 
 ## 🛠️ Pila Tecnológica (Tech Stack)
 
-*   **Framework Principal:** [Astro 6.4+](https://astro.build/) (Static Site Generation - SSG)
-*   **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/) (con integración nativa mediante `@tailwindcss/vite`)
-*   **Kit de UI:** [daisyUI v5](https://daisyui.com/) (para componentes semánticos y limpios)
-*   **Iconografía:** [@lucide/astro](https://lucide.dev/) (iconos vectoriales minimalistas y consistentes)
-*   **SEO:** [astro-seo](https://github.com/jonasmerlin/astro-seo) (gestión avanzada y dinámica de metadatos) y `@astrojs/sitemap` (mapa de sitio automático)
-*   **Analíticas:** `@vercel/analytics` (monitoreo de rendimiento e interacción sin impacto en el Main Thread)
+* **Framework Principal:** [Astro 6.4+](https://astro.build/) (Static Site Generation - SSG)
+* **Estilos & Diseño:** [Tailwind CSS v4](https://tailwindcss.com/) (con integración nativa mediante `@tailwindcss/vite`)
+* **Kit de UI:** [daisyUI v5](https://daisyui.com/) (componentes semánticos y tokens accesibles)
+* **Resaltado de Sintaxis:** [Shiki](https://shiki.style/) con tema **Tokyo Night** permanente (`#1a1b26`) y ajuste de línea automático (`wrap: true`)
+* **Iconografía:** [@lucide/astro](https://lucide.dev/) (iconos vectoriales minimalistas y consistentes con trazo de 1.5–2px)
+* **SEO & Metadatos:** [astro-seo](https://github.com/jonasmerlin/astro-seo) y `@astrojs/sitemap` (mapa de sitio automático)
+* **Analíticas:** `@vercel/analytics` (monitoreo de rendimiento sin bloqueo del Main Thread)
+
+---
+
+## 🎨 Sistema de Diseño y Tipografía
+
+### 3.1. Estrategia Tipográfica de 3 Jerarquías
+1. **Display / Titulares (`font-display`):** `Plus Jakarta Sans` para encabezados principales (`H1`, `H2`) y números de impacto visual. Pesos 700/800 con tracking tight (`-0.025em`).
+2. **Lectura / Cuerpo (`font-sans`):** `Inter` para párrafos, listas y navegación, optimizada para máxima legibilidad continua y baja fatiga visual.
+3. **Técnico / Código (`font-mono`):** `JetBrains Mono` para bloques de código Shiki, badges, fechas, kickers (`// KICKER`) y métricas monetarias (`<$50/mo`).
+
+### 3.2. Bloques de Código: Estética Terminal Tokyo Night
+Para garantizar legibilidad absoluta tanto en modo claro como oscuro, los bloques de código utilizan permanentemente el tema **Tokyo Night** (`#1a1b26`) con estilo de tarjeta terminal:
+* Borde sutil `var(--card-border)` con radio redondeado.
+* Botón de copiado integrado con respuesta táctil y visual.
+* Sin anulaciones de contraste en modo claro: el fondo oscuro terminal se preserva en todos los temas.
+
+### 3.3. Paleta Sandstone & Charcoal (Warm Dark) y Sandstone Light (Warm Linen)
+El sitio implementa un sistema adaptativo con soporte para cambio de tema:
+* **Modo Dark (`sandstone-charcoal`):**
+  * Fondo Principal (`bg-base-100`): `#141414` (Carbón Mate profundo).
+  * Fondo de Tarjetas (`bg-base-200`): `#1C1C1C` (Gris Ceniza con elevación).
+  * Texto Principal (`text-base-content`): `#F5F5F4` (Blanco Hueso de alto contraste).
+  * Acento / Conversión (`accent`): `#E6DFD3` (Crema / Arena suave, exclusivo para CTAs críticos).
+  * Texto de Cuerpo: `#A8A29E` (Stone 400 cálido de lectura relajada).
+* **Modo Light (`sandstone-light`):**
+  * Fondo Principal (`bg-base-100`): `#FBF9F5` (Lino Cálido / Papel).
+  * Fondo de Tarjetas (`bg-base-200`): `#FFFFFF` (Blanco Puro Elevado).
+  * Texto Principal (`text-base-content`): `#1C1917` (Deep Warm Charcoal).
+  * Acento / Conversión: `#292524` (Stone 800) / Crema Arena.
+  * Texto de Cuerpo: `#57534E` (Stone 600 cálido).
+
+---
+
+## ✍️ Estándar Editorial del Blog (Efecto Medium & CRO)
+
+Todos los artículos del blog siguen el estándar formalizado en [POSTS_DESIGN.md](file:///Users/coins5/Projects/astro/coins5.dev/POSTS_DESIGN.md):
+* **Fórmula AIDA Adaptada:** Atención (Cold-open de dolor real), Interés (Arquitectura y mecanismos), Deseo (Código de producción y ROI), Acción (Bloque de conversión inyectado dinámicamente).
+* **Cadencia de Lectura 1-2-1:** Párrafos de 1 a 3 oraciones para máxima escaneabilidad en dispositivos móviles, eliminando bloques de texto densos.
+* **Filtro Anti-AI Slop:** Quedan prohibidos clichés como *delve, tapiz, paisaje tecnológico, faro*, conclusiones vacías y emojis en el cuerpo del texto.
+* **Calidad de Código Real:** Cada artículo incluye un bloque de código funcional y tipado (TypeScript, Python, SQL, Dart o YAML).
+* **CRO Dinámico Desacoplado:** Las tarjetas de contacto y llamada a la acción al pie de cada artículo no se redactan en los archivos `.md`; las plantillas `[slug].astro` las renderizan dinámicamente consumiendo `siteConfig` desde `src/config.ts`.
 
 ---
 
 ## 🌐 Internacionalización (Astro i18n)
 
-El sitio utiliza la internacionalización nativa de Astro mediante prefijos de ruta en una estrategia *routeless* para el idioma por defecto.
-*   **Idioma por Defecto (`en`):** Se sirve directamente en la raíz (`/`). El tono es técnico, sofisticado y de nivel C-Level (dirigido a fundadores y startups globales).
-*   **Idioma Secundario (`es`):** Se sirve bajo el prefijo `/es/`. El tono está optimizado para el SEO local en Perú/Lima, resolviendo dolores específicos de digitalización empresarial y eficiencia operativa.
+El sitio utiliza internacionalización nativa con estrategia *routeless* para el idioma por defecto:
+* **Idioma por Defecto (`en`):** Servido en la raíz (`/`). Tono técnico C-Level para startups y fondos globales.
+* **Idioma Secundario (`es`):** Servido bajo `/es/`. Optimizado para SEO local en Perú/Latam y empresas medianas.
 
 > [!IMPORTANT]
-> **Consistencia de Slugs en Contenidos (i18n Filenames):** Al crear entradas para el Blog o Casos de Éxito, los archivos de contenido (.md o .mdx) correspondientes al mismo artículo en diferentes idiomas **deben llamarse exactamente igual** (ej. `src/content/blog/mi-articulo.md` y `src/content/blog/es/mi-articulo.md`). Queda estrictamente prohibido traducir el nombre del archivo, ya que el sistema i18n depende de la coincidencia exacta de los slugs para alternar idiomas en la interfaz sin generar errores 404.
+> **Consistencia de Slugs (i18n Filenames):** Los archivos de contenido en `src/content/blog/en/` y `src/content/blog/es/`, al igual que en `src/content/cases/en/` y `src/content/cases/es/`, deben compartir **exactamente el mismo nombre de archivo** (ej. `building-mvps-2026.md`, `strategio.md`). Queda prohibido traducir el nombre del archivo para permitir el cambio de idioma fluido sin errores 404.
 
 ---
 
-## 📂 Estructura de Directorios Requerida
-
-El código está organizado de la siguiente manera para dar soporte a la internacionalización y colecciones de contenido:
+## 📂 Estructura de Directorios
 
 ```text
+scripts/
+└── check-line-budget.mjs # Script auditor del límite estricto de 350 líneas por archivo
 src/
-├── assets/           # Imágenes y assets optimizados
-├── components/       # Componentes globales y modulares compartidos (Hero, Navbar, Footer, Services)
-├── config.ts         # Configuración global del sitio (WhatsApp, Calendly, email)
-├── content.config.ts # Definición de colecciones y validación estricta de esquemas (Zod)
-├── content/          # Colecciones de contenido (Markdown/MDX)
+├── assets/           # Imágenes y assets optimizados WebP (marlon.png, etc.)
+├── components/       # Primitivas globales y shell compartido (Navbar, Footer, AuthorityBar, FloatingCta, CodeCopy)
+├── config.ts         # SOT comercial y de contacto (WhatsApp, Calendly, redes, emails)
+├── content.config.ts # Definición de colecciones y esquemas Zod (blog y cases)
+├── content/          # Colecciones de contenido Markdown (54 posts + 8 casos de estudio)
 │   ├── blog/
-│   │   ├── en/       # Entradas del blog específicas en inglés (como building-mvps-2026.md)
-│   │   └── es/       # Entradas del blog en español
+│   │   ├── en/       # 27 artículos en inglés
+│   │   └── es/       # 27 artículos en español
 │   └── cases/
-│       ├── en/       # Casos de estudio en inglés (Strategio, NutriMind, PróximaBolilla)
-│       └── es/       # Casos de estudio en español
-├── layouts/          # Plantilla común de páginas (Layout.astro con SEO y analíticas inyectados)
-└── pages/
+│       ├── en/       # 4 casos de estudio en inglés (Strategio, Strategio MVP, NutriMind, PróximaBolilla)
+│       └── es/       # 4 casos de estudio en español
+├── features/         # Screaming Domain Slices (Feature-Driven Architecture)
+│   ├── hero/         # Hero de conversión y propuesta de valor (`Hero.astro`, `hero.content.ts`)
+│   ├── bento/        # Bento Grid de Valor Senior + IA (`ValueBento.astro`, `bento.content.ts`, tarjetas)
+│   ├── cases/        # Casos destacados y filtrado (`FeaturedCases.astro`, `CaseCard.astro`, `CasesFilter.astro`)
+│   ├── services/     # Modelos de trabajo y ventajas (`Services.astro`, `ServicesModels.astro`, content)
+│   ├── stack/        # Matriz de tecnologías por dominio (`TechStack.astro`, `stack.content.ts`)
+│   ├── contact/      # Cierre de conversión AIDA (`CtaSection.astro`, `cta.content.ts`)
+│   └── blog/         # Componentes UI de blog (`BlogCard.astro`, `BlogSearch.astro`)
+├── layouts/          # Layout principal (SEO con astro-seo, Google Fonts, Vercel Analytics)
+├── styles/           # global.css (Tailwind v4, temas daisyUI, tokens @theme, Tokyo Night)
+├── utils/            # Utilidades transversales (esquemas JSON-LD en `seo-schemas.ts`)
+└── pages/            # Controladores de ruta ligeros (< 50 líneas)
     ├── index.astro   # Home en Inglés (coins5.dev/)
     ├── services.astro# Servicios en Inglés
-    ├── cases/        # Contenedor de rutas dinámicas de casos en inglés (`[slug].astro`)
-    ├── blog/         # Contenedor de rutas dinámicas del blog en inglés (`[slug].astro` y `[...page].astro`)
-    └── es/           # Directorio para la versión en Español
-        ├── index.astro   # Home en Español (coins5.dev/es/)
-        ├── services.astro# Servicios en Español
-        ├── cases/        # Contenedor de rutas dinámicas de casos en español
-        └── blog/         # Contenedor de rutas dinámicas del blog en español
+    ├── cases.astro   # Catálogo de casos en inglés
+    ├── cases/        # Casos dinámicos en inglés (`[slug].astro`)
+    ├── blog/         # Blog en inglés (`[slug].astro` y paginación `[...page].astro`)
+    ├── 404.astro     # Página de error 404 con noindex
+    ├── robots.txt.ts # Generador dinámico de robots.txt
+    └── es/           # Versión en Español (coins5.dev/es/)
+        ├── index.astro
+        ├── services.astro
+        ├── cases.astro
+        ├── cases/
+        └── blog/
 ```
 
 ---
 
-## 🏆 Casos de Éxito Clave (Pruebas de Respaldo)
+## 📈 Quality Gates y SEO On-Page
 
-1.  **Strategio:**
-    *   **Logro:** Ex-CTO de la plataforma de Business Intelligence impulsada por IA (ganadora de la 2da generación de Startup Perú).
-    *   **Detalle Técnico:** Diseño e implementación del sistema completo desde cero, permitiendo a los gerentes clasificar productos y generar reportes personalizados accesibles en dispositivos móviles.
-2.  **NubaNutrición ([nubanutricion.com](https://nubanutricion.com)):**
-    *   **Logro:** Implementación de modelos de IA aplicados a la salud.
-    *   **Detalle Técnico:** Extracción de insights a partir de datos clínicos de pacientes para automatizar el diseño de planes nutricionales dinámicos y adaptados a presupuestos económicos específicos.
-3.  **PróximaBolilla ([proximabolilla.com](https://proximabolilla.com)):**
-    *   **Logro:** Arquitectura cloud de alta disponibilidad y simulación masiva.
-    *   **Detalle Técnico:** Simulación masiva de jugadas de lotería utilizando IA y ruido cósmico para emitir informes analíticos premium en tiempo real.
-
----
-
-## 🎨 Sistema de Diseño (Estética: Sandstone & Charcoal / Warm Dark)
-
-Todos los componentes de interfaz de usuario se adhieren al siguiente sistema visual utilizando Tailwind CSS y el UI Kit de **daisyUI**:
-
-*   **Fondo Principal (`bg-base-100`):** `#141414` (Negro Carbón mate profundo. Aporta una textura premium. **Prohibido** usar negro puro `#000` o grises azulados).
-*   **Fondo de Secciones/Tarjetas (`bg-base-200`):** `#1C1C1C` (Gris Ceniza oscuro para crear capas visuales, elevación y separación clara al hacer scroll).
-*   **Texto Principal / Títulos (`primary` / `text-base-content`):** `#F5F5F4` (Blanco Hueso para un contraste de alta legibilidad, elegante y nítido).
-*   **Color de Acento / CTAs Críticos (`secondary` / `accent`):** `#E6DFD3` (Crema / Arena suave. Uso estrictamente quirúrgico: exclusivo para botones de conversión principales como el de Calendly. Se usa con texto oscuro para garantizar legibilidad).
-*   **Texto de Párrafos (`text-body`):** `#A8A29E` o `#CCCCCC` (Gris claro con un matiz cálido para garantizar una lectura cómoda sin fatiga visual).
-
-### Bordes, Sombras e Interacción
-*   **Formas y Bordes:** Bordes suavizados pero limpios (`rounded-lg` o `rounded-xl`).
-*   **Efectos Hover:** Las tarjetas incluyen efectos hover sutiles para indicar interactividad mediante transiciones e incrementos ligeros de brillo en los bordes.
-*   **Tipografía:** Fuentes sans-serif geométricas y ultra limpias para el cuerpo, y fuentes mono (`font-mono`) reservadas estrictamente para pequeños tags técnicos, fragmentos de código o detalles de ingeniería.
-*   **Íconos Consistentes:** Trazo minimalista (`stroke-width="1.5"` o `2`) usando componentes de `lucide-astro`. Queda prohibido el uso de emojis o SVGs externos mal optimizados.
-
----
-
-## 📈 Lineamientos Técnicos y SEO On-Page
-
-*   **Estructura de Metadatos y Layouts:**
-    *   Toda la gestión de metadatos, Open Graph, indexación y palabras clave se procesa estrictamente a través de la librería `astro-seo` dentro de `Layout.astro`.
-    *   **Título (`<title>`):** Longitud máxima de 60 caracteres.
-    *   **Descripción (`<meta name="description">`):** Longitud máxima de 160 caracteres. Redacción persuasiva enfocada en el beneficio.
-    *   **SEO Internacional (Etiquetas Canónicas e Hreflang):** Inyección dinámica de `<link rel="canonical" href="..." />` y enlaces alternativos cruzados (`hreflang="en"` y `hreflang="es"`) para evitar penalizaciones por contenido duplicado.
-*   **Jerarquía Semántica:** Un único `<h1>` por página (reservado para el Hero). Títulos secundarios con `<h2>` y terciarios con `<h3>`.
-*   **Gestión de Rendimiento (Lighthouse 100):**
-    *   Utilizar obligatoriamente el componente nativo `<Image />` de Astro (`astro:assets`) con dimensiones fijas (`width`, `height`) y formatos optimizados (`format="webp"` o `format="avif"`).
-    *   Estrategia de carga diferida (`loading="lazy"`) para imágenes below-the-fold, y `loading="eager"` (o sin lazy) para la imagen principal del Hero.
-    *   Uso de delegación de eventos en JS nativo ejecutado en tiempo de inactividad (`requestIdleCallback`) para el trackeo de analíticas en CTAs, manteniendo un score de interactividad perfecto (INP/FID).
+* **Límite Estricto de Líneas (300–350 Líneas):** Verificado mediante `npm run check:budget`. Ningún archivo en `src/` debe superar 350 líneas, obligando a modularizar en subcomponentes o extraer diccionarios a `*.content.ts` (`ARCHITECTURE.md`).
+* **Límite de Título:** `<title>` generado dinámicamente como `{title} | Coins5`. Longitud del frontmatter $\le 51$ caracteres (longitud final $\le 60$).
+* **Límite de Descripción:** Meta description persuasiva $\le 160$ caracteres.
+* **Regla de H1 Único:** Un solo `<h1>` por página (en artículos es generado por el template a partir del frontmatter; el cuerpo markdown siempre inicia con `##`).
+* **Trailing Slashes Consistentes:** Configurado `trailingSlash: "always"` en Astro. Todos los enlaces internos terminan obligatoriamente en `/`.
+* **Páginas 404 con noindex:** `<Layout noindex={true}>` emite `<meta name="robots" content="noindex, follow">` y omite variantes canónicas.
+* **Centralización de Contacto:** Prohibido hardcodear números telefónicos, correos o URLs de WhatsApp en archivos `.md` o plantillas; todo debe consumirse desde `src/config.ts`.
 
 ---
 
 ## 🧞 Comandos y Scripts
 
-Todos los comandos se ejecutan desde la raíz del proyecto:
-
 | Comando | Acción |
 | :--- | :--- |
-| `npm install` | Instala las dependencias necesarias. |
-| `npm run dev` | Inicia el servidor de desarrollo local en `http://localhost:4321`. |
-| `npm run build` | Compila el sitio estático optimizado para producción en `./dist/`. |
+| `npm install` | Instala dependencias del proyecto. |
+| `npm run dev` | Inicia servidor de desarrollo local en `http://localhost:4321`. |
+| `npm run build` | Compilación estática de producción en `./dist/` (79 páginas). |
 | `npm run preview` | Previsualiza localmente la compilación de producción. |
-| `npm run astro ...` | Ejecuta comandos de la CLI de Astro (ej. `astro check` o `astro add`). |
+| `npm run check:budget` | Audita que ningún archivo supere el límite estricto de 350 líneas (`ARCHITECTURE.md`). |
+| `npm run astro ...` | Ejecuta comandos de la CLI de Astro (`astro check`, `astro sync`). |
 
 ---
 
-## 🤝 Flujo de Trabajo Git (Git Workflow)
+## 🤝 Flujo de Trabajo Git (Git Workflow Obligatorio)
 
-Para mantener la automatización y consistencia del proyecto, cada vez que se finalice o refine un archivo, componente o configuración, se debe realizar un commit automático usando Conventional Commits:
+Cada vez que termines de crear, modificar o refinar un archivo, componente o configuración, debes realizar un commit automático usando **Conventional Commits**:
 
 ```bash
 git add .
-git commit -m "feat(agent): [Breve descripción en inglés de lo realizado]"
+git commit -m "feat(agent): [Breve descripción en inglés]"
 ```
 
 ### Prefijos Permitidos:
-*   `feat(agent):` Para nuevas funcionalidades, páginas, componentes o artículos de blog/casos.
-*   `fix(agent):` Para corrección de lints, errores en compilación de Astro o bugs visuales.
-*   `docs(agent):` Para actualizaciones de documentación (ej. cambios en este README.md).
+* `feat:` Para nuevas funcionalidades, componentes o diseño visual.
+* `refactor(blog):` Para modernización y actualización de artículos de blog.
+* `fix:` Para corrección de lints, estilos o errores en la compilación de Astro.
+* `docs:` Para documentación estratégica (`README.md`, `DESIGN.md`, `POSTS_DESIGN.md`).

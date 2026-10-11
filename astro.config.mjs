@@ -12,6 +12,13 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
+  markdown: {
+    shikiConfig: {
+      theme: "tokyo-night",
+      wrap: true,
+    },
+  },
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "es"],

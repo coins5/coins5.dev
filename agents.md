@@ -8,6 +8,7 @@ Este archivo contiene las directrices estratégicas de alto nivel para **coins5.
 Para mantener este archivo conciso y evitar el desperdicio de tokens, la documentación detallada se encuentra desacoplada en:
 * 🎨 **[DESIGN.md](file:///Users/coins5/Projects/astro/coins5.dev/DESIGN.md):** Sistema de diseño completo, estética Sandstone & Charcoal / Sandstone Light, paleta de colores, tokens CSS, reglas tipográficas (H1 2-line rule), estructura AIDA y físicas táctiles.
 * 🏗️ **[ARCHITECTURE.md](file:///Users/coins5/Projects/astro/coins5.dev/ARCHITECTURE.md):** Arquitectura Feature-Driven (Screaming Slices), límite de líneas por archivo (máximo 300–350 líneas), co-locación de `*.content.ts` para ahorro de tokens y contratos modulares.
+* ✍️ **[POSTS_DESIGN.md](file:///Users/coins5/Projects/astro/coins5.dev/POSTS_DESIGN.md):** Estándar editorial de blog, copywriting persuasivo de alta retención (efecto Medium), anti-AI-slop, esquemas Zod de contenido, CRO y hoja de ruta de artículos.
 
 ---
 
