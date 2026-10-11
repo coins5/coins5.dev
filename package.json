@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check:budget": "node scripts/check-line-budget.mjs",
     "astro": "astro"
   },
   "dependencies": {
