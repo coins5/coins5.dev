@@ -1,0 +1,78 @@
+---
+import { TrendingDown, Terminal } from "@lucide/astro";
+
+interface Props {
+  card: {
+    tag: string;
+    title: string;
+    desc: string;
+    comparisonTraditional: string;
+    costTraditional: string;
+    comparisonCoins5: string;
+    costCoins5: string;
+    proofNote: string;
+  };
+}
+
+const { card } = Astro.props;
+---
+
+<div class="lg:col-span-5 card-premium rounded-2xl p-6 sm:p-8 flex flex-col justify-between group">
+  <div>
+    <div class="flex items-center justify-between mb-5">
+      <span class="text-[11px] font-mono tracking-widest text-secondary uppercase font-semibold">
+        {card.tag}
+      </span>
+      <div
+        class="p-2 rounded-lg bg-base-100 border text-secondary group-hover:border-secondary/40 transition-colors"
+        style="border-color: var(--card-border);"
+      >
+        <TrendingDown class="w-5 h-5" stroke-width="1.5" />
+      </div>
+    </div>
+
+    <h3 class="text-2xl font-bold text-primary tracking-tight mb-4 font-sans">
+      {card.title}
+    </h3>
+
+    <p
+      class="text-sm leading-relaxed mb-6 font-sans transition-colors"
+      style="color: var(--color-text-body);"
+    >
+      {card.desc}
+    </p>
+
+    <!-- Cost Comparison Box -->
+    <div
+      class="space-y-3 mb-6 p-4 rounded-xl border"
+      style="background-color: var(--card-inner-bg); border-color: var(--card-border);"
+    >
+      <div class="flex items-center justify-between text-xs font-mono">
+        <span style="color: var(--color-text-body);">{card.comparisonTraditional}</span>
+        <span class="text-rose-500 font-bold line-through decoration-rose-500/50">
+          {card.costTraditional}
+        </span>
+      </div>
+      <div class="h-1.5 w-full bg-stone-300 dark:bg-stone-800 rounded-full overflow-hidden">
+        <div class="h-full bg-rose-500/50 w-full rounded-full"></div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs font-mono pt-2">
+        <span class="text-primary font-bold">{card.comparisonCoins5}</span>
+        <span class="text-secondary font-extrabold text-sm">
+          {card.costCoins5}
+        </span>
+      </div>
+      <div class="h-1.5 w-full bg-stone-300 dark:bg-stone-800 rounded-full overflow-hidden">
+        <div class="h-full bg-emerald-500 w-1/5 rounded-full"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-4 border-t" style="border-color: var(--card-border);">
+    <p class="text-xs font-mono flex items-center gap-2" style="color: var(--color-text-body);">
+      <Terminal class="w-3.5 h-3.5 text-secondary shrink-0" stroke-width="2" />
+      <span>{card.proofNote}</span>
+    </p>
+  </div>
+</div>

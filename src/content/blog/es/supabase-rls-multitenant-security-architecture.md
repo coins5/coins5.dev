@@ -5,11 +5,10 @@ pubDate: 2026-04-27
 lang: "es"
 tags: ["Bases de Datos", "Supabase", "Seguridad", "SaaS Core"]
 keywords: ["supabase rls", "row level security postgresql", "aislamiento de datos saas", "seguridad base de datos serverless"]
-ogImage: "/images/blog/supabase-rls-preview.png"
 draft: false
 ---
 
-# La Vulnerabilidad del Aislamiento a Nivel de Aplicación en SaaS B2B
+## La Vulnerabilidad del Aislamiento a Nivel de Aplicación en SaaS B2B
 
 Al desarrollar una plataforma SaaS multitenant (multicliente) dirigida al mercado corporativo B2B, proteger la confidencialidad de la información es el requerimiento de ingeniería más crítico. Tradicionalmente, los equipos de desarrollo delegan esta responsabilidad de seguridad exclusivamente a la lógica del backend. Se escriben constructores de consultas (query builders), middlewares del ORM o filtros manuales en cada controlador para asegurar que se añada la cláusula `tenant_id` en cada interacción con la base de datos.
 

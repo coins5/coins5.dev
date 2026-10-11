@@ -1,0 +1,55 @@
+---
+import { getBentoContent } from "./bento.content";
+import ArchitectureCard from "./ArchitectureCard.astro";
+import CostCard from "./CostCard.astro";
+import PartnershipCard from "./PartnershipCard.astro";
+import AuditCard from "./AuditCard.astro";
+
+const { pathname } = Astro.url;
+const cleanPathname = pathname.replace(/\/$/, "");
+const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
+
+const content = getBentoContent(isEs);
+---
+
+<section
+  id="advantage"
+  class="relative py-20 md:py-28 bg-base-100 overflow-hidden border-b border-stone-500/10 transition-colors duration-300"
+>
+  <!-- Background Ambient Glow -->
+  <div
+    class="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none blur-[150px]"
+    style="background-color: var(--ambient-glow);"
+  >
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span
+        class="text-xs font-mono font-bold tracking-widest text-secondary uppercase mb-3 block"
+      >
+        {content.label}
+      </span>
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary tracking-tight mb-5 font-sans"
+      >
+        {content.title}
+      </h2>
+      <p
+        class="text-base sm:text-lg leading-relaxed font-sans font-normal transition-colors"
+        style="color: var(--color-text-body);"
+      >
+        {content.subtitle}
+      </p>
+    </div>
+
+    <!-- Gapless Bento Grid 2.0 (12-column layout) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <ArchitectureCard card={content.card1} />
+      <CostCard card={content.card2} />
+      <PartnershipCard card={content.card3} />
+      <AuditCard card={content.card4} />
+    </div>
+  </div>
+</section>

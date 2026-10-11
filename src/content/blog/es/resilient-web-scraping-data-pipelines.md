@@ -11,11 +11,10 @@ keywords:
     "pipelines de datos resilientes",
     "python y supabase",
   ]
-ogImage: "/images/blog/data-pipelines-preview.png"
 draft: false
 ---
 
-# El Límite de la Extracción de Datos: Superando los Scripts Básicos
+## El Límite de la Extracción de Datos: Superando los Scripts Básicos
 
 Hoy en día, las empresas toman decisiones basadas en datos. Aquellas que lideran el mercado monitorean precios de competidores, extraen información histórica de tendencias o consolidan catálogos masivos de proveedores de forma 100% automatizada. Sin embargo, muchas inician este camino con scripts frágiles (soluciones basadas en librerías básicas de Python que funcionan bien en pruebas locales pero fallan estrepitosamente en producción).
 

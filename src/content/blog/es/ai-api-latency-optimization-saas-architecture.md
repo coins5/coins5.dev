@@ -5,11 +5,10 @@ pubDate: 2026-05-01
 lang: "es"
 tags: ["Ingeniería de IA", "Backend", "FastAPI", "SaaS Tech"]
 keywords: ["optimizar latencia ia", "streaming de llm api", "fastapi asincrono", "control de tokens saas"]
-ogImage: "/images/blog/ai-latency-preview.png"
 draft: false
 ---
 
-# El Desafío de la Latencia en IA: Cómo la Espera en LLMs Afecta la Retención de Usuarios
+## El Desafío de la Latencia en IA: Cómo la Espera en LLMs Afecta la Retención de Usuarios
 
 La Inteligencia Artificial ha transformado los productos SaaS de tableros estáticos a motores dinámicos de toma de decisiones. Sin embargo, la integración de Modelos de Lenguaje (LLMs) introduce un cuello de botella crítico en la experiencia de usuario: la latencia. Cuando un usuario solicita un análisis complejo, un reporte o un flujo de agentes autónomos, la espera por una respuesta síncrona tradicional puede tomar entre 5 y 30 segundos.
 

@@ -5,11 +5,10 @@ pubDate: 2026-05-16
 lang: "es"
 tags: ["Bases de Datos", "Optimización de Rendimiento", "Costos Cloud", "SQL"]
 keywords: ["indexacion de bases de datos", "optimizacion de consultas", "reducir factura de servidores", "rendimiento postgresql sql"]
-ogImage: "/images/blog/database-indexing-preview.png"
 draft: false
 ---
 
-# La Trampa del Escalado Vertical: Por Qué Comprar Más Servidor No Cura una Base de Datos Lenta
+## La Trampa del Escalado Vertical: Por Qué Comprar Más Servidor No Cura una Base de Datos Lenta
 
 Toda startup o empresa en crecimiento se topa con el mismo muro: el sistema se vuelve lento, los procesos en segundo plano se acumulan y los clientes empiezan a experimentar demoras. Para muchos líderes de tecnología y fundadores, la respuesta instintiva es la más rápida pero también la más cara: subir la capacidad de la base de datos en la nube (escalado vertical) agregando más CPU y memoria en AWS, Google Cloud o Azure.
 

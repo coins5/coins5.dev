@@ -5,11 +5,10 @@ pubDate: 2026-05-07
 lang: "es"
 tags: ["DevOps", "Docker", "Dokploy", "Costos Cloud"]
 keywords: ["despliegue con dokploy", "paas autohospedado", "reducir costos de servidores", "docker en vps"]
-ogImage: "/images/blog/dokploy-deployment-preview.png"
 draft: false
 ---
 
-# La Trampa del PaaS: Cómo los Despliegues Fáciles Consumen la Caja de tu Startup
+## La Trampa del PaaS: Cómo los Despliegues Fáciles Consumen la Caja de tu Startup
 
 Para fundadores de startups y desarrolladores en etapas iniciales (MVP), las plataformas PaaS (Plataforma como Servicio) como Heroku, Render o Vercel son sumamente atractivas. Prometen despliegues con un solo clic, configuración automática de SSL y una experiencia de desarrollo fluida. Con solo hacer un `git push`, tu aplicación está en producción.
 

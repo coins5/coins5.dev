@@ -5,11 +5,10 @@ pubDate: 2026-05-31
 lang: "es"
 tags: ["Gestión de Proyectos", "Agile", "Entrega de Software", "Productividad"]
 keywords: ["agile pragmático", "eficiencia en desarrollo", "desarrollador senior independiente", "metodologias de desarrollo rapidas"]
-ogImage: "/images/blog/pragmatic-agile-preview.png"
 draft: false
 ---
 
-# La Muerte de la Velocidad: Cómo el Scrum Corporativo Ahoga el Desarrollo Real
+## La Muerte de la Velocidad: Cómo el Scrum Corporativo Ahoga el Desarrollo Real
 
 En el desarrollo de software actual, el término "Agile" se ha convertido en sinónimo de burocracia corporativa. Lo que nació como un manifiesto ligero y orientado a la productividad de los desarrolladores ha mutado en un framework pesado dominado por ceremonias interminables: reuniones diarias que duran 45 minutos, planificaciones de sprints interminables, sesiones de estimación en puntos de historia y retrospectivas que no generan acciones reales.
 

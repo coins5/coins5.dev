@@ -1,5 +1,5 @@
 ---
-import { Menu } from "@lucide/astro";
+import { Menu, Sun, Moon } from "@lucide/astro";
 import { siteConfig } from "../config";
 
 const { pathname, search } = Astro.url;
@@ -14,15 +14,15 @@ const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
 const navLinks = isEs
   ? [
       { name: "Inicio", href: "/es/" },
-      { name: "Servicios", href: "/es/services" },
-      { name: "Casos", href: "/es/cases" },
-      { name: "Blog", href: "/es/blog" },
+      { name: "Servicios", href: "/es/services/" },
+      { name: "Casos", href: "/es/cases/" },
+      { name: "Blog", href: "/es/blog/" },
     ]
   : [
       { name: "Home", href: "/" },
-      { name: "Services", href: "/services" },
-      { name: "Cases", href: "/cases" },
-      { name: "Blog", href: "/blog" },
+      { name: "Services", href: "/services/" },
+      { name: "Cases", href: "/cases/" },
+      { name: "Blog", href: "/blog/" },
     ];
 
 // Generate target URLs for language switcher to preserve page location
@@ -31,21 +31,20 @@ let esTarget = "/es/";
 
 const pathSegments = pathname.split("/").filter(Boolean);
 
-if (isEs) {
+if (cleanPathname === "/404" || cleanPathname.endsWith("/404")) {
+  enTarget = "/" + search;
+  esTarget = "/es/" + search;
+} else if (isEs) {
   const enSegments = pathSegments.slice(1);
-  enTarget = "/" + enSegments.join("/") + search;
-  esTarget = pathname + search;
+  enTarget = enSegments.length > 0 ? "/" + enSegments.join("/") + "/" + search : "/" + search;
+  esTarget = pathname.replace(/\/$/, "") + "/" + search;
 } else {
-  esTarget = "/es/" + pathSegments.join("/") + search;
-  enTarget = pathname + search;
+  esTarget = pathSegments.length > 0 ? "/es/" + pathSegments.join("/") + "/" + search : "/es/" + search;
+  enTarget = pathname.replace(/\/$/, "") + "/" + search;
 }
 
 enTarget = enTarget.replace(/\/+/g, "/");
 esTarget = esTarget.replace(/\/+/g, "/");
-
-if (esTarget === "/es" || esTarget === "/es?*" || esTarget.startsWith("/es?")) {
-  esTarget = esTarget.replace(/^\/es/, "/es/");
-}
 
 // Helper to determine if a route is active
 const isActive = (path: string) => {
@@ -88,8 +87,9 @@ const isActive = (path: string) => {
                   class={`px-4 py-2.5 rounded-lg transition-all ${
                     isActive(link.href)
                       ? "text-secondary font-semibold bg-stone-500/10"
-                      : "text-stone-300 hover:text-primary hover:bg-stone-500/5"
+                      : "opacity-80 hover:opacity-100 hover:text-primary hover:bg-stone-500/5"
                   }`}
+                  style={!isActive(link.href) ? "color: var(--color-text-body);" : ""}
                 >
                   {link.name}
                 </a>
@@ -103,7 +103,8 @@ const isActive = (path: string) => {
               href={siteConfig.calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-secondary btn-sm w-full mt-1 text-secondary-content font-semibold border-none rounded-lg"
+              class="btn btn-sm w-full mt-1 font-bold border-none rounded-lg"
+              style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
             >
               {isEs ? "Agendar Llamada" : "Book Call"}
             </a>
@@ -147,8 +148,9 @@ const isActive = (path: string) => {
                 class={`px-4 py-2 border border-transparent rounded-lg hover:border-stone-500/20 hover:bg-stone-500/5 transition-all duration-300 ${
                   isActive(link.href)
                     ? "text-secondary font-medium bg-stone-500/5"
-                    : "text-stone-300 hover:text-primary"
+                    : "opacity-80 hover:opacity-100 hover:text-primary"
                 }`}
+                style={!isActive(link.href) ? "color: var(--color-text-body);" : ""}
               >
                 {link.name}
               </a>
@@ -158,17 +160,34 @@ const isActive = (path: string) => {
       </ul>
     </div>
 
-    <!-- Navbar End: Lang Switcher & Desktop CTA -->
-    <div class="navbar-end gap-3">
+    <!-- Navbar End: Lang Switcher, Theme Switcher & Desktop CTA -->
+    <div class="navbar-end gap-2.5 sm:gap-3">
+      <!-- Theme Switcher Button -->
+      <button
+        id="theme-toggle-btn"
+        type="button"
+        class="btn btn-ghost btn-xs h-8 w-8 p-0 rounded-lg border transition-all flex items-center justify-center cursor-pointer"
+        style="border-color: var(--card-border); color: var(--color-text-body);"
+        aria-label="Toggle light or dark theme"
+        title="Toggle Light / Dark"
+      >
+        <Sun class="w-4 h-4 hidden dark-icon text-amber-500" stroke-width="2" />
+        <Moon class="w-4 h-4 hidden light-icon opacity-80" stroke-width="2" />
+      </button>
+
       <!-- Language Switcher (EN/ES Toggle) -->
-      <div class="join border border-stone-800 bg-base-200/50 p-0.5 rounded-lg">
+      <div
+        class="join p-0.5 rounded-lg border"
+        style="border-color: var(--card-border); background-color: var(--card-inner-bg);"
+      >
         <a
           href={enTarget}
           class={`join-item btn btn-xs px-2.5 h-7 min-h-0 font-mono text-xs tracking-tight rounded-md transition-all ${
             !isEs
-              ? "bg-secondary text-secondary-content font-bold shadow-sm"
-              : "btn-ghost text-stone-400 hover:text-stone-200"
+              ? "bg-secondary text-secondary-content font-bold shadow-xs"
+              : "btn-ghost opacity-70 hover:opacity-100"
           }`}
+          style={isEs ? "color: var(--color-text-body);" : ""}
           aria-label="Switch to English"
         >
           EN
@@ -177,9 +196,10 @@ const isActive = (path: string) => {
           href={esTarget}
           class={`join-item btn btn-xs px-2.5 h-7 min-h-0 font-mono text-xs tracking-tight rounded-md transition-all ${
             isEs
-              ? "bg-secondary text-secondary-content font-bold shadow-sm"
-              : "btn-ghost text-stone-400 hover:text-stone-200"
+              ? "bg-secondary text-secondary-content font-bold shadow-xs"
+              : "btn-ghost opacity-70 hover:opacity-100"
           }`}
+          style={!isEs ? "color: var(--color-text-body);" : ""}
           aria-label="Cambiar a Español"
         >
           ES
@@ -191,10 +211,50 @@ const isActive = (path: string) => {
         href={siteConfig.calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn-secondary btn-sm rounded-lg hidden sm:inline-flex text-secondary-content border-none font-semibold hover:opacity-90 transition-opacity"
+        class="btn btn-sm rounded-lg hidden sm:inline-flex font-bold transition-all hover:scale-[1.02] active:scale-[0.98] border-none shadow-xs"
+        style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
       >
         {isEs ? "Agendar Llamada" : "Book Call"}
       </a>
     </div>
   </div>
+
+  <script is:inline>
+    (function () {
+      function syncThemeToggle() {
+        const theme = document.documentElement.getAttribute("data-theme") || "sandstone-light";
+        const isLight = theme === "sandstone-light";
+
+        document.querySelectorAll(".light-icon").forEach((el) => {
+          el.classList.toggle("hidden", isLight);
+          el.classList.toggle("block", !isLight);
+        });
+        document.querySelectorAll(".dark-icon").forEach((el) => {
+          el.classList.toggle("hidden", !isLight);
+          el.classList.toggle("block", isLight);
+        });
+      }
+
+      function attachToggle() {
+        syncThemeToggle();
+        const btn = document.getElementById("theme-toggle-btn");
+        if (btn) {
+          btn.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme") || "sandstone-light";
+            const next = current === "sandstone-light" ? "sandstone-charcoal" : "sandstone-light";
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+            syncThemeToggle();
+          });
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", attachToggle);
+      } else {
+        attachToggle();
+      }
+    })();
+  </script>
 </header>
+

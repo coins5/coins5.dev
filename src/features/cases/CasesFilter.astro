@@ -1,0 +1,94 @@
+---
+interface Props {
+  isEs?: boolean;
+}
+
+const { isEs = false } = Astro.props;
+
+const filters = isEs
+  ? [
+      { id: "all", label: "Todos los Casos" },
+      { id: "mvp", label: "Desarrollo de MVP", match: "mvp,node.js,fastapi,startup" },
+      { id: "ai", label: "IA & Machine Learning", match: "ai,nutrimind,salud,bi" },
+      { id: "cloud", label: "Simulación & Cloud", match: "aws,proximabolilla,concurrencia,cloud" },
+    ]
+  : [
+      { id: "all", label: "All Case Studies" },
+      { id: "mvp", label: "MVP Engineering", match: "mvp,node.js,fastapi,startup" },
+      { id: "ai", label: "AI & Machine Learning", match: "ai,nutrimind,health,bi" },
+      { id: "cloud", label: "Cloud & Simulation", match: "aws,proximabolilla,concurrency,cloud" },
+    ];
+---
+
+<div class="mb-10 flex flex-wrap items-center justify-center gap-2" id="cases-filter-bar">
+  {
+    filters.map((f) => (
+      <button
+        type="button"
+        data-case-filter={f.id}
+        data-match={f.match || ""}
+        class={`case-filter-btn px-4 py-2 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+          f.id === "all" ? "active-filter" : ""
+        }`}
+        style={
+          f.id === "all"
+            ? "background-color: var(--cta-primary-bg); color: var(--cta-primary-text); font-weight: 700;"
+            : "background-color: var(--card-inner-bg); border: 1px solid var(--card-border); color: var(--color-text-body);"
+        }
+      >
+        {f.label}
+      </button>
+    ))
+  }
+</div>
+
+<script is:inline>
+  (function () {
+    const filterBtns = document.querySelectorAll(".case-filter-btn");
+    const grid = document.getElementById("cases-grid");
+    if (!grid || filterBtns.length === 0) return;
+
+    let currentFilter = "all";
+
+    function updatePills() {
+      filterBtns.forEach((btn) => {
+        const id = btn.getAttribute("data-case-filter");
+        if (id === currentFilter) {
+          btn.style.backgroundColor = "var(--cta-primary-bg)";
+          btn.style.color = "var(--cta-primary-text)";
+          btn.style.fontWeight = "700";
+          btn.style.border = "none";
+        } else {
+          btn.style.backgroundColor = "var(--card-inner-bg)";
+          btn.style.color = "var(--color-text-body)";
+          btn.style.fontWeight = "400";
+          btn.style.border = "1px solid var(--card-border)";
+        }
+      });
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-case-filter") || "all";
+        const matchStr = (btn.getAttribute("data-match") || "").toLowerCase();
+        currentFilter = id;
+        updatePills();
+
+        const cards = grid.querySelectorAll("[data-case-slug]");
+        cards.forEach((card) => {
+          if (id === "all") {
+            card.style.display = "";
+            return;
+          }
+          const techs = (card.getAttribute("data-case-techs") || "").toLowerCase();
+          const client = (card.getAttribute("data-case-client") || "").toLowerCase();
+          const slug = (card.getAttribute("data-case-slug") || "").toLowerCase();
+          const combined = `${techs} ${client} ${slug}`;
+
+          const matches = matchStr.split(",").some((m) => combined.includes(m.trim()));
+          card.style.display = matches ? "" : "none";
+        });
+      });
+    });
+  })();
+</script>

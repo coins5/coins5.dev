@@ -1,0 +1,215 @@
+---
+import { Search, X, Tag } from "@lucide/astro";
+
+interface PostItem {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  pubDate: string;
+  formattedDate: string;
+  tags: string[];
+}
+
+interface Props {
+  posts: PostItem[];
+  isEs?: boolean;
+}
+
+const { posts, isEs = false } = Astro.props;
+
+const categories = isEs
+  ? [
+      { id: "all", label: "Todos" },
+      { id: "ai", label: "IA & Agentes", match: ["ai", "ia", "agents", "machine-learning"] },
+      { id: "arch", label: "Arquitectura", match: ["architecture", "clean-architecture", "microservices", "monolith"] },
+      { id: "cloud", label: "Cloud & Costos", match: ["cloud", "docker", "vps", "serverless", "costs"] },
+      { id: "perf", label: "Rendimiento", match: ["performance", "caching", "redis", "websockets", "indexing"] },
+    ]
+  : [
+      { id: "all", label: "All" },
+      { id: "ai", label: "AI & Agents", match: ["ai", "agents", "machine-learning"] },
+      { id: "arch", label: "Architecture", match: ["architecture", "clean-architecture", "microservices", "monolith"] },
+      { id: "cloud", label: "Cloud & Costs", match: ["cloud", "docker", "vps", "serverless", "costs"] },
+      { id: "perf", label: "Performance", match: ["performance", "caching", "redis", "websockets", "indexing"] },
+    ];
+---
+
+<div class="mb-12 space-y-6" id="blog-search-widget" data-posts={JSON.stringify(posts)} data-is-es={isEs ? "true" : "false"}>
+  <!-- Search Input Container -->
+  <div class="relative max-w-2xl mx-auto">
+    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-secondary">
+      <Search class="w-5 h-5" stroke-width="2" />
+    </div>
+    <input
+      type="text"
+      id="blog-search-input"
+      placeholder={isEs ? "Buscar por palabra clave, arquitectura, stack..." : "Search articles by title, tech stack, keyword..."}
+      class="w-full pl-12 pr-10 py-3.5 rounded-xl border text-sm font-sans transition-all focus:outline-hidden focus:ring-1 focus:ring-secondary/50 placeholder:opacity-50"
+      style="background-color: var(--card-bg); border-color: var(--card-border); color: var(--color-heading);"
+    />
+    <button
+      id="blog-clear-btn"
+      type="button"
+      class="absolute inset-y-0 right-0 pr-4 flex items-center text-stone-400 hover:text-primary transition-colors hidden cursor-pointer"
+      aria-label="Clear search"
+    >
+      <X class="w-4 h-4" stroke-width="2" />
+    </button>
+  </div>
+
+  <!-- Category Pills Filter -->
+  <div class="flex flex-wrap items-center justify-center gap-2">
+    {
+      categories.map((cat) => (
+        <button
+          type="button"
+          data-category-id={cat.id}
+          data-matches={cat.match ? cat.match.join(",") : ""}
+          class={`category-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+            cat.id === "all" ? "active-category" : ""
+          }`}
+          style={
+            cat.id === "all"
+              ? "background-color: var(--cta-primary-bg); color: var(--cta-primary-text); font-weight: 700;"
+              : "background-color: var(--card-inner-bg); border: 1px solid var(--card-border); color: var(--color-text-body);"
+          }
+        >
+          {cat.label}
+        </button>
+      ))
+    }
+  </div>
+
+  <!-- Results Count Bar -->
+  <div class="flex items-center justify-between text-xs font-mono opacity-80 pt-2 border-t" style="border-color: var(--card-border);">
+    <span id="results-count-text">
+      {isEs ? `Mostrando ${posts.length} artículos` : `Showing ${posts.length} articles`}
+    </span>
+    <span class="text-secondary font-semibold">
+      {isEs ? "Filtro en tiempo real" : "Real-time query"}
+    </span>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const widget = document.getElementById("blog-search-widget");
+    if (!widget) return;
+
+    const posts = JSON.parse(widget.getAttribute("data-posts") || "[]");
+    const isEs = widget.getAttribute("data-is-es") === "true";
+
+    const input = document.getElementById("blog-search-input");
+    const clearBtn = document.getElementById("blog-clear-btn");
+    const countText = document.getElementById("results-count-text");
+    const categoryBtns = document.querySelectorAll(".category-filter-btn");
+    const postsGrid = document.getElementById("posts-grid");
+    const emptyState = document.getElementById("no-results-state");
+    const paginationNav = document.getElementById("blog-pagination-nav");
+
+    let currentQuery = "";
+    let currentCategory = "all";
+    let activeMatches = [];
+
+    function updatePillStyles() {
+      categoryBtns.forEach((btn) => {
+        const catId = btn.getAttribute("data-category-id");
+        if (catId === currentCategory) {
+          btn.style.backgroundColor = "var(--cta-primary-bg)";
+          btn.style.color = "var(--cta-primary-text)";
+          btn.style.fontWeight = "700";
+          btn.style.border = "none";
+        } else {
+          btn.style.backgroundColor = "var(--card-inner-bg)";
+          btn.style.color = "var(--color-text-body)";
+          btn.style.fontWeight = "400";
+          btn.style.border = "1px solid var(--card-border)";
+        }
+      });
+    }
+
+    function renderFilteredPosts() {
+      const q = currentQuery.toLowerCase().trim();
+
+      const filtered = posts.filter((post) => {
+        // Query match
+        const matchTitle = post.title.toLowerCase().includes(q);
+        const matchDesc = post.description.toLowerCase().includes(q);
+        const matchTags = post.tags.some((t) => t.toLowerCase().includes(q));
+        const matchesQuery = !q || matchTitle || matchDesc || matchTags;
+
+        // Category match
+        let matchesCat = true;
+        if (currentCategory !== "all" && activeMatches.length > 0) {
+          matchesCat = post.tags.some((t) =>
+            activeMatches.some((m) => t.toLowerCase().includes(m))
+          );
+        }
+
+        return matchesQuery && matchesCat;
+      });
+
+      // Update count text
+      if (countText) {
+        countText.innerText = isEs
+          ? `Mostrando ${filtered.length} de ${posts.length} artículos`
+          : `Showing ${filtered.length} of ${posts.length} articles`;
+      }
+
+      // Hide or show pagination during active filtering
+      if (paginationNav) {
+        paginationNav.style.display = q || currentCategory !== "all" ? "none" : "";
+      }
+
+      // Toggle empty state
+      if (filtered.length === 0) {
+        if (postsGrid) postsGrid.style.display = "none";
+        if (emptyState) emptyState.style.display = "block";
+      } else {
+        if (postsGrid) postsGrid.style.display = "grid";
+        if (emptyState) emptyState.style.display = "none";
+      }
+
+      // Filter visible items in the grid
+      if (postsGrid) {
+        const cards = postsGrid.querySelectorAll("[data-post-slug]");
+        cards.forEach((card) => {
+          const slug = card.getAttribute("data-post-slug");
+          const isIncluded = filtered.some((p) => p.slug === slug);
+          card.style.display = isIncluded ? "" : "none";
+        });
+      }
+    }
+
+    if (input) {
+      input.addEventListener("input", (e) => {
+        currentQuery = e.target.value;
+        if (clearBtn) {
+          clearBtn.classList.toggle("hidden", !currentQuery);
+        }
+        renderFilteredPosts();
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        if (input) input.value = "";
+        currentQuery = "";
+        clearBtn.classList.add("hidden");
+        renderFilteredPosts();
+      });
+    }
+
+    categoryBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const catId = btn.getAttribute("data-category-id") || "all";
+        const matchesStr = btn.getAttribute("data-matches") || "";
+        currentCategory = catId;
+        activeMatches = matchesStr ? matchesStr.split(",") : [];
+        updatePillStyles();
+        renderFilteredPosts();
+      });
+    });
+  })();
+</script>

@@ -5,11 +5,10 @@ pubDate: 2026-04-10
 lang: "es"
 tags: ["Infraestructura", "Proxmox", "Docker", "Costos Cloud"]
 keywords: ["estrategia nube hibrida", "proxmox con docker", "reducir factura de aws", "servidores locales proxmox"]
-ogImage: "/images/blog/hybrid-infra-preview.png"
 draft: false
 ---
 
-# La Trampa del Gasto en la Nube Pública: Cuando las Facturas de AWS o GCP Afectan tu Margen
+## La Trampa del Gasto en la Nube Pública: Cuando las Facturas de AWS o GCP Afectan tu Margen
 
 Para las startups de tecnología y las empresas medianas en crecimiento, contratar proveedores de nube pública como AWS, Azure o GCP suele ser el camino predeterminado. La promesa de una escalabilidad ilimitada, costos iniciales nulos y rapidez de despliegue resulta sumamente atractiva.
 

@@ -11,11 +11,10 @@ keywords:
     "refactoring de software",
     "rendimiento backend",
   ]
-ogImage: "/images/blog/cloud-costs-preview.png"
 draft: false
 ---
 
-# La Trampa del Escalamiento: Resolver Problemas de Software con la Tarjeta de Crédito
+## La Trampa del Escalamiento: Resolver Problemas de Software con la Tarjeta de Crédito
 
 Cuando una aplicación web comienza a ralentizarse bajo carga, la reacción instintiva de muchas empresas es escalar hacia arriba. Con un par de clics en la consola de AWS o Azure, actualizan una base de datos de una instancia `db.t3.medium` a una `db.m5.large`, o duplican la capacidad de sus contenedores.
 

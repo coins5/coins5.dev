@@ -2,9 +2,12 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import FloatingCta from "../components/FloatingCta.astro";
+import CodeCopy from "../components/CodeCopy.astro";
 import { SEO } from "astro-seo";
 import { siteConfig } from "../config";
 import Analytics from "@vercel/analytics/astro";
+import { getOrganizationSchema, getPersonSchema } from "../utils/seo-schemas";
 
 interface Props {
   title: string;
@@ -14,6 +17,9 @@ interface Props {
   ogImage?: string;
   canonicalUrl?: string;
   ogType?: "website" | "article";
+  schema?: any;
+  noindex?: boolean;
+  nofollow?: boolean;
 }
 
 const {
@@ -24,6 +30,9 @@ const {
   ogImage,
   canonicalUrl,
   ogType = "website",
+  schema,
+  noindex = false,
+  nofollow = false,
 } = Astro.props;
 
 // SEO length checks warning in development
@@ -58,13 +67,43 @@ const enUrl = `${siteUrl}${enPath}/`;
 const esUrl = `${siteUrl}${esPath}/`;
 const xDefaultUrl = enUrl;
 
-// Definimos la URL canónica de la página actual de forma estricta
-const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
+// Definimos la URL canónica y variantes de idioma (omitidas si la página es noindex)
+const canonical = noindex ? undefined : (canonicalUrl || (lang === "es" ? esUrl : enUrl));
+const languageAlternates = noindex
+  ? undefined
+  : [
+      { hrefLang: "en", href: enUrl },
+      { hrefLang: "es", href: esUrl },
+      { hrefLang: "x-default", href: xDefaultUrl },
+    ];
+
+const defaultOgImage = `${siteUrl}/default-preview.png`;
+const resolvedOgImage = ogImage
+  ? ogImage.startsWith("http")
+    ? ogImage
+    : `${siteUrl}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`
+  : defaultOgImage;
+
+const resolvedSchema = noindex
+  ? null
+  : (schema || [
+      getOrganizationSchema(lang),
+      getPersonSchema(),
+    ]);
 ---
 
 <!doctype html>
-<html lang={lang} data-theme="sandstone-charcoal">
+<html lang={lang} data-theme="sandstone-light">
   <head>
+    <script is:inline>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem("theme");
+          const initialTheme = savedTheme || "sandstone-light";
+          document.documentElement.setAttribute("data-theme", initialTheme);
+        } catch (e) {}
+      })();
+    </script>
     <!-- Basic Meta Tags -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta charset="utf-8" />
@@ -78,23 +117,41 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Pasamos canonical y los language alternates directamente a la configuración de astro-seo -->
+    <!-- Configuración SEO centralizada (astro-seo) -->
     <SEO
       title={title}
       description={description}
       canonical={canonical}
-      languageAlternates={[
-        { hrefLang: "en", href: enUrl },
-        { hrefLang: "es", href: esUrl },
-        { hrefLang: "x-default", href: xDefaultUrl },
-      ]}
+      noindex={noindex}
+      nofollow={nofollow}
+      languageAlternates={languageAlternates}
       openGraph={{
         basic: {
           title: title,
           type: ogType,
-          image: ogImage || "/default-preview.png",
-          url: canonical, // Sincronizado también con og:url
+          image: resolvedOgImage,
+          url: canonical || siteUrl,
         },
+        optional: {
+          description: description,
+          siteName: "Coins5",
+          locale: lang === "es" ? "es_PE" : "en_US",
+        },
+        image: {
+          alt: `${title} | Coins5`,
+          width: 1200,
+          height: 630,
+          type: "image/png",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        site: "@coins5",
+        creator: "@coins5",
+        title: title,
+        description: description,
+        image: resolvedOgImage,
+        imageAlt: `${title} | Coins5`,
       }}
       extend={{
         meta: [
@@ -109,9 +166,16 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
       }}
     />
 
-    <!-- SE REMOVIERON LOS TAGS MANUALES DE CANONICAL Y HREFLANG QUE CAUSABAN LA DUPLICIDAD -->
-
     <Analytics />
+
+    <!-- Structured Data (JSON-LD) for Search & AI Engines -->
+    {resolvedSchema && (
+      <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(resolvedSchema)}
+      />
+    )}
   </head>
   <body
     class="bg-base-100 text-base-content min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-secondary-content"
@@ -121,6 +185,8 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
       <slot />
     </main>
     <Footer />
+    <FloatingCta lang={lang} />
+    <CodeCopy />
 
     <script is:inline>
       (function () {

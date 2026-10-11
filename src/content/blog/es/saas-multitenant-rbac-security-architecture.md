@@ -5,11 +5,10 @@ pubDate: 2026-05-11
 lang: "es"
 tags: ["Arquitectura SaaS", "Seguridad", "RBAC", "Backend"]
 keywords: ["rbac multitenant", "seguridad en plataformas saas", "control de acceso por roles", "aislamiento de datos saas"]
-ogImage: "/images/blog/saas-rbac-security-preview.png"
 draft: false
 ---
 
-# El Límite del Tenant: Por Qué el Control de Acceso Básico Falla en SaaS B2B
+## El Límite del Tenant: Por Qué el Control de Acceso Básico Falla en SaaS B2B
 
 Cuando desarrollas una plataforma SaaS B2B, el requerimiento de ingeniería más crítico es el **aislamiento de datos (Data Isolation)**. A diferencia de las aplicaciones de consumo masivo, donde una falla de seguridad afecta a un individuo, las plataformas B2B manejan información corporativa confidencial. Una brecha de seguridad que permita a una empresa cliente ver la información de otra no es solo un bug; es una crisis existencial que destruye la reputación del producto, genera responsabilidades legales severas y ahuyenta a los inversores.
 

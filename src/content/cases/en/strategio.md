@@ -7,7 +7,7 @@ pubDate: 2026-06-18
 lang: "en"
 technologies: ["Next.js", "AI/LLMs", "PostgreSQL", "Tailwind CSS"]
 ---
-# Strategio: AI-Powered Business Intelligence
+## Strategio: AI-Powered Business Intelligence
 
 Strategio is a platform designed to make business intelligence accessible. As the ex-CTO, I designed and developed the entire system from the ground up.
 

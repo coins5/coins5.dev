@@ -5,11 +5,10 @@ pubDate: 2026-06-03
 lang: "es"
 tags: ["Arquitectura de Bases de Datos", "PostgreSQL", "MongoDB", "Rendimiento Backend"]
 keywords: ["escalar bases de datos", "optimizacion postgresql", "diseño mongodb", "cuellos de botella backend"]
-ogImage: "/images/blog/database-architecture-preview.png"
 draft: false
 ---
 
-# El Enemigo Silencioso del Crecimiento: Cómo la Latencia de Base de Datos Frena tu Producto
+## El Enemigo Silencioso del Crecimiento: Cómo la Latencia de Base de Datos Frena tu Producto
 
 Todo fundador técnico y director de tecnología conoce esta historia: la aplicación vuela en el entorno de desarrollo, las pruebas unitarias pasan en milisegundos y el lanzamiento inicial es un éxito. Sin embargo, a medida que la base de usuarios aumenta y el tráfico escala, el sistema empieza a fallar. Los usuarios reportan pantallas lentas, el API Gateway devuelve errores *504 Gateway Timeout* y las métricas de la nube muestran que el uso de CPU de tu base de datos está al 100%.
 

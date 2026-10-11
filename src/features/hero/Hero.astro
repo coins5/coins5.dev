@@ -1,0 +1,152 @@
+---
+import { Image } from "astro:assets";
+import marlonImage from "../../assets/marlon.png";
+import AuthorityBar from "../../components/AuthorityBar.astro";
+import { Calendar, MessageSquare, ArrowUpRight, ShieldCheck, Zap } from "@lucide/astro";
+import { siteConfig } from "../../config";
+import { getHeroContent } from "./hero.content";
+
+const { pathname } = Astro.url;
+const cleanPathname = pathname.replace(/\/$/, "");
+const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
+
+const content = getHeroContent(isEs);
+---
+
+<section
+  class="relative flex flex-col justify-between min-h-[85vh] bg-base-100 overflow-hidden border-b border-stone-500/10 transition-colors duration-300"
+>
+  <!-- Architectural Blueprint Grid Backdrop -->
+  <div
+    class="absolute inset-0 bg-[linear-gradient(to_right,var(--blueprint-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--blueprint-line)_1px,transparent_1px)] bg-[size:28px_28px] mask-[radial-gradient(ellipse_75%_65%_at_50%_15%,#000_65%,transparent_100%)] pointer-events-none"
+  >
+  </div>
+
+  <!-- Warm Sandstone Ambient Glow behind Hero -->
+  <div
+    class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[18rem] rounded-full pointer-events-none blur-[140px]"
+    style="background-color: var(--ambient-glow);"
+  >
+  </div>
+
+  <!-- Main Hero Content Container -->
+  <div
+    class="relative grow flex flex-col items-center justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 md:pt-20 md:pb-24 text-center z-10"
+  >
+    <!-- Live Availability & Senior Role Pill -->
+    <div
+      class="inline-flex items-center gap-2.5 px-3.5 py-1.5 mb-8 rounded-full backdrop-blur-md shadow-sm transition-all"
+      style="background-color: var(--pill-bg); border: 1px solid var(--pill-border);"
+    >
+      <span class="relative flex h-2 w-2">
+        <span
+          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+        ></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <span class="text-xs font-mono font-medium tracking-tight text-primary">
+        {content.status}
+      </span>
+      <span class="opacity-40 select-none">•</span>
+      <span class="text-[11px] font-mono tracking-wider uppercase font-bold text-secondary">
+        {content.role}
+      </span>
+    </div>
+
+    <!-- Imposing, Ultra-Wide H1 Title (2 lines rule) -->
+    <h1
+      class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold text-primary tracking-tight max-w-5xl leading-[1.08] mb-6 font-sans transition-colors duration-300"
+    >
+      {content.h1}
+    </h1>
+
+    <!-- Warm Grey Subtitle -->
+    <p
+      class="text-base sm:text-lg md:text-xl max-w-3xl leading-relaxed mb-10 font-sans font-normal transition-colors duration-300"
+      style="color: var(--color-text-body);"
+    >
+      {content.subtitle}
+    </p>
+
+    <!-- Call to Actions Buttons with Tactile Feedback -->
+    <div
+      class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center mb-12"
+    >
+      <!-- Primary CTA: Calendly Booking -->
+      <a
+        href={siteConfig.calendlyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2.5 font-extrabold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto glow-sandstone hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-md cursor-pointer"
+        style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
+      >
+        <Calendar class="w-5 h-5" stroke-width="2" style="color: var(--cta-primary-text);" />
+        <span>{content.primaryCta}</span>
+        <ArrowUpRight class="w-4 h-4 opacity-80" stroke-width="2" style="color: var(--cta-primary-text);" />
+      </a>
+
+      <!-- Secondary CTA: WhatsApp Chat -->
+      <a
+        href={content.whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2.5 font-semibold px-8 py-4 h-auto min-h-14 rounded-xl w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm cursor-pointer"
+        style="background-color: var(--cta-secondary-bg); color: var(--cta-secondary-text); border: 1px solid var(--cta-secondary-border);"
+      >
+        <MessageSquare class="w-5 h-5 text-secondary" stroke-width="2" />
+        <span>{content.secondaryCta}</span>
+      </a>
+    </div>
+
+    <!-- Verified Founder Credibility & Trust Micro-Card -->
+    <div
+      class="inline-flex flex-wrap items-center justify-center gap-4 px-5 py-3 rounded-2xl backdrop-blur-sm shadow-sm transition-all"
+      style="background-color: var(--pill-bg); border: 1px solid var(--pill-border);"
+    >
+      <div class="flex items-center gap-3">
+        <Image
+          src={marlonImage}
+          alt="Robert Marlon Colca - Senior Full Stack Developer & Software Architect"
+          width={44}
+          height={44}
+          format="webp"
+          loading="eager"
+          decoding="async"
+          class="rounded-full border border-stone-500/30 object-cover h-11 w-11 shrink-0"
+        />
+        <div class="text-left leading-tight">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-bold text-primary font-sans">
+              {content.profileName}
+            </span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          </div>
+          <span
+            class="text-[11px] font-mono block transition-colors"
+            style="color: var(--color-text-body);"
+          >
+            {content.profileCredentials}
+          </span>
+        </div>
+      </div>
+
+      <div
+        class="hidden md:flex items-center gap-3 pl-3 border-l border-stone-500/20 text-[11px] font-mono"
+        style="color: var(--color-text-body);"
+      >
+        <span class="inline-flex items-center gap-1.5">
+          <ShieldCheck class="w-3.5 h-3.5 text-secondary" stroke-width="2" />
+          {content.ownershipBadge}
+        </span>
+        <span class="opacity-40">•</span>
+        <span class="inline-flex items-center gap-1.5">
+          <Zap class="w-3.5 h-3.5 text-secondary" stroke-width="2" />
+          {content.speedBadge}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Integrated Authority Proof Bar -->
+  <AuthorityBar />
+</section>

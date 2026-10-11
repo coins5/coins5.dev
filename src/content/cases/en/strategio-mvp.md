@@ -8,7 +8,7 @@ lang: "en"
 technologies: ["Node.js", "FastAPI", "PostgreSQL", "AWS"]
 ---
 
-# The Challenge
+## The Challenge
 
 To secure funding and validate the market, Strategio required a robust Business Intelligence platform capable of processing diverse commercial datasets and generating custom analytical reports. The goal was to build a secure, highly scalable Minimum Viable Product (MVP) in under 12 weeks while maintaining top-tier architectural standards.
 

@@ -5,11 +5,10 @@ pubDate: 2026-04-19
 lang: "es"
 tags: ["Arquitectura Backend", "FastAPI", "Colas de Tareas", "Redis"]
 keywords: ["colas de tareas asincronas", "optimizar rendimiento api", "workers de fondo backend", "desacoplar procesos de software"]
-ogImage: "/images/blog/async-tasks-preview.png"
 draft: false
 ---
 
-# El Cuello de Botella Síncrono: Cómo las Cargas Pesadas Bloquean la Respuesta de tus APIs
+## El Cuello de Botella Síncrono: Cómo las Cargas Pesadas Bloquean la Respuesta de tus APIs
 
 En el ecosistema digital competitivo de hoy, el tiempo de respuesta de las APIs de tu plataforma determina de manera directa la experiencia del usuario, la tasa de conversión y la fiabilidad de las integraciones. Sin embargo, muchas aplicaciones B2B y SaaS sufren de un error arquitectónico crítico: procesar tareas sumamente pesadas dentro del ciclo síncrono de una petición HTTP ordinaria.
 

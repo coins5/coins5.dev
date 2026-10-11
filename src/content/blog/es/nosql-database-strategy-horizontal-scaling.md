@@ -5,11 +5,10 @@ pubDate: 2026-04-08
 lang: "es"
 tags: ["Bases de Datos", "NoSQL", "Arquitectura de Datos", "Escalabilidad"]
 keywords: ["modelado de datos nosql", "escalabilidad horizontal", "cuando usar nosql", "arquitectura datos escalable"]
-ogImage: "/images/blog/nosql-strategy-preview.png"
 draft: false
 ---
 
-# El Límite Vertical: Por Qué las Bases de Datos SQL Centralizadas Fallan en la Hiper-Escala
+## El Límite Vertical: Por Qué las Bases de Datos SQL Centralizadas Fallan en la Hiper-Escala
 
 Toda startup tecnológica o empresa en crecimiento llega a un punto crítico en su infraestructura de datos: la base de datos relacional principal (como PostgreSQL o MySQL) comienza a colapsar bajo el peso del tráfico concurrente. Las consultas que antes tardaban milisegundos se ralentizan, los bloqueos de escritura aumentan, las conexiones al pool se saturan y el uso de CPU del servidor roza el 100%.
 

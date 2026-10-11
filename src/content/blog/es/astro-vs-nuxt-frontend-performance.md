@@ -11,11 +11,10 @@ keywords:
     "optimizar core web vitals",
     "desarrollo web rapido",
   ]
-ogImage: "/images/blog/frontend-performance-preview.png"
 draft: false
 ---
 
-# El Costo Oculto del JavaScript Excesivo: Cómo la Lentitud Destruye tus Conversiones
+## El Costo Oculto del JavaScript Excesivo: Cómo la Lentitud Destruye tus Conversiones
 
 Para los negocios digitales y startups en crecimiento, la velocidad de carga de un sitio web no es un lujo técnico: es una métrica de negocio directamente vinculada a la rentabilidad. Sin embargo, muchos directores de producto y fundadores sabotean sus presupuestos de marketing al redirigir el tráfico pagado o el SEO a plataformas lentas, cargadas con megabytes de JavaScript innecesario.
 

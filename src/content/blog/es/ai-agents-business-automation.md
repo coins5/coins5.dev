@@ -5,11 +5,10 @@ pubDate: 2026-06-18
 lang: "es"
 tags: ["Ingeniería de IA", "Automatización", "Arquitectura de Software", "SaaS"]
 keywords: ["agentes de ia para empresas", "automatizacion con inteligencia artificial", "integrar ia en software", "desarrollo de bots de ventas"]
-ogImage: "/images/blog/ai-automation-preview.png"
 draft: false
 ---
 
-# La Ilusión de la Inteligencia Artificial: La Fragilidad de los Wrappers Genéricos
+## La Ilusión de la Inteligencia Artificial: La Fragilidad de los Wrappers Genéricos
 
 En la carrera por adoptar la Inteligencia Artificial, muchas empresas y startups locales han corrido a implementar interfaces conversacionales. Desafortunadamente, la gran mayoría de estas soluciones no son más que **wrappers de APIs** (capas delgadas de código que reenvían los datos del usuario directamente a un modelo de IA y muestran la respuesta sin ningún tipo de filtro o lógica).
 
