@@ -1,7 +1,10 @@
 ---
 import { getCollection, render } from "astro:content";
 import { ArrowLeft, Calendar, Tag } from "@lucide/astro";
+import { Image } from "astro:assets";
+import marlonImage from "../../assets/marlon.png";
 import Layout from "../../layouts/Layout.astro";
+import { siteConfig } from "../../config";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -95,5 +98,50 @@ const formattedDate = entry.data.pubDate.toLocaleDateString("en-US", {
     <article class="prose max-w-none transition-colors">
       <Content />
     </article>
+
+    <!-- Author Bio & Engineering Advisory Card -->
+    <div class="mt-16 pt-10 border-t" style="border-color: var(--card-border);">
+      <div class="card-premium rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
+        <Image
+          src={marlonImage}
+          alt="Marlon - Senior Architect"
+          width={160}
+          height={160}
+          class="w-20 h-20 rounded-full border-2 object-cover shrink-0"
+          style="border-color: var(--card-border);"
+        />
+        <div class="flex-1 text-center sm:text-left">
+          <div class="text-xs font-mono text-secondary uppercase tracking-widest font-semibold mb-1">
+            Author & Systems Architect
+          </div>
+          <h3 class="text-lg font-bold text-primary mb-2 font-sans">
+            Marlon / Coins5
+          </h3>
+          <p
+            class="text-xs sm:text-sm leading-relaxed mb-4 font-sans transition-colors"
+            style="color: var(--color-text-body);"
+          >
+            Senior Full Stack Developer & Cloud Architect. Building custom software and production MVPs with Clean Architecture, high-concurrency cloud design, and AI velocity.
+          </p>
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+            <a
+              href={siteConfig.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-xs px-4 py-2 h-auto rounded-lg font-bold border-none transition-all hover:scale-[1.02]"
+              style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
+            >
+              Book 15-Min Discovery
+            </a>
+            <a
+              href="/blog"
+              class="text-xs font-mono text-secondary hover:text-primary transition-colors flex items-center gap-1 font-semibold"
+            >
+              View all articles &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </Layout>

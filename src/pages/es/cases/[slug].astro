@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import { ArrowLeft } from "@lucide/astro";
+import { ArrowLeft, ArrowRight, Calendar, MessageSquare } from "@lucide/astro";
 import Layout from "../../../layouts/Layout.astro";
+import { siteConfig, getWhatsAppUrl } from "../../../config";
 
 export async function getStaticPaths() {
   const caseEntries = await getCollection("cases");
@@ -24,6 +25,26 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const allCases = await getCollection("cases");
+const esCases = allCases
+  .filter((e) => e.data.lang === "es")
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const currentIndex = esCases.findIndex((e) => e.id === entry.id);
+const nextCase =
+  currentIndex >= 0 && currentIndex < esCases.length - 1
+    ? esCases[currentIndex + 1]
+    : esCases[0] !== entry
+    ? esCases[0]
+    : null;
+
+const nextSlug = nextCase
+  ? nextCase.id
+      .split("/")
+      .pop()
+      ?.replace(/\.(md|mdx)$/, "") || nextCase.id
+  : null;
 ---
 
 <Layout
@@ -112,8 +133,69 @@ const { Content } = await render(entry);
     </div>
 
     <!-- Premium Reading Layout with Adaptive Typography -->
-    <article class="prose max-w-none transition-colors">
+    <article class="prose max-w-none transition-colors mb-16">
       <Content />
     </article>
+
+    <!-- Case Navigation & Dedicated CRO Box -->
+    <div
+      class="pt-10 border-t space-y-8"
+      style="border-color: var(--card-border);"
+    >
+      {
+        nextCase && nextSlug && (
+          <div class="flex items-center justify-between">
+            <span
+              class="text-xs font-mono uppercase tracking-widest opacity-70"
+              style="color: var(--color-text-body);"
+            >
+              Siguiente Caso de Estudio
+            </span>
+            <a
+              href={`/es/cases/${nextSlug}`}
+              class="inline-flex items-center text-sm font-bold text-primary hover:text-secondary group transition-colors"
+            >
+              <span>{nextCase.data.title}</span>
+              <ArrowRight class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" stroke-width="2" />
+            </a>
+          </div>
+        )
+      }
+
+      <div class="card-premium rounded-2xl p-8 text-center relative overflow-hidden">
+        <h3 class="text-2xl font-bold text-primary mb-3 font-sans">
+          ¿Necesitas una arquitectura de alto rendimiento para tu producto?
+        </h3>
+        <p
+          class="text-sm max-w-xl mx-auto mb-6 leading-relaxed font-sans"
+          style="color: var(--color-text-body);"
+        >
+          Revisemos las especificaciones de tu producto, diagrama de infraestructura y tiempos de entrega en una llamada técnica de 15 minutos.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
+          <a
+            href={siteConfig.calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-sm px-6 py-2.5 h-auto rounded-lg font-bold transition-all hover:scale-[1.02] active:scale-[0.98] border-none"
+            style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
+          >
+            <Calendar class="w-4 h-4 mr-2" stroke-width="2" />
+            Agendar Llamada Técnica
+          </a>
+          <a
+            href={getWhatsAppUrl("es", "cases")}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost btn-sm px-5 py-2.5 h-auto rounded-lg font-semibold border transition-all"
+            style="border-color: var(--card-border); color: var(--color-text-body);"
+          >
+            <MessageSquare class="w-4 h-4 mr-2 text-secondary" stroke-width="2" />
+            Conversar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </Layout>
