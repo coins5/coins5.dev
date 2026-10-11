@@ -1,0 +1,73 @@
+---
+import { getServicesPageContent } from "./services-page.content";
+
+const { pathname } = Astro.url;
+const cleanPathname = pathname.replace(/\/$/, "");
+const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
+
+const { advantage } = getServicesPageContent(isEs);
+---
+
+<section
+  class="relative bg-base-100 py-16 md:py-24 border-b border-stone-500/10 transition-colors duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight mb-4 font-sans">
+        {advantage.title}
+      </h2>
+      <p
+        class="text-base sm:text-lg leading-relaxed font-sans transition-colors"
+        style="color: var(--color-text-body);"
+      >
+        {advantage.subtitle}
+      </p>
+    </div>
+
+    <!-- Technological Panel Wrapper -->
+    <div class="card-premium rounded-2xl p-6 sm:p-8 lg:p-10 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {
+          advantage.boxes.map((box) => (
+            <div
+              class="flex flex-col justify-between p-6 rounded-xl border transition-all duration-300 group"
+              style="background-color: var(--card-inner-bg); border-color: var(--card-border);"
+            >
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <span
+                    class="font-mono text-[10px] tracking-widest text-secondary px-2.5 py-1 rounded border font-semibold"
+                    style="background-color: var(--card-bg); border-color: var(--card-border);"
+                  >
+                    {box.badge}
+                  </span>
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                </div>
+
+                <h3 class="font-mono text-xs tracking-wider text-primary uppercase font-bold mb-3">
+                  {box.step}
+                </h3>
+
+                <p
+                  class="text-sm leading-relaxed mb-4 font-sans transition-colors"
+                  style="color: var(--color-text-body);"
+                >
+                  {box.desc}
+                </p>
+              </div>
+
+              <div
+                class="pt-3 border-t text-xs font-sans leading-relaxed"
+                style="border-color: var(--card-border);"
+              >
+                <strong class="text-primary font-semibold">{box.painLabel} </strong>
+                <span style="color: var(--color-text-body);">{box.painSolved}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
