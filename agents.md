@@ -90,9 +90,13 @@ src/
 
 ## 5. LINEAMIENTOS TÉCNICOS Y SEO
 
-* **Uso de astro-seo:** Metadatos, Open Graph y Canónicos gestionados estrictamente en `Layout.astro`.
-* **Título (`<title>`):** Longitud máxima de 60 caracteres.
+* **Uso de astro-seo:** Metadatos, Open Graph, Twitter Cards y Canónicos gestionados estrictamente en `Layout.astro`.
+* **Título (`<title>`):** Longitud máxima de 60 caracteres. En páginas paginadas (`/page/2/`), añadir obligatoriamente sufijo `- Page X` / `- Página X` para evitar contenido duplicado.
 * **Descripción (`<meta name="description">`):** Longitud máxima de 160 caracteres.
+* **Regla de H1 Único Semántico:** Cada página debe tener exactamente un `<h1>`. En artículos de blog y casos de estudio, el template `[slug].astro` genera el `<h1>` a partir del frontmatter `title`; por ende, los archivos Markdown (`.md`) deben iniciar con encabezados `##` (H2).
+* **Consistencia Canónica de Trailing Slashes:** Configurado `trailingSlash: "always"`. Todo enlace interno (`Navbar`, `Footer`, componentes y contenido) debe terminar obligatoriamente en `/` para evitar redirecciones 301/308 innecesarias.
+* **Páginas de Error y `noindex`:** Rutas como `404.astro` deben invocar `<Layout noindex={true}>` para emitir `<meta name="robots" content="noindex, follow">` y omitir etiquetas canónicas o variantes hreflang.
+* **Open Graph y Schemas JSON-LD:** Las imágenes de vista previa social deben usar URLs absolutas y assets existentes en `public/` (ej. `default-preview.png` a 1200x630 px y `marlon.png`).
 * **Consistencia de Slugs (i18n):** Archivos `.md` correspondientes al mismo artículo en `en/` y `es/` deben compartir exactamente el mismo nombre de archivo.
 * **Rendimiento:** Imágenes con `<Image />` de `astro:assets`, formatos WebP, `loading="eager"` en el Hero y `loading="lazy"` bajo el pliegue.
 
