@@ -25,11 +25,14 @@ import { AlertTriangle, ArrowLeft, Calendar } from "@lucide/astro";
             <span class="data-lang-es hidden">ESTADO: 404_DESPLIEGUE_REVERTIDO</span>
           </div>
 
+          <!-- Título H1 unificado semánticamente -->
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-primary mb-4 font-sans tracking-tight">
+            <span class="data-lang-en">Who let the Junior deploy on Friday?</span>
+            <span class="data-lang-es hidden">¿Quién dejó que el Junior deployara en viernes?</span>
+          </h1>
+
           <!-- Contenido en Inglés -->
           <div class="data-lang-en">
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-primary mb-4 font-sans tracking-tight">
-              Who let the Junior deploy on Friday?
-            </h1>
             <p
               class="font-mono text-xs leading-relaxed p-4 rounded-xl border mb-6"
               style="background-color: var(--card-inner-bg); border-color: var(--card-border); color: var(--color-text-body);"
@@ -40,9 +43,6 @@ import { AlertTriangle, ArrowLeft, Calendar } from "@lucide/astro";
 
           <!-- Contenido en Español -->
           <div class="data-lang-es hidden">
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-primary mb-4 font-sans tracking-tight">
-              ¿Quién dejó que el Junior deployara en viernes?
-            </h1>
             <p
               class="font-mono text-xs leading-relaxed p-4 rounded-xl border mb-6"
               style="background-color: var(--card-inner-bg); border-color: var(--card-border); color: var(--color-text-body);"

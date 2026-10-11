@@ -31,7 +31,10 @@ let esTarget = "/es/";
 
 const pathSegments = pathname.split("/").filter(Boolean);
 
-if (isEs) {
+if (cleanPathname === "/404" || cleanPathname.endsWith("/404")) {
+  enTarget = "/" + search;
+  esTarget = "/es/" + search;
+} else if (isEs) {
   const enSegments = pathSegments.slice(1);
   enTarget = enSegments.length > 0 ? "/" + enSegments.join("/") + "/" + search : "/" + search;
   esTarget = pathname.replace(/\/$/, "") + "/" + search;
