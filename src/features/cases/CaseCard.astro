@@ -19,6 +19,9 @@ const caseUrl = isEs ? `/es/cases/${slug}` : `/cases/${slug}`;
 
 <a
   href={caseUrl}
+  data-case-slug={slug}
+  data-case-client={entry.data.clientName ? entry.data.clientName.toLowerCase() : ""}
+  data-case-techs={entry.data.technologies ? entry.data.technologies.join(",").toLowerCase() : ""}
   class="group card-premium rounded-2xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300"
 >
   <div>

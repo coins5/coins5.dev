@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import CaseCard from "../features/cases/CaseCard.astro";
+import CasesFilter from "../features/cases/CasesFilter.astro";
 
 const caseEntries = await getCollection("cases");
 const enEntries = caseEntries
@@ -23,7 +24,7 @@ const enEntries = caseEntries
     </div>
 
     <!-- Header Section -->
-    <div class="relative max-w-3xl mx-auto text-center mb-16 z-10">
+    <div class="relative max-w-3xl mx-auto text-center mb-12 z-10">
       <div
         class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 rounded-full backdrop-blur-md shadow-xs"
         style="background-color: var(--pill-bg); border: 1px solid var(--pill-border);"
@@ -43,6 +44,11 @@ const enEntries = caseEntries
       </p>
     </div>
 
+    <!-- Filter Pills Bar -->
+    <div class="relative z-10">
+      <CasesFilter isEs={false} />
+    </div>
+
     {
       enEntries.length === 0 ? (
         <div
@@ -52,7 +58,7 @@ const enEntries = caseEntries
           No case studies published yet. Stay tuned!
         </div>
       ) : (
-        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 z-10">
+        <div id="cases-grid" class="relative grid grid-cols-1 md:grid-cols-2 gap-8 z-10">
           {enEntries.map((entry) => (
             <CaseCard entry={entry} isEs={false} />
           ))}
