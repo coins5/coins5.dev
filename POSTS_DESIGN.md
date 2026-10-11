@@ -59,7 +59,7 @@ Para retener al lector en los primeros 15 segundos y guiarlo hasta la conversió
 * **Bloques de Código Secuenciales:** Nunca agrupes comparativas en un solo bloque gigante. Divide siempre en dos bloques etiquetados:
   * `### ❌ [Enfoque Frágil / Naive Wrapper]`
   * `### ✅ [Enfoque de Producción / Arquitectura Segura]`
-* **Diagramas de Flujo de Arquitectura:** En artículos que expliquen pipelines de datos o flujos de agentes, incluye un diagrama de flujo en bloque de texto monospaciado (`text`) que resuma el pipeline en 5 segundos.
+* **Pipeline de Arquitectura Visual:** En artículos que expliquen pipelines de datos, flujos de ejecución o agentes, incluye un componente visual de tarjetas conectadas ("Architecture Pipeline Stepper" con contenedor `.not-prose`, pasos numerados `01` a `04` y badges de seguridad) para máxima legibilidad ejecutiva y diseño 100% responsivo en móviles.
 * **Tiempo de Lectura Automático (`readingTime`):** Se calcula automáticamente a nivel de plantilla en `[slug].astro` dividiendo las palabras del body entre 200 PPM. No debe especificarse en el frontmatter.
 
 ---

@@ -125,6 +125,6 @@ Una vez recibida la aprobación:
 * **Comparativa de Código:** Bloques secuenciales Markdown:
   * `### ❌ Naive / Fragile Approach`
   * `### ✅ Production Architecture`
-* **Diagramas:** Bloques de texto monospaciado (`text`) con diagramas de flujo limpios para flujos de datos.
+* **Diagramas de Arquitectura:** Tarjetas visuales de pipeline ("Architecture Pipeline Stepper" con contenedor `.not-prose`, pasos numerados `01` a `04`, descripciones de acción y badges de seguridad fail-safe).
 * **Tiempo de Lectura:** Calculado automáticamente en `[slug].astro`.
 * **Micro-CTA Intermedio:** Un bloque sutil de 2 líneas tras la arquitectura técnica enlazando a Calendly / WhatsApp.
