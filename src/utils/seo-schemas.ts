@@ -84,7 +84,11 @@ export function getArticleSchema(
     },
     headline: entry.data.title,
     description: entry.data.description,
-    image: entry.data.ogImage || `${siteConfig.siteUrl}/default-preview.png`,
+    image: entry.data.ogImage
+      ? (entry.data.ogImage.startsWith("http")
+          ? entry.data.ogImage
+          : `${siteConfig.siteUrl}${entry.data.ogImage.startsWith("/") ? "" : "/"}${entry.data.ogImage}`)
+      : `${siteConfig.siteUrl}/default-preview.png`,
     datePublished: entry.data.pubDate.toISOString(),
     dateModified: entry.data.pubDate.toISOString(),
     author: {
