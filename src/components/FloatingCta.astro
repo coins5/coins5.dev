@@ -1,0 +1,91 @@
+---
+import { Calendar, MessageSquare } from "@lucide/astro";
+import { siteConfig, getWhatsAppUrl } from "../config";
+
+interface Props {
+  lang?: "en" | "es";
+}
+
+const { lang = "en" } = Astro.props;
+
+const isEs = lang === "es";
+const calendlyUrl = siteConfig.calendlyUrl;
+const whatsappUrl = getWhatsAppUrl(lang, "default");
+
+const copy = isEs
+  ? {
+      bookText: "Agendar Llamada",
+      whatsappText: "WhatsApp",
+    }
+  : {
+      bookText: "Book 15m Call",
+      whatsappText: "WhatsApp",
+    };
+---
+
+<div
+  id="floating-cta-hub"
+  class="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 md:hidden w-[calc(100%-2rem)] max-w-sm pointer-events-none opacity-0 translate-y-8 transition-all duration-300 ease-out"
+  aria-label={isEs ? "Acciones rápidas de contacto" : "Quick contact actions"}
+>
+  <div
+    class="flex items-center justify-between p-1.5 rounded-full shadow-2xl backdrop-blur-xl border border-[var(--card-border)]"
+    style="background-color: var(--pill-bg);"
+  >
+    <!-- Primary CTA: Calendly Discovery Call -->
+    <a
+      href={calendlyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full font-sans font-bold text-xs uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-sm"
+      style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
+    >
+      <Calendar class="w-3.5 h-3.5" />
+      <span>{copy.bookText}</span>
+    </a>
+
+    <!-- Secondary CTA: Direct WhatsApp -->
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center justify-center gap-1.5 py-2.5 px-3.5 ml-1.5 rounded-full font-sans font-semibold text-xs transition-all duration-200 active:scale-95 border"
+      style="background-color: var(--cta-secondary-bg); color: var(--cta-secondary-text); border-color: var(--cta-secondary-border);"
+      title={copy.whatsappText}
+    >
+      <span class="relative flex h-2 w-2 mr-0.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <MessageSquare class="w-3.5 h-3.5" />
+      <span class="hidden sm:inline">{copy.whatsappText}</span>
+    </a>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const hub = document.getElementById("floating-cta-hub");
+    if (!hub) return;
+
+    let isVisible = false;
+    const threshold = 350;
+
+    const onScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > threshold && !isVisible) {
+        isVisible = true;
+        hub.classList.remove("opacity-0", "translate-y-8", "pointer-events-none");
+        hub.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+      } else if (scrollY <= threshold && isVisible) {
+        isVisible = false;
+        hub.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+        hub.classList.add("opacity-0", "translate-y-8", "pointer-events-none");
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Initial check in case of page reload with scroll position preserved
+    onScroll();
+  })();
+</script>
