@@ -124,7 +124,3 @@ Posteriormente, aplicamos criterio senior de arquitectura de software para asegu
 ## Mantén tu Plataforma Estable y Protege tu Conversión
 
 No sigas operando a ciegas. Logra visibilidad total sobre tu backend, bases de datos e integraciones críticas, e intercepta los problemas en producción mucho antes de que tus usuarios se enteren.
-
-### ¿Listo para escalar tu producto?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre la observabilidad de tu aplicación, monitoreo de producción y arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20implementar%20observabilidad%20y%20logs%20estructurados%20en%20mi%20plataforma.) para evaluar la estabilidad y telemetría de tu sistema.

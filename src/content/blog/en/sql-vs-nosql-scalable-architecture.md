@@ -77,7 +77,3 @@ By combining senior software engineering criteria with AI automation, we deliver
 ## Future-Proof Your Database Architecture
 
 Your database is the foundation of your software product. A bad design will slow down feature delivery, drive up cloud hosting bills, and trigger random production outages. Choosing the right database layout early prevents painful migrations down the line.
-
-### Ready to scale your product?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your database design, scaling pain points, and product roadmap in a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20database%20scaling%20and%20performance%20optimization%20for%20my%20application.) to discuss scope, timelines, and database optimization options.

@@ -65,7 +65,3 @@ export class StripeProcessor implements PaymentProcessor {
 An MVP should not be a throwaway prototype. By employing the Senior + AI paradigm, you get a clean, modular, and highly documented codebase that serves as the solid foundation for your engineering team as you scale toward Series A and beyond.
 
 If you are a founder looking to build a high-performance MVP quickly, optimize your cloud infrastructure, or eliminate technical debt from an existing platform, let's talk.
-
-### Ready to scale your product?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and roadmap during a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20quote%20a%20software%20project.) to discuss scope, pricing, and timelines.

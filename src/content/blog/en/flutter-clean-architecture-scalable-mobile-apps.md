@@ -140,7 +140,3 @@ For CTOs and team leaders, transitioning to Clean Architecture in Flutter yields
 Clean Architecture protects your mobile software investment. It ensures your codebase is resilient to change, easily testable, and scalable to support hundreds of thousands of active users.
 
 If your Flutter application is slowed down by technical debt or regression bugs, it is time to establish a solid structural foundation.
-
-### Ready to build a scalable mobile application?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your Flutter project architecture in a 15-minute discovery session.
-* **Get a Direct Quote**: Connect directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20Clean%20Architecture%20and%20SOLID%20implementation%20for%20my%20software.) to discuss scope, pricing, and timelines for your mobile architecture.

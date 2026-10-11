@@ -94,7 +94,3 @@ Building AI automation requires more than just knowing how to write prompts. It 
 At **Coins5**, we combine over a decade of systems architecture experience (Clean Architecture, SOLID principles, and backend optimization) with advanced AI engineering. By leveraging agentic development tools to write test suites and build components under strict human oversight, we can deploy custom, secure AI workflows up to 3x faster than traditional development teams.
 
 We build custom automation systems that do not break under scale and respect your infrastructure budget.
-
-### Ready to integrate custom AI into your operations?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and AI roadmap during a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20custom%20AI%20agents%20and%20automation%20for%20my%20business.) to discuss scope, pricing, and timelines.

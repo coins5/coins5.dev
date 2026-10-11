@@ -86,7 +86,3 @@ By combining senior architectural guidelines with advanced AI development workfl
 ## Build with Architectural Discipline
 
 A modular monolith is not a compromise—it is the gold standard for startup speed and engineering efficiency. Protect your product roadmap velocity, keep your operational overhead low, and scale only when your business demands it.
-
-### Ready to build or optimize your software?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture, scaling strategy, and roadmap during a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20monolith%20to%20microservices%20strategy%20for%20my%20startup.) to discuss scope, pricing, and timelines for your project.

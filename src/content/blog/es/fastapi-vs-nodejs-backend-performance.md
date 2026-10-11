@@ -66,8 +66,3 @@ Si tu producto SaaS o corporativo aprovecha la Inteligencia Artificial, el proce
 ## Sinergia Senior + IA para Acelerar tu Plataforma
 
 En nuestro flujo de desarrollo, no nos limitamos a escribir código; diseñamos soluciones sólidas, escalables y optimizadas financieramente. Al fusionar criterio arquitectónico senior (Clean Architecture, SOLID) con el uso avanzado de Inteligencia Artificial agentica, construimos tu backend en FastAPI o Node.js en un tercio del tiempo habitual, garantizando código limpio y costos de infraestructura optimizados.
-
-### ¿Listo para escalar tu backend con el stack correcto?
-
-- **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-- **Cotiza por WhatsApp**: Escríbeme por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20el%20backend%20de%20mi%20proyecto%20con%20FastAPI%20o%20Node.js.) para cotizar los servicios de desarrollo backend para tu negocio.

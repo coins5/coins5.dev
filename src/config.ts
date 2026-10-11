@@ -15,7 +15,7 @@ export const siteConfig = {
   github: "https://github.com/coins5",
 
   // Secondary Call To Action: WhatsApp contact configuration
-  whatsappNumber: "51922913739",
+  whatsappNumber: "51915244029",
   whatsappMessages: {
     en: {
       default: "Hello Marlon, I would like to quote a software project.",

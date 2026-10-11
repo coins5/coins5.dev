@@ -95,7 +95,3 @@ Mediante el **Factor Senior + IA**, analizamos quirúrgicamente las APIs y flujo
 ## Acelera tu Plataforma y Reduce tus Gastos de Infraestructura
 
 No permitas que una base de datos lenta debilite el rendimiento de tu producto y consuma la caja de tu startup. Una tarde de optimización de caché puede ahorrarte miles de dólares en costos de servidores en la nube.
-
-### ¿Listo para escalar tu backend de forma eficiente?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para evaluar los tiempos de respuesta de tu API, tus costos en la nube y diseñar tu roadmap técnico en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20optimizar%20y%20escalar%20el%20rendimiento%20de%20mi%20API%20con%20Redis.) para analizar las opciones de optimización y escalabilidad de tu backend.

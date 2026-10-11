@@ -76,7 +76,3 @@ Combinar el criterio de ingeniería senior con la automatización por IA nos per
 ## Asegura el Rendimiento de tu Backend
 
 Tu base de datos es la base sobre la que se construye todo tu producto digital. Un mal diseño inicial frena el ritmo de entrega de nuevas funciones, infla innecesariamente tus costos de hosting y deteriora la experiencia del usuario final.
-
-### ¿Listo para escalar tu producto?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu base de datos y roadmap técnico en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20optimizar%20y%20escalar%20la%20base%20de%20datos%20de%20mi%20aplicaci%C3%B3n.) para evaluar los requerimientos y optimizaciones de tu base de datos.

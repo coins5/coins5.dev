@@ -75,7 +75,3 @@ Aplicando el **Factor Senior + IA**, podemos detectar rápidamente las consultas
 ## Optimiza tu Base de Datos y Reduce tus Costos Cloud
 
 No permitas que una base de datos lenta frene tu negocio e infle tus costos fijos. Un análisis y optimización a tiempo puede ahorrarte miles de dólares en servidores e infraestructura cloud.
-
-### ¿Listo para escalar tu producto?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu base de datos, costos cloud y roadmap técnico en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20optimizar%20y%20escalar%20la%20base%20de%20datos%20de%20mi%20aplicaci%C3%B3n.) para evaluar los requerimientos y optimizaciones de tu base de datos.

@@ -99,7 +99,3 @@ By applying the **Senior + AI Factor**, we combine over a decade of systems arch
 ## Take Control of Your Infrastructure and Extend Your Runway
 
 Stop throwing away valuable startup capital on marked-up PaaS resources. By self-hosting with Docker and Dokploy, you maintain the deployment speed your developers love while keeping your infrastructure bill close to zero.
-
-### Ready to optimize your cloud costs?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your cloud infrastructure, deployment pipelines, and hosting cost optimization in a 15-minute discovery session.
-* **Get a Direct Quote**: Chat directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20cloud%20optimization%20and%20migration%20to%20Dokploy%2FDocker%20for%20my%20platform.) to get a tailored estimate for migrating your startup to a self-hosted VPS.

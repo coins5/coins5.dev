@@ -96,7 +96,3 @@ Migrar parte de la carga al clúster local no interrumpe la automatización mode
 ## Toma el Control de tu Presupuesto de Infraestructura
 
 Una arquitectura de nube híbrida con Proxmox y Docker permite a los líderes tecnológicos optimizar sus presupuestos operativos y enfocar los recursos financieros en lo que realmente genera valor. Combinando diseño de sistemas sólido con herramientas open-source, logramos escalabilidad y predictibilidad en los costos de infraestructura.
-
-### ¿Listo para optimizar los costos de tu infraestructura?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu infraestructura, el gasto actual en la nube y cómo diseñar un esquema híbrido en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20implementar%20una%20infraestructura%20h%C3%ADbrida%20con%20Proxmox%20y%20Docker%20en%20mi%20empresa.) para analizar los requerimientos y costos de tu transición a un modelo híbrido eficiente.

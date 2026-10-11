@@ -124,7 +124,3 @@ Then, we apply senior SRE criteria to ensure that sensitive user data (PII like 
 ## Keep Your Platform Stable and Your Customers Happy
 
 Don't operate in the dark. Bring full visibility to your backend, database, and third-party integrations, and resolve production incidents before your users even realize something went wrong.
-
-### Ready to scale your product?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your application observability, production monitoring, and software scaling architecture in a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20production%20observability%20and%20structured%20logging%20for%20my%20application.) to discuss scope, timelines, and custom monitoring options.

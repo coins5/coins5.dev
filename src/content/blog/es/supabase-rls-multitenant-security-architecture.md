@@ -135,7 +135,3 @@ La sinergia de combinar más de una década de experiencia en infraestructura de
 El aislamiento robusto no es una característica opcional en plataformas empresariales, sino el cimiento sobre el cual se construye la confianza de tus clientes. Implementar políticas Supabase RLS de forma declarativa desde las etapas iniciales de desarrollo te permitirá construir una arquitectura robusta, escalable y comercialmente competitiva.
 
 Si estás estructurando el lanzamiento de tu SaaS B2B, preparando tu infraestructura para pasar una auditoría SOC 2 o deseas auditar y eliminar riesgos de fugas en tu base de datos actual, diseñemos una solución sólida y de alto rendimiento.
-
-### ¿Listo para asegurar tu base de datos SaaS?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20implementar%20Supabase%20RLS%20y%20aislamiento%20de%20datos%20en%20mi%20plataforma%20SaaS.) para analizar requerimientos, cotizar el proyecto y planificar tiempos de entrega.

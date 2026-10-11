@@ -96,7 +96,3 @@ Moving workloads local does not mean losing modern automation. You can register 
 ## Regain Control of Your Infrastructure Budget
 
 A hybrid cloud setup with Proxmox and Docker is the most effective way for tech leadership to reclaim margins and optimize engineering efficiency. By combining senior architectural expertise with open-source virtualization, we build high-performance systems that scale smoothly while keeping operating expenses under strict control.
-
-### Ready to optimize your infrastructure costs?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your infrastructure, cloud spending, and custom hybrid architecture during a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20hybrid%20cloud%20and%20Proxmox%2FDocker%20infrastructure%20for%20my%20business.) to discuss how we can help you implement a cost-efficient Proxmox and Docker setup.

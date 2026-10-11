@@ -97,8 +97,3 @@ The AI does the heavy lifting of refactoring, while the senior engineer ensures 
 This isn't theoretical. On projects like **Strategio** and **NubaNutrición**, applying this architectural rigor allowed us to handle complex business intelligence reporting and dynamic patient plan generations while keeping server footprints small, responsive, and extremely cost-efficient.
 
 If you are seeing your cloud hosting bills creep up month-over-month, or if your application is beginning to slow down during peak hours, it's time to stop paying for bigger hardware and start building better software.
-
-### Ready to scale your product?
-
-- **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and roadmap during a 15-minute discovery session.
-- **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20cloud%20optimization%20and%20automation%20for%20my%20business.) to discuss scope, pricing, and timelines.

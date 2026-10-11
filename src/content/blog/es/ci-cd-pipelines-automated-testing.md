@@ -113,8 +113,3 @@ Un error capturado en el pipeline de CI cuesta prácticamente cero corregir. Un 
 Un producto de software que teme a sus propios despliegues es un producto que no puede escalar. Migrar de lanzamientos estresantes y manuales a pipelines de CI/CD automatizados es la inversión técnica de mayor impacto para acelerar tu equipo de ingeniería.
 
 Si tu ciclo de lanzamientos es lento debido al QA manual, o si tus despliegues a producción suelen requerir retornos de emergencia (rollbacks), es momento de implementar un flujo profesional.
-
-### ¿Listo para asegurar tus despliegues?
-
-- **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-- **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20implementar%20pipelines%20de%20CI%2FCD%20y%20pruebas%20automatizadas%20en%20mi%20proyecto.) para conversar sobre los requerimientos, tiempos y costos de tu proyecto.

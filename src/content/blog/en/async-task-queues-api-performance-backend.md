@@ -119,7 +119,3 @@ Through the **Senior + AI Factor**, we combine over a decade of hands-on softwar
 ## Optimize Your Backend Performance Today
 
 Don't let blocked threads and slow APIs limit your software's potential. Building an asynchronous, event-driven architecture is the key to delivering the speed and stability your users expect.
-
-### Ready to scale your API performance?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your API latency, backend architecture, and scale challenges in a 15-minute discovery session.
-* **Get a Direct Quote**: Chat directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20optimizing%20API%20performance%20and%20async%20task%20queues%20for%20my%20platform.) to get an estimate for decoupling your workloads and optimizing backend performance.

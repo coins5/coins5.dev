@@ -103,7 +103,3 @@ En mi práctica profesional, utilizo herramientas avanzadas de Inteligencia Arti
 ## Asegura el Retorno de tu Inversión en Software
 
 El desarrollo bajo principios SOLID y Clean Architecture protege tu inversión inicial y garantiza que tu producto digital pueda evolucionar al mismo ritmo que tu negocio. Si tu plataforma actual es propensa a fallos con cada actualización, o si tu equipo de desarrollo tarda demasiado en añadir pequeños cambios, es momento de rediseñar tu arquitectura.
-
-### ¿Listo para acelerar tu desarrollo?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20implementar%20Clean%20Architecture%20y%20SOLID%20en%20mi%20proyecto.) para conversar sobre los requerimientos, tiempos y costos de tu proyecto.

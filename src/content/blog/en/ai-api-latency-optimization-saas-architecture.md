@@ -121,7 +121,3 @@ Through the **Senior + AI Factor**, we leverage over a decade of system design e
 ## Streamline Your AI Pipelines and Protect Your Runway
 
 Don't let slow response times and spiraling API costs limit your product's growth. Building a robust async streaming backend is the key to creating AI software that scales seamlessly.
-
-### Ready to optimize your AI backend architecture?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your AI latency, API costs, and system design in a 15-minute discovery session.
-* **Get a Direct Quote**: Chat directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20optimizing%20AI%20latency%20and%20API%20streaming%20for%20my%20platform.) to get an estimate for optimizing your AI pipelines and backend performance.

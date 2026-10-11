@@ -97,8 +97,3 @@ La IA acelera la escritura del código optimizado, mientras que el ingeniero sen
 Esta metodología no es teórica. En proyectos reales como **Strategio** (donde diseñé el core de BI desde cero) y **NubaNutrición** (extrayendo insights clínicos con IA), logramos procesar grandes volúmenes de datos manteniendo los costos de hosting al mínimo absoluto, logrando infraestructuras ágiles y libres de bugs.
 
 Si los costos de tu hosting en AWS o Azure suben mes a mes, o si tu plataforma se torna lenta en horas pico, es momento de dejar de pagar por más hardware y empezar a diseñar mejor software.
-
-### ¿Listo para acelerar tu desarrollo?
-
-- **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-- **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20servicios%20de%20digitalizaci%C3%B3n%20y%20automatizaci%C3%B3n.) para conversar sobre los requerimientos, tiempos y costos de tu proyecto.

@@ -138,7 +138,3 @@ Implementar Clean Architecture en proyectos de Flutter grandes ofrece beneficios
 ## Protege el Crecimiento de tu Aplicación Móvil
 
 Clean Architecture asegura que tu desarrollo en Flutter sea modular, mantenible y escalable. Si tu app móvil actual sufre de errores constantes con cada actualización, o si tu equipo de desarrollo tarda demasiado en añadir pequeños cambios, es momento de rediseñar tu arquitectura.
-
-### ¿Listo para escalar tu aplicación Flutter?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre la arquitectura de tu aplicación móvil en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Conversa conmigo directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20implementar%20Clean%20Architecture%20y%20SOLID%20en%20mi%20proyecto.) para evaluar los requerimientos técnicos, tiempos y presupuesto de tu aplicación.

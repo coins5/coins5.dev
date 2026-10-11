@@ -84,7 +84,3 @@ This hybrid approach allows us to design, validate, and deploy robust SQL/NoSQL 
 ## Scale Your Data Architecture Without Limits
 
 Do not let database bottlenecks stall your product's growth. Selecting the right SQL/NoSQL boundaries early prevents expensive migrations and ensures your application stays fast under heavy load.
-
-### Ready to future-proof your data layer?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your database performance, scaling roadmap, and cloud infrastructure costs in a 15-minute discovery session.
-* **Get a Direct Quote**: Connect directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20NoSQL%20database%20strategy%20and%20horizontal%20scaling%20for%20my%20platform.) to get a cost and timeline estimate for optimizing your database architecture.

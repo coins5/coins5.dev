@@ -78,7 +78,3 @@ Combinando el criterio de un **diseño arquitectónico robusto** con la acelerac
 Definir los límites arquitectónicos correctos en tu plataforma web es el factor decisivo para que tus equipos sigan entregando valor de negocio de forma rápida y segura.
 
 Si estás experimentando lentitud en tus despliegues o quieres diseñar una plataforma escalable desde su arquitectura, hablemos.
-
-### ¿Listo para escalar tu plataforma web?
-* **Agendar llamada**: [Reserva una llamada de descubrimiento de 15 minutos](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para analizar tu arquitectura actual y diseñar tu roadmap tecnológico.
-* **Cotizar por WhatsApp**: Conversemos directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20la%20arquitectura%20de%20microfrontends%20para%20mi%20plataforma%20web.) para evaluar el alcance, costos y plazos de tu proyecto.
