@@ -133,6 +133,14 @@ import CtaSection from "../features/contact/CtaSection.astro";
 </Layout>
 ```
 
+### 3.5. Contratos Técnicos de SEO y Enrutamiento Canónico
+Para garantizar 100/100 en salud SEO e indexación estricta por motores de búsqueda:
+* **Jerarquía de Encabezados (Regla del H1 Único):** Todo template `[slug].astro` inyecta automáticamente el `<h1>` con `{entry.data.title}`. Por tanto, los archivos Markdown (`.md`) dentro de `src/content/` deben comenzar estrictamente con `## ` (H2), garantizando un único H1 semántico por página.
+* **Enrutamiento y Trailing Slash (`/`):** El proyecto aplica `trailingSlash: "always"` en `astro.config.mjs`. Todo enlace interno `<a href="...">` en `Navbar`, `Footer`, componentes de feature o contenidos Markdown debe incluir la barra final (ej. `/services/`, `/cases/`, `/blog/${slug}/`).
+* **Directiva `noindex` en Rutas de Error:** La plantilla `404.astro` y cualquier ruta no indexable deben invocar `<Layout noindex={true}>`, impidiendo la indexación accidental (Soft 404) y suprimiendo etiquetas canónicas o variantes hreflang en dichas rutas.
+* **Metadatos Dinámicos en Paginación:** Rutas paginadas (`[...page].astro`) deben concatenar `- Page ${page.currentPage}` al título y descripción a partir de la página 2 para prevenir advertencias de metadatos duplicados.
+* **Activos Sociales y Schemas:** La tarjeta social por defecto debe residir en `public/default-preview.png` (1200x630 px) y las imágenes de `Person` / `Organization` en `public/marlon.png` como URLs absolutas (`${siteUrl}/...`).
+
 ---
 
 ## 4. Desacoplamiento de `AGENTS.md`
