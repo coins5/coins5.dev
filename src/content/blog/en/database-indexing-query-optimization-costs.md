@@ -75,7 +75,3 @@ By leveraging the **Senior + AI Factor**, we quickly isolate slow-running querie
 ## Keep Your Database Fast and Your Cloud Bills Low
 
 Don't let database latency drag down your application speed and drain your startup's runway. A single afternoon of database tuning can save thousands of dollars in cloud infrastructure costs.
-
-### Ready to scale your product?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your database performance, cloud infrastructure scaling, and technical roadmap in a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20database%20scaling%20and%20performance%20optimization%20for%20my%20application.) to discuss scope, timelines, and database optimization options.

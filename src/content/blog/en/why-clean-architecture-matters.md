@@ -105,7 +105,3 @@ Today, we leverage advanced agentic AI tools to write boilerplate code, set up t
 Clean Architecture is not about over-engineering; it is about protecting your software investment. It ensures your application is easy to scale, pleasant to work with, and ready for whatever changes the market or technology landscape brings.
 
 If your product is suffering from regression bugs, or your development velocity has slowed to a crawl, it is time to transition to a modular design.
-
-### Ready to scale your product?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and roadmap during a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20Clean%20Architecture%20and%20SOLID%20implementation%20for%20my%20software.) to discuss scope, pricing, and timelines.

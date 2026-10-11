@@ -121,7 +121,3 @@ A través del **Factor Senior + IA**, unimos más de una década de experiencia 
 ## Optimiza la Latencia de tu IA y Protege la Caja de tu Negocio
 
 No permitas que las respuestas lentas de los LLMs y los costos elevados de las APIs limiten la escala de tu producto. Diseñar un backend asíncrono y optimizado con caching es la clave para un SaaS rentable y de alto rendimiento.
-
-### ¿Listo para optimizar tu backend de IA?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para analizar la latencia de tu API, tus costos de consumo y diseñar tu roadmap técnico en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20optimizar%20la%20latencia%20de%20IA%20y%20streaming%20de%20APIs%20en%20mi%20plataforma.) para evaluar las opciones de optimización y escalabilidad de tu backend de IA.

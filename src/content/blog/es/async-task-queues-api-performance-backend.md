@@ -119,7 +119,3 @@ A través del **Factor Senior + IA**, fusionamos más de una década de experien
 ## Optimiza el Rendimiento de tu API Hoy Mismo
 
 No permitas que procesos pesados bloqueen el crecimiento y la velocidad de tu plataforma de software. Construir una arquitectura desacoplada y orientada a eventos es el camino correcto para tener un negocio digital escalable y rentable.
-
-### ¿Listo para acelerar tu desarrollo backend?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre la latencia de tus APIs, tus cuellos de botella técnicos y diseñar tu roadmap en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20dise%C3%B1ar%20colas%20de%20tareas%20as%C3%ADncronas%20y%20optimizar%20la%20velocidad%20de%20mis%20APIs.) para analizar los requerimientos de tu backend y obtener un presupuesto detallado para optimizar el rendimiento de tu software.

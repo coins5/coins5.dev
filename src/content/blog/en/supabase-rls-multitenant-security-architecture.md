@@ -133,7 +133,3 @@ By combining over a decade of database design experience with advanced **AI acce
 Securing your corporate data is not a feature—it is the foundation of your company's credibility. Transitioning to a declarative, database-level security model like Supabase RLS will bulletproof your platform and prepare your startup to close high-value enterprise accounts.
 
 If you are planning to launch a secure B2B SaaS, preparing your database infrastructure for a SOC 2 audit, or seeking to eliminate security technical debt in your current architecture, let's build it right.
-
-### Ready to secure your SaaS database?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and security roadmap in a 15-minute discovery session.
-* **Get a Direct Quote**: Chat directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20Supabase%20RLS%20and%20secure%20multitenant%20architecture%20for%20my%20SaaS%20platform.) to discuss scope, pricing, and project timelines.

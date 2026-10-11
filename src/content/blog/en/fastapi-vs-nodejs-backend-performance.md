@@ -66,8 +66,3 @@ If your B2B product relies heavily on machine learning model hosting, data analy
 ## Leverage the Senior + AI Factor to Accelerate Your Backend
 
 In our practice, we don't just write code; we architect systems. By combining a decade of architectural experience (Clean Architecture, SOLID design) with state-of-the-art agentic AI pipelines, we build and deploy production-ready FastAPI or Node.js backends up to 3x faster, keeping hosting costs low and code robustness high.
-
-### Ready to build a high-performance backend?
-
-- **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your backend architecture and scale during a 15-minute discovery session.
-- **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20FastAPI%20and%20Node.js%20backend%20performance%20for%20my%20project.) to discuss scope, pricing, and timelines for your upcoming software development.

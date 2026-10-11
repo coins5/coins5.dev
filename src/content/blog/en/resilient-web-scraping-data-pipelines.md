@@ -134,8 +134,3 @@ batch_upsert_data(scraped_items)
 Building large-scale data systems requires structural discipline. Applying Clean Architecture to data ingestion ensures your parsing logic is decoupled from your network client, making it easy to swap crawler engines or adapt to target changes in minutes.
 
 At **Coins5**, Marlon applies over a decade of software engineering expertise (solidifying Clean Architecture, PostgreSQL optimization, and robust async patterns) combined with AI-powered development workflows. By utilizing AI to write comprehensive integration tests and validate edge cases rapidly, we build bulletproof pipelines up to 3x faster than standard development teams, keeping your operational costs low and your data clean.
-
-### Need to automate data extraction for your business?
-
-- **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your data architecture, Supabase setup, and scalability needs during a 15-minute discovery session.
-- **Get a Direct Quote**: Let's discuss your targets, scope, and timeline directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20custom%20AI%20agents%20and%20automation%20for%20my%20business.).

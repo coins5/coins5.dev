@@ -92,7 +92,3 @@ Esta arquitectura híbrida asegura que puedas escalar el **desarrollo de bots de
 La integración exitosa de Inteligencia Artificial requiere criterio arquitectónico. No se trata de escribir mejores prompts, sino de diseñar límites limpios, aplicar modularidad y seguir principios SOLID en el backend.
 
 En **Coins5**, Marlon une más de una década de trayectoria como Arquitecto de Software y desarrollador Full Stack con las herramientas de IA más avanzadas del mercado. El uso quirúrgico de herramientas de inteligencia artificial acelera la escritura y prueba del código, mientras que la experiencia senior garantiza que el software final sea robusto, libre de deudas técnicas y optimizado para el hosting más eficiente posible.
-
-### ¿Listo para automatizar las operaciones de tu empresa con IA?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Conversa directamente conmigo por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20me%20gustar%C3%ADa%20discutir%20el%20desarrollo%20de%20agentes%20de%20IA%20y%20automatizaci%C3%B3n%20para%20mi%20empresa.) para cotizar requerimientos, costos y tiempos de entrega.

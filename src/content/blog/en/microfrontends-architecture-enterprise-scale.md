@@ -78,7 +78,3 @@ By leveraging the **Senior + AI Factor**, we can build and maintain clean, modul
 Choosing the right architectural boundary is key to maintaining long-term development velocity and minimizing cloud hosting and development costs. 
 
 Whether you need to decouple a legacy monolith or build a clean, scalable multi-team platform, I can help you architect the right solution.
-
-### Ready to scale your product?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and roadmap during a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20microfrontends%20and%20frontend%20architecture%20at%20scale%20for%20my%20business.) to discuss scope, pricing, and timelines.

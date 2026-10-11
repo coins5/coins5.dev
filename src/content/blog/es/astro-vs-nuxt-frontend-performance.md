@@ -95,8 +95,3 @@ Si tu canal principal de captación es el tráfico orgánico o campañas pagadas
 Elegir el framework correcto no se trata de buscar la herramienta "más moderna", sino de alinear la arquitectura de software con los objetivos de negocio y conversión de tu empresa.
 
 Si tu plataforma actual es lenta, sufre de bugs constantes o ahuyenta a tus usuarios, diseñamos soluciones de software rápidas, escalables y optimizadas para minimizar los costos de infraestructura.
-
-### ¿Listo para acelerar tu plataforma web?
-
-- **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-- **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20servicios%20de%20digitalizaci%C3%B3n%20y%20automatizaci%C3%B3n.) para conversar sobre los requerimientos, tiempos y costos de tu proyecto.

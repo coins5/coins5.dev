@@ -92,7 +92,3 @@ Deja de pagar por procesos ineficientes y comités. Empieza a poner software rea
 ## Optimiza tu Proceso de Desarrollo Hoy Mismo
 
 Si el desarrollo de tu software está estancado por procesos lentos, mala comunicación o despliegues manuales estresantes, es hora de dar el paso hacia un enfoque ágil y pragmático.
-
-### ¿Listo para acelerar tus lanzamientos?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20desarrollar%20mi%20proyecto%20de%20software%20sin%20burocracia.) para conversar sobre los requerimientos, tiempos y costos de tu proyecto.

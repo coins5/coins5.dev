@@ -103,7 +103,3 @@ By combining the **Senior + AI Factor**, we leverage over a decade of clean arch
 ## Build a Fast, High-Converting Website Today
 
 Do not let bloated JavaScript frameworks hurt your search engine rankings and cost you valuable B2B leads. Reclaim your performance, optimize your Core Web Vitals, and turn your website into an active client acquisition engine.
-
-### Ready to optimize your frontend performance?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss migrating your marketing site to Astro and optimizing your Core Web Vitals in a 15-minute discovery session.
-* **Get a Direct Quote**: Chat directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20migrating%20our%20website%20to%20Astro%20to%20improve%20performance%20and%20conversions.) to get a tailored estimate for your next-generation frontend architecture.

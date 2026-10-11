@@ -75,7 +75,3 @@ Las medianas y grandes empresas que contratan software realizan evaluaciones de 
 Construir un SaaS seguro no se trata de diseñar un búnker impenetrable desde el primer día, sino de adoptar los patrones arquitectónicos correctos para que la seguridad crezca orgánicamente junto con tu negocio.
 
 Si estás planificando el lanzamiento de una plataforma SaaS, manejas información crítica de usuarios o necesitas preparar tu infraestructura para auditorías de seguridad, construyamos una base sólida.
-
-### ¿Listo para asegurar tu SaaS?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20asegurar%20la%20arquitectura%20y%20privacidad%20de%20datos%20de%20mi%20SaaS.) para conversar sobre los requerimientos, tiempos y costos de tu proyecto.

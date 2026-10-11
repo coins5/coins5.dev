@@ -101,7 +101,3 @@ A través del **Factor Senior + IA**, unimos más de diez años de experiencia e
 ## Reduce tus Costos Cloud y Recupera el Control de tus Servidores
 
 No permitas que las facturas de las plataformas PaaS consuman el presupuesto de desarrollo de tu MVP o producto consolidado. Diseñar un flujo de despliegue continuo con Docker y Dokploy te permite escalar tu producto con la mayor eficiencia de capital posible.
-
-### ¿Listo para optimizar la infraestructura de tu startup?
-* **Agenda una Reunión**: [Reserva una llamada de descubrimiento de 15 minutos](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para analizar tu infraestructura actual, costos de hosting y definir tu roadmap técnico.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20la%20migracion%20de%20mi%20plataforma%20a%20un%20VPS%20autohospedado%20con%20Docker%20y%20Dokploy.) para evaluar la optimización de tus servidores y configuraciones de despliegue continuo.

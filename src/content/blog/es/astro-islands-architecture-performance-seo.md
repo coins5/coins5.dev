@@ -103,7 +103,3 @@ A través del **Factor Senior + IA**, combinamos más de una década de experien
 ## Construye un Sitio Corporativo de Alta Conversión
 
 No dejes que los frameworks de JavaScript pesados arruinen tu posicionamiento en Google y reduzcan tus oportunidades de negocio. Optimiza tus Core Web Vitals y convierte tu sitio corporativo en una herramienta de captación constante de leads.
-
-### ¿Listo para optimizar el rendimiento de tu web corporativa?
-* **Agenda una Reunión**: [Reserva una llamada de descubrimiento de 15 minutos](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para analizar tu infraestructura actual, costos de hosting y definir tu roadmap técnico.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20la%20migracion%20de%20nuestro%20sitio%20a%20Astro%20para%20mejorar%20el%20rendimiento%20y%20conversiones%20de%20nuestro%20negocio.) para evaluar los requerimientos y optimizaciones frontend de tu plataforma.

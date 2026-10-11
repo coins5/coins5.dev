@@ -84,7 +84,3 @@ Esta sinergia nos permite estructurar e implementar arquitecturas híbridas SQL/
 ## Escala tu Arquitectura de Datos sin Límites
 
 No permitas que las limitaciones de una base de datos lenta frenen el ritmo de tu negocio. Definir correctamente los límites entre tu base de datos relacional y NoSQL te ahorrará costosas migraciones y garantizará la continuidad de tu plataforma ante cualquier pico de demanda.
-
-### ¿Listo para optimizar tu arquitectura de persistencia?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para analizar el rendimiento de tus bases de datos, identificar cuellos de botella y trazar un roadmap de escalabilidad en una sesión de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20me%20gustar%C3%ADa%20conversar%20sobre%20la%20estrategia%20NoSQL%20y%20el%20escalamiento%20horizontal%20de%20mis%20bases%20de%20datos.) para recibir una estimación de costo y tiempos para optimizar la base de datos de tu plataforma.

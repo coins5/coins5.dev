@@ -77,7 +77,3 @@ Mid-market and enterprise buyers do not buy software without putting it through 
 Building a secure SaaS architecture is not about building a bulletproof vault all at once; it is about establishing correct engineering patterns early so security scales naturally with your product.
 
 If you are planning a new SaaS launch, managing critical user data, or looking to prepare your architecture for SOC 2 or HIPAA compliance, let's build your security foundation.
-
-### Ready to secure your SaaS?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and roadmap during a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20secure%20SaaS%20architecture%20and%20data%20privacy%20for%20my%20platform.) to discuss scope, pricing, and timelines.

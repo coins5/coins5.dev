@@ -132,8 +132,3 @@ batch_upsert_data(items_extraidos)
 Diseñar flujos de datos de alto rendimiento requiere criterio arquitectónico profundo. Al estructurar **pipelines de datos resilientes** bajo Clean Architecture, separamos las reglas de negocio del scraper de los detalles de red y almacenamiento, permitiendo adaptarnos a cambios en los sitios destino en cuestión de minutos.
 
 En **Coins5**, Marlon combina más de 10 años de experiencia como Arquitecto de Software y desarrollador Full Stack con el uso avanzado de Inteligencia Artificial para la aceleración del código. Esto nos permite estructurar sistemas de extracción masiva altamente robustos y optimizados para consumir el mínimo ancho de banda y hardware de servidor posible, entregando el proyecto hasta 3 veces más rápido.
-
-### ¿Quieres automatizar la recolección de datos en tu negocio?
-
-- **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de datos en una llamada de descubrimiento de 15 minutos.
-- **Cotiza por WhatsApp**: Conversemos directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20servicios%20de%20digitalizaci%C3%B3n%20y%20automatizaci%C3%B3n.) para evaluar alcances, cotizar costos y planificar tiempos de entrega.

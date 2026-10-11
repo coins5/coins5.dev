@@ -92,8 +92,3 @@ Mediante el **Factor Senior + IA**, utilizamos herramientas de Inteligencia Arti
 ## Asegura una Infraestructura Cloud Rentable y Escalable
 
 No dejes que una mala estrategia de servidores consuma el presupuesto de tu empresa. Elegir entre Serverless y VPS es una decisión de negocio crítica que afecta directamente tu rentabilidad.
-
-### ¿Listo para optimizar y escalar tus sistemas en la nube?
-
-- **Agenda una Reunión**: [Reserva una llamada de descubrimiento de 15 minutos](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para analizar tu infraestructura actual, costos de hosting y definir tu roadmap técnico.
-- **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20servicios%20de%20digitalizaci%C3%B3n%20y%20automatizaci%C3%B3n.) para evaluar la optimización de tus servidores y configuraciones de despliegue continuo.

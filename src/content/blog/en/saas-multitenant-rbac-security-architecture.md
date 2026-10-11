@@ -76,7 +76,3 @@ Investing in a robust multitenant RBAC architecture is not just a technical prec
 Securing a multitenant platform requires foresight and precision. By implementing correct relational schemas and API-level authorization early, you save months of refactoring and build an infrastructure prepared for enterprise scale.
 
 If you are currently designing a B2B SaaS, preparing your startup for SOC 2 certification, or refactoring access controls in an active application, let's build a secure foundation together.
-
-### Ready to secure your SaaS architecture?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and security roadmap in a 15-minute discovery session.
-* **Get a Direct Quote**: Chat directly on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20secure%20multitenant%20RBAC%20architecture%20and%20SaaS%20security%20for%20my%20platform.) to discuss scope, pricing, and project timelines.

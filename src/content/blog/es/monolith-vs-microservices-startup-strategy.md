@@ -86,7 +86,3 @@ Combinando directrices de arquitectura senior con metodologías ágiles acelerad
 ## Protege el Futuro de tu Startup
 
 El monolito modular no es un paso intermedio deficiente; es el estándar de oro de la eficiencia de ingeniería para startups. Mantén tu sobrecarga operativa al mínimo, protege tu velocidad de desarrollo y escala la infraestructura física solo cuando tu tracción comercial lo demande.
-
-### ¿Listo para acelerar tu desarrollo de software?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20implementar%20Clean%20Architecture%20y%20SOLID%20en%20mi%20proyecto.) para conversar sobre los requerimientos, tiempos y costos de tu proyecto de software.

@@ -95,8 +95,3 @@ If 80% of your traffic comes from public search or paid campaigns, choosing **As
 Selecting the right frontend infrastructure is not about choosing the "better" framework—it is about matching technical architecture to your business model.
 
 If your current web platform is slow, bloated with legacy JavaScript, or failing to convert traffic, we can help you architect a migration or design a new high-speed MVP.
-
-### Ready to accelerate your digital growth?
-
-- **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and roadmap during a 15-minute discovery session.
-- **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20cloud%20optimization%20and%20automation%20for%20my%20business.) to discuss scope, pricing, and timelines.

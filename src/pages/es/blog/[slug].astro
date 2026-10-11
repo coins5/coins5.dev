@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import { ArrowLeft, Calendar, Tag } from "@lucide/astro";
+import { ArrowLeft, Calendar, Tag, MessageSquare } from "@lucide/astro";
 import { Image } from "astro:assets";
 import marlonImage from "../../../assets/marlon.png";
 import Layout from "../../../layouts/Layout.astro";
@@ -47,6 +47,9 @@ const articleSchema = [
     { name: entry.data.title, url: canonicalUrl },
   ]),
 ];
+
+const whatsappMessage = `Hola Marlon, quisiera cotizar un proyecto de software relacionado con "${entry.data.title}".`;
+const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 ---
 
 <Layout
@@ -113,8 +116,46 @@ const articleSchema = [
       <Content />
     </article>
 
+    <!-- Bottom Article CTA (AIDA: Action - Scalable Conversion) -->
+    <div
+      class="mt-14 p-8 sm:p-10 rounded-2xl border text-center shadow-lg transition-all"
+      style="background-color: var(--card-inner-bg); border-color: var(--card-border);"
+    >
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-primary mb-3 tracking-tight font-sans">
+        ¿Listo para acelerar tu desarrollo?
+      </h3>
+      <p
+        class="text-sm sm:text-base max-w-xl mx-auto mb-6 leading-relaxed font-sans"
+        style="color: var(--color-text-body);"
+      >
+        Conversemos sobre tu arquitectura de software, infraestructura cloud o nuevo MVP en una llamada técnica de descubrimiento de 15 minutos.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
+        <a
+          href={siteConfig.calendlyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-sm px-6 py-2.5 h-auto rounded-lg font-bold border-none transition-all hover:scale-[1.02] active:scale-[0.98]"
+          style="background-color: var(--cta-primary-bg); color: var(--cta-primary-text);"
+        >
+          <Calendar class="w-4 h-4 mr-2" stroke-width="2" />
+          Agendar una Reunión
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-ghost btn-sm px-5 py-2.5 h-auto rounded-lg font-semibold border transition-all hover:border-emerald-500/40"
+          style="border-color: var(--card-border); color: var(--color-text-body);"
+        >
+          <MessageSquare class="w-4 h-4 mr-2 text-emerald-500" stroke-width="2" />
+          Cotizar por WhatsApp
+        </a>
+      </div>
+    </div>
+
     <!-- Author Bio & Engineering Advisory Card -->
-    <div class="mt-16 pt-10 border-t" style="border-color: var(--card-border);">
+    <div class="mt-14 pt-10 border-t" style="border-color: var(--card-border);">
       <div class="card-premium rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
         <Image
           src={marlonImage}

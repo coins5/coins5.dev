@@ -94,7 +94,3 @@ Stop paying for meetings. Start shipping software.
 ## Streamline Your Delivery Pipeline Today
 
 If your current software development cycle is bogged down by complex management tools, communication gaps, or slow release cycles, it is time to shift to a pragmatic, engineering-first approach.
-
-### Ready to build and deploy faster?
-* **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and roadmap during a 15-minute discovery session.
-* **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20a%20software%20project%20using%20pragmatic%20agile%20delivery.) to discuss scope, pricing, and timelines.

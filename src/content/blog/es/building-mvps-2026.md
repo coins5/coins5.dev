@@ -63,7 +63,3 @@ export class StripeProcessor implements PaymentProcessor {
 Un MVP no tiene por qué ser descartable. Con el enfoque Senior + IA, obtienes una base de código limpia y bien documentada que servirá como el núcleo del trabajo de tu equipo de desarrollo a medida que la empresa crezca.
 
 Si buscas desarrollar un MVP ágil y robusto, optimizar tu infraestructura actual o resolver problemas de deuda técnica en tu plataforma, conversemos.
-
-### ¿Listo para acelerar tu desarrollo?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20cotizar%20un%20proyecto%20de%20software.) para conversar sobre los requerimientos, tiempos y costos de tu proyecto.

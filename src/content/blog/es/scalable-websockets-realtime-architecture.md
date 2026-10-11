@@ -145,7 +145,3 @@ Bajo la fórmula del **Factor Senior + IA**, unimos más de una década de exper
 ## Impulsa tu Plataforma hacia el Tiempo Real
 
 No permitas que las consultas HTTP lentas frenen la experiencia de tus clientes y aumenten innecesariamente tus facturas en la nube. Diseñar una arquitectura basada en WebSockets y Redis es una de las decisiones técnicas con mayor retorno para empresas que buscan crecer.
-
-### ¿Listo para escalar tu arquitectura de software?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tus retos de latencia, concurrencia y backend en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20implementar%20WebSockets%20escalables%20y%20tiempo%20real%20en%20mi%20proyecto.) para conversar sobre los requerimientos, costos y tiempos de entrega para tu plataforma.

@@ -74,7 +74,3 @@ Un diseño RBAC multitenant maduro no es un costo de infraestructura, sino un ac
 El aislamiento de datos y la gestión de permisos sólida definen la viabilidad a largo plazo de un SaaS B2B. Adoptar estos patrones desde el principio evita costosos refactorizados de backend y ofrece tranquilidad a tus clientes corporativos.
 
 Si estás planificando el lanzamiento de tu SaaS, preparándote para vender a grandes empresas o necesitas auditar y robustecer el control de accesos de tu aplicación actual, diseñemos una arquitectura sólida y libre de vulnerabilidades.
-
-### ¿Listo para asegurar tu arquitectura SaaS?
-* **Agenda una Reunión**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) para conversar sobre tu arquitectura de software en una llamada de descubrimiento de 15 minutos.
-* **Cotiza por WhatsApp**: Escríbeme directamente por [WhatsApp](https://wa.me/51922913739?text=Hola%20Marlon%2C%20quisiera%20conversar%20sobre%20c%C3%B3mo%20dise%C3%B1ar%20un%20sistema%20RBAC%20multitenant%20seguro%20para%20mi%20plataforma%20SaaS.) para analizar requerimientos, cotizar el proyecto y planificar tiempos de entrega.

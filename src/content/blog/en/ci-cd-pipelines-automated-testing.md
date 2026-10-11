@@ -113,8 +113,3 @@ Bugs caught in the CI pipeline cost virtually nothing to fix. Bugs caught by cus
 A software product that is afraid of its own deployments is a product that cannot scale. Transitioning from stressful, manual releases to automated, high-confidence CI/CD workflows is the single most impactful upgrade you can make to your engineering velocity.
 
 If your product launch cycle is bogged down by manual QA, or if production deployments keep causing emergency rollbacks, it is time to build a professional pipeline.
-
-### Ready to secure your deployments?
-
-- **Schedule a Call**: [Book a Call](https://calendar.app.google/AbnPNcKVJyDnaU9z5) to discuss your software architecture and roadmap during a 15-minute discovery session.
-- **Get a Direct Quote**: Start a direct conversation on [WhatsApp](https://wa.me/51922913739?text=Hello%20Marlon%2C%20I%20would%20like%20to%20discuss%20implementing%20CI%2FCD%20pipelines%20and%20automated%20testing%20for%20my%20project.) to discuss scope, pricing, and timelines.
