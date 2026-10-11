@@ -28,12 +28,25 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
+import { getArticleSchema, getBreadcrumbSchema } from "../../../utils/seo-schemas";
+
 // Format date nicely in Spanish
 const formattedDate = entry.data.pubDate.toLocaleDateString("es-PE", {
   year: "numeric",
   month: "long",
   day: "numeric",
 });
+
+const currentSlug = Astro.params.slug;
+const canonicalUrl = `${siteConfig.siteUrl}/es/blog/${currentSlug}/`;
+const articleSchema = [
+  getArticleSchema(entry, canonicalUrl, "es"),
+  getBreadcrumbSchema([
+    { name: "Inicio", url: `${siteConfig.siteUrl}/es/` },
+    { name: "Blog", url: `${siteConfig.siteUrl}/es/blog/` },
+    { name: entry.data.title, url: canonicalUrl },
+  ]),
+];
 ---
 
 <Layout
@@ -43,6 +56,7 @@ const formattedDate = entry.data.pubDate.toLocaleDateString("es-PE", {
   keywords={entry.data.keywords}
   ogImage={entry.data.ogImage}
   ogType="article"
+  schema={articleSchema}
 >
   <div class="relative py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb & Back button -->

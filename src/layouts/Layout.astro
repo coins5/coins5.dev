@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
 import { siteConfig } from "../config";
 import Analytics from "@vercel/analytics/astro";
+import { getOrganizationSchema, getPersonSchema } from "../utils/seo-schemas";
 
 interface Props {
   title: string;
@@ -14,6 +15,7 @@ interface Props {
   ogImage?: string;
   canonicalUrl?: string;
   ogType?: "website" | "article";
+  schema?: any;
 }
 
 const {
@@ -24,6 +26,7 @@ const {
   ogImage,
   canonicalUrl,
   ogType = "website",
+  schema,
 } = Astro.props;
 
 // SEO length checks warning in development
@@ -60,6 +63,11 @@ const xDefaultUrl = enUrl;
 
 // Definimos la URL canónica de la página actual de forma estricta
 const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
+
+const resolvedSchema = schema || [
+  getOrganizationSchema(lang),
+  getPersonSchema(),
+];
 ---
 
 <!doctype html>
@@ -121,6 +129,13 @@ const canonical = canonicalUrl || (lang === "es" ? esUrl : enUrl);
     <!-- SE REMOVIERON LOS TAGS MANUALES DE CANONICAL Y HREFLANG QUE CAUSABAN LA DUPLICIDAD -->
 
     <Analytics />
+
+    <!-- Structured Data (JSON-LD) for Search & AI Engines -->
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(resolvedSchema)}
+    />
   </head>
   <body
     class="bg-base-100 text-base-content min-h-screen flex flex-col antialiased selection:bg-secondary selection:text-secondary-content"

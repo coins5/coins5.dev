@@ -45,6 +45,19 @@ const nextSlug = nextCase
       .pop()
       ?.replace(/\.(md|mdx)$/, "") || nextCase.id
   : null;
+
+import { getCaseStudySchema, getBreadcrumbSchema } from "../../utils/seo-schemas";
+
+const currentSlug = Astro.params.slug;
+const canonicalUrl = `${siteConfig.siteUrl}/cases/${currentSlug}/`;
+const caseSchema = [
+  getCaseStudySchema(entry, canonicalUrl, "en"),
+  getBreadcrumbSchema([
+    { name: "Home", url: `${siteConfig.siteUrl}/` },
+    { name: "Case Studies", url: `${siteConfig.siteUrl}/cases/` },
+    { name: entry.data.title, url: canonicalUrl },
+  ]),
+];
 ---
 
 <Layout
@@ -54,6 +67,7 @@ const nextSlug = nextCase
   keywords={entry.data.keywords}
   ogImage={entry.data.ogImage}
   ogType="article"
+  schema={caseSchema}
 >
   <div class="relative py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb & Back button -->
