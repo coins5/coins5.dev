@@ -145,3 +145,73 @@ body {
 .glow-sandstone:hover {
   box-shadow: 0 0 45px var(--ambient-glow);
 }
+
+/* Typography prose rules adapting to Sandstone dual themes */
+.prose {
+  color: var(--color-text-body);
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: var(--color-heading);
+  letter-spacing: -0.02em;
+}
+
+.prose p {
+  color: var(--color-text-body);
+  line-height: 1.75;
+}
+
+.prose strong {
+  color: var(--color-heading);
+}
+
+.prose a {
+  color: var(--badge-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.prose a:hover {
+  opacity: 0.8;
+}
+
+.prose code {
+  color: var(--badge-text);
+  background-color: var(--card-inner-bg);
+  border: 1px solid var(--card-border);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose code::before,
+.prose code::after {
+  content: none !important;
+}
+
+.prose pre {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 0.75rem !important;
+  padding: 1rem 1.25rem !important;
+}
+
+.prose pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.prose blockquote {
+  border-left-color: var(--card-border);
+  color: var(--color-text-body);
+}
+
+.prose ul, .prose ol {
+  color: var(--color-text-body);
+}
+
+.prose hr {
+  border-color: var(--card-border);
+}

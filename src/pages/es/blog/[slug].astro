@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import { ArrowLeft } from "@lucide/astro";
+import { ArrowLeft, Calendar, Tag } from "@lucide/astro";
 import Layout from "../../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -10,8 +10,6 @@ export async function getStaticPaths() {
   const esEntries = blogEntries.filter((entry) => entry.data.lang === "es");
 
   return esEntries.map((entry) => {
-    // The slug is the last segment of the file's ID (e.g. "es/mvps-a-medida" -> "mvps-a-medida")
-    // stripping any extensions.
     const slug =
       entry.id
         .split("/")
@@ -43,25 +41,30 @@ const formattedDate = entry.data.pubDate.toLocaleDateString("es-PE", {
   ogImage={entry.data.ogImage}
   ogType="article"
 >
-  <div class="py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb & Back button -->
     <a
       href="/es/blog"
-      class="inline-flex items-center text-sm font-mono text-secondary hover:text-stone-400 mb-8 transition-colors group"
+      class="inline-flex items-center text-xs font-mono font-bold text-secondary mb-8 transition-colors group"
     >
       <ArrowLeft
         class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
-        stroke-width="1.5"
-      /> Volver al Blog
+        stroke-width="2"
+      />
+      Volver al Blog
     </a>
 
-    <header class="mb-10 pb-8 border-b border-stone-800/60">
+    <header class="mb-10 pb-8 border-b" style="border-color: var(--card-border);">
       <!-- Tags -->
       {
         entry.data.tags && entry.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-2 mb-4">
             {entry.data.tags.map((tag: string) => (
-              <span class="px-2.5 py-1 text-xs font-mono bg-base-200 border border-stone-800 text-stone-300 rounded-md">
+              <span
+                class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded"
+                style="background-color: var(--tech-pill-bg); border: 1px solid var(--tech-pill-border); color: var(--tech-pill-text);"
+              >
+                <Tag class="w-3 h-3" stroke-width="1.5" />
                 {tag}
               </span>
             ))}
@@ -70,33 +73,26 @@ const formattedDate = entry.data.pubDate.toLocaleDateString("es-PE", {
       }
 
       <h1
-        class="text-3xl md:text-5xl font-extrabold text-primary tracking-tight leading-tight mb-4"
+        class="text-3xl md:text-5xl font-extrabold text-primary tracking-tight leading-tight mb-4 font-sans"
       >
         {entry.data.title}
       </h1>
 
-      <div class="flex items-center text-sm text-stone-400 font-mono">
+      <div
+        class="flex items-center text-xs font-mono opacity-75"
+        style="color: var(--color-text-body);"
+      >
+        <Calendar class="w-3.5 h-3.5 text-secondary mr-1.5" stroke-width="2" />
         <time datetime={entry.data.pubDate.toISOString()}>
           {formattedDate}
         </time>
-        <span class="mx-3 text-stone-600">&bull;</span>
+        <span class="mx-3 opacity-40">&bull;</span>
         <span>Escrito por Marlon</span>
       </div>
     </header>
 
-    <!-- Premium Reading Layout using Tailwind Typography -->
-    <article
-      class="prose prose-stone prose-invert max-w-none
-      prose-headings:text-primary
-      prose-p:text-text-body prose-p:leading-relaxed prose-p:mb-6
-      prose-a:text-secondary hover:prose-a:text-stone-400 prose-a:transition-colors
-      prose-strong:text-primary
-      prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6 prose-ul:text-stone-300
-      prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6 prose-ol:text-stone-300
-      prose-li:mb-2
-      prose-pre:bg-[#1C1C1C] prose-pre:border prose-pre:border-stone-800/80 prose-pre:rounded-xl
-      prose-code:text-secondary prose-code:bg-[#1C1C1C] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none"
-    >
+    <!-- Premium Reading Layout using Adaptive Typography -->
+    <article class="prose max-w-none transition-colors">
       <Content />
     </article>
   </div>
