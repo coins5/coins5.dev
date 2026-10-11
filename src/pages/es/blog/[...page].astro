@@ -46,11 +46,20 @@ const searchPostsData = allEsPosts.map((entry) => {
     tags: entry.data.tags || [],
   };
 });
+const pageTitle =
+  page.currentPage > 1
+    ? `Blog de Arquitectura e IA - Página ${page.currentPage} | Coins5`
+    : "Blog de Arquitectura e IA | Coins5";
+
+const pageDescription =
+  page.currentPage > 1
+    ? `Artículos sobre desarrollo de software a medida y MVPs rápidos (Página ${page.currentPage}).`
+    : "Artículos sobre desarrollo de software a medida, construcción de MVPs rápidos, optimización cloud y automatizaciones con IA.";
 ---
 
 <Layout
-  title="Blog de Arquitectura e IA | Coins5"
-  description="Artículos sobre desarrollo de software a medida, construcción de MVPs rápidos, optimización cloud y automatizaciones con IA."
+  title={pageTitle}
+  description={pageDescription}
   lang="es"
 >
   <div class="relative py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">

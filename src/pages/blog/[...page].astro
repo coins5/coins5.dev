@@ -46,11 +46,20 @@ const searchPostsData = allEnPosts.map((entry) => {
     tags: entry.data.tags || [],
   };
 });
+const pageTitle =
+  page.currentPage > 1
+    ? `Insights & Engineering Blog - Page ${page.currentPage} | Coins5`
+    : "Insights & Engineering Blog | Coins5";
+
+const pageDescription =
+  page.currentPage > 1
+    ? `Practical guides, architectural strategies, and expert advice (Page ${page.currentPage}).`
+    : "Practical guides, architectural strategies, and expert advice on building scalable systems, AI engines, and custom MVPs.";
 ---
 
 <Layout
-  title="Insights & Engineering Blog | Coins5"
-  description="Practical guides, architectural strategies, and expert advice on building scalable systems, AI engines, and custom MVPs."
+  title={pageTitle}
+  description={pageDescription}
   lang="en"
 >
   <div class="relative py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">

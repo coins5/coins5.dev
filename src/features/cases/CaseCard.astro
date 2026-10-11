@@ -14,7 +14,7 @@ const slug =
     .pop()
     ?.replace(/\.(md|mdx)$/, "") || entry.id;
 
-const caseUrl = isEs ? `/es/cases/${slug}` : `/cases/${slug}`;
+const caseUrl = isEs ? `/es/cases/${slug}/` : `/cases/${slug}/`;
 ---
 
 <a

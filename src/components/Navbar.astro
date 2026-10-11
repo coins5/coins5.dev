@@ -14,15 +14,15 @@ const isEs = cleanPathname.startsWith("/es/") || cleanPathname === "/es";
 const navLinks = isEs
   ? [
       { name: "Inicio", href: "/es/" },
-      { name: "Servicios", href: "/es/services" },
-      { name: "Casos", href: "/es/cases" },
-      { name: "Blog", href: "/es/blog" },
+      { name: "Servicios", href: "/es/services/" },
+      { name: "Casos", href: "/es/cases/" },
+      { name: "Blog", href: "/es/blog/" },
     ]
   : [
       { name: "Home", href: "/" },
-      { name: "Services", href: "/services" },
-      { name: "Cases", href: "/cases" },
-      { name: "Blog", href: "/blog" },
+      { name: "Services", href: "/services/" },
+      { name: "Cases", href: "/cases/" },
+      { name: "Blog", href: "/blog/" },
     ];
 
 // Generate target URLs for language switcher to preserve page location
@@ -33,19 +33,15 @@ const pathSegments = pathname.split("/").filter(Boolean);
 
 if (isEs) {
   const enSegments = pathSegments.slice(1);
-  enTarget = "/" + enSegments.join("/") + search;
-  esTarget = pathname + search;
+  enTarget = enSegments.length > 0 ? "/" + enSegments.join("/") + "/" + search : "/" + search;
+  esTarget = pathname.replace(/\/$/, "") + "/" + search;
 } else {
-  esTarget = "/es/" + pathSegments.join("/") + search;
-  enTarget = pathname + search;
+  esTarget = pathSegments.length > 0 ? "/es/" + pathSegments.join("/") + "/" + search : "/es/" + search;
+  enTarget = pathname.replace(/\/$/, "") + "/" + search;
 }
 
 enTarget = enTarget.replace(/\/+/g, "/");
 esTarget = esTarget.replace(/\/+/g, "/");
-
-if (esTarget === "/es" || esTarget === "/es?*" || esTarget.startsWith("/es?")) {
-  esTarget = esTarget.replace(/^\/es/, "/es/");
-}
 
 // Helper to determine if a route is active
 const isActive = (path: string) => {

@@ -32,12 +32,12 @@ export const casesContent: Record<"en" | "es", CasesContent> = {
       "Sistemas reales diseñados desde cero: desde MVPs premiados por el estado hasta plataformas de IA clínica y simulaciones en la nube de alta disponibilidad.",
     viewCase: "Ver Caso Completo",
     viewAll: "Explorar todos los casos de estudio",
-    allCasesUrl: "/es/cases",
+    allCasesUrl: "/es/cases/",
     cases: [
       {
         id: "strategio",
         title: "Strategio — Plataforma de BI con IA para Retail",
-        slug: "/es/cases/strategio-mvp",
+        slug: "/es/cases/strategio-mvp/",
         badge: "Ganador Startup Perú 2da Gen",
         role: "Ex-CTO & Arquitecto Lead",
         outcome: "De 0 a MVP en producción en 12 semanas. Infraestructura bajo $50/mes.",
@@ -48,7 +48,7 @@ export const casesContent: Record<"en" | "es", CasesContent> = {
       {
         id: "nutrimind",
         title: "NubaNutrición — Modelos de IA Aplicados a Salud",
-        slug: "/es/cases/nutrimind-platform",
+        slug: "/es/cases/nutrimind-platform/",
         badge: "HealthTech & Clinical AI",
         role: "Arquitecto de IA & Full Stack",
         externalUrl: "https://nubanutricion.com",
@@ -60,7 +60,7 @@ export const casesContent: Record<"en" | "es", CasesContent> = {
       {
         id: "proximabolilla",
         title: "PróximaBolilla — Simulación Masiva en Nube",
-        slug: "/es/cases/proximabolilla-simulator",
+        slug: "/es/cases/proximabolilla-simulator/",
         badge: "Cloud Concurrente & Ruido Cósmico",
         role: "Arquitecto de Sistemas Cloud",
         externalUrl: "https://proximabolilla.com",
@@ -78,12 +78,12 @@ export const casesContent: Record<"en" | "es", CasesContent> = {
       "Real-world systems engineered from ground up: from government-awarded MVPs to clinical AI engines and massive cloud simulation platforms.",
     viewCase: "Read Case Study",
     viewAll: "Explore all case studies",
-    allCasesUrl: "/cases",
+    allCasesUrl: "/cases/",
     cases: [
       {
         id: "strategio",
         title: "Strategio — AI-Powered Business Intelligence",
-        slug: "/cases/strategio-mvp",
+        slug: "/cases/strategio-mvp/",
         badge: "Startup Perú 2nd Gen Winner",
         role: "Ex-CTO & Lead Architect",
         outcome: "From 0 to production MVP in 12 weeks. Run cost under $50/month.",
@@ -94,7 +94,7 @@ export const casesContent: Record<"en" | "es", CasesContent> = {
       {
         id: "nutrimind",
         title: "NubaNutrición — Clinical AI Health Models",
-        slug: "/cases/nutrimind-platform",
+        slug: "/cases/nutrimind-platform/",
         badge: "HealthTech & Clinical AI",
         role: "AI Architect & Full Stack Lead",
         externalUrl: "https://nubanutricion.com",
@@ -106,7 +106,7 @@ export const casesContent: Record<"en" | "es", CasesContent> = {
       {
         id: "proximabolilla",
         title: "PróximaBolilla — Massive Cloud Simulation Engine",
-        slug: "/cases/proximabolilla-simulator",
+        slug: "/cases/proximabolilla-simulator/",
         badge: "High-Concurrency Cloud & Entropy",
         role: "Cloud Systems Architect",
         externalUrl: "https://proximabolilla.com",
