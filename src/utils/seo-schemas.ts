@@ -29,9 +29,17 @@ export function getOrganizationSchema(lang: "en" | "es" = "en") {
       "PostgreSQL & Database Optimization",
       "FastAPI & Node.js Microservices",
     ],
+    telephone: `+${siteConfig.whatsappNumber}`,
+    priceRange: "$$$",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lima",
+      addressCountry: "PE",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
+      telephone: `+${siteConfig.whatsappNumber}`,
       url: siteConfig.calendlyUrl,
       availableLanguage: ["English", "Spanish"],
     },
