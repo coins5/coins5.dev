@@ -35,8 +35,9 @@ const wordCount = entry.body ? entry.body.trim().split(/\s+/).filter(Boolean).le
 const readingMinutes = Math.max(1, Math.ceil(wordCount / 200));
 const readingTime = `${readingMinutes} min read`;
 
-// Format date nicely
+// Format date nicely (UTC ensures no local timezone shift)
 const formattedDate = entry.data.pubDate.toLocaleDateString("en-US", {
+  timeZone: "UTC",
   year: "numeric",
   month: "long",
   day: "numeric",

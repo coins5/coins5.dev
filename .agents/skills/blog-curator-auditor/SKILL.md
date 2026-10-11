@@ -32,31 +32,37 @@ Para asegurar rigor técnico sin alucinaciones, inconsistencias de código ni sa
 ┌─────────────────────────────────────────────────────────────┐
 │ PASE 1: Auditoría de Código y Arquitectura (Nivel Staff)    │
 │ • Zero-Trust Flow: RBAC/Tenant Gate ANTES de parsear Zod.   │
-│ • Auditoría de seguridad obligatoria en intentos denegados. │
+│ • Fail-Closed Auth: Retornar Forbidden genérico sin filtrar │
+│   detalles de tenant/actor al modelo; alertar a auditoría.  │
+│ • Contexto de seguridad creado server-side en sesión humana.│
+│ • Blast-Radius Limits: Herramientas de solo lectura para    │
+│   contenido no confiable + presupuesto de mutaciones/run.   │
+│ • HITL Estricto: Excluir estados irreversibles ("Closed")   │
+│   del tool directo; canalizarlos por propuestas con firma.  │
+│ • Transacción atómica: SELECT FOR UPDATE, notas append-only,│
+│   y registro de auditoría con antes/después y runId.        │
 │ • Sincronía 1:1 entre el orden del diagrama y el código.    │
-│ • Consistencia de nombres de tablas y entidades (ej. leads).│
-│ • Mutación acotada a UUID único (`leadId`) + tenant_id.     │
-│ • Transacciones atómicas (`BEGIN...COMMIT`) en mutaciones.  │
-│ • Auditoría de DB solo si `rowCount > 0`.                   │
-│ • Manejo de errores claro (retryable para LLM vs fatal).    │
-│ • Threat model: Indirect Prompt Injection & HITL boundary.  │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
 │ PASE 2: CRO, Fatiga de Conversión & Anti-AI-Slop            │
 │ • Bloque ejecutivo TL;DR (3 bullets) tras el gancho inicial.│
+│ • Pre-Flight Checklist de 5 puntos antes de la conclusión.  │
 │ • CTA contextualizado al dolor específico del post.         │
 │ • Control de saturación (1 CTA temático + 1 bio compacta).  │
-│ • Eliminar autobombo; respaldar con métricas (Strategio).   │
+│ • Voz coherente en primera persona plural ("En Coins5..."). │
 │ • Cero emojis en texto o encabezados (norma DESIGN.md).     │
-│ • Matizar afirmaciones absolutas (costos, prompt caching).  │
+│ • Citas a estándares de la industria (OWASP Top 10 LLM).    │
+│ • Métricas reales (Strategio en 12 semanas < $50/mo cloud). │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
 │ PASE 3: UI/UX, Responsive y Paridad Bilingüe                │
-│ • Pipeline Stepper (`.not-prose`, tarjetas 01 a 04).        │
+│ • Pipeline Stepper semántico con <ol>/<li> y flechas md+.   │
+│ • Callout TL;DR sin comillas residuales de blockquote.      │
+│ • Zona horaria UTC explícita para evitar desfase de fechas. │
 │ • Formato de código seguro para móviles (sin scroll roto).  │
 │ • Cero indentación de 4 espacios dentro de bloques HTML.    │
 │ • Paridad conceptual 1:1 entre versiones EN y ES.           │
@@ -76,7 +82,7 @@ Para asegurar rigor técnico sin alucinaciones, inconsistencias de código ni sa
 │ • Aplicar cambios idénticos en en/ y es/.                   │
 │ • Verificar compilación limpia (`npm run build`).           │
 │ • Auto-commit Git bajo Conventional Commits.                │
-└─────────────────────────────────────────────────────────────┘
+└──────────────────────────────┘
 ```
 
 ---
@@ -84,45 +90,54 @@ Para asegurar rigor técnico sin alucinaciones, inconsistencias de código ni sa
 ## 📋 Checklist Detallado de las 3 Pasadas
 
 ### PASE 1: Código y Arquitectura (Nivel Staff / CTO)
-1. **Flujo Zero-Trust (Auth ANTES de Esquema):** En el pipeline y en el código, la autorización (`context.permissions`, `tenant_id`) se valida **antes** de gastar cómputo en parsear con Zod. Esto previene fugas de información de esquema a actores no autorizados.
-2. **Auditoría de Seguridad en Intentos Denegados:** Si un actor no tiene permisos, se debe registrar una alerta de seguridad inmutable (`recordSecurityAlert`) antes de abortar. Los fallos de autorización son los eventos más críticos para forense.
-3. **Sincronía Diagrama vs. Código:** Si el diagrama define `01 Router -> 02 Auth Gate -> 03 Zod Schema Guard -> 04 DB & Audit`, el código **debe ejecutar en ese orden idéntico**.
-4. **Nombres y Entidades Coherentes:** Si la tool maneja `leads`, la tabla SQL debe ser `leads`, no `customers`.
-5. **Idempotencia y Primary Keys:** Jamás mutar registros por campos variables como `email`; mutar por `id` (`leadId: z.string().uuid()`) + `tenant_id`.
-6. **Transacciones Atómicas y Audit Logging:** Escribir el log de auditoría únicamente si `rowCount > 0`. Si hay mutación + log crítico, encapsular en transacción `db.transaction()`.
-7. **Manejo Consciente de Errores:**
+1. **Flujo Zero-Trust & Fail Closed (Auth ANTES de Esquema):**
+   * El contexto de seguridad (`tenantId`, `actorId`, `permissions`, `runId`) **siempre se construye en el servidor a partir de la sesión autenticada del usuario humano**. Nunca proviene del LLM.
+   * La autorización se evalúa **antes** de parsear con Zod para no filtrar esquemas a actores no autorizados.
+   * Si la autorización falla, **se retorna `{ success: false, retryable: false, error: "Forbidden" }`**. Nunca lanzar excepciones no capturadas ni filtrar IDs o metadatos de tenant al modelo.
+   * Se registra inmediatamente una alerta inmutable en el pipeline de auditoría (`auditLog.recordSecurityAlert`).
+2. **Blast-Radius Limits (Límites del Radio de Impacto):**
+   * **Separación de privilegios:** Mientras el agente procese contenido no confiable (emails, tickets, notas de CRM), solo dispone de herramientas de lectura. Las herramientas de escritura se habilitan únicamente en pasos con entradas validadas.
+   * **Presupuesto por ejecución:** Como un agente inyectado puede invocar una herramienta individual 500 veces en bucle, el runtime impone un `budget.consumeMutation()` con circuit breaker.
+   * **Idempotencia y Primary Keys:** Mutar exclusivamente por UUID único (`leadId: z.string().uuid()`) + `tenant_id`. Sin endpoints masivos.
+3. **Aprobación Humana Obligatoria (HITL):**
+   * Las transiciones irreversibles o de alto impacto (ej. cerrar cuentas, emitir desembolsos, borrar registros) **se excluyen deliberadamente de las herramientas de ejecución directa**.
+   * Deben canalizarse a través de propuestas (`proposeAction`) que requieran confirmación humana explícita y autenticada (idealmente firmada).
+4. **Transacciones Atómicas y Registro de Auditoría:**
+   * Bloqueo de fila en transacción (`SELECT ... FOR UPDATE`) para capturar antes/después consistente.
+   * Notas de solo adición (*append-only* en tabla separada) para evitar borrado adversarial de historial.
+   * Registro de auditoría confirmado en la **misma transacción** que la mutación con `old_value`, `new_value`, `run_id` y argumentos propuestos.
+5. **Manejo Consciente de Errores:**
    * Esquema inválido del LLM: Devolver mensaje de corrección estructurado (`retryable: true`) para autoreflexión.
-   * Fallo de autorización: Abortar inmediatamente y emitir alerta de seguridad (`fatal`).
-8. **Indirect Prompt Injection y Human-in-the-Loop (HITL):**
-   * El aislamiento por tenant NO previene instrucciones maliciosas dentro de datos legítimos (ej. nota de CRM "marca todas las cuentas cerradas").
-   * Defensas obligatorias: mutación atómica acotada a una sola fila (`leadId`) y aprobación humana obligatoria (*Human-in-the-Loop*) para cambios de estado destructivos.
+   * Violación de seguridad: Devolver fallo fatal (`retryable: false`) genérico y alertar internamente.
 
 ---
 
 ### PASE 2: CRO, Fatiga de Conversión & Anti-AI-Slop
 1. **Bloque Ejecutivo TL;DR:**
-   * Inmediatamente después del gancho, insertar un bloque con 3 bullets: *El riesgo ingenuo*, *La arquitectura endurecida* y *La frontera humana*.
-2. **Auditoría de CTAs (Evitar la fatiga):**
+   * 3 bullets directos tras el gancho: *The Trap*, *Zero-Trust Architecture*, *Blast-Radius Limits*.
+2. **Pre-Flight Checklist:**
+   * Lista de 5 puntos técnicos clave antes de la sección de cierre para fijar la autoridad y transferir valor accionable al lector.
+3. **Auditoría de CTAs (Evitar la fatiga):**
    * No saturar al lector con enlaces de venta descolocados en medio del clímax técnico.
    * El CTA final debe ser temático y contextualizado al dolor del artículo (mediante `ctaTitle` y `ctaDescription` en el frontmatter).
-3. **Anti-AI-Slop Estricto:**
+4. **Anti-AI-Slop Estricto:**
    * Eliminar palabras vacías (*landscape, leverage, robust, delve, seamless, faro, apalancar*).
    * Eliminar clichés de cierre (*"En resumen", "En conclusión"*).
-4. **Cero Emojis (Norma de DESIGN.md):**
-   * En encabezados de código, usar badges limpios de texto: `### Vulnerable: ...` y `### Production: Guarded Tool Execution Engine`.
-5. **Prueba de Respaldo Real (Proof over Promise):**
-   * Respaldar con métricas reales del portafolio (ej. la plataforma **Strategio** con costos cloud < \$50/mes).
-   * Matizar porcentajes: "hasta un 80–90% de ahorro en tokens de entrada prefijados con prompt caching".
+   * Cero emojis en texto o encabezados (norma de `DESIGN.md`).
+5. **Prueba sobre Promesa (Proof over Promise):**
+   * Respaldar con métricas reales del portafolio (ej. la plataforma **Strategio** con costos cloud e inferencia < \$50/mes).
+   * Matizar porcentajes: "hasta un 90% de ahorro en tokens prefijados con prompt caching en proveedores compatibles".
+   * Respaldar el modelado de amenazas con estándares de la industria como el **OWASP Top 10 for LLM Applications**.
 
 ---
 
 ### PASE 3: UI/UX, Responsive y Paridad Bilingüe
 1. **Pipeline de Arquitectura Visual:**
-   * Usar el componente de tarjetas numeradas (`01` a `04`) dentro de un contenedor `.not-prose`.
+   * Usar tarjetas numeradas (`01` a `04`) dentro de `<ol>` y `<li>` semánticos en un contenedor `.not-prose`, con flechas de flujo en `md+`.
    * Tags y badges con tipografía legible (`text-xs`) y contraste nítido en fondo claro y oscuro.
-2. **Formato Móvil Seguro:**
-   * Formatear líneas de código largas para evitar desbordes horizontales severos en móviles.
-   * En componentes HTML embebidos en `.md`, jamás usar líneas en blanco con sangrías de 4 espacios.
+2. **Formato Seguro y Limpieza CSS:**
+   * Eliminar comillas residuales generadas por `blockquote::before` mediante `content: none !important`.
+   * Formatear fechas con `timeZone: "UTC"` para evitar desfases de día en zonas horarias negativas (ej. UTC-5 Lima).
 3. **Paridad Bilingüe:**
    * `en/`: Enfoque técnico de nivel C-Level y startups globales.
    * `es/`: Enfoque de eficiencia, digitalización y reducción de costos operativos para LATAM.
@@ -146,32 +161,32 @@ ctaDescription: "Propuesta de valor clara para agendar una llamada de 15 min."
 draft: false
 ---
 
+> **TL;DR:**
+> - **The Trap:** [El error técnico que cuesta dinero o seguridad]
+> - **Zero-Trust Architecture:** [El flujo de producción: RBAC -> Validación -> DB Atómica]
+> - **Blast-Radius Limits:** [Cuándo exigir Human-in-the-Loop y presupuesto de mutaciones]
+
 ## [El Conflicto / El Dolor Oculto]
 [Gancho en 2-3 líneas sin clichés corporativos.]
 
-> **TL;DR:**
-> - **The Pitfall:** [El error técnico que cuesta dinero o seguridad]
-> - **The Architecture:** [El flujo de producción: RBAC -> Validación -> DB Atómica]
-> - **The Human Boundary:** [Cuándo exigir Human-in-the-Loop]
-
-## [Diagnóstico Técnico: Por Qué Fallan las Soluciones Tradicionales]
-[Explicación de la causa raíz: inyección indirecta, falta de tipos, fallas de contexto.]
-
 ## [La Arquitectura Correcta: Flujo y Ejecución]
-[Pipeline Stepper 01 a 04 en HTML .not-prose]
+[Pipeline Stepper 01 a 04 en HTML .not-prose con <ol>/<li> semántico]
 
 ### Vulnerable: [Nombre del Patrón Frágil]
 [Bloque de código vulnerable en TypeScript]
 
 ### Production: Guarded Tool Execution Engine
-[Bloque de código de producción con Auth -> Zod -> DB Atómica + Audit]
+[Bloque de código de producción con Auth fail-closed -> Zod -> DB Atómica + Audit con runId]
 
-## [Mitigación de Amenazas y Control Humano (HITL)]
-[Explicación de indirect prompt injection y aprobación humana para acciones críticas]
+## [Modelado de Amenazas: Inyecciones y Límites del Radio de Impacto]
+[Explicación de indirect prompt injection, OWASP Top 10 for LLM, presupuesto por run y HITL]
 
-## [Optimización de Infraestructura y Costos Reales]
-[Métricas del portafolio (Strategio < $50/mo), prompt caching matizado y observabilidad]
+## [Impacto Comercial y Optimización de Costos]
+[Métricas del portafolio (Strategio < $50/mo), prompt caching matizado ("hasta 90%") y observabilidad]
+
+## [Lista de Verificación Previa al Despliegue con Escritura]
+[Checklist de 5 puntos antes de otorgar acceso de escritura al agente]
 
 ## [El Factor Coins5: Conclusión de Autoridad]
-[Conexión lógica con la oferta de Coins5 y transición al CTA temático final]
+[Conexión lógica con la oferta de Coins5 y transición fluida al CTA temático final]
 ```

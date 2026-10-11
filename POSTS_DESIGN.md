@@ -85,30 +85,33 @@ draft: false
 [Gancho en 2-3 líneas sin clichés corporativos.]
 
 > **TL;DR:**
-> - **The Pitfall:** [El error técnico que cuesta dinero o seguridad]
-> - **The Architecture:** [El flujo de producción: RBAC -> Validación -> DB Atómica]
-> - **The Human Boundary:** [Cuándo exigir Human-in-the-Loop]
+> - **The Trap:** [El error técnico que cuesta dinero o seguridad]
+> - **Zero-Trust Architecture:** [El flujo de producción: RBAC fail-closed -> Validación -> DB Atómica]
+> - **Blast-Radius Limits:** [Herramientas mínimas para datos no confiables + presupuesto de mutaciones + HITL]
 
-## [Diagnóstico Técnico: Por Qué Fallan las Soluciones Tradicionales]
-[Explicación de la causa raíz: inyección indirecta, falta de tipos, fallas de contexto.]
+## [El Conflicto / El Dolor Oculto]
+[Gancho en 2-3 líneas sin clichés corporativos.]
 
 ## [La Arquitectura Correcta: Flujo y Ejecución]
-[Pipeline Stepper 01 a 04 en HTML .not-prose en orden Zero-Trust: Router -> Auth -> Schema -> DB]
+[Pipeline Stepper 01 a 04 en HTML .not-prose con <ol>/<li> semántico y flechas en md+]
 
 ### Vulnerable: [Nombre del Patrón Frágil]
 [Bloque de código vulnerable en TypeScript]
 
 ### Production: Guarded Tool Execution Engine
-[Bloque de código de producción con Auth -> Zod -> DB Atómica + Audit de fallos y éxitos]
+[Bloque de código de producción con Auth fail-closed -> Zod -> DB Atómica + Audit con runId]
 
-## [Mitigación de Amenazas y Control Humano (HITL)]
-[Explicación de indirect prompt injection y aprobación humana para acciones críticas]
+## [Modelado de Amenazas: Inyecciones y Límites del Radio de Impacto]
+[Explicación de indirect prompt injection, OWASP Top 10 for LLM, presupuesto por run y HITL]
 
 ## [Impacto Comercial y Optimización de Costos]
-[Métricas del portafolio (Strategio < $50/mo), prompt caching matizado ("hasta 80-90%") y observabilidad]
+[Métricas del portafolio (Strategio < $50/mo), prompt caching matizado ("hasta 90%") y observabilidad]
 
-## [El Factor Senior + IA de Coins5]
-[Prueba de autoridad: Cómo Marlon aplica esto en producción y transición fluida a la conversión]
+## [Lista de Verificación Previa al Despliegue con Escritura]
+[Checklist de 5 puntos antes de otorgar acceso de escritura al agente]
+
+## [El Factor Coins5: Conclusión de Autoridad]
+[Prueba de autoridad en primera persona plural ("En Coins5, combinamos...") y transición fluida a la conversión]
 ```
 
 ---
