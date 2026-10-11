@@ -34,70 +34,44 @@ El modelo propone acciones basadas en el contexto del problema; el código de la
       <span class="text-xs font-mono uppercase tracking-wider font-bold text-secondary">Pipeline de Arquitectura</span>
       <h3 class="text-lg sm:text-xl font-extrabold text-primary font-sans mt-0.5 mb-0">Flujo de Ejecución de Agentes de IA</h3>
     </div>
-    <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded-full self-start sm:self-auto font-medium" style="background-color: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);">
-      Sin Acceso Directo a BD
-    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded-full self-start sm:self-auto font-medium" style="background-color: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);">Sin Acceso Directo a BD</span>
   </div>
-
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <!-- Paso 1 -->
     <div class="flex flex-col p-4 rounded-xl border transition-all" style="background-color: var(--card-inner-bg); border-color: var(--card-border);">
       <div class="flex items-center justify-between mb-2.5">
         <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" style="background-color: var(--badge-bg); color: var(--badge-text);">01</span>
         <span class="text-[11px] font-mono text-secondary">Entrada</span>
       </div>
       <h4 class="text-sm font-bold text-primary font-sans mb-1">Enrutamiento Semántico</h4>
-      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">
-        Evalúa la complejidad del prompt. Consultas simples van a modelos compactos; mutaciones de datos invocan esquemas de tools.
-      </p>
-      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-secondary" style="border-color: var(--card-border);">
-        &rarr; Intención clasificada
-      </div>
+      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">Evalúa la complejidad del prompt. Consultas simples van a modelos compactos; mutaciones de datos invocan esquemas de tools.</p>
+      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-secondary" style="border-color: var(--card-border);">&rarr; Intención clasificada</div>
     </div>
-
-    <!-- Paso 2 -->
     <div class="flex flex-col p-4 rounded-xl border transition-all" style="background-color: var(--card-inner-bg); border-color: var(--card-border);">
       <div class="flex items-center justify-between mb-2.5">
         <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" style="background-color: var(--badge-bg); color: var(--badge-text);">02</span>
         <span class="text-[11px] font-mono text-secondary">Contrato</span>
       </div>
       <h4 class="text-sm font-bold text-primary font-sans mb-1">Guardia Zod</h4>
-      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">
-        El LLM propone <code>updateLead</code>. El backend valida el contrato estricto de tipos antes de tocar cualquier servicio.
-      </p>
-      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-rose-500" style="border-color: var(--card-border);">
-        &times; Inválido: Aborto fail-fast
-      </div>
+      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">El LLM propone <code>updateLead</code>. El backend valida el contrato estricto de tipos antes de tocar cualquier servicio.</p>
+      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-rose-500" style="border-color: var(--card-border);">&times; Inválido: Aborto fail-fast</div>
     </div>
-
-    <!-- Paso 3 -->
     <div class="flex flex-col p-4 rounded-xl border transition-all" style="background-color: var(--card-inner-bg); border-color: var(--card-border);">
       <div class="flex items-center justify-between mb-2.5">
         <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" style="background-color: var(--badge-bg); color: var(--badge-text);">03</span>
         <span class="text-[11px] font-mono text-secondary">Seguridad</span>
       </div>
       <h4 class="text-sm font-bold text-primary font-sans mb-1">Barrera Auth Tenant</h4>
-      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">
-        Verifica permisos RBAC del usuario y restringe la consulta estrictamente al <code>tenant_id</code> con SQL parametrizado.
-      </p>
-      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-amber-500" style="border-color: var(--card-border);">
-        ! No autorizado: Rechazo
-      </div>
+      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">Verifica permisos RBAC del usuario y restringe la consulta estrictamente al <code>tenant_id</code> con SQL parametrizado.</p>
+      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-amber-500" style="border-color: var(--card-border);">! No autorizado: Rechazo</div>
     </div>
-
-    <!-- Paso 4 -->
     <div class="flex flex-col p-4 rounded-xl border transition-all" style="background-color: var(--card-inner-bg); border-color: var(--card-border);">
       <div class="flex items-center justify-between mb-2.5">
         <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" style="background-color: var(--badge-bg); color: var(--badge-text);">04</span>
         <span class="text-[11px] font-mono text-secondary">Telemetría</span>
       </div>
       <h4 class="text-sm font-bold text-primary font-sans mb-1">Auditoría & Trazas</h4>
-      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">
-        Registra la auditoría inmutable en base de datos y transmite trazas de telemetría a Langfuse / OpenTelemetry.
-      </p>
-      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-emerald-500" style="border-color: var(--card-border);">
-        &check; Traza y log registrados
-      </div>
+      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">Registra la auditoría inmutable en base de datos y transmite trazas de telemetría a Langfuse / OpenTelemetry.</p>
+      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-emerald-500" style="border-color: var(--card-border);">&check; Traza y log registrados</div>
     </div>
   </div>
 </div>

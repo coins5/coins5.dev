@@ -34,70 +34,44 @@ The model proposes actions based on environmental context; application code vali
       <span class="text-xs font-mono uppercase tracking-wider font-bold text-secondary">Architecture Pipeline</span>
       <h3 class="text-lg sm:text-xl font-extrabold text-primary font-sans mt-0.5 mb-0">Autonomous Agent Execution Flow</h3>
     </div>
-    <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded-full self-start sm:self-auto font-medium" style="background-color: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);">
-      Zero Direct DB Access
-    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded-full self-start sm:self-auto font-medium" style="background-color: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);">Zero Direct DB Access</span>
   </div>
-
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <!-- Step 1 -->
     <div class="flex flex-col p-4 rounded-xl border transition-all" style="background-color: var(--card-inner-bg); border-color: var(--card-border);">
       <div class="flex items-center justify-between mb-2.5">
         <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" style="background-color: var(--badge-bg); color: var(--badge-text);">01</span>
         <span class="text-[11px] font-mono text-secondary">Input</span>
       </div>
       <h4 class="text-sm font-bold text-primary font-sans mb-1">Intent Routing</h4>
-      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">
-        Evaluates prompt complexity. Queries resolve on compact models; data updates invoke registered tool schemas.
-      </p>
-      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-secondary" style="border-color: var(--card-border);">
-        &rarr; Intent classified
-      </div>
+      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">Evaluates prompt complexity. Queries resolve on compact models; data updates invoke registered tool schemas.</p>
+      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-secondary" style="border-color: var(--card-border);">&rarr; Intent classified</div>
     </div>
-
-    <!-- Step 2 -->
     <div class="flex flex-col p-4 rounded-xl border transition-all" style="background-color: var(--card-inner-bg); border-color: var(--card-border);">
       <div class="flex items-center justify-between mb-2.5">
         <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" style="background-color: var(--badge-bg); color: var(--badge-text);">02</span>
         <span class="text-[11px] font-mono text-secondary">Contract</span>
       </div>
       <h4 class="text-sm font-bold text-primary font-sans mb-1">Zod Schema Guard</h4>
-      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">
-        The LLM proposes <code>updateLead</code>. The backend validates strict parameter types before execution.
-      </p>
-      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-rose-500" style="border-color: var(--card-border);">
-        &times; Malformed: Fail-fast
-      </div>
+      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">The LLM proposes <code>updateLead</code>. The backend validates strict parameter types before execution.</p>
+      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-rose-500" style="border-color: var(--card-border);">&times; Malformed: Fail-fast</div>
     </div>
-
-    <!-- Step 3 -->
     <div class="flex flex-col p-4 rounded-xl border transition-all" style="background-color: var(--card-inner-bg); border-color: var(--card-border);">
       <div class="flex items-center justify-between mb-2.5">
         <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" style="background-color: var(--badge-bg); color: var(--badge-text);">03</span>
         <span class="text-[11px] font-mono text-secondary">Security</span>
       </div>
       <h4 class="text-sm font-bold text-primary font-sans mb-1">Tenant Auth Gate</h4>
-      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">
-        Verifies caller RBAC permissions and restricts query scope to <code>tenant_id</code> via parameterized SQL.
-      </p>
-      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-amber-500" style="border-color: var(--card-border);">
-        ! Unauthorized: Reject
-      </div>
+      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">Verifies caller RBAC permissions and restricts query scope to <code>tenant_id</code> via parameterized SQL.</p>
+      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-amber-500" style="border-color: var(--card-border);">! Unauthorized: Reject</div>
     </div>
-
-    <!-- Step 4 -->
     <div class="flex flex-col p-4 rounded-xl border transition-all" style="background-color: var(--card-inner-bg); border-color: var(--card-border);">
       <div class="flex items-center justify-between mb-2.5">
         <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" style="background-color: var(--badge-bg); color: var(--badge-text);">04</span>
         <span class="text-[11px] font-mono text-secondary">Telemetry</span>
       </div>
       <h4 class="text-sm font-bold text-primary font-sans mb-1">Audit & Tracing</h4>
-      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">
-        Appends immutable mutation logs to database and exports distributed spans to Langfuse / OpenTelemetry.
-      </p>
-      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-emerald-500" style="border-color: var(--card-border);">
-        &check; Trace & audit logged
-      </div>
+      <p class="text-xs leading-relaxed mb-3 flex-grow" style="color: var(--color-text-body);">Appends immutable mutation logs to database and exports distributed spans to Langfuse / OpenTelemetry.</p>
+      <div class="mt-auto pt-2.5 border-t text-[11px] font-mono font-medium text-emerald-500" style="border-color: var(--card-border);">&check; Trace & audit logged</div>
     </div>
   </div>
 </div>
