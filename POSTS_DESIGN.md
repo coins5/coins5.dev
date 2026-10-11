@@ -52,7 +52,15 @@ Para retener al lector en los primeros 15 segundos y guiarlo hasta la conversió
 
 ### Regla 7: El Puente Natural a la Conversión (CRO Integrado)
 * No limites la venta a un banner frío al final. Inserta **micro-menciones de autoridad** orgánicas a mitad del artículo.
+* Inserta un **micro-CTA intermedio** (1-2 líneas) inmediatamente después de la solución arquitectónica técnica para lectores de alta intención que no completan el scroll.
 * El cierre debe conectar lógicamente con la oferta de Coins5: si el lector entendió la complejidad de hacerlo bien, la conclusión natural es delegarlo en un especialista senior.
+
+### Regla 8: Formato de Código y Diagramación Visual
+* **Bloques de Código Secuenciales:** Nunca agrupes comparativas en un solo bloque gigante. Divide siempre en dos bloques etiquetados:
+  * `### ❌ [Enfoque Frágil / Naive Wrapper]`
+  * `### ✅ [Enfoque de Producción / Arquitectura Segura]`
+* **Diagramas de Flujo de Arquitectura:** En artículos que expliquen pipelines de datos o flujos de agentes, incluye un diagrama de flujo en bloque de texto monospaciado (`text`) que resuma el pipeline en 5 segundos.
+* **Tiempo de Lectura Automático (`readingTime`):** Se calcula automáticamente a nivel de plantilla en `[slug].astro` dividiendo las palabras del body entre 200 PPM. No debe especificarse en el frontmatter.
 
 ---
 
