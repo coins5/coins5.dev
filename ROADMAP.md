@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 20 (74.1%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 7 (25.9%)
+- **Completados y Certificados (`[x]`):** 21 (77.8%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 6 (22.2%)
 
 ---
 
@@ -306,7 +306,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 6.4. `hybrid-cloud-infrastructure-proxmox-docker`
 - **Archivos:** `src/content/blog/en/hybrid-cloud-infrastructure-proxmox-docker.md` | `es/hybrid-cloud-infrastructure-proxmox-docker.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Empresas con requerimientos de datos locales, centros de datos privados o laboratorios de desarrollo.
 - **Dolor:** Depender 100% de la nube pública para entornos de desarrollo, staging o entrenamiento de modelos locales, consumiendo presupuestos enteros en hardware alquilado.
 - **Tesis Central:** Arquitectura Híbrida: Proxmox VE con contenedores LXC y Docker para cargas pesadas locales, conectado con WireGuard/Tailscale a recursos públicos en la nube para exposición a clientes.
