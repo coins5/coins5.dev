@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 9 (33.3%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 18 (66.7%)
+- **Completados y Certificados (`[x]`):** 10 (37.0%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 17 (63.0%)
 
 ---
 
@@ -157,7 +157,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 3.3. `api-caching-strategies-redis-performance`
 - **Archivos:** `src/content/blog/en/api-caching-strategies-redis-performance.md` | `es/api-caching-strategies-redis-performance.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Ingenieros de Infraestructura y Backend.
 - **Dolor:** Bases de datos al 100% de CPU por consultas idénticas repetidas 1,000 veces por segundo, problemas de "cache stampede" y datos obsoletos mostrados a clientes.
 - **Tesis Central:** Estrategias profesionales de Caching: Cache-Aside, Write-Through, bloqueo probabilístico (XFetch) para evitar stampedes, e invalidación basada en eventos de dominio.
@@ -401,8 +401,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
  
 Para mantener el máximo impacto comercial y la coherencia del contenido, ejecutaremos las auditorías y mejoras en orden de valor comercial:
  
-1. **Siguiente en Cola (Prioridad 1):** `api-caching-strategies-redis-performance.md` (Clúster 3: Caching, Mitigación de Stampedes y XFetch).
-2. **Prioridad 2:** `fastapi-vs-nodejs-backend-performance.md` (Clúster 3: Concurrencia y Benchmarks de Backend).
-3. **Prioridad 3:** `production-observability-structured-logging.md` (Clúster 3: Observabilidad y Logging Estructurado).
-4. **Prioridad 4:** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
+1. **Siguiente en Cola (Prioridad 1):** `fastapi-vs-nodejs-backend-performance.md` (Clúster 3: Concurrencia y Benchmarks de Backend).
+2. **Prioridad 2:** `production-observability-structured-logging.md` (Clúster 3: Observabilidad y Logging Estructurado).
+3. **Prioridad 3:** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
+4. **Prioridad 4:** `supabase-rls-multitenant-security-architecture.md` (Clúster 4: Supabase RLS y Multi-tenancy).
 5. **Prioridad 5 en adelante:** Continuar sistemáticamente clúster por clúster.
