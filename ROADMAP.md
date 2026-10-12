@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 21 (77.8%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 6 (22.2%)
+- **Completados y Certificados (`[x]`):** 22 (81.5%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 5 (18.5%)
 
 ---
 
@@ -319,7 +319,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 6.5. `ci-cd-pipelines-automated-testing`
 - **Archivos:** `src/content/blog/en/ci-cd-pipelines-automated-testing.md` | `es/ci-cd-pipelines-automated-testing.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Engineering Leads, Desarrolladores y CTOs.
 - **Dolor:** Pipelines de CI/CD que tardan 25 minutos por commit, tests inestables (*flaky tests*) que todo el equipo ignora y despliegues los viernes que terminan en pánico.
 - **Tesis Central:** CI/CD de Alta Velocidad: Pipelines en GitHub Actions que ejecutan linters, tests unitarios y validaciones de seguridad en <3 minutos con caching agresivo, pruebas en paralelo y despliegues atómicos sin downtime.
