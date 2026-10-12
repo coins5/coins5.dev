@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 15 (55.6%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 12 (44.4%)
+- **Completados y Certificados (`[x]`):** 16 (59.3%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 11 (40.7%)
 
 ---
 
@@ -239,7 +239,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 5.2. `sql-vs-nosql-scalable-architecture`
 - **Archivos:** `src/content/blog/en/sql-vs-nosql-scalable-architecture.md` | `es/sql-vs-nosql-scalable-architecture.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Fundadores, Arquitectos y Lead Engineers.
 - **Dolor:** Elegir MongoDB "porque es más flexible" y terminar implementando integridad referencial, transacciones y esquemas a mano en el código de backend con cientos de bugs.
 - **Tesis Central:** Criterio pragmático de persistencia: Por qué PostgreSQL con JSONB reemplaza el 90% de los casos de NoSQL, y exactamente en qué escenarios aislados (series de tiempo, grafos masivos, documentos no estructurados) tiene sentido NoSQL.
