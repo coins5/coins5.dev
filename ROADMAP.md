@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 18 (66.7%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 9 (33.3%)
+- **Completados y Certificados (`[x]`):** 19 (70.4%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 8 (29.6%)
 
 ---
 
@@ -280,7 +280,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 6.2. `dokploy-docker-vps-deployment-strategy`
 - **Archivos:** `src/content/blog/en/dokploy-docker-vps-deployment-strategy.md` | `es/dokploy-docker-vps-deployment-strategy.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Desarrolladores, Fundadores de MVPs y Agencias.
 - **Dolor:** Gastar \$200/mes en plataformas PaaS cerradas (Vercel Pro, Heroku) con límites severos de tiempo de cómputo y costos abusivos de base de datos.
 - **Tesis Central:** La Alternativa PaaS Auto-Hospedada: Cómo desplegar tus aplicaciones en VPS económicos (Hetzner, DigitalOcean) usando Dokploy o Coolify con Docker, certificados SSL automáticos, zero-downtime deploys y backups S3 por menos de \$20/mes.
