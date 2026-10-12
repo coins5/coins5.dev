@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 12 (44.4%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 15 (55.6%)
+- **Completados y Certificados (`[x]`):** 13 (48.1%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 14 (51.9%)
 
 ---
 
@@ -198,7 +198,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 4.2. `supabase-rls-multitenant-security-architecture`
 - **Archivos:** `src/content/blog/en/supabase-rls-multitenant-security-architecture.md` | `es/supabase-rls-multitenant-security-architecture.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Desarrolladores de Supabase/PostgreSQL y Fundadores de aplicaciones modernas.
 - **Dolor:** Políticas de Row-Level Security (RLS) mal diseñadas que causan consultas lentísimas (escaneos completos de tabla) o que fallan silenciosamente permitiendo accesos indebidos.
 - **Tesis Central:** RLS en producción: políticas de aislamiento de alto rendimiento, índices que aceleran `auth.uid()`, uso de `security definer` sin huecos de seguridad y tests automatizados de penetración sobre RLS.
