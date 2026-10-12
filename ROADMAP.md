@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 1 (3.7%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 26 (96.3%)
+- **Completados y Certificados (`[x]`):** 2 (7.4%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 25 (92.6%)
 
 ---
 
@@ -49,13 +49,13 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 1.2. `building-mvps-2026`
 - **Archivos:** `src/content/blog/en/building-mvps-2026.md` | `es/building-mvps-2026.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Fundadores de startups pre-seed/seed, aceleradoras y venture studios.
 - **Dolor:** Pagar \$30k-$50k a agencias tradicionales para recibir un monolito espagueti que tarda 8 meses y se cae ante el primer inversor en el *due diligence* técnico.
 - **Tesis Central:** Desarrollador Senior + Herramientas de IA vs. Equipo de 5 juniors. Cómo entregar un MVP probado y escalable en 3 a 4 semanas aplicando Clean Architecture.
-- **Pipeline Stepper Requerido:** Flujo de Entrega Ágil: `01 Domain Modeling` $\rightarrow$ `02 AI Scaffold & Test Harness` $\rightarrow$ `03 Isolated Boundary Review` $\rightarrow$ `04 Deploy & Live Validation`.
-- **Comparativa de Código:** Controlador acoplado a ORM y Stripe en 1 archivo vs Ports & Adapters desacoplados con validación Zod y repositorios mockeables.
-- **Prueba de Respaldo:** Caso real de entrega rápida con Clean Architecture lista para rondas de capital (cero deuda técnica mortal).
+- **Pipeline Stepper:** Flujo de Entrega Ágil: `01 Domain Modeling` $\rightarrow$ `02 AI Scaffold & Test Harness` $\rightarrow$ `03 Boundary Review` $\rightarrow$ `04 Deploy & Validate`.
+- **Comparativa de Código:** Controlador acoplado a ORM y Stripe en 1 archivo vs Ports & Adapters desacoplados con validación Zod, idempotencia y repositorios mockeables (<5ms tests).
+- **Prueba de Respaldo:** Plataforma **Strategio** (ganadora Startup Perú 2G, 12 semanas) operando por < $50 USD/mes.
 - **CTA Contextual:** *"Planning your startup MVP? Let's review your core domain and tech stack in a 15-min discovery call."*
 
 ---
@@ -398,12 +398,12 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ---
 
 ## 🎯 Plan de Ejecución Ordenado: Próximo Paso Recomendado
-
+ 
 Para mantener el máximo impacto comercial y la coherencia del contenido, ejecutaremos las auditorías y mejoras en orden de valor comercial:
-
-1. **Siguiente en Cola (Prioridad 1):** `building-mvps-2026.md`  
-   * **Razón:** Es el artículo insignia para fundadores y la principal palanca de captación de clientes de desarrollo de MVPs en Coins5.
-2. **Prioridad 2:** `why-clean-architecture-matters.md` (refuerzo técnico de respaldo para fundadores).
-3. **Prioridad 3:** `ai-api-latency-optimization-saas-architecture.md` (segundo post clave de IA aplicada).
-4. **Prioridad 4:** `saas-multitenant-rbac-security-architecture.md` (captación de startups B2B).
+ 
+1. **Siguiente en Cola (Prioridad 1):** `why-clean-architecture-matters.md`  
+   * **Razón:** Refuerza directamente el ángulo de inversión técnica y Clean Architecture para fundadores y CTOs.
+2. **Prioridad 2:** `ai-api-latency-optimization-saas-architecture.md` (segundo post clave de IA aplicada).
+3. **Prioridad 3:** `saas-multitenant-rbac-security-architecture.md` (captación de startups B2B).
+4. **Prioridad 4:** `monolith-vs-microservices-startup-strategy.md` (debate fundacional para equipos medianos).
 5. **Prioridad 5 en adelante:** Continuar sistemáticamente clúster por clúster.
