@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 22 (81.5%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 5 (18.5%)
+- **Completados y Certificados (`[x]`):** 23 (85.2%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 4 (14.8%)
 
 ---
 
@@ -332,7 +332,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 6.6. `production-observability-structured-logging`
 - **Archivos:** `src/content/blog/en/production-observability-structured-logging.md` | `es/production-observability-structured-logging.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Site Reliability Engineers (SRE), Backend Leads y Arquitectos de Software.
 - **Dolor:** Producción se cae y los ingenieros pasan 3 horas leyendo `console.log("here")` sin timestamps, sin correlation IDs y sin saber qué usuario disparó el error.
 - **Tesis Central:** Observabilidad Real en Producción: Logging estructurado en JSON con OpenTelemetry, distributed tracing con Correlation IDs (`traceId`), y alertas automáticas basadas en SLIs/SLOs antes de que el cliente note la caída.
