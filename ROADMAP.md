@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 7 (25.9%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 20 (74.1%)
+- **Completados y Certificados (`[x]`):** 8 (29.6%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 19 (70.4%)
 
 ---
 
@@ -131,7 +131,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 3.1. `scalable-websockets-realtime-architecture`
 - **Archivos:** `src/content/blog/en/scalable-websockets-realtime-architecture.md` | `es/scalable-websockets-realtime-architecture.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Ingenieros de Backend, Arquitectos de Sistemas Colaborativos y Fintechs.
 - **Dolor:** Servidores WebSocket que se quedan sin memoria con 5,000 conexiones concurrentes, fugas de socket y desincronización de estado entre réplicas.
 - **Tesis Central:** Cómo escalar WebSockets a más de 100,000 conexiones simultáneas utilizando Redis Pub/Sub, adaptadores eficientes (Bun/Node o Go) y heartbeat adaptativo.
@@ -401,8 +401,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
  
 Para mantener el máximo impacto comercial y la coherencia del contenido, ejecutaremos las auditorías y mejoras en orden de valor comercial:
  
-1. **Siguiente en Cola (Prioridad 1):** `scalable-websockets-realtime-architecture.md` (Clúster 3: WebSockets y Concurrencia en Tiempo Real).
-2. **Prioridad 2:** `async-task-queues-api-performance-backend.md` (Clúster 3: Colas Asíncronas y Resiliencia en Backend).
-3. **Prioridad 3:** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
-4. **Prioridad 4:** `supabase-rls-multitenant-security-architecture.md` (Clúster 4: Supabase RLS y Multi-tenancy).
+1. **Siguiente en Cola (Prioridad 1):** `async-task-queues-api-performance-backend.md` (Clúster 3: Colas Asíncronas y Resiliencia en Backend).
+2. **Prioridad 2:** `fastapi-vs-nodejs-backend-performance.md` (Clúster 3: Concurrencia y Benchmarks de Backend).
+3. **Prioridad 3:** `production-observability-structured-logging.md` (Clúster 3: Observabilidad y Logging Estructurado).
+4. **Prioridad 4:** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
 5. **Prioridad 5 en adelante:** Continuar sistemáticamente clúster por clúster.
