@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 8 (29.6%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 19 (70.4%)
+- **Completados y Certificados (`[x]`):** 9 (33.3%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 18 (66.7%)
 
 ---
 
@@ -144,7 +144,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 3.2. `async-task-queues-api-performance-backend`
 - **Archivos:** `src/content/blog/en/async-task-queues-api-performance-backend.md` | `es/async-task-queues-api-performance-backend.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Backend Developers, Arquitectos de API y Líderes Técnicos.
 - **Dolor:** APIs que hacen tareas pesadas de forma síncrona (generación de PDFs, envío de emails, cobros), generando timeouts de 30s en HTTP y cuellos de botella masivos.
 - **Tesis Central:** Patrón Asíncrono de Producción: desacoplamiento de endpoints mediante BullMQ/Redis o pg-boss, idempotencia estricta, reintentos exponenciales y Dead Letter Queues (DLQ).
@@ -401,7 +401,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
  
 Para mantener el máximo impacto comercial y la coherencia del contenido, ejecutaremos las auditorías y mejoras en orden de valor comercial:
  
-1. **Siguiente en Cola (Prioridad 1):** `async-task-queues-api-performance-backend.md` (Clúster 3: Colas Asíncronas y Resiliencia en Backend).
+1. **Siguiente en Cola (Prioridad 1):** `api-caching-strategies-redis-performance.md` (Clúster 3: Caching, Mitigación de Stampedes y XFetch).
 2. **Prioridad 2:** `fastapi-vs-nodejs-backend-performance.md` (Clúster 3: Concurrencia y Benchmarks de Backend).
 3. **Prioridad 3:** `production-observability-structured-logging.md` (Clúster 3: Observabilidad y Logging Estructurado).
 4. **Prioridad 4:** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
