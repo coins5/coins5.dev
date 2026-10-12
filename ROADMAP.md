@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 3 (11.1%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 24 (88.9%)
+- **Completados y Certificados (`[x]`):** 5 (18.5%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 22 (81.5%)
 
 ---
 
@@ -75,7 +75,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 1.4. `monolith-vs-microservices-startup-strategy`
 - **Archivos:** `src/content/blog/en/monolith-vs-microservices-startup-strategy.md` | `es/monolith-vs-microservices-startup-strategy.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Fundadores novatos tentados por la falsa promesa de los microservicios y equipos medianos con problemas de despliegue.
 - **Dolor:** Startups que adoptan microservicios prematuramente con Kubernetes y pasan 6 meses peleando con redes, mTLS y latencias en lugar de validar producto.
 - **Tesis Central:** El Monolito Modular como la arquitectura ganadora para el 99% de startups. Cómo estructurar "screaming slices" para escalar a millones de usuarios antes de necesitar dividir en servicios independientes.
@@ -88,7 +88,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 1.5. `pragmatic-agile-software-delivery`
 - **Archivos:** `src/content/blog/en/pragmatic-agile-software-delivery.md` | `es/pragmatic-agile-software-delivery.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Gerentes de Operaciones, Product Managers y Directores de Ingeniería.
 - **Dolor:** Burocracia ágil de manual (reuniones interminables de estimación de puntos de historia) que asfixia la productividad sin entregar software real a los clientes.
 - **Tesis Central:** De ceremonias vacías a entrega continua pragmática con automatización asistida por IA: especificaciones claras, trunk-based development y feedback loops cortos.
@@ -401,8 +401,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
  
 Para mantener el máximo impacto comercial y la coherencia del contenido, ejecutaremos las auditorías y mejoras en orden de valor comercial:
  
-1. **Siguiente en Cola (Prioridad 1):** `ai-api-latency-optimization-saas-architecture.md` (segundo post clave de IA aplicada).
-2. **Prioridad 2:** `saas-multitenant-rbac-security-architecture.md` (captación de startups B2B).
-3. **Prioridad 3:** `monolith-vs-microservices-startup-strategy.md` (debate fundacional para equipos medianos).
-4. **Prioridad 4:** `resilient-web-scraping-data-pipelines.md` (ingeniería de datos y pipelines).
+1. **Siguiente en Cola (Prioridad 1):** `ai-api-latency-optimization-saas-architecture.md` (Clúster 2: Latencia de IA y Streaming en Producción).
+2. **Prioridad 2:** `resilient-web-scraping-data-pipelines.md` (Clúster 2: Ingesta de Datos y Pipelines Resilientes).
+3. **Prioridad 3:** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
+4. **Prioridad 4:** `scalable-websockets-realtime-architecture.md` (Clúster 3: WebSockets y Concurrencia en Tiempo Real).
 5. **Prioridad 5 en adelante:** Continuar sistemáticamente clúster por clúster.
