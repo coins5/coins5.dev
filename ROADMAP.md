@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 5 (18.5%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 22 (81.5%)
+- **Completados y Certificados (`[x]`):** 6 (22.2%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 21 (77.8%)
 
 ---
 
@@ -103,7 +103,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 2.1. `ai-api-latency-optimization-saas-architecture`
 - **Archivos:** `src/content/blog/en/ai-api-latency-optimization-saas-architecture.md` | `es/ai-api-latency-optimization-saas-architecture.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Ingenieros de IA, Product Managers de SaaS con IA y CTOs.
 - **Dolor:** Respuestas de IA que tardan 8-15 segundos en UI, destruyendo la retención de usuarios y generando abandonos masivos.
 - **Tesis Central:** Reducción de latencia de 12s a <800ms mediante Streaming SSE, enrutamiento especulativo, compactación de prompts y caching de embeddings semánticos.
@@ -401,8 +401,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
  
 Para mantener el máximo impacto comercial y la coherencia del contenido, ejecutaremos las auditorías y mejoras en orden de valor comercial:
  
-1. **Siguiente en Cola (Prioridad 1):** `ai-api-latency-optimization-saas-architecture.md` (Clúster 2: Latencia de IA y Streaming en Producción).
-2. **Prioridad 2:** `resilient-web-scraping-data-pipelines.md` (Clúster 2: Ingesta de Datos y Pipelines Resilientes).
-3. **Prioridad 3:** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
-4. **Prioridad 4:** `scalable-websockets-realtime-architecture.md` (Clúster 3: WebSockets y Concurrencia en Tiempo Real).
+1. **Siguiente en Cola (Prioridad 1):** `resilient-web-scraping-data-pipelines.md` (Clúster 2: Ingesta de Datos y Pipelines Resilientes).
+2. **Prioridad 2:** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
+3. **Prioridad 3:** `scalable-websockets-realtime-architecture.md` (Clúster 3: WebSockets y Concurrencia en Tiempo Real).
+4. **Prioridad 4:** `supabase-rls-multitenant-security-architecture.md` (Clúster 4: Supabase RLS y Multi-tenancy).
 5. **Prioridad 5 en adelante:** Continuar sistemáticamente clúster por clúster.
