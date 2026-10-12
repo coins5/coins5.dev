@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 14 (51.9%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 13 (48.1%)
+- **Completados y Certificados (`[x]`):** 15 (55.6%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 12 (44.4%)
 
 ---
 
@@ -226,7 +226,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 5.1. `database-indexing-query-optimization-costs`
 - **Archivos:** `src/content/blog/en/database-indexing-query-optimization-costs.md` | `es/database-indexing-query-optimization-costs.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Desarrolladores de Backend y Gerentes de Operaciones Cloud.
 - **Dolor:** Escalar la instancia de base de datos a un servidor de \$800/mes para solucionar una consulta lenta que se arreglaba con un índice compuesto de \$0.
 - **Tesis Central:** Anatomía de la Optimización de Postgres: Cómo leer `EXPLAIN (ANALYZE, BUFFERS)`, índices B-Tree vs BRIN vs GiST, y cómo transformar escaneos secuenciales de 8 segundos en búsquedas en memoria de 2 milisegundos.
