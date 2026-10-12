@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 24 (88.9%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 3 (11.1%)
+- **Completados y Certificados (`[x]`):** 25 (92.6%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 2 (7.4%)
 
 ---
 
@@ -360,7 +360,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 7.2. `astro-vs-nuxt-frontend-performance`
 - **Archivos:** `src/content/blog/en/astro-vs-nuxt-frontend-performance.md` | `es/astro-vs-nuxt-frontend-performance.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Frontend Leads y CTOs evaluando frameworks modernos.
 - **Dolor:** Elegir un framework full-stack complejo para contenido estático o e-commerce ligero y sufrir tiempos de compilación lentos y exceso de carga en el navegador.
 - **Tesis Central:** Comparativa técnica sin fanatismos: Cuándo Astro es imbatible (sitios de contenido, marketing, documentación, blogs con SEO crítico) y cuándo Nuxt/Next brillan (paneles de control SaaS con estado dinámico persistente).
