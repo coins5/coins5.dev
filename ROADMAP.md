@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 11 (40.7%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 16 (59.3%)
+- **Completados y Certificados (`[x]`):** 12 (44.4%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 15 (55.6%)
 
 ---
 
@@ -185,7 +185,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 4.1. `saas-multitenant-rbac-security-architecture`
 - **Archivos:** `src/content/blog/en/saas-multitenant-rbac-security-architecture.md` | `es/saas-multitenant-rbac-security-architecture.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Fundadores de SaaS B2B, Directores de Seguridad y Arquitectos de Software.
 - **Dolor:** El peor error en un SaaS B2B: fugas de datos entre organizaciones (Tenant A viendo las facturas o clientes de Tenant B), lo que destruye contratos corporativos de inmediato.
 - **Tesis Central:** Arquitectura Multitenant Robusta: Estrategia de bases de datos (Shared DB con Tenant ID vs Schema per Tenant), RBAC granular jerárquico y middleware de aislamiento forzado a nivel de transacción.
@@ -401,8 +401,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
  
 Para mantener el máximo impacto comercial y la coherencia del contenido, ejecutaremos las auditorías y mejoras en orden de valor comercial:
  
-1. **Siguiente en Cola (Prioridad 1):** `saas-multitenant-rbac-security-architecture.md` (Clúster 4: Seguridad y SaaS B2B Multi-inquilino).
-2. **Prioridad 2:** `supabase-rls-multitenant-security-architecture.md` (Clúster 4: Supabase RLS y Multi-tenancy).
-3. **Prioridad 3:** `secure-saas-architecture-data-privacy.md` (Clúster 4: Privacidad de Datos y Cumplimiento).
-4. **Prioridad 4:** `ci-cd-pipelines-automated-testing.md` (Clúster 4: CI/CD y Testing Automatizado).
+1. **Siguiente en Cola (Prioridad 1):** `supabase-rls-multitenant-security-architecture.md` (Clúster 4: Supabase RLS y Multi-tenancy).
+2. **Prioridad 2:** `secure-saas-architecture-data-privacy.md` (Clúster 4: Privacidad de Datos y Cumplimiento).
+3. **Prioridad 3:** `ci-cd-pipelines-automated-testing.md` (Clúster 4: CI/CD y Testing Automatizado).
+4. **Prioridad 4:** `database-indexing-query-optimization-costs.md` (Clúster 5: Indexación y Optimización de Consultas).
 5. **Prioridad 5 en adelante:** Continuar sistemáticamente clúster por clúster.
