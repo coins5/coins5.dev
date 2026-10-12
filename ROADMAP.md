@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 25 (92.6%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 2 (7.4%)
+- **Completados y Certificados (`[x]`):** 26 (96.3%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 1 (3.7%)
 
 ---
 
@@ -373,7 +373,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 7.3. `microfrontends-architecture-enterprise-scale`
 - **Archivos:** `src/content/blog/en/microfrontends-architecture-enterprise-scale.md` | `es/microfrontends-architecture-enterprise-scale.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Engineering Directors y Enterprise Architects gestionando múltiples equipos.
 - **Dolor:** Un solo repositorio frontend donde 30 desarrolladores chocan entre sí, despliegues que tardan horas y un bug en la barra de navegación que rompe el checkout.
 - **Tesis Central:** Microfrontends en Empresas Reales: Cuándo tienen sentido mediante Module Federation, cómo desacoplar despliegues independientes sin arruinar el rendimiento ni multiplicar el peso de las librerías en el cliente.
