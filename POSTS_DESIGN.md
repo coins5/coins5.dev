@@ -52,7 +52,15 @@ Para retener al lector en los primeros 15 segundos y guiarlo hasta la conversió
 
 ### Regla 7: El Puente Natural a la Conversión (CRO Integrado)
 * No limites la venta a un banner frío al final. Inserta **micro-menciones de autoridad** orgánicas a mitad del artículo.
+* Inserta un **micro-CTA intermedio** (1-2 líneas) inmediatamente después de la solución arquitectónica técnica para lectores de alta intención que no completan el scroll.
 * El cierre debe conectar lógicamente con la oferta de Coins5: si el lector entendió la complejidad de hacerlo bien, la conclusión natural es delegarlo en un especialista senior.
+
+### Regla 8: Formato de Código y Diagramación Visual
+* **Bloques de Código Secuenciales:** Nunca agrupes comparativas en un solo bloque gigante. Divide siempre en dos bloques etiquetados sin emojis:
+  * `### Vulnerable: [Enfoque Frágil / Naive Wrapper]`
+  * `### Production: Guarded Tool Execution Engine` (o Arquitectura Segura)
+* **Pipeline de Arquitectura Visual:** En artículos que expliquen pipelines de datos, flujos de ejecución o agentes, incluye un componente visual de tarjetas conectadas ("Architecture Pipeline Stepper" con contenedor `.not-prose`, pasos numerados `01` a `04` y badges de seguridad) para máxima legibilidad ejecutiva y diseño 100% responsivo en móviles.
+* **Tiempo de Lectura Automático (`readingTime`):** Se calcula automáticamente a nivel de plantilla en `[slug].astro` dividiendo las palabras del body entre 200 PPM. No debe especificarse en el frontmatter.
 
 ---
 
@@ -68,23 +76,42 @@ pubDate: 2026-10-15
 lang: "es" # o "en"
 tags: ["Arquitectura de Software", "IA en Producción", "MVPs"]
 keywords: ["consultor software startups", "arquitecto ia lima", "desarrollo mvp"]
+ctaTitle: "Título Contextualizado al Dolor del Post" # Opcional: sobreescribe el CTA genérico
+ctaDescription: "Propuesta de valor clara para agendar una llamada de 15 min."
 draft: false
 ---
 
 ## [El Conflicto / El Dolor Oculto]
-[Hook en 2-3 líneas: El error que comete la mayoría y cuánto dinero cuesta.]
+[Gancho en 2-3 líneas sin clichés corporativos.]
 
-## [Diagnóstico Técnico: Por Qué Fallan las Soluciones Tradicionales]
-[Explicación con criterio senior de la causa raíz.]
+> **TL;DR:**
+> - **The Trap:** [El error técnico que cuesta dinero o seguridad]
+> - **Zero-Trust Architecture:** [El flujo de producción: RBAC fail-closed -> Validación -> DB Atómica]
+> - **Blast-Radius Limits:** [Herramientas mínimas para datos no confiables + presupuesto de mutaciones + HITL]
 
-## [La Arquitectura Correcta: Implementación y Código]
-[Código tipado, esquema Zod, consulta SQL parametrizada o diagrama de flujo.]
+## [El Conflicto / El Dolor Oculto]
+[Gancho en 2-3 líneas sin clichés corporativos.]
+
+## [La Arquitectura Correcta: Flujo y Ejecución]
+[Pipeline Stepper 01 a 04 en HTML .not-prose con <ol>/<li> semántico y flechas en md+]
+
+### Vulnerable: [Nombre del Patrón Frágil]
+[Bloque de código vulnerable en TypeScript]
+
+### Production: Guarded Tool Execution Engine
+[Bloque de código de producción con Auth fail-closed -> Zod -> DB Atómica + Audit con runId]
+
+## [Modelado de Amenazas: Inyecciones y Límites del Radio de Impacto]
+[Explicación de indirect prompt injection, OWASP Top 10 for LLM, presupuesto por run y HITL]
 
 ## [Impacto Comercial y Optimización de Costos]
-[Cómo esta solución ahorra dinero en infraestructura o acelera el time-to-market.]
+[Métricas del portafolio (Strategio < $50/mo), prompt caching matizado ("hasta 90%") y observabilidad]
 
-## [El Factor Senior + IA de Coins5]
-[Prueba de autoridad: Cómo Marlon aplica esto en producción y llamado a la acción.]
+## [Lista de Verificación Previa al Despliegue con Escritura]
+[Checklist de 5 puntos antes de otorgar acceso de escritura al agente]
+
+## [El Factor Coins5: Conclusión de Autoridad]
+[Prueba de autoridad en primera persona plural ("En Coins5, combinamos...") y transición fluida a la conversión]
 ```
 
 ---

@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import { ArrowLeft, Calendar, Tag, MessageSquare } from "@lucide/astro";
+import { ArrowLeft, Calendar, Clock, Tag, MessageSquare } from "@lucide/astro";
 import { Image } from "astro:assets";
 import marlonImage from "../../assets/marlon.png";
 import Layout from "../../layouts/Layout.astro";
@@ -30,8 +30,14 @@ const { Content } = await render(entry);
 
 import { getArticleSchema, getBreadcrumbSchema } from "../../utils/seo-schemas";
 
-// Format date nicely
+// Calculate automatic reading time based on body word count (~200 WPM)
+const wordCount = entry.body ? entry.body.trim().split(/\s+/).filter(Boolean).length : 0;
+const readingMinutes = Math.max(1, Math.ceil(wordCount / 200));
+const readingTime = `${readingMinutes} min read`;
+
+// Format date nicely (UTC ensures no local timezone shift)
 const formattedDate = entry.data.pubDate.toLocaleDateString("en-US", {
+  timeZone: "UTC",
   year: "numeric",
   month: "long",
   day: "numeric",
@@ -81,10 +87,10 @@ const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURI
           <div class="flex flex-wrap gap-2 mb-4">
             {entry.data.tags.map((tag: string) => (
               <span
-                class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded"
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded-md select-none"
                 style="background-color: var(--tech-pill-bg); border: 1px solid var(--tech-pill-border); color: var(--tech-pill-text);"
               >
-                <Tag class="w-3 h-3" stroke-width="1.5" />
+                <Tag class="w-3 h-3 opacity-60" stroke-width="1.5" />
                 {tag}
               </span>
             ))}
@@ -99,13 +105,20 @@ const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURI
       </h1>
 
       <div
-        class="flex items-center text-xs font-mono opacity-75"
+        class="flex flex-wrap items-center gap-y-2 text-xs font-mono"
         style="color: var(--color-text-body);"
       >
-        <Calendar class="w-3.5 h-3.5 text-secondary mr-1.5" stroke-width="2" />
-        <time datetime={entry.data.pubDate.toISOString()}>
-          {formattedDate}
-        </time>
+        <span class="inline-flex items-center">
+          <Calendar class="w-3.5 h-3.5 text-secondary mr-1.5 shrink-0" stroke-width="2" />
+          <time datetime={entry.data.pubDate.toISOString()}>
+            {formattedDate}
+          </time>
+        </span>
+        <span class="mx-3 opacity-40">&bull;</span>
+        <span class="inline-flex items-center">
+          <Clock class="w-3.5 h-3.5 text-secondary mr-1.5 shrink-0" stroke-width="2" />
+          <span>{readingTime}</span>
+        </span>
         <span class="mx-3 opacity-40">&bull;</span>
         <span>Written by Marlon</span>
       </div>
@@ -122,13 +135,13 @@ const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURI
       style="background-color: var(--card-inner-bg); border-color: var(--card-border);"
     >
       <h3 class="text-2xl sm:text-3xl font-extrabold text-primary mb-3 tracking-tight font-sans">
-        Ready to scale your product?
+        {entry.data.ctaTitle || "Ready to scale your product?"}
       </h3>
       <p
         class="text-sm sm:text-base max-w-xl mx-auto mb-6 leading-relaxed font-sans"
         style="color: var(--color-text-body);"
       >
-        Let's review your software architecture, scaling bottlenecks, or MVP specifications in a concise 15-minute technical discovery call.
+        {entry.data.ctaDescription || "Let's review your software architecture, scaling bottlenecks, or MVP specifications in a concise 15-minute technical discovery call."}
       </p>
       <div class="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
         <a

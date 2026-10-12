@@ -33,6 +33,9 @@ const blog = defineCollection({
     keywords: z.array(z.string()).optional(),
     // Custom Open Graph image URL or path
     ogImage: z.string().optional(),
+    // Optional contextualized CTA title and description for topic-specific conversion
+    ctaTitle: z.string().optional(),
+    ctaDescription: z.string().optional(),
     // Optional flag to set entry as draft
     draft: z.boolean().optional(),
   }),
