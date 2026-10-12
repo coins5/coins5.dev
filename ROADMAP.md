@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 23 (85.2%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 4 (14.8%)
+- **Completados y Certificados (`[x]`):** 24 (88.9%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 3 (11.1%)
 
 ---
 
@@ -347,7 +347,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 7.1. `astro-islands-architecture-performance-seo`
 - **Archivos:** `src/content/blog/en/astro-islands-architecture-performance-seo.md` | `es/astro-islands-architecture-performance-seo.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Desarrolladores Web, Especialistas en SEO Técnico y Fundadores.
 - **Dolor:** Páginas corporativas o portafolios en SPAs pesadas (Next.js con 400KB de JavaScript inicial) con Core Web Vitals en rojo y posicionamiento SEO castigado por Google.
 - **Tesis Central:** La Arquitectura de Islas de Astro: Cero JavaScript por defecto, HTML estático ultra-rápido servido desde el edge y carga de islas interactivas (React/Svelte) solo cuando entran en el viewport.
