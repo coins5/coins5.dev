@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 16 (59.3%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 11 (40.7%)
+- **Completados y Certificados (`[x]`):** 17 (63.0%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 10 (37.0%)
 
 ---
 
@@ -252,7 +252,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 5.3. `nosql-database-strategy-horizontal-scaling`
 - **Archivos:** `src/content/blog/en/nosql-database-strategy-horizontal-scaling.md` | `es/nosql-database-strategy-horizontal-scaling.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Ingenieros de Datos y Arquitectos de Sistemas Distribuidos.
 - **Dolor:** Sharding mal diseñado en bases de datos NoSQL que genera "hot partitions", donde un solo nodo se satura y tira todo el cluster.
 - **Tesis Central:** Escalado horizontal real en NoSQL: Diseño de Partition Keys, patrones de acceso para evitar hot spots, consistencia eventual y trade-offs del Teorema CAP en producción.
