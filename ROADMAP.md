@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 19 (70.4%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 8 (29.6%)
+- **Completados y Certificados (`[x]`):** 20 (74.1%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 7 (25.9%)
 
 ---
 
@@ -293,7 +293,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 6.3. `serverless-vs-dedicated-servers-infrastructure`
 - **Archivos:** `src/content/blog/en/serverless-vs-dedicated-servers-infrastructure.md` | `es/serverless-vs-dedicated-servers-infrastructure.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** CTOs y Arquitectos Cloud.
 - **Dolor:** La ilusión de "cero mantenimiento" en Serverless que se transforma en cold starts impredecibles de 4 segundos y facturas astronómicas ante tráfico sostenido.
 - **Tesis Central:** Criterio económico y técnico de Serverless vs Servidores Dedicados: Cuándo usar funciones efímeras (cargas intermitentes o procesamiento de eventos) y cuándo los servidores dedicados/VPS ofrecen 10x más rendimiento por 1/5 del costo.
