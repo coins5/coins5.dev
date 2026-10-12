@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 17 (63.0%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 10 (37.0%)
+- **Completados y Certificados (`[x]`):** 18 (66.7%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 9 (33.3%)
 
 ---
 
@@ -267,7 +267,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 6.1. `cloud-optimization-costs`
 - **Archivos:** `src/content/blog/en/cloud-optimization-costs.md` | `es/cloud-optimization-costs.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** CEOs, CTOs y Directores de Finanzas que pagan facturas de AWS/GCP sin entender qué están pagando.
 - **Dolor:** Facturas cloud que crecen 3x más rápido que los ingresos de la empresa, pagando por recursos sobredimensionados, transferencias de red no optimizadas y almacenamiento zombi.
 - **Tesis Central:** Metodología FinOps Quirúrgica: Cómo recortar entre 40% y 70% de la factura cloud sin degradar la disponibilidad del sistema: instancias reservadas/Spot, limpieza de NAT Gateways y derechos de dimensión (right-sizing).
