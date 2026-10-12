@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 2 (7.4%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 25 (92.6%)
+- **Completados y Certificados (`[x]`):** 3 (11.1%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 24 (88.9%)
 
 ---
 
@@ -62,7 +62,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 1.3. `why-clean-architecture-matters`
 - **Archivos:** `src/content/blog/en/why-clean-architecture-matters.md` | `es/why-clean-architecture-matters.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** CTOs, Lead Developers y Fundadores técnicos.
 - **Dolor:** Código donde un cambio en la API de pagos o en la base de datos rompe 14 controladores y requiere rehacer el sistema completo al año de vida.
 - **Tesis Central:** Clean Architecture no es sobreingeniería académica; es la póliza de seguro contra la muerte técnica de una startup. Desacoplamiento de reglas de negocio frente a frameworks y librerías externas.
@@ -401,9 +401,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
  
 Para mantener el máximo impacto comercial y la coherencia del contenido, ejecutaremos las auditorías y mejoras en orden de valor comercial:
  
-1. **Siguiente en Cola (Prioridad 1):** `why-clean-architecture-matters.md`  
-   * **Razón:** Refuerza directamente el ángulo de inversión técnica y Clean Architecture para fundadores y CTOs.
-2. **Prioridad 2:** `ai-api-latency-optimization-saas-architecture.md` (segundo post clave de IA aplicada).
-3. **Prioridad 3:** `saas-multitenant-rbac-security-architecture.md` (captación de startups B2B).
-4. **Prioridad 4:** `monolith-vs-microservices-startup-strategy.md` (debate fundacional para equipos medianos).
+1. **Siguiente en Cola (Prioridad 1):** `ai-api-latency-optimization-saas-architecture.md` (segundo post clave de IA aplicada).
+2. **Prioridad 2:** `saas-multitenant-rbac-security-architecture.md` (captación de startups B2B).
+3. **Prioridad 3:** `monolith-vs-microservices-startup-strategy.md` (debate fundacional para equipos medianos).
+4. **Prioridad 4:** `resilient-web-scraping-data-pipelines.md` (ingeniería de datos y pipelines).
 5. **Prioridad 5 en adelante:** Continuar sistemáticamente clúster por clúster.
