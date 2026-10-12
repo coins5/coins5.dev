@@ -23,8 +23,8 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 ## 📊 Tablero de Estado General
 
 - **Total de Artículos en Repositorio:** 27
-- **Completados y Certificados (`[x]`):** 13 (48.1%)
-- **Pendientes de Auditoría y Refactor (`[ ]`):** 14 (51.9%)
+- **Completados y Certificados (`[x]`):** 14 (51.9%)
+- **Pendientes de Auditoría y Refactor (`[ ]`):** 13 (48.1%)
 
 ---
 
@@ -211,7 +211,7 @@ Antes de marcar una entrada como completada (`[x]`), debe superar el **Ciclo de 
 
 #### 4.3. `secure-saas-architecture-data-privacy`
 - **Archivos:** `src/content/blog/en/secure-saas-architecture-data-privacy.md` | `es/secure-saas-architecture-data-privacy.md`
-- **Estado:** `[ ]` **PENDIENTE**
+- **Estado:** `[x]` **COMPLETADO Y CERTIFICADO (Estándar Oro)**
 - **Audiencia:** Oficiales de Privacidad, CTOs de SaaS que procesan PII o datos de salud/financieros.
 - **Dolor:** Riesgos de multas por GDPR/regulaciones locales, almacenamiento de contraseñas o tokens en texto plano y falta de trazabilidad forense.
 - **Tesis Central:** Seguridad y Privacidad por Diseño (Privacy by Design): Encriptación en reposo a nivel de columna (Envelope Encryption), enmascaramiento de PII en logs y pipelines de auditoría inmutables.
